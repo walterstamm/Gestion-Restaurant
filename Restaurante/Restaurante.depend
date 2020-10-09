@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1602213245 source:c:\users\usuario\desktop\gestion-restaurant\restaurante\main.cpp
+	<iostream>
+	"clases\fecha\fecha.h"
+
+1602211969 source:c:\users\usuario\desktop\gestion-restaurant\restaurante\clases\fecha\fecha.cpp
+	<iostream>
+	<ctime>
+	"fecha.h"
+
+1602213194 c:\users\usuario\desktop\gestion-restaurant\restaurante\clases\fecha\fecha.h
+
