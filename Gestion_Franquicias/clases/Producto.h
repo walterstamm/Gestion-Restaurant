@@ -1,5 +1,6 @@
 #ifndef PRODUCTO_H_INCLUDED
 #define PRODUCTO_H_INCLUDED
+#include "Fecha.h"
 
 class Producto{
     private:
@@ -8,6 +9,8 @@ class Producto{
         float Precio;
         int Cantidad;
         int Cantidad_Minima;
+        Fecha Actual;
+        Fecha Vencimiento;
     public:
         Producto();
         bool Cargar_Producto();///cargar los valores del producto

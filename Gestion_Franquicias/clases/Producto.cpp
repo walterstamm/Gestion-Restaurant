@@ -43,6 +43,8 @@ bool Producto::Cargar_Producto(){
             cout<<">> Ingrese el cantidad minima: ";
             cin>>Cantidad_Minima;
         }
+    cout<<"Ingrese la fecha de vencimientos: ";
+    Vencimiento.Cargar_Fecha();
 return true;
 }
 
@@ -69,11 +71,15 @@ return grabo;
 }
 
 void Producto::mostrar_Producto(){
-    cout<<"ID "<<ID;
-    cout<<"Nombre "<<Nombre;
-    cout<<"Precio "<<Precio;
-    cout<<"Cantidad "<<Cantidad;
-    cout<<"Cantidad Minima "<<Cantidad_Minima;
+    cout<<"ID "<<ID<<endl;
+    cout<<"Nombre "<<Nombre<<endl;
+    cout<<"Precio "<<Precio<<endl;
+    cout<<"Cantidad "<<Cantidad<<endl;
+    cout<<"Cantidad Minima "<<Cantidad_Minima<<endl;
+    cout<<"Fecha de vencimiento "<<endl;
+    Vencimiento.Mostrar_Fecha();
+    cout<<endl<<"Fecha de ingreso "<<endl;
+    Actual.Mostrar_Fecha();
 }
 
 void Producto::Modificar_Cantidad(){
@@ -92,6 +98,8 @@ void Producto::Modificar_Cantidad(){
             cout<<">> Ingrese el Cantidad: ";
             cin>>Cantidad;
         }
+    cout<<"Ingrese la fecha de vencimientos: ";
+    Vencimiento.Cargar_Fecha();
     ///guardamos en la posicion obtenida
     int pos=setRetornar_ID(ID);
     if(setModificar_Producto(pos)==false){

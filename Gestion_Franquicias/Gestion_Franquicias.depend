@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1602565763 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
+1602622169 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
 	<iostream>
+	"Menu_Producto/Menu_Producto.h"
 
 1602565607 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
 	<iostream>
@@ -9,13 +10,14 @@
 
 1602564582 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1602568414 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1602622235 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"Producto.h"
 
-1602568323 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
+1602621056 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
+	"Fecha.h"
 
 1602598815 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
