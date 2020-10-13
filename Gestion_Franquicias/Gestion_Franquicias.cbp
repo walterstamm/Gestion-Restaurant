@@ -32,11 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Menu_Producto/Menu_Producto.cpp" />
+		<Unit filename="Menu_Producto/Menu_Producto.h" />
 		<Unit filename="clases/Fecha.cpp" />
 		<Unit filename="clases/Fecha.h" />
 		<Unit filename="clases/Producto.cpp" />
 		<Unit filename="clases/Producto.h" />
-		<Unit filename="clases/fechita.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

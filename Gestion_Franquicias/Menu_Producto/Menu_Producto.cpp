@@ -22,6 +22,10 @@ void Mostrar_Todos_Producto(){
     cout<<endl<<"TODOS LOS PRODUCTO FUERON MOSTRADOS"<<endl;
 }
 
+void Mostrar_X_Producto(){
+    ///Proximamente je je
+}
+
 void Modificar_Cantidad(){
     int pos=0;
     Producto uno;
