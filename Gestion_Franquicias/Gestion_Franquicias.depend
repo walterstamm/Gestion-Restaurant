@@ -3,14 +3,14 @@
 	<iostream>
 	"Menu_Producto/Menu_Producto.h"
 
-1602565607 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
+1602622528 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
 	<iostream>
 	<ctime>
 	"Fecha.h"
 
-1602564582 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
+1602622500 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1602622235 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1602622500 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>

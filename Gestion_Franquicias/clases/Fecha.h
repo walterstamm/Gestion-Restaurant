@@ -7,6 +7,7 @@ class Fecha{
     public:
         Fecha();///cargara la fecha actual por defecto
         bool Cargar_Fecha();///retorna true si fue bien ingresada y false si fue mal ingresada
+        bool Cargar_Fecha_Vencimiento();
         void Mostrar_Fecha();
 };
 

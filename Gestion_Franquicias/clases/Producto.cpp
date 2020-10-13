@@ -44,7 +44,7 @@ bool Producto::Cargar_Producto(){
             cin>>Cantidad_Minima;
         }
     cout<<"Ingrese la fecha de vencimientos: ";
-    Vencimiento.Cargar_Fecha();
+    Vencimiento.Cargar_Fecha_Vencimiento();
 return true;
 }
 
