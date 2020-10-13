@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1602547361 source:c:\users\usuario\desktop\gestion-restaurant\pruebaclases\main.cpp
+	<iostream>
+	"Clases/Producto.h"
+
+1602547305 c:\users\usuario\desktop\gestion-restaurant\pruebaclases\clases\producto.h
+
+1602547856 source:c:\users\usuario\desktop\gestion-restaurant\pruebaclases\clases\producto.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"Producto.h"
+
+1602547905 source:c:\users\usuario\desktop\gestion-restaurant\pruebaclases\reportes\menu_reportes.cpp
+	<iostream>
+	"Menu_Reportes.h"
+
+1602548004 c:\users\usuario\desktop\gestion-restaurant\pruebaclases\reportes\menu_reportes.h
+
