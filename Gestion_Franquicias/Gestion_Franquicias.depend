@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1602622169 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
+1602648828 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
 	<iostream>
 	"Menu_Producto/Menu_Producto.h"
 
@@ -10,19 +10,29 @@
 
 1602622500 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1602622500 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1602650198 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"Producto.h"
 
-1602621056 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
+1602650161 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1602598815 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1602650161 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	"Menu_Producto.h"
 	"../clases/Producto.h"
 
-1602598815 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
+1602649751 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
+
+1602649751 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+	<iostream>
+	"Menu_Principal.h"
+	"InterfazGrafica/ui.h"
+	"Menu_Producto/Menu_Producto.h"
+
+1602649102 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.h
+
+1600544488 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
 

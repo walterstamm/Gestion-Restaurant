@@ -36,12 +36,15 @@ void Modificar_Cantidad(){
     cout<<endl<<"TODOS LOS PRODUCTO FUERON MOSTRADOS"<<endl;
 }
 
-void Modificar_Cantidad_minima(){
-    Producto uno;
-    uno.Modificar_Cantidad();
-}
-
 void Modificar_La_Cantidad_minima(){
     Producto uno;
     uno.Modificar_Cantidad_Minima();
+}
+
+void Eliminar_Producto(){
+    Producto uno;
+    if(uno.Eliminar_Producto()){
+        cout<<"Reintente eliminar el producto";
+        uno.Eliminar_Producto();
+    }
 }

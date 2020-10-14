@@ -9,6 +9,7 @@ class Producto{
         float Precio;
         int Cantidad;
         int Cantidad_Minima;
+        bool estado;
         Fecha Actual;
         Fecha Vencimiento;
     public:
@@ -21,6 +22,7 @@ class Producto{
         void Modificar_Cantidad_Minima();
         bool setModificar_Producto(int);///recive la posicion a modificar
         int setRetornar_ID(int);///retorna la posicion el producto o -1 si no existe el ID
+        bool Eliminar_Producto();
 };
 
 #endif // PRODUCTO_H_INCLUDED

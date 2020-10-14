@@ -4,7 +4,9 @@ using namespace std;
 #include <cstdio>
 #include "Producto.h"
 
-Producto::Producto(){}
+Producto::Producto(){
+    estado=true;
+}
 
 bool Producto::Cargar_Producto(){
     cout<<"Ingrese el ID ";
@@ -43,14 +45,17 @@ bool Producto::Cargar_Producto(){
             cout<<">> Ingrese el cantidad minima: ";
             cin>>Cantidad_Minima;
         }
-    cout<<"Ingrese la fecha de vencimientos: ";
-    Vencimiento.Cargar_Fecha_Vencimiento();
+    bool verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
+    if(verificacion!=true){
+        cout<<endl<<"Fecha de vencimiento incorrecta, reingrese la fecha de vencimiento"<<endl<<endl;
+        verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
+    }
 return true;
 }
 
 bool Producto::Cargar_Producto_Disco(){
     bool grabo;
-    FILE *p=fopen("producto.dat","ab");
+    FILE *p=fopen("archivos/producto.dat","ab");
     if(p==NULL){
         return false;
     }
@@ -61,7 +66,7 @@ return grabo;
 
 bool Producto::setSacar_Disco(int pos){
     bool grabo;
-    FILE *p=fopen("producto.dat","rb");
+    FILE *p=fopen("archivos/producto.dat","rb");
     if(p==NULL){
         return false;
     }
@@ -136,7 +141,7 @@ void Producto::Modificar_Cantidad_Minima(){
 
 bool Producto::setModificar_Producto(int pos){
     bool correcto;
-    FILE *p=fopen("archivos/usuarios.dat","rb+");
+    FILE *p=fopen("archivos/producto.dat","rb+");
         if(p==NULL){
             fclose(p);
             return false;
@@ -149,7 +154,7 @@ return correcto;
 
 int Producto::setRetornar_ID(int _ID){
     int pos=0;
-    FILE *p=fopen("producto.dat","rb");
+    FILE *p=fopen("archivos/producto.dat","rb");
         if(p==NULL){
             fclose(p);
             return -1;
@@ -165,3 +170,22 @@ int Producto::setRetornar_ID(int _ID){
 return -1;
 }
 
+bool Producto::Eliminar_Producto(){
+    cout<<"Ingrese el ID ";
+    cin>>ID;
+        while(ID<0 && setRetornar_ID(ID)==-1){ ///validando id que no sea negativo
+            cout<<endl<<"ID incorrecta, reingrese el ID"<<endl<<endl;
+            cout<<">> Ingrese el ID: ";
+            cin>>ID;
+        }
+    mostrar_Producto();
+    estado=true;
+    ///guardamos en la posicion obtenida
+    int pos=setRetornar_ID(ID);
+    if(setModificar_Producto(pos)==false){
+        cout<<"Se guardo";
+        return true;
+    }
+    cout<<"No se guardo";
+return false;
+}
