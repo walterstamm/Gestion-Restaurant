@@ -1,9 +1,15 @@
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <clocale>
 #include <iostream>
 using namespace std;
 #include "InterfazGrafica/ui.h"
 #include "Menu_Principal.h"
 
 int main(){
+    setlocale(LC_ALL, "spanish");
+
     short opcion;
     do{
         title("MENÚ", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
@@ -38,5 +44,10 @@ int main(){
         break;
         }
     }while (opcion!=7);
+
+
+
+
+
 return 0;
 }

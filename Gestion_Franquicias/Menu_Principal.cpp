@@ -1,3 +1,6 @@
+#include <cstdlib>
+
+#include <clocale>
 #include <iostream>
 using namespace std;
 #include "Menu_Principal.h"

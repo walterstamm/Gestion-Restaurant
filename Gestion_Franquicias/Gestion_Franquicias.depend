@@ -71,3 +71,81 @@
 1602776892 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 	"Producto.h"
 
+1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
+	<iostream>
+	<ctime>
+	"Fecha.h"
+
+1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\fecha.h
+
+1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+	<iostream>
+	<cstring>
+	<cstdio>
+	"Producto.h"
+
+1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\producto.h
+	"Fecha.h"
+
+1602795890 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\main.cpp
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	<clocale>
+	<iostream>
+	"InterfazGrafica/ui.h"
+	"Menu_Principal.h"
+
+1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
+
+1602796649 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+	<cstdlib>
+	<clocale>
+	<iostream>
+	"Menu_Principal.h"
+	"InterfazGrafica/ui.h"
+	"Menu_Producto/Menu_Producto.h"
+
+1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\menu_principal.h
+
+1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
+
+1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+	<iostream>
+	"Menu_Producto.h"
+	"../clases/Producto.h"
+
+1602794670 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
+	<iostream>
+	<cstring>
+	<cstdio>
+	"proveedores.h"
+
+1602794670 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\proveedores.h
+	"Producto.h"
+
+1602794670 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
+	<iostream>
+
+1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"ui.h"
+	"rlutil.h"
+
+1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\interfazgrafica\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
