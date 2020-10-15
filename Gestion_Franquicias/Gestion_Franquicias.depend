@@ -19,14 +19,14 @@
 1602650161 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1602650161 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1602650260 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	"Menu_Producto.h"
 	"../clases/Producto.h"
 
 1602649751 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1602649751 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1602774845 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	"Menu_Principal.h"
 	"InterfazGrafica/ui.h"
@@ -34,5 +34,27 @@
 
 1602649102 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.h
 
-1600544488 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
+1602774406 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
+
+1602774406 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"ui.h"
+	"rlutil.h"
+
+1593548419 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
 

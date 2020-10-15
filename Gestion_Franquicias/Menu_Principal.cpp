@@ -7,9 +7,9 @@ using namespace std;
 void MENU_PRODUCTO(){
     short opcion;
     do{
-        ///title("MENÚ PRODUCTO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        title("MENÚ PRODUCTO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<endl<<"---------------------------";
-        cout<<endl<<"1) NUEVO PRODUCTO";
+        cout<<endl<<"1) CARGAR PRODUCTO";
         cout<<endl<<"2) MODIFICAR CANTIDAD DEL PRODUCTOS";
         cout<<endl<<"3) MODIFICAR CANTIDAD MINIMA";
         cout<<endl<<"4) LISTAR TODOS LOS PRODUCTOS";
@@ -42,7 +42,7 @@ void MENU_PRODUCTO(){
         case 7:
         break;
         default:
-           /// msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);
+            msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);
         break;
         }
     }while (opcion!=7);
