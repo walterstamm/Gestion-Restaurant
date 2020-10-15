@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="InterfazGrafica/ui.cpp" />
+		<Unit filename="InterfazGrafica/ui.h" />
 		<Unit filename="Menu_Principal.cpp" />
 		<Unit filename="Menu_Principal.h" />
 		<Unit filename="Menu_Producto/Menu_Producto.cpp" />
@@ -40,6 +42,10 @@
 		<Unit filename="clases/Fecha.h" />
 		<Unit filename="clases/Producto.cpp" />
 		<Unit filename="clases/Producto.h" />
+		<Unit filename="clases/Ventas.cpp" />
+		<Unit filename="clases/Ventas.h" />
+		<Unit filename="clases/proveedores.cpp" />
+		<Unit filename="clases/proveedores.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

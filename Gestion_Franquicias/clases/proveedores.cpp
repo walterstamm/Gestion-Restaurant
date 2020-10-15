@@ -5,6 +5,9 @@ using namespace std;
 #include "proveedores.h"
 
 void proveedore::Cargar_Proveedore(){
+    int cantidad;
+    cout<<"Ingrese ID: ";
+    cin>>ID;
     cout<<"Nombre del proveedor: ";
     cin.getline(Nombre, 50, '\n');
         while(Nombre[0]==' '){///validando el nombre que el primer caracter no sea un espacio
@@ -12,7 +15,9 @@ void proveedore::Cargar_Proveedore(){
             cout<<">> Ingrese el Nombre: ";
             cin.getline(Nombre, 50, '\n');
         }
-    cout<<"ID del producto vendido: ";///con memoria dinamica
+    cout<<"Cantidad de productos vendidos por el proveedor: ";///con memoria dinamica
+    cin>>cantidad;
+        ///cargar con memoria dinamica
     ///falta esta parte
     cout<<"Numero de telefono: ";
     cin>>Telefono;

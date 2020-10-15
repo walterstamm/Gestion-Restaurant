@@ -11,13 +11,13 @@
 
 1602622500 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1602650198 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1602777102 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"Producto.h"
 
-1602650161 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
+1602777102 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
 1602650260 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
@@ -62,6 +62,12 @@
 1602775116 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
 	<iostream>
 
-1602775177 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
+1602776997 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
 	<iostream>
+	<cstring>
+	<cstdio>
+	"proveedores.h"
+
+1602776892 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.h
+	"Producto.h"
 
