@@ -41,8 +41,8 @@ bool Producto::Cargar_Producto(){
     cout<<"Ingrese la cantidad minima: ";
     cin>>Cantidad_Minima;
         while(Cantidad_Minima<0){ ///validando minima incorrecta que no sea negativo
-            cout<<endl<<"cantidad minima incorrecta, reingrese el cantidad minima"<<endl<<endl;
-            cout<<">> Ingrese el cantidad minima: ";
+            cout<<endl<<"cantidad minima incorrecta, reingrese la cantidad mínima"<<endl<<endl;
+            cout<<">> Ingrese el cantidad mínima: ";
             cin>>Cantidad_Minima;
         }
     bool verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
