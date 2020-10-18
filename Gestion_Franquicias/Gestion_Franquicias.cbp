@@ -38,6 +38,8 @@
 		<Unit filename="Menu_Principal.h" />
 		<Unit filename="Menu_Producto/Menu_Producto.cpp" />
 		<Unit filename="Menu_Producto/Menu_Producto.h" />
+		<Unit filename="clases/Comprobantes.cpp" />
+		<Unit filename="clases/Comprobantes.h" />
 		<Unit filename="clases/Fecha.cpp" />
 		<Unit filename="clases/Fecha.h" />
 		<Unit filename="clases/Producto.cpp" />
@@ -49,6 +51,9 @@
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
