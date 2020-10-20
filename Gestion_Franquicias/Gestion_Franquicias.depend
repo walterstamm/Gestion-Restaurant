@@ -1,5 +1,9 @@
 # depslib dependency file v1.0
-1602774895 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
+1602799586 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	<clocale>
 	<iostream>
 	"InterfazGrafica/ui.h"
 	"Menu_Principal.h"
@@ -11,7 +15,7 @@
 
 1602622500 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1602777102 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1602817844 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -27,7 +31,9 @@
 
 1602649751 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1602774845 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1602799586 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+	<cstdlib>
+	<clocale>
 	<iostream>
 	"Menu_Principal.h"
 	"InterfazGrafica/ui.h"
@@ -148,4 +154,14 @@
 	<sys/ioctl.h>
 	<sys/types.h>
 	<sys/time.h>
+
+1603171697 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"Comprobantes.h"
+
+1603171612 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
+	"Fecha.h"
 

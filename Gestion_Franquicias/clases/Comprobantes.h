@@ -1,5 +1,6 @@
 #ifndef COMPROBANTES_H_INCLUDED
 #define COMPROBANTES_H_INCLUDED
+#include "Fecha.h"
 
 
 class Encabezado{
@@ -12,13 +13,13 @@ class Encabezado{
         Fecha Fecha_Inicio_Activ;
 
     public:
-        Encabezado Encabezado();
+        Encabezado();
         void setRazon_Social(char);
         void setCiut(char);
         void setDireccion(char);///Calle Nro Localidad
         void setLocalidad_Provincia(char);
         void setTelefono(char);
-        Fecha Fecha_Inicio_Activ(int, int, int);
+        Fecha fecha_Inicio_Activ(int, int, int);
 
 };
 
