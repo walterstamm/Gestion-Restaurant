@@ -6,7 +6,6 @@
 using namespace std;
 
 
-
 class Encabezado{
     private:
         char Razon_Social[20];///Fisica o Jurídica dependiendo de
@@ -14,22 +13,24 @@ class Encabezado{
         char Direccion[40];///Calle Nro Localidad
         char Localidad_Provincia[30];
         char Telefono[14];
-///        Fecha Fecha_Inicio_Activ;
+        Fecha Fecha_Inicio_Activ;
 
     public:
         Encabezado();///CONSTRUCTOR
         ~Encabezado();///DESTRUCTOR
+        void setFecha_ini(Fecha);
 
         char *getRazon_Social();///Fisica o Jurídica dependiendo de
         char *getCuit();
         char *getDireccion();///Calle Nro
         char *getLocalidad_Provincia();///LOCALIDAD - PROVINCIA
         char *getTelefono();///011-2222-2222
+        Fecha getFecha_inic();
 
 
         void setCargar_Encabezado(char *, char *, char *, char *, char *);
         void getMostrar_Encabezado();
-   ///     Fecha Fecha_Inicio_Activ(int, int, int);
+        Fecha Fecha_Inicio_Activ(int, int, int);
 
 };
 
@@ -45,11 +46,9 @@ Encabezado::Encabezado(){///char R_Social, char cuit, char Direc, char Local, ch
 }
 Encabezado::~Encabezado(){ ///DESTRUCTOR
 }
-
 char *Encabezado::getRazon_Social(){
     return Razon_Social;
 }
-
 char *Encabezado::getCuit(){
     return Cuit;
 }
@@ -62,20 +61,13 @@ char *Encabezado::getLocalidad_Provincia(){
 char *Encabezado::getTelefono(){
     return Telefono;
 }
-
-
-
 void Encabezado::setCargar_Encabezado(char *R_Social, char *cuit, char *Direc, char *Local, char *Tel){
-
-
     strcpy(Razon_Social, R_Social);
     strcpy(Cuit, cuit);
     strcpy(Direccion, Direc);
     strcpy(Localidad_Provincia, Local);
     strcpy(Telefono, Tel);
-
 }
-
 void Encabezado::getMostrar_Encabezado(){
     cout<<"Razon Social:      "<<getRazon_Social()<<endl;
     cout<<"Cuit:              "<<getCuit()<<endl;
@@ -113,7 +105,7 @@ void Factura::getMostrar_Factura(int Nro){
 
     cout<<"Factura Nro: "<<Nro_Fact;
     FILE *Fact;
-    Fact=fopen("Factura.dat", "rb");
+    Fact=fopen("Factura.dat", "rb+");
     if(Fact==NULL){
         cout<<"NO SE PUDO ABRIR EL ARCHIVO FACTURA.DAT";
         system("pause");

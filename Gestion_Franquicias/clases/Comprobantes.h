@@ -6,31 +6,42 @@
 class Encabezado{
     private:
         char Razon_Social[20];///Fisica o Jurídica dependiendo de
-        char Ciut[13];
+        char Cuit[13];
         char Direccion[40];///Calle Nro Localidad
         char Localidad_Provincia[30];
         char Telefono[14];
         Fecha Fecha_Inicio_Activ;
 
     public:
-        Encabezado();
-        void setRazon_Social(char);
-        void setCiut(char);
-        void setDireccion(char);///Calle Nro Localidad
-        void setLocalidad_Provincia(char);
-        void setTelefono(char);
-        Fecha fecha_Inicio_Activ(int, int, int);
+        Encabezado();///CONSTRUCTOR
+        ~Encabezado();///DESTRUCTOR
+        void setFecha_ini(Fecha);
+
+        char *getRazon_Social();///Fisica o Jurídica dependiendo de
+        char *getCuit();
+        char *getDireccion();///Calle Nro
+        char *getLocalidad_Provincia();///LOCALIDAD - PROVINCIA
+        char *getTelefono();///011-2222-2222
+        Fecha getFecha_inic();
+
+
+        void setCargar_Encabezado(char *, char *, char *, char *, char *);
+        void getMostrar_Encabezado();
+        ///Fecha Fecha_Inicio_Activ(int, int, int);
 
 };
 
-class Factura:public Encabezado{
+class Factura{
     private:
-
+        int Nro_Fact;
+        Fecha Fecha_Venta;
+        int Nro_Cliente;
 
     public:
-
+        Factura();
+        void setCrear_Factura(int);
+        void getMostrar_Factura(int);
 
 };
-
 
 #endif // COMPROBANTES_H_INCLUDED

@@ -165,3 +165,28 @@
 1603171612 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
 	"Fecha.h"
 
+1602807298 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
+	<iostream>
+	<ctime>
+	"Fecha.h"
+
+1602807298 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.h
+
+1602812278 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+	<iostream>
+	<cstring>
+	<cstdio>
+	"Producto.h"
+
+1602807298 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.h
+	"Fecha.h"
+
+1602807298 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
+	<iostream>
+	<cstring>
+	<cstdio>
+	"proveedores.h"
+
+1602807298 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
+	"Producto.h"
+
