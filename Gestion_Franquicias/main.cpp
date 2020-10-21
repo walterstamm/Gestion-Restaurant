@@ -13,11 +13,14 @@ int main(){
     short opcion;
     do{
         title("MENÚ", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        system ("cls");
+        title("MENÚ", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<endl<<"---------------------------";
         cout<<endl<<"1) MENÚ PRODUCTO";
         cout<<endl<<"2) MENÚ PROVEDORES";
         cout<<endl<<"3) MENÚ FACTURACION";
         cout<<endl<<"4) MENÚ STOCK";
+        cout<<endl<<"5) MENÚ MEDIOS PAGO";
         cout<<endl<<"7) SALIR DEL PROGRAMA";
         cout<<endl<<"---------------------------";
         cout<<endl<<"\t OPCIÓN: ";
@@ -34,6 +37,7 @@ int main(){
         case 4:
         break;
         case 5:
+            Menu_Medio_Pago();
         break;
         case 6:
         break;

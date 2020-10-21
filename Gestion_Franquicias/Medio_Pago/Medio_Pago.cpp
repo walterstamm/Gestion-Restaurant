@@ -7,19 +7,19 @@ void Cargar_Medio_pago(){
     Medio_Pago uno;
     uno.Cargar_Descuento();
     if(uno.Guardar_Descuento()==false){
-        cout<<"Error descuento no guardado";
+        cout<<"Error descuento no guardado"<<endl;
         return;
     }
-    cout<<"Descuento guardado";
+    cout<<"Descuento guardado"<<endl;
 }
 
 void Eliminar_Medio_pago(){
     Medio_Pago uno;
     if(uno.Quitar_Descuento()==false){
-        cout<<"Error descuento no fue quitado";
+        cout<<"Error descuento no fue quitado"<<endl;
         return;
     }
-    cout<<"Descuento quitado";
+    cout<<"Descuento quitado"<<endl;
 }
 
 void Listar_Medio_pago(){

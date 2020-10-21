@@ -3,7 +3,7 @@
 
 class Medio_Pago{
     private:
-        char Medio [10];
+        char Medio [12];
         float Monto, Descuento; ///habria que ingresar la fecha del dia que quiere realizar el descuento?
     public:
         Medio_Pago();

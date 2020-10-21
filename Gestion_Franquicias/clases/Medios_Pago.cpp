@@ -5,6 +5,7 @@ using namespace std;
 #include "Medios_Pago.h"
 
 Medio_Pago::Medio_Pago(){
+    strcpy(Medio, "sin medio");
     Descuento=0;
 }
 
@@ -35,7 +36,7 @@ void Medio_Pago::Cargar_Descuento(){
 
 bool Medio_Pago::Guardar_Descuento(){
     bool grabo;
-    FILE *p=fopen("archivos/Medios_Pago.dat","ab");
+    FILE *p=fopen("archivos/MediosPago.dat","ab");
     if(p==NULL){
         return false;
     }
@@ -68,9 +69,9 @@ return grabo;
 
 
 void Medio_Pago::Listar_Descuentos(){
-    cout<<"Medio Pago "<<Medio;
-    cout<<"Monto "<<Monto;
-    cout<<"Descuento "<<Descuento;
+    cout<<"Medio Pago "<<Medio<<endl;
+    cout<<"Monto "<<Monto<<endl;
+    cout<<"Descuento "<<Descuento<<endl;
 }
 
 
