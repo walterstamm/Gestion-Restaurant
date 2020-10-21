@@ -31,7 +31,7 @@
 
 1603251099 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1603255373 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1603257335 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -206,9 +206,10 @@
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"
 
-1603256923 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
+1603257729 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
 	<iostream>
 	"Descuento.h"
 
-1603257054 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.h
+1603257715 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.h
+	"Fecha.h"
 

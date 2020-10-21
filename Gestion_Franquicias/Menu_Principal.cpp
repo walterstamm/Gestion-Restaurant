@@ -89,3 +89,41 @@ void Menu_Medio_Pago(){
         }
     }while (opcion!=4);
 }
+
+void Menu_Descuento(){
+    short opcion;
+    do{
+        title("MENÚ DESCUENTO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        cout<<endl<<"------------------------------------------";
+        cout<<endl<<"1) CARGAR DESCUENTO";
+        cout<<endl<<"2) ELIMINAR DESCUENTO";
+        cout<<endl<<"3) LISTAR TODOS LOS DESCUENTOS";
+        cout<<endl<<"4) VOLVER AL MENÚ PRINCIPAL";
+        cout<<endl<<"------------------------------------------";
+        cout<<endl<<"\t OPCIÓN: ";
+        cin>>opcion;
+        system ("cls");
+        switch(opcion){
+        case 1:
+            Cargar_Medio_pago();
+            system ("pause");
+            system ("cls");
+        break;
+        case 2:
+            Eliminar_Medio_pago();
+            system ("pause");
+            system ("cls");
+        break;
+        case 3:
+            Listar_Medio_pago();
+            system ("pause");
+            system ("cls");
+        break;
+        case 4:
+        break;
+        default:
+            msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);
+        break;
+        }
+    }while (opcion!=4);
+}
