@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603251099 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
+1603253913 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -31,15 +31,16 @@
 
 1603251099 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1603251099 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1603254766 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+	<iostream>
 	<cstdlib>
 	<clocale>
-	<iostream>
 	"Menu_Principal.h"
 	"InterfazGrafica/ui.h"
 	"Menu_Producto/Menu_Producto.h"
+	"Medio_Pago/Medio_Pago.h"
 
-1603251099 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.h
+1603253914 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.h
 
 1603251099 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
 
@@ -190,11 +191,18 @@
 1602807298 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 	"Producto.h"
 
-1603252200 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
+1603254932 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"Medios_Pago.h"
 
-1603252228 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
+1603254864 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
+
+1603254395 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
+
+1603254996 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
+	<iostream>
+	"Medio_Pago.h"
+	"../clases/Medios_Pago.h"
 

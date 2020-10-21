@@ -1,11 +1,11 @@
-#include <cstdlib>
-
-#include <clocale>
 #include <iostream>
 using namespace std;
+#include <cstdlib>
+#include <clocale>
 #include "Menu_Principal.h"
 #include "InterfazGrafica/ui.h"
 #include "Menu_Producto/Menu_Producto.h"
+#include "Medio_Pago/Medio_Pago.h"
 
 void MENU_PRODUCTO(){
     short opcion;
@@ -49,4 +49,37 @@ void MENU_PRODUCTO(){
         break;
         }
     }while (opcion!=7);
+}
+
+
+void Menu_Medio_Pago(){
+    short opcion;
+    do{
+        title("MENÚ MEDIO PAGO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        cout<<endl<<"---------------------------";
+        cout<<endl<<"1) CARGAR DESCUENTO EN MEDIO PAGO";
+        cout<<endl<<"2) ELIMINAR DESCUENTO EN MEDIO DE PAGO";
+        cout<<endl<<"3) LISTAR DESCUENTO CON MEDIO DE PAGO";
+        cout<<endl<<"4) VOLVER AL MENÚ PRINCIPAL";
+        cout<<endl<<"---------------------------";
+        cout<<endl<<"\t OPCIÓN: ";
+        cin>>opcion;
+        system ("cls");
+        switch(opcion){
+        case 1:
+            Cargar_Medio_pago();
+        break;
+        case 2:
+            Eliminar_Medio_pago();
+        break;
+        case 3:
+            Listar_Medio_pago();
+        break;
+        case 4:
+        break;
+        default:
+            msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);
+        break;
+        }
+    }while (opcion!=4);
 }

@@ -10,6 +10,8 @@ class Medio_Pago{
         void Cargar_Descuento();
         bool Guardar_Descuento();
         bool Quitar_Descuento();
+        bool Buscar_Descuento_Memoria(int =0);
+        void Listar_Descuentos();
 };
 
 #endif // MEDIOS_PAGO_H_INCLUDED

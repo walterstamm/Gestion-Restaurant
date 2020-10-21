@@ -44,10 +44,5 @@ int main(){
         break;
         }
     }while (opcion!=7);
-
-
-
-
-
 return 0;
 }

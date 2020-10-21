@@ -54,3 +54,36 @@ bool Medio_Pago::Quitar_Descuento(){
     fclose(p);
 return grabo;
 }
+
+bool Medio_Pago::Buscar_Descuento_Memoria(int pos){
+    bool grabo;
+    FILE *p=fopen("archivos/Medios_Pago.dat","rb");
+    if(p==NULL){
+        return false;
+    }
+    fseek(p, pos* sizeof(Medio_Pago), SEEK_SET);
+    grabo=fread(this, sizeof(Medio_Pago),1,p);
+return grabo;
+}
+
+
+void Medio_Pago::Listar_Descuentos(){
+    cout<<"Medio Pago "<<Medio;
+    cout<<"Monto "<<Monto;
+    cout<<"Descuento "<<Descuento;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

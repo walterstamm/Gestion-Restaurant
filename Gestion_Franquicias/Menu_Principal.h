@@ -2,6 +2,6 @@
 #define MENU_PRINCIPAL_H_INCLUDED
 
 void MENU_PRODUCTO();
-
+void Menu_Medio_Pago();
 
 #endif // MENU_PRINCIPAL_H_INCLUDED
