@@ -1,0 +1,19 @@
+#include <cstdio>
+
+int Producto::Retornar_ID(int _ID){ ///necesita un ID para buscar
+    int pos=0;
+    FILE *p=fopen("archivos/producto.dat","rb");
+        if(p==NULL){
+            fclose(p);
+            return -1;
+        }
+    while(fread(this, sizeof(Producto),1,p)){
+        if(ID==_ID){
+            fclose(p);
+            return pos; ///retorna la posicion del archivo
+        }
+        pos++;
+    }
+    fclose(p);
+return -1; ///retorna -1 si no encontro el ID
+}

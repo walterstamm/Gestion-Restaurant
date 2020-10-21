@@ -1,0 +1,10 @@
+#include <cstring>
+
+cout<<"Ingrese el nombre: ";
+    cin.ignore();
+    cin.getline(Nombre, 50, '\n');
+        while(Nombre[0]==' '){///validando el nombre que el primer caracter no sea un espacio
+            cout<<endl<<"Nombre incorrecta, reingrese el Nombre"<<endl<<endl;
+            cout<<">> Ingrese el Nombre: ";
+            cin.getline(Nombre, 30, '\n');
+        }

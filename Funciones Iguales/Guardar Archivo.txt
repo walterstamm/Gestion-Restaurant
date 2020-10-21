@@ -1,0 +1,12 @@
+#include <cstdio>
+
+bool Medio_Pago::Guardar_Descuento(){
+    bool grabo;
+    FILE *p=fopen("archivos/Medios_Pago.dat","ab");
+    if(p==NULL){
+        return false;
+    }
+    grabo=fwrite(this, sizeof(Medio_Pago),1,p);
+    fclose(p);
+return grabo;
+}

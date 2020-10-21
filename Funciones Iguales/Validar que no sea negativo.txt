@@ -1,0 +1,8 @@
+
+    cout<<"Ingrese el precio: ";
+    cin>>Precio;
+        while(Precio<0){ ///validando Precio que no sea negativo
+            cout<<endl<<"Precio incorrecta, reingrese el Precio"<<endl<<endl;
+            cout<<">> Ingrese el Precio: ";
+            cin>>Precio;
+        }

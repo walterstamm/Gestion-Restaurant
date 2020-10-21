@@ -1,0 +1,14 @@
+#include <cstdio>
+
+bool Producto::Modificar_Producto(int pos){ ///necesita la posicion de memoria en disco del objeto
+    bool correcto;
+    FILE *p=fopen("archivos/producto.dat","rb+");
+        if(p==NULL){
+            fclose(p);
+            return false;
+        }
+    fseek(p, pos*sizeof(Producto), SEEK_SET);
+    correcto= fwrite(this, sizeof(Producto), 1, p);
+    fclose(p);
+return correcto; ///devuelve un bool si grabo o no grabo (true==grabo)
+}

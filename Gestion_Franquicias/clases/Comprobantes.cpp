@@ -48,14 +48,13 @@ void Encabezado::getMostrar_Encabezado(){
 }
 ///     CLASE FACTURA
 Factura::Factura(){ ///CONSRUCTOR
-    Nro_Fact = NULL;
-    Fecha_Venta = NULL;
-    Nro_Cliente = NULL;
+    Nro_Fact = 0;
+    Nro_Cliente = 0;
 }
 
 void Factura::setCrear_Factura( int Cliente){
-    Nro_Fact=Nro_Factura();
-    Fecha_Venta = xxx;
+    ///Nro_Fact=Nro_Factura();
+    ///Fecha_Venta = xxx;
     Nro_Cliente = Cliente;
 }
 
@@ -69,7 +68,7 @@ void Factura::getMostrar_Factura(int Nro){
         system("pause");
         return;
     }
-    while(fread(Fact, sizeof(Factura), 1, Fact )){
+    while(fread(Fact, sizeof(Factura), 1, Fact)){ ///aca tenes un error pero no se bien creo que es el (Fact --- fact)
         if(Nro_Fact == Nro){
             cout<<"MUESTRO LOS REGISTROS DE VENTAS [Nro fac,Cod_Prod, Descripcion, Cant, Precio_Unit, Sub_Total ";
             cout<<"MUESTRO TODO MENOS EL NRO FAC";
@@ -81,15 +80,14 @@ void Factura::getMostrar_Factura(int Nro){
 
 }
 int Nro_Factura(){
-
     ///tengo que crear un numero que continue al ya existente
-    return Numero=1;
+    ///return Numero=1;
 }
 
 ///     VENTA DEBE SER HIJO DE FACTURA
 class Venta{
     private:
-        Nro_Factura()
+        Nro_Factura();
 
 
 };
