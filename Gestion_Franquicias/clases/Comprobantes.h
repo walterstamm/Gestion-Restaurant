@@ -36,7 +36,6 @@ class Factura{
         int Nro_Fact;
         Fecha Fecha_Venta;
         int Nro_Cliente;
-
     public:
         Factura();
         void setCrear_Factura(int);

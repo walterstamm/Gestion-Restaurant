@@ -7,7 +7,7 @@ class proveedore{
 private:
     int ID;
     char Nombre[50];
-    Producto Uno;
+    ///Producto Uno; --> esto esta mal
     int Telefono;
     char Nota[200];
 public:
