@@ -1,4 +1,7 @@
-#include <iostream>
+#include<iostream>
+#include<cstdlib>
+#include<cstdio>
+#include<cstring>
 using namespace std;
 #include "Descuento.h"
 

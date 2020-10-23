@@ -76,61 +76,6 @@ void Encabezado::getMostrar_Encabezado(){
     cout<<"Telefono:          "<<getTelefono()<<endl;
 }*/
 
-class Factura{
-    private:
-        int Nro_Factura;
-        ///Fecha Fecha_Venta;
-        int Nro_Cliente;
-        float Total_Pagar;
-
-        int Nro_Fact;
-        ///Fecha Fecha_Venta
-    public:
-        Factura();
-        ~Factura();
-        void setFactura(int);
-        void getFactura();
-        int Leo_Factura();
-
-};
-
-Factura::Factura(){
-    cout<<"CONSTRUCTOR\n";
-    Nro_Factura = 0;
-///    Fecha_Venta = NULL;
-    Nro_Cliente = 0;
-    Total_Pagar=0;
-}
-
-Factura::~Factura(){
-    cout<<"\nDESTRUCTOR\n";
-}
-
-void Factura::setFactura(int Cliente){
-    cout<<"NUEVA FACTURA\n";
-    Nro_Factura = Leo_Factura()+1;
-    Nro_Cliente = Cliente;
-    ///Fecha_Venta = xxx;
-    Total_Pagar=0;
-
-}
-
-int Factura::Leo_Factura(){
-
-    int Nuevo_Nro=0, Viejo_Nro;
-    ///BUSCAR EN ARCHIVO EN EL ULTIMO REGISTRO EL NUMERO
-    ///ME DEVUELVE EL NUMERO VIEJO
-    Viejo_Nro=3;
-    Nuevo_Nro = Viejo_Nro;
-}
-
-void Factura::getFactura(){
-    cout<<"\nMUESTRO";
-    cout<<"\nNro_Fact: "<<Nro_Factura;
-    cout<<"\nNro_Cliente: "<<Nro_Cliente;
-    cout<<"\nTotal_Factura: "<<Total_Pagar;
-
-}
 
 
 ///     VENTA DEBE SER HIJO DE FACTURA
@@ -141,10 +86,10 @@ void Factura::getFactura(){
 
 };*/
 
-int main(){
+/**int main(){
 
 
-/**    Encabezado Empresa;
+    Encabezado Empresa;
 
     Empresa.getMostrar_Encabezado();
 
@@ -166,7 +111,7 @@ int main(){
     Empresa.setCargar_Encabezado(R_Social, cuit, Direc, Local, Tel);
 
     cout<<"Mostrar encabezado \n"<<endl;
-    Empresa.getMostrar_Encabezado();*/
+    Empresa.getMostrar_Encabezado();
 
     Factura Fact;
 
@@ -178,4 +123,4 @@ int main(){
 
 
     return 0;
-}
+}*/

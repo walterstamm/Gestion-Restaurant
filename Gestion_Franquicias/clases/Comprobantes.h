@@ -24,28 +24,11 @@ class Encabezado{
         char *getTelefono();///011-2222-2222
         Fecha getFecha_inic();
 
-
         void setCargar_Encabezado(char *, char *, char *, char *, char *);
         void getMostrar_Encabezado();
         ///Fecha Fecha_Inicio_Activ(int, int, int);
 
 };
 
-class Factura{
-    private:
-        int Nro_Fact;
-        Fecha Fecha_Factura;
-        int Nro_Cliente;
-<<<<<<< Updated upstream
-=======
-        float Generar_Descuento;///AGREGADO 21/10/2020
-
->>>>>>> Stashed changes
-    public:
-        Factura();
-        void setCrear_Factura(int);
-        void getMostrar_Factura(int);
-
-};
 
 #endif // COMPROBANTES_H_INCLUDED

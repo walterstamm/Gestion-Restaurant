@@ -44,6 +44,8 @@
 		<Unit filename="clases/Comprobantes.h" />
 		<Unit filename="clases/Descuento.cpp" />
 		<Unit filename="clases/Descuento.h" />
+		<Unit filename="clases/Factura.cpp" />
+		<Unit filename="clases/Factura.h" />
 		<Unit filename="clases/Fecha.cpp" />
 		<Unit filename="clases/Fecha.h" />
 		<Unit filename="clases/Medios_Pago.cpp" />
@@ -57,6 +59,9 @@
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

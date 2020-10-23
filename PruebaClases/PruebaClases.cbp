@@ -34,9 +34,16 @@
 		</Compiler>
 		<Unit filename="Clases/Producto.cpp" />
 		<Unit filename="Clases/Producto.h" />
+		<Unit filename="Factura.cpp" />
+		<Unit filename="Factura.h" />
+		<Unit filename="Prueba_Comprobantes.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="reportes/Menu_Reportes.cpp" />
 		<Unit filename="reportes/Menu_Reportes.h" />
-		<Extensions />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

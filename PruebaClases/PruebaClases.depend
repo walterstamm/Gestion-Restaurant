@@ -17,3 +17,37 @@
 
 1602548004 c:\users\usuario\desktop\gestion-restaurant\pruebaclases\reportes\menu_reportes.h
 
+1602807298 source:c:\users\hugo\documents\github\gestion-restaurant\pruebaclases\clases\producto.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"Producto.h"
+
+1602807298 c:\users\hugo\documents\github\gestion-restaurant\pruebaclases\clases\producto.h
+
+1602807298 source:c:\users\hugo\documents\github\gestion-restaurant\pruebaclases\reportes\menu_reportes.cpp
+	<iostream>
+	"Menu_Reportes.h"
+
+1602807298 c:\users\hugo\documents\github\gestion-restaurant\pruebaclases\reportes\menu_reportes.h
+
+1603473194 source:c:\users\hugo\documents\github\gestion-restaurant\pruebaclases\factura.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"Factura.h"
+
+1603473194 c:\users\hugo\documents\github\gestion-restaurant\pruebaclases\factura.h
+
+1603473194 source:c:\users\hugo\documents\github\gestion-restaurant\pruebaclases\main.cpp
+	<iostream>
+	"Clases/Producto.h"
+	"Factura.h"
+
+1603473194 source:c:\users\hugo\documents\github\gestion-restaurant\pruebaclases\prueba_comprobantes.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+
