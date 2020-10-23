@@ -78,35 +78,29 @@ void Encabezado::getMostrar_Encabezado(){
 
 class Factura{
     private:
-<<<<<<< Updated upstream
         int Nro_Factura;
         ///Fecha Fecha_Venta;
         int Nro_Cliente;
         float Total_Pagar;
-=======
+
         int Nro_Fact;
-///        Fecha Fecha_Venta;
-        int Nro_Cliente;
->>>>>>> Stashed changes
+///        Fecha Fecha_Venta
+
     public:
         Factura();
         ~Factura();
         void setFactura(int);
-<<<<<<< Updated upstream
         void getFactura();
         int Leo_Factura();
-=======
-        void getFactura(int);
-        int Nro_Factura();
->>>>>>> Stashed changes
+
 };
 
 Factura::Factura(){
     cout<<"CONSTRUCTOR\n";
-    Nro_Fact = 0;
+    Nro_Factura = 0;
 ///    Fecha_Venta = NULL;
     Nro_Cliente = 0;
-<<<<<<< Updated upstream
+    Total_Pagar=0;
 }
 
 Factura::~Factura(){
@@ -118,24 +112,11 @@ void Factura::setFactura(int Cliente){
     Nro_Factura = Leo_Factura()+1;
     Nro_Cliente = Cliente;
     ///Fecha_Venta = xxx;
+    Total_Pagar=0;
 
 }
-=======
-}
 
-Factura::~Factura(){
-    cout<<"\nDESTRUCTOR\n";
-}
-
-void Factura::setFactura(int Cliente){
-    cout<<"setCrear_Factura \n";
-
-    Nro_Fact = Nro_Factura();
-    ///Fecha_Venta = xxx;
-    Nro_Cliente = Cliente;
-}
-
-int Factura::Nro_Factura(){
+int Factura::Leo_Factura(){
     cout<<"\nNro_Factura\n";
     int Nuevo_Nro=0, Viejo_Nro;
     ///BUSCAR EN ARCHIVO EN EL ULTIMO REGISTRO EL NUMERO
@@ -144,42 +125,12 @@ int Factura::Nro_Factura(){
     Nuevo_Nro = Viejo_Nro+1;
 }
 
-void Factura::getFactura(int Nro){
+void Factura::getFactura(){
     cout<<"\nFactura::getMostrar_Factura()";
-    cout<<"\nNro_Fact: "<<Nro_Fact;
+    cout<<"\nNro_Fact: "<<Nro_Factura;
     cout<<"\nNro_Cliente: "<<Nro_Cliente;
+    cout<<"\nTotal_Factura: "<<Total_Pagar;
 
-/**    cout<<"Factura Nro: "<<Nro_Fact;
-    FILE *Fact;
-    Fact=fopen("Factura.dat", "rb+");
-    if(Fact==NULL){
-        cout<<"NO SE PUDO ABRIR EL ARCHIVO FACTURA.DAT";
-        system("pause");
-        return;
-    }
-    while(fread(Fact, sizeof(Factura), 1, Fact )){
-        if(Nro_Fact == Nro){
-            cout<<"MUESTRO LOS REGISTROS DE VENTAS [Nro fac,Cod_Prod, Descripcion, Cant, Precio_Unit, Sub_Total ";
-            cout<<"MUESTRO TODO MENOS EL NRO FAC";
-        }
-    }*/
->>>>>>> Stashed changes
-
-int Factura::Leo_Factura(){
-    cout<<"\nNro_Factura\n";
-    int Viejo_Nro;
-    ///BUSCAR EN ARCHIVO EN EL ULTIMO REGISTRO EL NUMERO
-    ///ME DEVUELVE EL NUMERO VIEJO
-    return Viejo_Nro;
-}
-
-void Factura::getFactura(int Nro){
-    cout<<"\nFactura::getMostrar_Factura()";
-    cout<<"\nNro_Fact: "<<Nro_Fact;
-    cout<<"\nNro_Cliente: "<<Nro_Cliente;
-    cout<<"\nFecha Factura \n";///<<Fecha_Venta
-
-    return;
 }
 
 
@@ -219,21 +170,18 @@ int main(){
     Empresa.getMostrar_Encabezado();*/
 
     Factura Fact;
-<<<<<<< Updated upstream
+
     int Cliente;
     cout<<"Ingrese Nro Cliente: "<<Cliente;
     Fact.setFactura(Cliente);
     ///Fact.getMostrar_Factura(10);
     Fact.getFactura();
-    cout<<"Número: \n"<<Fact.Nro_Factura();
-    Fact.getFactura();
-=======
+    cout<<"Número: \n"<<Fact.Leo_Factura();
 
-    Fact.setFactura(10);
     ///Fact.getMostrar_Factura(10);
 
-    cout<<"Número: \n"<<Fact.Nro_Factura();
->>>>>>> Stashed changes
+    cout<<"Número: \n"<<Fact.Leo_Factura();
+
 
     return 0;
 }
