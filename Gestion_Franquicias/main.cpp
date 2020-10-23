@@ -12,9 +12,9 @@ int main(){
 
     short opcion;
     do{
-        title("MENÚ", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        title("MENÚ PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         system ("cls");
-        title("MENÚ", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        title("MENÚ PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<endl<<"---------------------------";
         cout<<endl<<"1) MENÚ PRODUCTO";
         cout<<endl<<"2) MENÚ PROVEDORES";
@@ -33,6 +33,7 @@ int main(){
         case 2:
         break;
         case 3:
+            MENU_FACTURACION();
         break;
         case 4:
         break;

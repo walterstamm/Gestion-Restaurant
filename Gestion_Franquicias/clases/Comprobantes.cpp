@@ -46,3 +46,5 @@ void Encabezado::getMostrar_Encabezado(){
     cout<<"Localidad y Prov:  "<<getLocalidad_Provincia()<<endl;
     cout<<"Telefono:          "<<getTelefono()<<endl;
 }
+
+
