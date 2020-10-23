@@ -34,8 +34,13 @@ class Encabezado{
 class Factura{
     private:
         int Nro_Fact;
-        Fecha Fecha_Venta;
+        Fecha Fecha_Factura;
         int Nro_Cliente;
+<<<<<<< Updated upstream
+=======
+        float Generar_Descuento;///AGREGADO 21/10/2020
+
+>>>>>>> Stashed changes
     public:
         Factura();
         void setCrear_Factura(int);

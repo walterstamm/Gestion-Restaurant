@@ -48,8 +48,9 @@ void Encabezado::getMostrar_Encabezado(){
 }
 ///     CLASE FACTURA
 Factura::Factura(){ ///CONSRUCTOR
-    Nro_Fact = 0;
+    Nro_Fact = 0; ///VALIDACION DEBE SER LA SIGUEINTE A LA ULTIMA EMITIDA
     Nro_Cliente = 0;
+    Fecha Fecha_Factura(0,0,0);/// DEBE SER LA DE HOY AGREGAR AUTOMATICAMENTE.
 }
 
 void Factura::setCrear_Factura( int Cliente){

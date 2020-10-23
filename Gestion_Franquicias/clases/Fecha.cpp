@@ -3,7 +3,7 @@ using namespace std;
 #include <ctime>
 #include "Fecha.h"
 
-Fecha::Fecha(){
+Fecha::Fecha(){///PREGUNTO ESTE NO TIENE PRIVATE Y/O PUBLIC
     time_t tiempo;
     struct tm *tmPtr;
     tiempo = time(NULL);
