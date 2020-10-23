@@ -78,16 +78,16 @@ void Encabezado::getMostrar_Encabezado(){
 
 class Factura{
     private:
-        int Nro_Fact;
-///        Fecha Fecha_Venta;
+        int Nro_Factura;
+        ///Fecha Fecha_Venta;
         int Nro_Cliente;
         float Total_Pagar;
     public:
         Factura();
         ~Factura();
         void setFactura(int);
-        void getFactura(int);
-        int Nro_Factura();
+        void getFactura();
+        int Leo_Factura();
 };
 
 Factura::Factura(){
@@ -102,43 +102,26 @@ Factura::~Factura(){
 }
 
 void Factura::setFactura(int Cliente){
-    cout<<"setCrear_Factura \n";
 
-    Nro_Fact = Nro_Factura();
-    ///Fecha_Venta = xxx;
+    Nro_Factura = Leo_Factura()+1;
     Nro_Cliente = Cliente;
+    ///Fecha_Venta = xxx;
+
 }
 
-int Factura::Nro_Factura(){
+int Factura::Leo_Factura(){
     cout<<"\nNro_Factura\n";
-    int Nuevo_Nro=0, Viejo_Nro;
+    int Viejo_Nro;
     ///BUSCAR EN ARCHIVO EN EL ULTIMO REGISTRO EL NUMERO
     ///ME DEVUELVE EL NUMERO VIEJO
-    Viejo_Nro=3;
-    Nuevo_Nro = Viejo_Nro+1;
+    return Viejo_Nro;
 }
 
 void Factura::getFactura(int Nro){
     cout<<"\nFactura::getMostrar_Factura()";
     cout<<"\nNro_Fact: "<<Nro_Fact;
     cout<<"\nNro_Cliente: "<<Nro_Cliente;
-
-/**    cout<<"Factura Nro: "<<Nro_Fact;
-    FILE *Fact;
-    Fact=fopen("Factura.dat", "rb+");
-    if(Fact==NULL){
-        cout<<"NO SE PUDO ABRIR EL ARCHIVO FACTURA.DAT";
-        system("pause");
-        return;
-    }
-    while(fread(Fact, sizeof(Factura), 1, Fact )){
-        if(Nro_Fact == Nro){
-            cout<<"MUESTRO LOS REGISTROS DE VENTAS [Nro fac,Cod_Prod, Descripcion, Cant, Precio_Unit, Sub_Total ";
-            cout<<"MUESTRO TODO MENOS EL NRO FAC";
-        }
-    }*/
-
-
+    cout<<"\nFecha Factura \n";///<<Fecha_Venta
 
     return;
 }
@@ -180,12 +163,13 @@ int main(){
     Empresa.getMostrar_Encabezado();*/
 
     Factura Fact;
-
-    Fact.setFactura(10);
+    int Cliente;
+    cout<<"Ingrese Nro Cliente: "<<Cliente;
+    Fact.setFactura(Cliente);
     ///Fact.getMostrar_Factura(10);
-
+    Fact.getFactura();
     cout<<"Número: \n"<<Fact.Nro_Factura();
+    Fact.getFactura();
 
     return 0;
 }
-
