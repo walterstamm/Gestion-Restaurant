@@ -84,8 +84,7 @@ class Factura{
         float Total_Pagar;
 
         int Nro_Fact;
-///        Fecha Fecha_Venta
-
+        ///Fecha Fecha_Venta
     public:
         Factura();
         ~Factura();
@@ -108,7 +107,7 @@ Factura::~Factura(){
 }
 
 void Factura::setFactura(int Cliente){
-
+    cout<<"NUEVA FACTURA\n";
     Nro_Factura = Leo_Factura()+1;
     Nro_Cliente = Cliente;
     ///Fecha_Venta = xxx;
@@ -117,16 +116,16 @@ void Factura::setFactura(int Cliente){
 }
 
 int Factura::Leo_Factura(){
-    cout<<"\nNro_Factura\n";
+
     int Nuevo_Nro=0, Viejo_Nro;
     ///BUSCAR EN ARCHIVO EN EL ULTIMO REGISTRO EL NUMERO
     ///ME DEVUELVE EL NUMERO VIEJO
     Viejo_Nro=3;
-    Nuevo_Nro = Viejo_Nro+1;
+    Nuevo_Nro = Viejo_Nro;
 }
 
 void Factura::getFactura(){
-    cout<<"\nFactura::getMostrar_Factura()";
+    cout<<"\nMUESTRO";
     cout<<"\nNro_Fact: "<<Nro_Factura;
     cout<<"\nNro_Cliente: "<<Nro_Cliente;
     cout<<"\nTotal_Factura: "<<Total_Pagar;
@@ -172,15 +171,10 @@ int main(){
     Factura Fact;
 
     int Cliente;
-    cout<<"Ingrese Nro Cliente: "<<Cliente;
+    cout<<"Ingrese Nro Cliente: "; cin>>Cliente;
     Fact.setFactura(Cliente);
     ///Fact.getMostrar_Factura(10);
     Fact.getFactura();
-    cout<<"Número: \n"<<Fact.Leo_Factura();
-
-    ///Fact.getMostrar_Factura(10);
-
-    cout<<"Número: \n"<<Fact.Leo_Factura();
 
 
     return 0;
