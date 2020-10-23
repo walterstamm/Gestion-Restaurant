@@ -6,31 +6,31 @@
 using namespace std;
 
 
-class Encabezado{
+/**class Encabezado{
     private:
         char Razon_Social[20];///Fisica o Jurídica dependiendo de
         char Cuit[13];
         char Direccion[40];///Calle Nro Localidad
         char Localidad_Provincia[30];
         char Telefono[14];
-        Fecha Fecha_Inicio_Activ;
+///        Fecha Fecha_Inicio_Activ;
 
     public:
         Encabezado();///CONSTRUCTOR
         ~Encabezado();///DESTRUCTOR
-        void setFecha_ini(Fecha);
+///        void setFecha_ini(Fecha);
 
         char *getRazon_Social();///Fisica o Jurídica dependiendo de
         char *getCuit();
         char *getDireccion();///Calle Nro
         char *getLocalidad_Provincia();///LOCALIDAD - PROVINCIA
         char *getTelefono();///011-2222-2222
-        Fecha getFecha_inic();
+///        Fecha getFecha_inic();
 
 
         void setCargar_Encabezado(char *, char *, char *, char *, char *);
         void getMostrar_Encabezado();
-        Fecha Fecha_Inicio_Activ(int, int, int);
+///        Fecha Fecha_Inicio_Activ(int, int, int);
 
 };
 
@@ -74,36 +74,56 @@ void Encabezado::getMostrar_Encabezado(){
     cout<<"Dirección Empresa: "<<getDireccion()<<endl;
     cout<<"Localidad y Prov:  "<<getLocalidad_Provincia()<<endl;
     cout<<"Telefono:          "<<getTelefono()<<endl;
-}
+}*/
 
 class Factura{
     private:
         int Nro_Fact;
-        Fecha Fecha_Venta;
+///        Fecha Fecha_Venta;
         int Nro_Cliente;
-
+        float Total_Pagar;
     public:
         Factura();
-        void setCrear_Factura(int);
-        void getMostrar_Factura(int);
-
+        ~Factura();
+        void setFactura(int);
+        void getFactura(int);
+        int Nro_Factura();
 };
 
 Factura::Factura(){
-    Nro_Fact = NULL;
-    Fecha_Venta = NULL;
-    Nro_Cliente = NULL;
+    cout<<"CONSTRUCTOR\n";
+    Nro_Fact = 0;
+///    Fecha_Venta = NULL;
+    Nro_Cliente = 0;
 }
 
-void Factura::setCrear_Factura( int Cliente){
-    Nro_Fact=Nro_Factura();
-    Fecha_Venta = xxx;
+Factura::~Factura(){
+    cout<<"\nDESTRUCTOR\n";
+}
+
+void Factura::setFactura(int Cliente){
+    cout<<"setCrear_Factura \n";
+
+    Nro_Fact = Nro_Factura();
+    ///Fecha_Venta = xxx;
     Nro_Cliente = Cliente;
 }
 
-void Factura::getMostrar_Factura(int Nro){
+int Factura::Nro_Factura(){
+    cout<<"\nNro_Factura\n";
+    int Nuevo_Nro=0, Viejo_Nro;
+    ///BUSCAR EN ARCHIVO EN EL ULTIMO REGISTRO EL NUMERO
+    ///ME DEVUELVE EL NUMERO VIEJO
+    Viejo_Nro=3;
+    Nuevo_Nro = Viejo_Nro+1;
+}
 
-    cout<<"Factura Nro: "<<Nro_Fact;
+void Factura::getFactura(int Nro){
+    cout<<"\nFactura::getMostrar_Factura()";
+    cout<<"\nNro_Fact: "<<Nro_Fact;
+    cout<<"\nNro_Cliente: "<<Nro_Cliente;
+
+/**    cout<<"Factura Nro: "<<Nro_Fact;
     FILE *Fact;
     Fact=fopen("Factura.dat", "rb+");
     if(Fact==NULL){
@@ -116,28 +136,26 @@ void Factura::getMostrar_Factura(int Nro){
             cout<<"MUESTRO LOS REGISTROS DE VENTAS [Nro fac,Cod_Prod, Descripcion, Cant, Precio_Unit, Sub_Total ";
             cout<<"MUESTRO TODO MENOS EL NRO FAC";
         }
-    }
+    }*/
 
 
 
-
+    return;
 }
-int Nro_Factura(){
 
-    ///tengo que crear un numero que continue al ya existente
-    return Numero=1;
-}
 
 ///     VENTA DEBE SER HIJO DE FACTURA
-class Venta{
+/**class Venta{
     private:
-        Nro_Factura()
+        Nro_Factura();
 
 
-};
+};*/
 
 int main(){
-    Encabezado Empresa;
+
+
+/**    Encabezado Empresa;
 
     Empresa.getMostrar_Encabezado();
 
@@ -159,7 +177,14 @@ int main(){
     Empresa.setCargar_Encabezado(R_Social, cuit, Direc, Local, Tel);
 
     cout<<"Mostrar encabezado \n"<<endl;
-    Empresa.getMostrar_Encabezado();
+    Empresa.getMostrar_Encabezado();*/
+
+    Factura Fact;
+
+    Fact.setFactura(10);
+    ///Fact.getMostrar_Factura(10);
+
+    cout<<"Número: \n"<<Fact.Nro_Factura();
 
     return 0;
 }
