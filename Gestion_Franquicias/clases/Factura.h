@@ -6,12 +6,11 @@
 
 class Factura{
     private:
-        int Nro_Factura;
+        int Nro_Fact;
         ///Fecha Fecha_Venta;
         int Nro_Cliente;
         float Total_Pagar;
-        int Nro_Fact;
-        ///Fecha Fecha_Venta
+
     public:
         Factura();
         ~Factura();
