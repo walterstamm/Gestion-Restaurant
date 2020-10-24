@@ -2,7 +2,7 @@
 #define FACTURA_H_INCLUDED
 #include "Fecha.h"
 #include "ui.h"
-///#include "Menu_Principal.h"
+
 
 class Factura{
     private:
@@ -18,7 +18,8 @@ class Factura{
         void setFactura(int);
         void getFactura();
         int Leo_Factura();
-
+        bool Guardo();
+        void Muestro_Guardado();
 };
 
 
@@ -38,8 +39,20 @@ void MENU_FACTURACION(){
         cout<<"\n============================================";
 
     switch(Opcion){
-        case 1:
+        case 1:{
+            Factura Nueva;
+            int Cliente=-1;
+            cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
+            Nueva.setFactura(Cliente);
+            if(Nueva.Guardo()){
+                cout<<"Se grabó correctamente";
+            }
+            cout<<"\nBusco\n";
+            Nueva.Muestro_Guardado();
+            cout<<"\nMuestro\n";
+            Nueva.getFactura();
 
+        }
         break;
         case 2:
 

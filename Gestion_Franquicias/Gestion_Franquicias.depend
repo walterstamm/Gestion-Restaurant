@@ -292,7 +292,7 @@
 1603330833 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.h
 	"Fecha.h"
 
-1603473561 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+1603512959 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -300,7 +300,7 @@
 	"Factura.h"
 	"Fecha.h"
 
-1603488936 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.h
+1603513052 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.h
 	"Fecha.h"
 	"ui.h"
 

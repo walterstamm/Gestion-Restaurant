@@ -5,6 +5,7 @@
 		<Option title="PruebaClases" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="Clases\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/PruebaClases" prefix_auto="1" extension_auto="1" />
@@ -34,9 +35,13 @@
 		</Compiler>
 		<Unit filename="Clases/Producto.cpp" />
 		<Unit filename="Clases/Producto.h" />
-		<Unit filename="Factura.cpp" />
+		<Unit filename="Factura.cpp">
+			<Option virtualFolder="Clases/" />
+		</Unit>
 		<Unit filename="Factura.h" />
-		<Unit filename="Prueba_Comprobantes.cpp" />
+		<Unit filename="Prueba_Comprobantes.cpp">
+			<Option virtualFolder="Clases/" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Unit filename="reportes/Menu_Reportes.cpp" />
 		<Unit filename="reportes/Menu_Reportes.h" />
