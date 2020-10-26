@@ -55,7 +55,7 @@ return true;
 
 bool Producto::Cargar_Producto_Disco(){
     bool grabo;
-    FILE *p=fopen("archivos/producto.dat","ab");
+    FILE *p=fopen("archivos/Producto.dat","ab");
     if(p==NULL){
         return false;
     }
@@ -66,7 +66,7 @@ return grabo;
 
 bool Producto::setSacar_Disco(int pos){
     bool grabo;
-    FILE *p=fopen("archivos/producto.dat","rb");
+    FILE *p=fopen("archivos/Producto.dat","rb");
     if(p==NULL){
         return false;
     }
@@ -141,7 +141,7 @@ void Producto::Modificar_Cantidad_Minima(){
 
 bool Producto::setModificar_Producto(int pos){
     bool correcto;
-    FILE *p=fopen("archivos/producto.dat","rb+");
+    FILE *p=fopen("archivos/Producto.dat","rb+");
         if(p==NULL){
             fclose(p);
             return false;
@@ -154,7 +154,7 @@ return correcto;
 
 int Producto::setRetornar_ID(int _ID){
     int pos=0;
-    FILE *p=fopen("archivos/producto.dat","rb");
+    FILE *p=fopen("archivos/Producto.dat","rb");
         if(p==NULL){
             fclose(p);
             return -1;

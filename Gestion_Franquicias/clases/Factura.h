@@ -23,53 +23,5 @@ class Factura{
 
 
 
-void MENU_FACTURACION(){
-    int Opcion;
-    while(Opcion){
-        title("MENÚ FACTURACIÓN", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-
-        cout<<"\n============================================";
-        cout<<"\n01-Ingresar Producto........................";
-        cout<<"\n02-";
-        cout<<"\n============================================";
-        cout<<"\n00- Volver al MENÚ PRINCIPAL................";
-        cout<<"\n============================================";
-        cout<<"\nOpción: "; cin>>Opcion;
-        cout<<"\n============================================";
-
-    switch(Opcion){
-        case 1:{
-            Factura Nueva;
-            int Cliente=-1;
-            cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
-            Nueva.setFactura(Cliente);
-            if(Nueva.Guardo()){
-                cout<<"Se grabó correctamente";
-            }
-            cout<<"\nBusco\n";
-            Nueva.Muestro_Guardado();
-            cout<<"\nMuestro\n";
-            Nueva.getFactura();
-
-        }
-        break;
-        case 2:
-
-        break;
-        case 0:
-            return;
-        break;
-        default:
-            cout<<"\nIngrese la opción correcta";
-        break;
-
-
-
-    }
-
-    }
-
-
-}
 
 #endif // FACTURA_H_INCLUDED

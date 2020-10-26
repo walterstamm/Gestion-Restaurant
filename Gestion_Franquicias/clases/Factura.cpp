@@ -5,6 +5,7 @@
 using namespace std;
 #include "Factura.h"
 #include "Fecha.h"
+#include "Ventas.h"
 
 Factura::Factura(){
     cout<<"CONSTRUCTOR\n";
@@ -59,4 +60,64 @@ void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
     ///Vuelve 1 posición para leer el registro grabado
     fseek(Fact,-1*sizeof(Factura), SEEK_END);
     fread(this, sizeof(Factura), 1, Fact);///Muestro lo grabado recien
+}
+
+void MENU_FACTURACION(){
+    int Opcion;
+    while(Opcion){
+        title("MENÚ FACTURACIÓN", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+
+        cout<<"\n============================================";
+        cout<<"\n01-Ingresar Producto........................";
+        cout<<"\n02-";
+        cout<<"\n============================================";
+        cout<<"\n00- Volver al MENÚ PRINCIPAL................";
+        cout<<"\n============================================";
+        cout<<"\nOpción: "; cin>>Opcion;
+        cout<<"\n============================================";
+
+    switch(Opcion){
+        case 1:{
+            Factura Nueva;
+            Ventas Nueva_V;
+            int Cliente=-1;
+            cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
+            Nueva.setFactura(Cliente);
+            if(Nueva.Guardo()){
+                cout<<"Se grabó correctamente";
+            }
+            cout<<"\nBusco\n";
+            Nueva.Muestro_Guardado();
+            cout<<"\nMuestro\n";
+            Nueva.getFactura();
+
+            int CodProducto, CantProducto;
+            char Descrip[20];
+            float Precios;
+            cout<<"\nCodProducto: "; cin>>CodProducto;
+            cout<<"\nCantProducto: "; cin>>CantProducto;
+
+            Nueva_V.Cargar_Venta(CodProducto, CantProducto, Precios);
+            Nueva_V.getVentas();
+
+        }
+
+        break;
+        case 2:
+
+        break;
+        case 0:
+            return;
+        break;
+        default:
+            cout<<"\nIngrese la opción correcta";
+        break;
+
+
+
+    }
+
+    }
+
+
 }
