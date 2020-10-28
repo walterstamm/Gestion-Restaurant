@@ -3,6 +3,7 @@ using namespace std;
 #include <cstring>
 #include <cstdio>
 #include "Producto.h"
+#include "../Validaciones/SINO.h"
 
 Producto::Producto(){
     estado=true;
@@ -11,8 +12,12 @@ Producto::Producto(){
 bool Producto::Cargar_Producto(){
     cout<<"Ingrese el ID ";
     cin>>ID;
-        while(ID<0 /*&& setRetornar_ID(ID)==-1*/){ ///validando id que no sea negativo
-            cout<<endl<<"ID incorrecta, reingrese el ID"<<endl<<endl;
+        while(ID<0 && Buscar_Producto_ID(ID)==-1){ ///validando id que no sea negativo
+            cout<<"Error ID, Desea continuar (SI/NO): ";
+                if(Continuar()==false){
+                    system ("cls");
+                    return false;
+                }
             cout<<">> Ingrese el ID: ";
             cin>>ID;
         }
@@ -47,9 +52,12 @@ bool Producto::Cargar_Producto(){
         }
     ///bool verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
     while(Vencimiento.Cargar_Fecha_Vencimiento()!=true){
-        cout<<endl<<"Fecha de vencimiento incorrecta, reingrese la fecha de vencimiento"<<endl<<endl;
-        ///verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
-    }
+        cout<<endl<<"Fecha de vencimiento incorrecta, Desea continuar (SI/NO):"<<endl<<endl;
+        if(Continuar()==false){
+            system ("cls");
+            return false;
+        }
+}
 return true;
 }
 
@@ -63,6 +71,17 @@ void Producto::Mostrar_Producto(){
     Vencimiento.Mostrar_Fecha();
     cout<<endl<<"Fecha de ingreso "<<endl;
     Actual.Mostrar_Fecha();
+}
+
+bool Producto::GuardarProducto(){
+    bool grabo;
+    FILE *p=fopen("archivos/producto.dat","ab");
+    if(p==NULL){
+        return false;
+    }
+    grabo=fwrite(this, sizeof(Producto),1,p);
+    fclose(p);
+return grabo;
 }
 
 int Producto::Buscar_Producto_ID(int _ID){
@@ -95,11 +114,6 @@ bool Producto::ModificarProducto(int pos){
     fclose(p);
 return correcto;
 }
-
-
-
-
-
 
 
 

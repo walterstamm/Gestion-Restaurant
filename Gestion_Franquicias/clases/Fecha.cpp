@@ -56,12 +56,9 @@ void Fecha::Mostrar_Fecha(){
 }
 
 bool Fecha::RetornarFechaVencimiento(){
-    if((dia<=0)||(mes<=0)||(anio<=0)){///verificamos que la fecha no sea negativa
-        return false;
-    }
     ///fecha no sea mayor a la fecha actual--con 3 preguntas ((anio), (anio y mes), (anio, mes y dia))
     Fecha uno;///creamos otra fecha para verificar
-    if((anio<uno.anio)||((anio==uno.anio)&&(mes<uno.mes))||((anio==uno.anio)&&(mes<=uno.mes)&&(dia<uno.dia))){
+    if((anio>uno.anio)||((anio==uno.anio)&&(mes>uno.mes))||((anio==uno.anio)&&(mes>=uno.mes)&&(dia>uno.dia))){
         return false;
     }
 return true;
