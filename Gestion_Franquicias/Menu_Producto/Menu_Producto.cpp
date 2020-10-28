@@ -4,47 +4,21 @@ using namespace std;
 #include "../clases/Producto.h"
 
 void Cargar_Producto(){
-    Producto uno;
-    if(uno.Cargar_Producto()==true){
-        if(uno.Cargar_Producto_Disco()==true){
-            cout<<endl<<"PRODUCTO CARGADO"<<endl;
-        }
-    }
 }
 
 void Mostrar_Todos_Producto(){
-    int pos=0;
-    Producto uno;
-    while(uno.setSacar_Disco(pos)!=false){
-        uno.mostrar_Producto();
-        pos++;
-    }
-    cout<<endl<<"TODOS LOS PRODUCTO FUERON MOSTRADOS"<<endl;
 }
 
 void Mostrar_X_Producto(){
-    ///Proximamente je je
 }
 
 void Modificar_Cantidad(){
-    int pos=0;
-    Producto uno;
-    while(uno.setSacar_Disco(pos)!=false){
-        uno.mostrar_Producto();
-        pos++;
-    }
-    cout<<endl<<"TODOS LOS PRODUCTO FUERON MOSTRADOS"<<endl;
 }
 
 void Modificar_La_Cantidad_minima(){
-    Producto uno;
-    uno.Modificar_Cantidad_Minima();
+
 }
 
 void Eliminar_Producto(){
-    Producto uno;
-    if(uno.Eliminar_Producto()){
-        cout<<"Reintente eliminar el producto";
-        uno.Eliminar_Producto();
-    }
+
 }

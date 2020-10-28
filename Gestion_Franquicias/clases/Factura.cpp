@@ -33,7 +33,7 @@ int Factura::Leo_Factura(){
     FILE *Fact=fopen("archivos/Facturas.dat", "rb");
     if(Fact == NULL){cout<<"No se abrio el Archivo Facturas.dat";}
     ///Vuelve 1 posición para leer el registro grabado
-    fseek(Fact,-1*sizeof(Factura), SEEK_END);
+    fseek(Fact,-1*sizeof(Factura), SEEK_END); ///tiene un warning osea futuro error
     fread(this, sizeof(Factura), 1, Fact);///Muestro lo grabado recien
     Nuevo_Nro = Nro_Fact+1;
     return Nuevo_Nro;
@@ -58,7 +58,7 @@ void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
     FILE *Fact=fopen("archivos/Facturas.dat", "rb");
     if(Fact == NULL){cout<<"No se abrio el Archivo Facturas.dat";}
     ///Vuelve 1 posición para leer el registro grabado
-    fseek(Fact,-1*sizeof(Factura), SEEK_END);
+    fseek(Fact,-1*sizeof(Factura), SEEK_END);///tiene un warning osea futuro error
     fread(this, sizeof(Factura), 1, Fact);///Muestro lo grabado recien
 }
 
@@ -78,6 +78,7 @@ void MENU_FACTURACION(){
 
     switch(Opcion){
         case 1:{
+            /*
             Factura Nueva;
             Ventas Nueva_V;
             int Cliente=-1;
@@ -99,7 +100,8 @@ void MENU_FACTURACION(){
 
             Nueva_V.Cargar_Venta(CodProducto, CantProducto, Precios);
             Nueva_V.getVentas();
-
+        */
+        /// esto tiene que estar dentro de una funcion -- linea 102 error no esta definido
         }
 
         break;

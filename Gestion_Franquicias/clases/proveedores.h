@@ -11,7 +11,7 @@ private:
     int Telefono;
     char Nota[200];
 public:
-    proveedores(){};
+    proveedore(){ Telefono=0;};
     void Cargar_Proveedore();
     bool Guardar_Proveedore();
     bool Eliminar_Proveedor();

@@ -8,7 +8,7 @@ using namespace std;
 Ventas::Ventas(){
 
     Cod_Producto = 0;
-    strcpy(Descripcion, '\0');///strcpy(aux,"\0");
+    ///strcpy(Descripcion, '\0');///strcpy(aux,"\0"); ///me da error
     Cant_Producto = 0;
     Precio = 0;
     Importe = 0;
@@ -27,10 +27,11 @@ void Ventas::Cargar_Venta(int CodProducto, int CantProducto, float Precios){
                 return;
             }
             while(fread(this, sizeof(Producto), 1, Venta)){
-                if(ID == Cod_Producto){
+               /* if(ID == Cod_Producto){
                     strcpy(Producto.Nombre, Ventas.Descripcion);
                     Ventas.Precio == Producto.Precio;
-                }
+                }*/
+                ///ID no esta declarado
             }
         }
         Importe = Precio * Cant_Producto;
@@ -53,6 +54,8 @@ void Ventas::setImporte(){
 
 }
 
+///este get no retorna nada da otro error
+/*
 void Ventas::getVentas(){
     cout<<"\nNro_Factura: "<<Nro_Fact;
     cout<<"\nCod_Produto: "<<Cod_Producto;
@@ -60,4 +63,4 @@ void Ventas::getVentas(){
     cout<<"\nCant_Producto:"<<Cant_Producto;
     cout<<"\nPrecio: "<<Precio;
     cout<<"\nSubtotal: "<<Importe;
-}
+}*/

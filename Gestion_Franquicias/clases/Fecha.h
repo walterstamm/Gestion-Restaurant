@@ -9,6 +9,7 @@ class Fecha{
         bool Cargar_Fecha();///retorna true si fue bien ingresada y false si fue mal ingresada
         bool Cargar_Fecha_Vencimiento();
         void Mostrar_Fecha();
+        bool RetornarFechaVencimiento(); ///retorna si la fecha no paso de la fecha actual
 };
 
 #endif // FECHA_H_INCLUDED

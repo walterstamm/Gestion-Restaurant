@@ -4,4 +4,5 @@
 void MENU_PRODUCTO();
 void Menu_Medio_Pago();
 void MENU_FACTURACION();
+
 #endif // MENU_PRINCIPAL_H_INCLUDED
