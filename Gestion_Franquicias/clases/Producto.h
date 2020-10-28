@@ -19,6 +19,7 @@ class Producto{
         void Mostrar_Producto();
         bool GuardarProducto();
         int Buscar_Producto_ID(int); ///busca el producto por ID y devuelve la posicion del producto
+        int getID(){return ID;}
         char *getNombre(){return Nombre;}
         float getPrecio(){return Precio;}
         int getCantidad(){return Cantidad;}
@@ -29,5 +30,6 @@ class Producto{
         void setEstado(int _estado){estado= _estado;}
 };
 
+bool ValidarIDProducto(int);
 
 #endif // PRODUCTO_H_INCLUDED

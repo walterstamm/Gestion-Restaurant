@@ -16,8 +16,7 @@ Producto::~Producto(){
 bool Producto::Cargar_Producto(){
     cout<<"Ingrese el ID ";
     cin>>ID;
-        while(ID<0 || Buscar_Producto_ID(ID)!=1){ ///validando id que no sea negativo
-            ///tenemos un error en "|| Buscar_Producto_ID(ID)!=1"
+        while(ID<0 || ValidarIDProducto(ID)!=false){ ///validando id que no sea negativo
             cout<<"Error ID";
                 if(Continuar()==false){
                     system ("cls");
@@ -121,7 +120,22 @@ bool Producto::ModificarProducto(int pos){
 return correcto;
 }
 
-
+bool ValidarIDProducto(int _ID){
+    Producto uno;
+    FILE *p=fopen("archivos/producto.dat","rb");
+        if(p==NULL){
+            fclose(p);
+            return false;
+        }
+    while(fread(&uno, sizeof(Producto),1,p)){
+        if(uno.getID()==_ID){
+            fclose(p);
+            return true; ///retorna la posicion del archivo
+        }
+    }
+    fclose(p);
+return false; ///retorna -1 si no encontro el ID
+}
 
 
 
