@@ -26,21 +26,33 @@ void MENU_PRODUCTO(){
         switch(opcion){
         case 1:
             Cargar_Producto();
+            system("pause");
+            system("cls");
         break;
         case 2:
             Modificar_Cantidad();
+            system("pause");
+            system("cls");
         break;
         case 3:
             Modificar_La_Cantidad_minima();
+            system("pause");
+            system("cls");
         break;
         case 4:
             Mostrar_Todos_Producto();
+            system("pause");
+            system("cls");
         break;
         case 5:
             Mostrar_X_Producto();
+            system("pause");
+            system("cls");
         break;
         case 6:
             Eliminar_Producto();
+            system("pause");
+            system("cls");
         break;
         case 7:
         break;

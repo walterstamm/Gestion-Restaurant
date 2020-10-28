@@ -12,8 +12,8 @@ Producto::Producto(){
 bool Producto::Cargar_Producto(){
     cout<<"Ingrese el ID ";
     cin>>ID;
-        while(ID<0 && Buscar_Producto_ID(ID)==-1){ ///validando id que no sea negativo
-            cout<<"Error ID, Desea continuar (SI/NO): ";
+        while(ID<0 && Buscar_Producto_ID(ID)<0){ ///validando id que no sea negativo
+            cout<<"Error ID";
                 if(Continuar()==false){
                     system ("cls");
                     return false;
@@ -52,7 +52,7 @@ bool Producto::Cargar_Producto(){
         }
     ///bool verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
     while(Vencimiento.Cargar_Fecha_Vencimiento()!=true){
-        cout<<endl<<"Fecha de vencimiento incorrecta, Desea continuar (SI/NO):"<<endl<<endl;
+        cout<<endl<<"Fecha de vencimiento incorrecta"<<endl<<endl;
         if(Continuar()==false){
             system ("cls");
             return false;
@@ -71,6 +71,7 @@ void Producto::Mostrar_Producto(){
     Vencimiento.Mostrar_Fecha();
     cout<<endl<<"Fecha de ingreso "<<endl;
     Actual.Mostrar_Fecha();
+    cout<<endl<<endl;
 }
 
 bool Producto::GuardarProducto(){

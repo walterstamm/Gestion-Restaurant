@@ -5,6 +5,7 @@ using namespace std;
 
 bool Continuar(){
     char opcion[3]={};
+    cout<<" Desea continuar (SI/NO): ";
     cin.ignore();
     cin.getline(opcion, 4, '\n');
     if((strcmp(opcion, "si") && strcmp(opcion, "SI") && strcmp(opcion, "Si") && strcmp(opcion, "sI")) ==0){

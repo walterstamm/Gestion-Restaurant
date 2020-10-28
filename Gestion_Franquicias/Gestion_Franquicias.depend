@@ -15,7 +15,7 @@
 
 1603855803 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1603858560 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1603859848 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -25,14 +25,14 @@
 1603858901 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1603858867 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1603859762 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	"Menu_Producto.h"
 	"../clases/Producto.h"
 
 1603857754 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1603694976 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1603859522 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -348,7 +348,7 @@
 1603694976 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
-1603856717 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
+1603859479 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
 	<iostream>
 	<string.h>
 	"SINO.h"

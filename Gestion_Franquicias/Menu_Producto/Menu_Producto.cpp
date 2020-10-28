@@ -41,7 +41,7 @@ void Mostrar_X_Producto(){
     cin>>ID;
     Producto uno;
     if(uno.Buscar_Producto_ID(ID)==-1){
-        cout<<"Producto inexistente";
+        cout<<"Producto inexistente"<<endl;
         return;
     }
     uno.Mostrar_Producto();
@@ -54,7 +54,7 @@ void Modificar_Cantidad(){
     Producto uno;
     int pos=uno.Buscar_Producto_ID(ID);
     if(pos==-1){
-        cout<<"Producto inexistente";
+        cout<<"Producto inexistente"<<endl;
         return;
     }
     uno.Mostrar_Producto();
@@ -70,7 +70,7 @@ void Modificar_Cantidad(){
         cout<<"Producto no guardado";
         return;
     }
-    cout<<"Producto guardado";
+    cout<<"Producto guardado"<<endl;
 }
 
 void Modificar_La_Cantidad_minima(){
@@ -80,7 +80,7 @@ void Modificar_La_Cantidad_minima(){
     Producto uno;
     int pos=uno.Buscar_Producto_ID(ID);
     if(pos==-1){
-        cout<<"Producto inexistente";
+        cout<<"Producto inexistente"<<endl;
         return;
     }
     uno.Mostrar_Producto();
@@ -93,10 +93,10 @@ void Modificar_La_Cantidad_minima(){
     }
     uno.setCantidadMinima(ID);
     if(uno.ModificarProducto(pos)==false){
-        cout<<"Producto no guardado";
+        cout<<"Producto no guardado"<<endl;
         return;
     }
-    cout<<"Producto guardado";
+    cout<<"Producto guardado"<<endl;
 }
 
 void Eliminar_Producto(){
@@ -106,7 +106,7 @@ void Eliminar_Producto(){
     Producto uno;
     int pos=uno.Buscar_Producto_ID(ID);
     if(pos==-1){
-        cout<<"Producto inexistente";
+        cout<<"Producto inexistente"<<endl;
         return;
     }
     uno.Mostrar_Producto();
@@ -115,5 +115,5 @@ void Eliminar_Producto(){
         cout<<"Producto no guardado";
         return;
     }
-    cout<<"Producto guardado";
+    cout<<"Producto guardado"<<endl;
 }
