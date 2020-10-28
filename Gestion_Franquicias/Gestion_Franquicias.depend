@@ -15,8 +15,9 @@
 
 1603855803 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1603865290 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
+	<cstdlib>
 	<cstring>
 	<cstdio>
 	"Producto.h"
@@ -25,8 +26,9 @@
 1603865251 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1603863929 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
+	<cstdio>
 	"Menu_Producto.h"
 	"../clases/Producto.h"
 	"../Validaciones/SINO.h"
@@ -76,13 +78,13 @@
 	"Ventas.h"
 	"Producto.h"
 
-1603694976 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
+1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"proveedores.h"
 
-1603862881 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.h
+1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 	"Producto.h"
 
 1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
@@ -542,4 +544,41 @@
 	"../clases/Producto.h"
 	"../Validaciones/SINO.h"
 	"../clases/Fecha.h"
+
+1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.cpp
+	<iostream>
+	"Detalle_Pedidos.h"
+
+1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.h
+
+1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\pedido.cpp
+	<iostream>
+	<cstring>
+	<cstdlib>
+	<cstdio>
+	"Pedido.h"
+	"Fecha.h"
+
+1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\pedido.h
+	"Fecha.h"
+
+1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\remitos.cpp
+	<iostream>
+	<cstdio>
+	<cstdlib>
+	"Remitos.h"
+
+1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\remitos.h
+	"Fecha.h"
+
+1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\funciones_pedidos.cpp
+	<iostream>
+	"Menu_Pedidos.h"
+
+1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.h
+
+1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
+	<iostream>
+	<cstdlib>
+	"Menu_Pedidos.h"
 
