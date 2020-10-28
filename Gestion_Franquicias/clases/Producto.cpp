@@ -12,7 +12,7 @@ Producto::Producto(){
 bool Producto::Cargar_Producto(){
     cout<<"Ingrese el ID ";
     cin>>ID;
-        while(ID<0 && Buscar_Producto_ID(ID)<0){ ///validando id que no sea negativo
+        while(ID<0 || Buscar_Producto_ID(ID)>-1){ ///validando id que no sea negativo
             cout<<"Error ID";
                 if(Continuar()==false){
                     system ("cls");
