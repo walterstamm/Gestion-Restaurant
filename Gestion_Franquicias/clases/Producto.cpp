@@ -7,6 +7,7 @@ using namespace std;
 
 Producto::Producto(){
     estado=true;
+    ID=0;
 }
 
 bool Producto::Cargar_Producto(){
@@ -29,11 +30,11 @@ bool Producto::Cargar_Producto(){
             cout<<">> Ingrese el Nombre: ";
             cin.getline(Nombre, 30, '\n');
         }
-    cout<<"Ingrese el precio: ";
+    cout<<"Ingrese el precio: $";
     cin>>Precio;
         while(Precio<0){ ///validando Precio que no sea negativo
             cout<<endl<<"Precio incorrecta, reingrese el Precio"<<endl<<endl;
-            cout<<">> Ingrese el Precio: ";
+            cout<<">> Ingrese el Precio: $";
             cin>>Precio;
         }
     cout<<"Ingrese la cantidad: ";
@@ -64,7 +65,7 @@ return true;
 void Producto::Mostrar_Producto(){
     cout<<"ID "<<ID<<endl;
     cout<<"Nombre "<<Nombre<<endl;
-    cout<<"Precio "<<Precio<<endl;
+    cout<<"Precio $"<<Precio<<endl;
     cout<<"Cantidad "<<Cantidad<<endl;
     cout<<"Cantidad Minima "<<Cantidad_Minima<<endl;
     cout<<"Fecha de vencimiento "<<endl;

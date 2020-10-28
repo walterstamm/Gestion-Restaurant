@@ -19,6 +19,7 @@ void MENU_PRODUCTO(){
         cout<<endl<<"5) LISTAR PRODUCTO POR ID";
         cout<<endl<<"6) ELIMINAR PRODUCTO";
         cout<<endl<<"7) VOLVER AL MENÚ PRINCIPAL";
+        cout<<endl<<"8) comprar";
         cout<<endl<<"--------------------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
@@ -55,6 +56,11 @@ void MENU_PRODUCTO(){
             system("cls");
         break;
         case 7:
+        break;
+        case 8:
+            Comprar();
+            system("pause");
+            system("cls");
         break;
         default:
             msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);

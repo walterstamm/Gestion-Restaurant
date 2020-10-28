@@ -2,6 +2,8 @@
 using namespace std;
 #include "Menu_Producto.h"
 #include "../clases/Producto.h"
+#include "../Validaciones/SINO.h"
+#include"../clases/Fecha.h"
 
 void Cargar_Producto(){
     Producto uno;
@@ -116,4 +118,36 @@ void Eliminar_Producto(){
         return;
     }
     cout<<"Producto guardado"<<endl;
+}
+
+void Comprar(){
+    int ID, cantidad;
+    float total=0;
+    do{
+        cout<<"ID del producto: ";
+        cin>>ID;
+        Producto uno;
+        int pos=uno.Buscar_Producto_ID(ID);
+        if(pos==-1){
+            cout<<"Producto inexistente"<<endl;
+            return;
+        }
+        cout<<uno.getNombre()<<endl;
+        Fecha dos; ///verificamos la fecha de vencimiento
+        if(dos.RetornarFechaVencimiento()){
+            cout<<"Producto vencido";
+            return;
+        }
+        cout<<"Ingrese la cantidad vendida: ";
+        cin>>cantidad;
+        while(cantidad<0){ ///validando Cantidad que no sea negativo
+           cout<<endl<<"Cantidad minima incorrecta, reingrese el Cantidad minima"<<endl<<endl;
+            cout<<">> Ingrese el Cantidad minima: ";
+            cin>>cantidad;
+        }
+        total+=uno.getPrecio()*cantidad;
+        uno.setCantidad(uno.getCantidad()-cantidad);
+        uno.ModificarProducto(pos);
+    }while(Continuar()==true);
+    cout<<"total $"<<total<<endl;
 }
