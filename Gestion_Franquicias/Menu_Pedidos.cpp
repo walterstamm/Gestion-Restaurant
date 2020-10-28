@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cstdlib>
 #include "Menu_Pedidos.h"
+
 using namespace std;
 
 void Menu_Pedidos(){
@@ -20,7 +21,7 @@ void Menu_Pedidos(){
         switch(opcion){
         case 1:
             Carga_Provedores();
-        break;
+            break;
         case 2:
 
         break;

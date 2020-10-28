@@ -32,7 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Funciones_Pedidos.cpp" />
+		<Unit filename="Funciones_Pedidos.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="InterfazGrafica/ui.cpp" />
 		<Unit filename="InterfazGrafica/ui.h" />
 		<Unit filename="Medio_Pago/Medio_Pago.cpp" />

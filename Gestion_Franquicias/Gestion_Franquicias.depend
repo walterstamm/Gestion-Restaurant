@@ -463,9 +463,9 @@
 	<iostream>
 	"Menu_Pedidos.h"
 
-1603923886 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.h
+1603929115 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.h
 
-1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
+1603928641 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -473,6 +473,7 @@
 	<iostream>
 	"InterfazGrafica/ui.h"
 	"Menu_Principal.h"
+	"Menu_Pedidos.h"
 
 1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_principal.h
 
@@ -510,7 +511,7 @@
 1603923975 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\remitos.h
 	"Fecha.h"
 
-1603924031 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
+1603928939 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
 	<iostream>
 	<cstdlib>
 	"Menu_Pedidos.h"

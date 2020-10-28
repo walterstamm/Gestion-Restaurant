@@ -6,6 +6,7 @@
 using namespace std;
 #include "InterfazGrafica/ui.h"
 #include "Menu_Principal.h"
+#include "Menu_Pedidos.h"
 
 int main(){
     setlocale(LC_ALL, "spanish");
@@ -31,7 +32,8 @@ int main(){
             MENU_PRODUCTO();
         break;
         case 2:
-        break;
+            Menu_Pedidos();
+            break;
         case 3:
             MENU_FACTURACION();
         break;
