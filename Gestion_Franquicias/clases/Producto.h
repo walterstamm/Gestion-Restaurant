@@ -14,6 +14,7 @@ class Producto{
         Fecha Vencimiento;
     public:
         Producto();
+        ~Producto();
         bool Cargar_Producto();
         void Mostrar_Producto();
         bool GuardarProducto();
@@ -26,7 +27,6 @@ class Producto{
         void setCantidad(int _cantidad){Cantidad=_cantidad;}
         void setCantidadMinima(int _cantidadMinima){Cantidad_Minima=_cantidadMinima;}
         void setEstado(int _estado){estado= _estado;}
-
 };
 
 

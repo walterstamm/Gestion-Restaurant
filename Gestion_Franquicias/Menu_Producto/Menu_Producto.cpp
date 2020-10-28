@@ -9,13 +9,16 @@ void Cargar_Producto(){
     Producto uno;
     if(uno.Cargar_Producto()==false){
         cout<<"Error de carga de producto"<<endl;
+        uno.~Producto();
         return;
     }
     if(uno.GuardarProducto()==false){
         cout<<"Error al guardar el producto de producto"<<endl;
+        uno.~Producto();
         return;
     }
     cout<<"Producto cargado"<<endl;
+    uno.~Producto();
 return;
 }
 
@@ -29,8 +32,8 @@ bool Mostrar_Todos_Producto(){
         }
     while(fread(&uno, sizeof(Producto),1,p)){
         if(uno.getEstado()==true){
-            mostro=true;
             uno.Mostrar_Producto();
+            mostro=true;
         }
     }
     fclose(p);
