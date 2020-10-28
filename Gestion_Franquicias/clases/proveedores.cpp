@@ -15,18 +15,14 @@ void proveedore::Cargar_Proveedore(){
             cout<<">> Ingrese el Nombre: ";
             cin.getline(Nombre, 50, '\n');
         }
-    cout<<"Cantidad de productos vendidos por el proveedor: ";///con memoria dinamica
-    cin>>cantidad;
-        ///cargar con memoria dinamica
-    ///falta esta parte
-    cout<<"Numero de telefono: ";
+        cout<<"Numero de telefono: ";
     cin>>Telefono;
         while(ID<1000000000){ ///validando telefono que no sea menor a 10 0000 0000
             cout<<endl<<"telefono incorrecta, reingrese el telefono"<<endl<<endl;
             cout<<">> Ingrese el telefono: ";
             cin>>Telefono;
         }
-    cout<<"descripcion del proveedor: ";
+    cout<<"Descripcion del Proveedor: ";
     cin.ignore();
     cin.getline(Nota, 200, '\n');
         while(Nota[0]==' '){///validando la nota que el primer caracter no sea un espacio

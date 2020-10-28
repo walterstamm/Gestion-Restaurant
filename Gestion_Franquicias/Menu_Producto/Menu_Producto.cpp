@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 using namespace std;
 #include "Menu_Producto.h"
 #include "../clases/Producto.h"
