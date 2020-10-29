@@ -37,6 +37,9 @@ void Ventas::Cargar_Venta(int CodProducto, int CantProducto, float Precios){
         Importe = Precio * Cant_Producto;
 }
 
+void Ventas::setNro_Factura(int Nro_F){
+///    Nro_Factura = Nro_F;
+}
 
 void Ventas::setCod_Producto(){
 
@@ -47,20 +50,20 @@ void Ventas::setDescripcion(){
 void Ventas::setCant_Producto(){
 
 }
-void Ventas::setPrecio(){
-
+void Ventas::setPrecio(float PrecioProd){
+    Precio = PrecioProd;
 }
 void Ventas::setImporte(){
 
 }
 
 ///este get no retorna nada da otro error
-/*
+
 void Ventas::getVentas(){
-    cout<<"\nNro_Factura: "<<Nro_Fact;
+    cout<<"\nNro_Factura: "<<Nro_Factura.getFactura();
     cout<<"\nCod_Produto: "<<Cod_Producto;
     cout<<"\nDescripción: "<<Descripcion;
     cout<<"\nCant_Producto:"<<Cant_Producto;
     cout<<"\nPrecio: "<<Precio;
     cout<<"\nSubtotal: "<<Importe;
-}*/
+}

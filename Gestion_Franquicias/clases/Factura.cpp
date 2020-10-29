@@ -6,11 +6,12 @@ using namespace std;
 #include "Factura.h"
 #include "Fecha.h"
 #include "Ventas.h"
+#include "Producto.h"
 
 Factura::Factura(){
     cout<<"CONSTRUCTOR\n";
     Nro_Fact = 0;
-///    Fecha_Venta = NULL;
+    Fecha_Factura.Cargar_Fecha();
     Nro_Cliente = 0;
     Total_Pagar=0;
 }
@@ -23,8 +24,8 @@ void Factura::setFactura(int Cliente){
     cout<<"NUEVA FACTURA\n";
     Nro_Fact = Leo_Factura();
     Nro_Cliente = Cliente;
-    ///Fecha_Venta = 0;
-    Total_Pagar=0;
+    Fecha_Factura.Cargar_Fecha();
+    Total_Pagar=0;///FUNCION PARA SUMAR LA VENTA FALTA
 
 }
 
@@ -39,10 +40,11 @@ int Factura::Leo_Factura(){
     return Nuevo_Nro;
 }
 
-void Factura::getFactura(){
-    cout<<"\nNro_Fact:      "<<Nro_Fact;
+int Factura::getFactura(){
+    return Nro_Fact;
+    /**cout<<"\nNro_Fact:      "<<Nro_Fact;
     cout<<"\nNro_Cliente:   "<<Nro_Cliente;
-    cout<<"\nTotal_Factura: "<<Total_Pagar;
+    cout<<"\nTotal_Factura: "<<Total_Pagar;*/
 }
 
 bool Factura::Guardo(){
@@ -62,14 +64,24 @@ void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
     fread(this, sizeof(Factura), 1, Fact);///Muestro lo grabado recien
 }
 
+void Factura::setfecha(Fecha f){
+    Fecha_Factura = f;
+}
+
+Fecha Factura::getfecha(){
+    return Fecha_Factura;
+}
+
 void MENU_FACTURACION(){
     int Opcion;
     while(Opcion){
         title("MENÚ FACTURACIÓN", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
 
         cout<<"\n============================================";
-        cout<<"\n01-Ingresar Producto........................";
-        cout<<"\n02-";
+        cout<<"\n01-Generar Factura..........................";
+        cout<<"\n02-Eliminar Factura.........................";
+        cout<<"\n03-Listar Facturas por fecha.(Bool false....";
+        cout<<"\n04-Listar Facturas Eliminadas...............";
         cout<<"\n============================================";
         cout<<"\n00- Volver al MENÚ PRINCIPAL................";
         cout<<"\n============================================";
@@ -78,9 +90,10 @@ void MENU_FACTURACION(){
 
     switch(Opcion){
         case 1:{
-            /*
+
             Factura Nueva;
-            Ventas Nueva_V;
+            Ventas Vent;
+            Producto Prod;
             int Cliente=-1;
             cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
             Nueva.setFactura(Cliente);
@@ -92,15 +105,26 @@ void MENU_FACTURACION(){
             cout<<"\nMuestro\n";
             Nueva.getFactura();
 
+            cout<<"\n=====================================================\n";
+
             int CodProducto, CantProducto;
             char Descrip[20];
             float Precios;
+            Vent.setNro_Factura(Nueva.getFactura());///guardo el Nro_Fact en Ventas VERRRRRRRRRR
             cout<<"\nCodProducto: "; cin>>CodProducto;
+            FILE *Pr = fopen("archivos/Producto.dat", "rb");
+            if(Pr == NULL) {return; }
+            while(fread(&Prod, sizeof(Producto), 1, Pr)){
+                if(Prod.getID() == CodProducto){
+                    strcpy(Descrip, Prod.getNombre());
+                    Vent.setPrecio(Prod.getPrecio());
+                }
+            }
             cout<<"\nCantProducto: "; cin>>CantProducto;
 
-            Nueva_V.Cargar_Venta(CodProducto, CantProducto, Precios);
-            Nueva_V.getVentas();
-        */
+            Vent.Cargar_Venta(CodProducto, CantProducto, Precios);
+            Vent.getVentas();
+
         /// esto tiene que estar dentro de una funcion -- linea 102 error no esta definido
         }
 
