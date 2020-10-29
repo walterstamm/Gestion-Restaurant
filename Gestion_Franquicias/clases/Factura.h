@@ -7,7 +7,7 @@
 class Factura{
     private:
         int Nro_Fact;
-        ///Fecha Fecha_Venta;
+        Fecha Fecha_Factura;
         int Nro_Cliente;
         float Total_Pagar;
 
@@ -15,10 +15,12 @@ class Factura{
         Factura();
         ~Factura();
         void setFactura(int);
-        void getFactura();
+        int getFactura();
         int Leo_Factura();
         bool Guardo();
         void Muestro_Guardado();
+        void setfecha(Fecha);
+        Fecha getfecha();
 };
 
 
