@@ -124,7 +124,7 @@ void Eliminar_Producto(){
     cout<<"Producto guardado"<<endl;
 }
 
-void Comprar(){
+void ventas(){
     int ID, cantidad;
     float total=0;
     do{
@@ -138,20 +138,23 @@ void Comprar(){
         }
         cout<<uno.getNombre()<<endl;
         Fecha dos; ///verificamos la fecha de vencimiento
-        if(dos.RetornarFechaVencimiento()){
-            cout<<"Producto vencido";
-            return;
-        }
-        cout<<"Ingrese la cantidad vendida: ";
-        cin>>cantidad;
-        while(cantidad<0){ ///validando Cantidad que no sea negativo
-           cout<<endl<<"Cantidad minima incorrecta, reingrese el Cantidad minima"<<endl<<endl;
-            cout<<">> Ingrese el Cantidad minima: ";
+        if(dos.RetornarFechaVencimiento()==false){/// esto es para comentar fecha de VENCIMIENTO
+            cout<<"Ingrese la cantidad vendida: ";
             cin>>cantidad;
+            while(cantidad<0){ ///validando Cantidad que no sea negativo
+               cout<<endl<<"Cantidad minima incorrecta, reingrese el Cantidad minima"<<endl<<endl;
+                cout<<">> Ingrese el Cantidad minima: ";
+                cin>>cantidad;
+            }
+            total+=uno.getPrecio()*cantidad;
+            uno.setCantidad(uno.getCantidad()-cantidad);
+            uno.ModificarProducto(pos);
         }
-        total+=uno.getPrecio()*cantidad;
-        uno.setCantidad(uno.getCantidad()-cantidad);
-        uno.ModificarProducto(pos);
+        else{
+            cout<<"Producto vencido";
+        }
+        ///o sino aca boleta
     }while(Continuar()==true);
     cout<<"total $"<<total<<endl;
+    ///boleta
 }

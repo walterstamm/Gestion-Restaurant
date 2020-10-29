@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603694976 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
+1603929725 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -7,6 +7,7 @@
 	<iostream>
 	"InterfazGrafica/ui.h"
 	"Menu_Principal.h"
+	"Menu_Pedidos.h"
 
 1603856949 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
 	<iostream>
@@ -15,7 +16,7 @@
 
 1603855803 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1603931235 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -23,10 +24,10 @@
 	"Producto.h"
 	"../Validaciones/SINO.h"
 
-1603865251 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
+1603931235 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1603932040 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	<cstdio>
 	"Menu_Producto.h"
@@ -34,9 +35,9 @@
 	"../Validaciones/SINO.h"
 	"../clases/Fecha.h"
 
-1603860438 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
+1603932169 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1603861037 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1603932051 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -577,7 +578,7 @@
 
 1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.h
 
-1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
+1603930518 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
 	<iostream>
 	<cstdlib>
 	"Menu_Pedidos.h"

@@ -58,7 +58,7 @@ void MENU_PRODUCTO(){
         case 7:
         break;
         case 8:
-            Comprar();
+            ventas();
             system("pause");
             system("cls");
         break;

@@ -20,7 +20,7 @@ void Menu_Pedidos(){
         system ("cls");
         switch(opcion){
         case 1:
-            Carga_Provedores();
+            ///Carga_Provedores();
             break;
         case 2:
 

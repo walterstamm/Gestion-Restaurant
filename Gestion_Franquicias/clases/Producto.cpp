@@ -34,11 +34,11 @@ bool Producto::Cargar_Producto(){
             cout<<">> Ingrese el Nombre: ";
             cin.getline(Nombre, 30, '\n');
         }
-    cout<<"Ingrese el precio: $";
+    cout<<"Ingrese el precio por unidad: $";
     cin>>Precio;
         while(Precio<0){ ///validando Precio que no sea negativo
             cout<<endl<<"Precio incorrecta, reingrese el Precio"<<endl<<endl;
-            cout<<">> Ingrese el Precio: $";
+            cout<<">> Ingrese el Precio por unidad: $";
             cin>>Precio;
         }
     cout<<"Ingrese la cantidad: ";
@@ -62,7 +62,7 @@ bool Producto::Cargar_Producto(){
             system ("cls");
             return false;
         }
-}
+    }
 return true;
 }
 
