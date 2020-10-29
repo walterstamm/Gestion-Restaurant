@@ -28,6 +28,7 @@ class Producto{
         void setCantidad(int _cantidad){Cantidad=_cantidad;}
         void setCantidadMinima(int _cantidadMinima){Cantidad_Minima=_cantidadMinima;}
         void setEstado(int _estado){estado= _estado;}
+        bool ValidarCantidadProducto(int);
 };
 
 bool ValidarIDProducto(int);

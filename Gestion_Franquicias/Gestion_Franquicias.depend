@@ -16,7 +16,7 @@
 
 1603855803 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1603931235 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1603944455 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -24,10 +24,10 @@
 	"Producto.h"
 	"../Validaciones/SINO.h"
 
-1603931235 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
+1603944266 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1603932040 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1603944722 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	<cstdio>
 	"Menu_Producto.h"
@@ -579,8 +579,9 @@
 
 1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.h
 
-1603930518 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
+1603932812 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
 	<iostream>
 	<cstdlib>
 	"Menu_Pedidos.h"
+	"clases/proveedores.h"
 

@@ -133,27 +133,29 @@ void ventas(){
         Producto uno;
         int pos=uno.Buscar_Producto_ID(ID);
         if(pos==-1){
-            cout<<"Producto inexistente"<<endl;
-            return;
-        }
-        cout<<uno.getNombre()<<endl;
-        Fecha dos; ///verificamos la fecha de vencimiento
-        if(dos.RetornarFechaVencimiento()==false){/// esto es para comentar fecha de VENCIMIENTO
-            cout<<"Ingrese la cantidad vendida: ";
-            cin>>cantidad;
-            while(cantidad<0){ ///validando Cantidad que no sea negativo
-               cout<<endl<<"Cantidad minima incorrecta, reingrese el Cantidad minima"<<endl<<endl;
-                cout<<">> Ingrese el Cantidad minima: ";
+            cout<<"Producto inexistente"<<endl; ///no permite realizar la carga
+        } else{///producto existente -- puede realizar la carga
+                cout<<"Nombre: "<<uno.getNombre()<<endl;
+                cout<<"Precio: "<<uno.getPrecio()<<endl;
+                cout<<"cantidad: "<<uno.getCantidad()<<endl;
+                Fecha dos; ///verificamos la fecha de vencimiento
+                if(dos.RetornarFechaVencimiento()==true){/// esto es para comentar fecha de VENCIMIENTO
+                cout<<"Ingrese la cantidad vendida: ";
                 cin>>cantidad;
+                while(cantidad<0 || uno.ValidarCantidadProducto(cantidad)!=true){ ///validando Cantidad que no sea negativo
+                   cout<<endl<<"Cantidad minima incorrecta, reingrese el Cantidad minima"<<endl<<endl;
+                    cout<<">> Ingrese el Cantidad minima: ";
+                    cin>>cantidad;
+                }
+                total+=uno.getPrecio()*cantidad;
+                uno.setCantidad(uno.getCantidad()-cantidad);
+                uno.ModificarProducto(pos);
             }
-            total+=uno.getPrecio()*cantidad;
-            uno.setCantidad(uno.getCantidad()-cantidad);
-            uno.ModificarProducto(pos);
+            else{
+                cout<<"Producto vencido";
+            }
+            ///o sino aca boleta
         }
-        else{
-            cout<<"Producto vencido";
-        }
-        ///o sino aca boleta
     }while(Continuar()==true);
     cout<<"total $"<<total<<endl;
     ///boleta

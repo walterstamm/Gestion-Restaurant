@@ -32,10 +32,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Funciones_Pedidos.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
 		<Unit filename="InterfazGrafica/ui.cpp" />
 		<Unit filename="InterfazGrafica/ui.h" />
 		<Unit filename="Medio_Pago/Medio_Pago.cpp" />
@@ -73,9 +69,6 @@
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
-			<code_completion />
-			<envvars />
-			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
