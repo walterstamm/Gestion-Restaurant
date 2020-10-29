@@ -37,7 +37,7 @@
 
 1603932169 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1603951076 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1604002913 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -639,8 +639,9 @@
 	<string.h>
 	"SINO.h"
 
-1603950455 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.cpp
+1604002663 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.cpp
 	<iostream>
+	<cstdio>
 	"MenuDescuento.h"
 	"../clases/Descuento.h"
 
