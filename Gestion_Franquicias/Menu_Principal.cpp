@@ -129,21 +129,29 @@ void Menu_Descuento(){
         system ("cls");
         switch(opcion){
         case 1:
-            Cargar_Medio_pago();
+            CargarDescuento();
             system ("pause");
             system ("cls");
         break;
         case 2:
-            Eliminar_Medio_pago();
+            ModificarEstadoDescuento();
             system ("pause");
             system ("cls");
         break;
         case 3:
-            Listar_Medio_pago();
+            ListarTodosDescuento();
             system ("pause");
             system ("cls");
         break;
         case 4:
+            Mostrar_x_Descuento();
+            system ("pause");
+            system ("cls");
+        break;
+        case 5:
+            ModificarDescuento();
+            system ("pause");
+            system ("cls");
         break;
         default:
             msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);

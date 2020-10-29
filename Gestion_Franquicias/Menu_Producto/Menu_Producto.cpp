@@ -154,7 +154,7 @@ void ventas(){
             else{
                 cout<<"Producto vencido";
             }
-            ///o sino aca boleta
+            ///generar objeto venta
         }
     }while(Continuar()==true);
     cout<<"total $"<<total<<endl;
