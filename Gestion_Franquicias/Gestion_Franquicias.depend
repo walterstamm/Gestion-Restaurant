@@ -27,7 +27,7 @@
 1603944266 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1603944722 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1603949461 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	<cstdio>
 	"Menu_Producto.h"
@@ -218,14 +218,14 @@
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"
 
-1603948188 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
+1603949339 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
 	<cstring>
 	"Descuento.h"
 
-1603948253 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.h
+1603950364 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.h
 	"Fecha.h"
 
 1603943642 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
@@ -635,4 +635,11 @@
 	<iostream>
 	<string.h>
 	"SINO.h"
+
+1603950181 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.cpp
+	<iostream>
+	"MenuDescuento.h"
+	"../clases/Descuento.h"
+
+1603949759 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.h
 

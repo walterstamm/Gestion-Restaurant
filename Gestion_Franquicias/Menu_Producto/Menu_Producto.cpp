@@ -20,7 +20,6 @@ void Cargar_Producto(){
     }
     cout<<"Producto cargado"<<endl;
     uno.~Producto();
-return;
 }
 
 bool Mostrar_Todos_Producto(){
@@ -29,6 +28,7 @@ bool Mostrar_Todos_Producto(){
     FILE*p=fopen("archivos/producto.dat","rb");
         if(p==NULL){
             fclose(p);
+            cout<<"Error de archivo"<<endl;
             return false;
         }
     while(fread(&uno, sizeof(Producto),1,p)){

@@ -9,7 +9,7 @@ Descuento::Descuento(){
     Estado=true;
 }
 
-void Descuento::Cargar_Descuento(){
+bool Descuento::Cargar_Descuento(){
     cout<<"Ingrese el ID de descuento: ";
     cin>>ID;
     while(ID<0 || Validar_ID_Descuento(ID)!=false){ ///validando minima incorrecta que no sea negativo
@@ -31,6 +31,7 @@ void Descuento::Cargar_Descuento(){
         cout<<">> Ingrese el porcentaje: ";
         cin>>Monto;
     }
+return true;
 }
 
 void Descuento::ListarDescuento(){
