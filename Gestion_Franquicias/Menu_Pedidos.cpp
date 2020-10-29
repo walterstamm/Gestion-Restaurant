@@ -1,7 +1,7 @@
 #include<iostream>
 #include<cstdlib>
 #include "Menu_Pedidos.h"
-
+#include "clases/proveedores.h"
 using namespace std;
 
 void Menu_Pedidos(){
@@ -39,4 +39,9 @@ void Menu_Pedidos(){
         break;
         }
     }
+}
+
+void Carga_Provedores(){
+    proveedore provedor;
+    provedor.Cargar_Proveedore();
 }

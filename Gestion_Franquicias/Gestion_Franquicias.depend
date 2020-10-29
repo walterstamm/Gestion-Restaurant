@@ -514,10 +514,11 @@
 1603923975 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\remitos.h
 	"Fecha.h"
 
-1603928939 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
+1603930397 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
 	<iostream>
 	<cstdlib>
 	"Menu_Pedidos.h"
+	"clases/proveedores.h"
 
 1603923721 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.cpp
 	<iostream>
