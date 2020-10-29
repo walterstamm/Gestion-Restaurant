@@ -1,4 +1,5 @@
 #include <iostream>
+#include<cstdio>
 using namespace std;
 #include "MenuDescuento.h"
 #include "../clases/Descuento.h"
