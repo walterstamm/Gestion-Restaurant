@@ -22,6 +22,7 @@ int main(){
         cout<<endl<<"3) MENÚ FACTURACION";
         cout<<endl<<"4) MENÚ STOCK";
         cout<<endl<<"5) MENÚ MEDIOS PAGO";
+        cout<<endl<<"6) MENÚ DESCUENTO";
         cout<<endl<<"7) SALIR DEL PROGRAMA";
         cout<<endl<<"---------------------------";
         cout<<endl<<"\t OPCIÓN: ";
@@ -43,6 +44,7 @@ int main(){
             Menu_Medio_Pago();
         break;
         case 6:
+            Menu_Descuento();
         break;
         case 7:
         break;

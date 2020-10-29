@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603929725 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
+1603950863 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -37,7 +37,7 @@
 
 1603932169 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1603945587 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1603951076 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -45,8 +45,9 @@
 	"InterfazGrafica/ui.h"
 	"Menu_Producto/Menu_Producto.h"
 	"Medio_Pago/Medio_Pago.h"
+	"menus/MenuDescuento.h"
 
-1603853648 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.h
+1603950863 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.h
 
 1603694976 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
 
@@ -636,10 +637,10 @@
 	<string.h>
 	"SINO.h"
 
-1603950181 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.cpp
+1603950455 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.cpp
 	<iostream>
 	"MenuDescuento.h"
 	"../clases/Descuento.h"
 
-1603949759 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.h
+1603950364 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.h
 

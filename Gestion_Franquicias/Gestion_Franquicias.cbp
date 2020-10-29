@@ -67,6 +67,8 @@
 		<Unit filename="clases/proveedores.cpp" />
 		<Unit filename="clases/proveedores.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="menus/MenuDescuento.cpp" />
+		<Unit filename="menus/MenuDescuento.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

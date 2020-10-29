@@ -6,6 +6,7 @@ using namespace std;
 #include "InterfazGrafica/ui.h"
 #include "Menu_Producto/Menu_Producto.h"
 #include "Medio_Pago/Medio_Pago.h"
+#include "menus/MenuDescuento.h"
 
 void MENU_PRODUCTO(){
     short opcion;
@@ -108,6 +109,9 @@ void Menu_Medio_Pago(){
     }while (opcion!=4);
 }
 
+
+///ERROR MIO "matias" ACA EN DESCUENTO CARPETA MEDIOS DE PAGO PREGUNTAR?
+///ME METI EN LA CLASE DE OTRO --?
 void Menu_Descuento(){
     short opcion;
     do{
@@ -116,7 +120,9 @@ void Menu_Descuento(){
         cout<<endl<<"1) CARGAR DESCUENTO";
         cout<<endl<<"2) ELIMINAR DESCUENTO";
         cout<<endl<<"3) LISTAR TODOS LOS DESCUENTOS";
-        cout<<endl<<"4) VOLVER AL MENÚ PRINCIPAL";
+        cout<<endl<<"4) LISTAR DESCUENTOS POR ID";
+        cout<<endl<<"5) MODIFICAR DESCUENTO";
+        cout<<endl<<"6) VOLVER AL MENÚ PRINCIPAL";
         cout<<endl<<"------------------------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
