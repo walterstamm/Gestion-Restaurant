@@ -1,190 +1,79 @@
 # depslib dependency file v1.0
-1603950863 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	<clocale>
-	<iostream>
-	"InterfazGrafica/ui.h"
-	"Menu_Principal.h"
-	"Menu_Pedidos.h"
-
-1603856949 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
-	<iostream>
-	<ctime>
-	"Fecha.h"
-
-1603855803 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
-
-1603944455 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
-	<iostream>
-	<cstdlib>
-	<cstring>
-	<cstdio>
-	"Producto.h"
-	"../Validaciones/SINO.h"
-
-1603944266 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
-	"Fecha.h"
-
-1603949461 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
-	<iostream>
-	<cstdio>
-	"Menu_Producto.h"
-	"../clases/Producto.h"
-	"../Validaciones/SINO.h"
-	"../clases/Fecha.h"
-
-1603932169 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
-
-1603951076 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
-	<iostream>
-	<cstdlib>
-	<clocale>
-	"Menu_Principal.h"
-	"InterfazGrafica/ui.h"
-	"Menu_Producto/Menu_Producto.h"
-	"Medio_Pago/Medio_Pago.h"
-	"menus/MenuDescuento.h"
-
-1603950863 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.h
-
-1603694976 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
-
-1603694976 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"ui.h"
-	"rlutil.h"
-
-1603694976 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\rlutil.h
-	<iostream>
-	<string>
-	<cstdio>
-	<stdio.h>
-	<string.h>
-	<windows.h>
-	<conio.h>
-	<termios.h>
-	<unistd.h>
-	<sys/ioctl.h>
-	<sys/types.h>
-	<sys/time.h>
-
-1603944924 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
-	<iostream>
-	<string.h>
-	<cstdio>
-	"Ventas.h"
-	"Producto.h"
-
-1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
-	<iostream>
-	<cstring>
-	<cstdio>
-	"proveedores.h"
-
-1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.h
-	"Producto.h"
-
-1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
-	<iostream>
-	<ctime>
-	"Fecha.h"
-
-1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\fecha.h
-
-1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\producto.cpp
-	<iostream>
-	<cstring>
-	<cstdio>
-	"Producto.h"
-
-1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\producto.h
-	"Fecha.h"
-
-1602795890 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\main.cpp
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	<clocale>
-	<iostream>
-	"InterfazGrafica/ui.h"
-	"Menu_Principal.h"
-
-1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
-
-1602796649 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\menu_principal.cpp
-	<cstdlib>
-	<clocale>
-	<iostream>
-	"Menu_Principal.h"
-	"InterfazGrafica/ui.h"
-	"Menu_Producto/Menu_Producto.h"
-
-1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\menu_principal.h
-
-1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
-
-1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
-	<iostream>
-	"Menu_Producto.h"
-	"../clases/Producto.h"
-
-1602794670 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
-	<iostream>
-	<cstring>
-	<cstdio>
-	"proveedores.h"
-
-1602794670 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\proveedores.h
-	"Producto.h"
-
-1602794670 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
-	<iostream>
-
-1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"ui.h"
-	"rlutil.h"
-
-1602722789 c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\interfazgrafica\rlutil.h
-	<iostream>
-	<string>
-	<cstdio>
-	<stdio.h>
-	<string.h>
-	<windows.h>
-	<conio.h>
-	<termios.h>
-	<unistd.h>
-	<sys/ioctl.h>
-	<sys/types.h>
-	<sys/time.h>
-
-1603694976 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
+1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
 	<cstring>
 	"Comprobantes.h"
 
-1603694976 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
+1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
 	"Fecha.h"
 
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
+1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.h
+
+1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"Descuento.h"
+
+1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.h
+	"Fecha.h"
+
+1603923941 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.cpp
+	<iostream>
+	"Detalle_Pedidos.h"
+
+1603923773 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.h
+
+1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"Factura.h"
+	"Fecha.h"
+	"Ventas.h"
+	"Producto.h"
+
+1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.h
+	"Fecha.h"
+	"ui.h"
+
+1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ui.h
+
+1604001207 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
+	"Factura.h"
+
+1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.h
+	"Fecha.h"
+
+1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
 	<iostream>
 	<ctime>
 	"Fecha.h"
 
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.h
+1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
+	<iostream>
+	<cstring>
+	<cstdio>
+	"Medios_Pago.h"
 
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
+
+1603923721 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.cpp
+	<iostream>
+	<cstring>
+	<cstdlib>
+	<cstdio>
+	"Pedido.h"
+	"Fecha.h"
+
+1603924044 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.h
+	"Fecha.h"
+
+1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -192,184 +81,32 @@
 	"Producto.h"
 	"../Validaciones/SINO.h"
 
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.h
-	"Fecha.h"
+1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\validaciones\sino.h
 
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
+1604005102 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"proveedores.h"
 
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
+1604005102 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 	"Producto.h"
 
-1603694976 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
+1603924013 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\remitos.cpp
 	<iostream>
-	<cstring>
 	<cstdio>
-	"Medios_Pago.h"
-
-1603694976 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
-
-1603694976 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
-
-1603694976 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
-	<iostream>
-	"Medio_Pago.h"
-	"../clases/Medios_Pago.h"
-
-1603949339 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
-	<iostream>
 	<cstdlib>
-	<cstdio>
-	<cstring>
-	"Descuento.h"
+	"Remitos.h"
 
-1603950364 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.h
+1603923975 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\remitos.h
 	"Fecha.h"
 
-1603943642 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
+1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
 	<iostream>
 	<string.h>
 	<cstdio>
 	"Ventas.h"
 	"Producto.h"
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"ui.h"
-	"rlutil.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\interfazgrafica\rlutil.h
-	<iostream>
-	<string>
-	<cstdio>
-	<stdio.h>
-	<string.h>
-	<windows.h>
-	<conio.h>
-	<termios.h>
-	<unistd.h>
-	<sys/ioctl.h>
-	<sys/types.h>
-	<sys/time.h>
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
-	<iostream>
-	<cstring>
-	<cstdio>
-	"Medios_Pago.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	<clocale>
-	<iostream>
-	"InterfazGrafica/ui.h"
-	"Menu_Principal.h"
-	"Menu_Pedidos.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\menu_principal.h
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
-	<iostream>
-	"Medio_Pago.h"
-	"../clases/Medios_Pago.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\menu_principal.cpp
-	<iostream>
-	<cstdlib>
-	<clocale>
-	"Menu_Principal.h"
-	"InterfazGrafica/ui.h"
-	"Menu_Producto/Menu_Producto.h"
-	"Medio_Pago/Medio_Pago.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
-	<iostream>
-	<cstdio>
-	"Menu_Producto.h"
-	"../clases/Producto.h"
-	"../Validaciones/SINO.h"
-	"../clases/Fecha.h"
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"Descuento.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.h
-	"Fecha.h"
-
-1603943544 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"Factura.h"
-	"Fecha.h"
-	"Ventas.h"
-	"Producto.h"
-
-1603940879 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.h
-	"Fecha.h"
-	"ui.h"
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"Comprobantes.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
-	"Fecha.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ui.h
-
-1603941517 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
-	"Factura.h"
-
-1603944924 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"Factura.h"
-	"Fecha.h"
-	"Ventas.h"
-	"Producto.h"
-
-1603944924 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.h
-	"Fecha.h"
-	"ui.h"
-
-1603694976 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ui.h
-
-1603944924 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.h
-	"Factura.h"
-
-1603859479 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
-	<iostream>
-	<string.h>
-	"SINO.h"
-
-1603856700 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.h
 
 1602799620 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.cpp
 	<iostream>
@@ -395,91 +132,6 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"Comprobantes.h"
-
-1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
-	"Fecha.h"
-
-1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.h
-
-1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"Descuento.h"
-
-1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.h
-	"Fecha.h"
-
-1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
-	<iostream>
-	<cstdlib>
-	<cstdio>
-	<cstring>
-	"Factura.h"
-	"Fecha.h"
-	"Ventas.h"
-	"Producto.h"
-
-1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.h
-	"Fecha.h"
-	"ui.h"
-
-1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ui.h
-
-1604001207 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
-	"Factura.h"
-
-1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
-	<iostream>
-	<ctime>
-	"Fecha.h"
-
-1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
-	<iostream>
-	<cstring>
-	<cstdio>
-	"Medios_Pago.h"
-
-1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
-
-1603923941 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.cpp
-	<iostream>
-	"Detalle_Pedidos.h"
-
-1603923773 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.h
-
-1603923528 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
-	<iostream>
-	<cstring>
-	<cstdio>
-	"proveedores.h"
-
-1603923617 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
-	"Producto.h"
-
-1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.h
-	"Fecha.h"
-
-1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
-	<iostream>
-	<string.h>
-	<cstdio>
-	"Ventas.h"
-	"Producto.h"
-
-1603923727 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\funciones_pedidos.cpp
-	<iostream>
-	"Menu_Pedidos.h"
-
-1603929115 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.h
-
 1604001207 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
@@ -492,12 +144,20 @@
 
 1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_principal.h
 
+1604005103 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.h
+
 1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
 	<iostream>
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"
 
 1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
+
+1604005103 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
+	<iostream>
+	<cstdlib>
+	"Menu_Pedidos.h"
+	"clases/proveedores.h"
 
 1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
@@ -511,46 +171,7 @@
 
 1603933204 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
-	<iostream>
-	<string.h>
-	"SINO.h"
-
-1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\validaciones\sino.h
-
-1603924013 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\remitos.cpp
-	<iostream>
-	<cstdio>
-	<cstdlib>
-	"Remitos.h"
-
-1603923975 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\remitos.h
-	"Fecha.h"
-
-1603933204 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
-	<iostream>
-	<cstdlib>
-	"Menu_Pedidos.h"
-	"clases/proveedores.h"
-
-1603923721 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.cpp
-	<iostream>
-	<cstring>
-	<cstdlib>
-	<cstdio>
-	"Pedido.h"
-	"Fecha.h"
-
-1603924044 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.h
-	"Fecha.h"
-
-1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.cpp
-	<iostream>
-	<cstdlib>
-	<cstring>
-	<cstdio>
-	"Producto.h"
-	"../Validaciones/SINO.h"
+1604001207 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menus\menudescuento.h
 
 1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
@@ -560,97 +181,14 @@
 	"../Validaciones/SINO.h"
 	"../clases/Fecha.h"
 
-1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.cpp
-	<iostream>
-	"Detalle_Pedidos.h"
-
-1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.h
-
-1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\pedido.cpp
-	<iostream>
-	<cstring>
-	<cstdlib>
-	<cstdio>
-	"Pedido.h"
-	"Fecha.h"
-
-1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\pedido.h
-	"Fecha.h"
-
-1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\remitos.cpp
-	<iostream>
-	<cstdio>
-	<cstdlib>
-	"Remitos.h"
-
-1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\remitos.h
-	"Fecha.h"
-
-1603926428 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\funciones_pedidos.cpp
-	<iostream>
-	"Menu_Pedidos.h"
-
-1603926428 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.h
-
-1603932812 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
-	<iostream>
-	<cstdlib>
-	"Menu_Pedidos.h"
-	"clases/proveedores.h"
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.cpp
-	<iostream>
-	"Detalle_Pedidos.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.h
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.cpp
-	<iostream>
-	<cstring>
-	<cstdlib>
-	<cstdio>
-	"Pedido.h"
-	"Fecha.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.h
-	"Fecha.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\validaciones\sino.h
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\remitos.cpp
-	<iostream>
-	<cstdio>
-	<cstdlib>
-	"Remitos.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\remitos.h
-	"Fecha.h"
-
-1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.h
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
-	<iostream>
-	<cstdlib>
-	"Menu_Pedidos.h"
-	"clases/proveedores.h"
-
-1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
-	<iostream>
-	<string.h>
-	"SINO.h"
-
-1603950455 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.cpp
-	<iostream>
-	"MenuDescuento.h"
-	"../clases/Descuento.h"
-
-1603950364 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\menudescuento.h
-
-1604001207 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menus\menudescuento.h
-
 1604001331 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menus\menudescuento.cpp
 	<iostream>
 	<cstdio>
 	"MenuDescuento.h"
 	"../clases/Descuento.h"
+
+1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
+	<iostream>
+	<string.h>
+	"SINO.h"
 

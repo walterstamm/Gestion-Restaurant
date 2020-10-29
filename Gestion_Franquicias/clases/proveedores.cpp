@@ -9,6 +9,7 @@ void proveedore::Cargar_Proveedore(){
     cout<<"Ingrese ID: ";
     cin>>ID;
     cout<<"Nombre del proveedor: ";
+    cin.ignore();
     cin.getline(Nombre, 50, '\n');
         while(Nombre[0]==' '){///validando el nombre que el primer caracter no sea un espacio
             cout<<endl<<"Nombre incorrecta, reingrese el Nombre"<<endl<<endl;
@@ -17,7 +18,7 @@ void proveedore::Cargar_Proveedore(){
         }
         cout<<"Numero de telefono: ";
     cin>>Telefono;
-        while(ID<1000000000){ ///validando telefono que no sea menor a 10 0000 0000
+        while(Telefono<1000000000){ ///validando telefono que no sea menor a 10 0000 0000
             cout<<endl<<"telefono incorrecta, reingrese el telefono"<<endl<<endl;
             cout<<">> Ingrese el telefono: ";
             cin>>Telefono;
@@ -41,4 +42,10 @@ bool proveedore::Guardar_Proveedore(){
     grabo=fwrite(this, sizeof(proveedore),1,p);
     fclose(p);
 return grabo;
+}
+
+
+void proveedore::Listar_Proveedores(){
+   cout<<"Nombre del proveedor: "<<Nombre<<endl;
+
 }

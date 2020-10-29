@@ -20,7 +20,7 @@ void Menu_Pedidos(){
         system ("cls");
         switch(opcion){
         case 1:
-            ///Carga_Provedores();
+            Carga_Provedores();
             break;
         case 2:
 
@@ -29,6 +29,7 @@ void Menu_Pedidos(){
 
         break;
         case 4:
+            Mostrar_Proveedores();
             break;
         case 0:
             return;
@@ -43,5 +44,20 @@ void Menu_Pedidos(){
 
 void Carga_Provedores(){
     proveedore provedor;
+    bool Valido;
     provedor.Cargar_Proveedore();
+    Valido=provedor.Guardar_Proveedore();
+    if(Valido){
+        cout<<endl<<"Se ha guardado exitosamente el nuevo Proveedor";
+        system("pause");
+        return;
+    }
+
+    cout<<endl<<"No se ha podido guardar....";
+}
+
+
+void Mostrar_Proveedores(){
+    FILE Registros;
+
 }

@@ -12,6 +12,7 @@ private:
 public:
     proveedore(){ Telefono=0;};
     void Cargar_Proveedore();
+    void Listar_Proveedores();
     bool Guardar_Proveedore();
     bool Eliminar_Proveedor();
 };
