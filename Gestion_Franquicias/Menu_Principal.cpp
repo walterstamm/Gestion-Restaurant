@@ -6,6 +6,7 @@ using namespace std;
 #include "InterfazGrafica/ui.h"
 #include "Menu_Producto/Menu_Producto.h"
 #include "Medio_Pago/Medio_Pago.h"
+#include "menus/MenuDescuento.h"
 
 void MENU_PRODUCTO(){
     short opcion;
@@ -19,7 +20,7 @@ void MENU_PRODUCTO(){
         cout<<endl<<"5) LISTAR PRODUCTO POR ID";
         cout<<endl<<"6) ELIMINAR PRODUCTO";
         cout<<endl<<"7) VOLVER AL MENÚ PRINCIPAL";
-        cout<<endl<<"8) comprar";
+        cout<<endl<<"8) VENDER";
         cout<<endl<<"--------------------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
@@ -108,6 +109,9 @@ void Menu_Medio_Pago(){
     }while (opcion!=4);
 }
 
+
+///ERROR MIO "matias" ACA EN DESCUENTO CARPETA MEDIOS DE PAGO PREGUNTAR?
+///ME METI EN LA CLASE DE OTRO --?
 void Menu_Descuento(){
     short opcion;
     do{
@@ -116,28 +120,38 @@ void Menu_Descuento(){
         cout<<endl<<"1) CARGAR DESCUENTO";
         cout<<endl<<"2) ELIMINAR DESCUENTO";
         cout<<endl<<"3) LISTAR TODOS LOS DESCUENTOS";
-        cout<<endl<<"4) VOLVER AL MENÚ PRINCIPAL";
+        cout<<endl<<"4) LISTAR DESCUENTOS POR ID";
+        cout<<endl<<"5) MODIFICAR DESCUENTO";
+        cout<<endl<<"6) VOLVER AL MENÚ PRINCIPAL";
         cout<<endl<<"------------------------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
         system ("cls");
         switch(opcion){
         case 1:
-            Cargar_Medio_pago();
+            CargarDescuento();
             system ("pause");
             system ("cls");
         break;
         case 2:
-            Eliminar_Medio_pago();
+            ModificarEstadoDescuento();
             system ("pause");
             system ("cls");
         break;
         case 3:
-            Listar_Medio_pago();
+            ListarTodosDescuento();
             system ("pause");
             system ("cls");
         break;
         case 4:
+            Mostrar_x_Descuento();
+            system ("pause");
+            system ("cls");
+        break;
+        case 5:
+            ModificarDescuento();
+            system ("pause");
+            system ("cls");
         break;
         default:
             msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);

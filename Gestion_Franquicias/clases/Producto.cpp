@@ -138,7 +138,14 @@ bool ValidarIDProducto(int _ID){
 return false; ///retorna -1 si no encontro el ID
 }
 
-
+bool Producto::ValidarCantidadProducto(int _cantidad){
+    if(_cantidad> Cantidad){
+        cout<<"Cantidad excedida"<<endl;
+        cout<<"usted cuenta con: "<<Cantidad<<endl;
+        return false;
+    }
+return true;
+}
 
 
 
