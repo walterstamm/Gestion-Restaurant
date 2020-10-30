@@ -6,9 +6,8 @@ using namespace std;
 #include "Producto.h"
 
 Ventas::Ventas(){
-
     Cod_Producto = 0;
-    strcpy(Descripcion, '\0');
+    Descripcion[0]= {};
     Cant_Producto = 0;
     Precio = 0;
     Importe = 0;

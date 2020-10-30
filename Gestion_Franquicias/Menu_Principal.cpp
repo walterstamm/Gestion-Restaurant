@@ -153,9 +153,11 @@ void Menu_Descuento(){
             system ("pause");
             system ("cls");
         break;
+        case 6:
+        break;
         default:
             msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);
         break;
         }
-    }while (opcion!=4);
+    }while (opcion!=6);
 }

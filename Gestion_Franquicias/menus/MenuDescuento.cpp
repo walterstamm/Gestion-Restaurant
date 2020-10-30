@@ -10,7 +10,7 @@ void CargarDescuento(){
         cout<<"Error de carga de descuento"<<endl;
         return;
     }
-    if(uno.Guardar_Descuento()){
+    if(uno.Guardar_Descuento()==false){
         cout<<"Error al guardar el producto de descuento"<<endl;
         return;
     }
@@ -29,6 +29,7 @@ bool ListarTodosDescuento(){
         if(uno.getEstado()==true){
             uno.ListarDescuento();
             mostro=true;
+            cout<<endl<<endl;
         }
     }
     fclose(p);
@@ -44,7 +45,12 @@ void Mostrar_x_Descuento(){
         cout<<"Producto inexistente"<<endl;
         return;
     }
+    if(uno.getEstado()==false){
+        cout<<"Producto eliminado"<<endl;
+        return;
+    }
     uno.ListarDescuento();
+    cout<<endl;
 }
 
 void ModificarDescuento(){
@@ -58,20 +64,21 @@ void ModificarDescuento(){
         return;
     }
     uno.ListarDescuento();
+    cout<<endl<<endl;
     float monto, porcentaje;
-    cout<<"Ingrese el monto minimo para acceder al descuento: ";
+    cout<<"Ingrese el monto minimo para acceder al descuento: $";
     cin>>monto;
     while(monto<0){ ///validando minima incorrecta que no sea negativo
-        cout<<endl<<"cantidad monto, reingrese la monto"<<endl<<endl;
-        cout<<">> Ingrese el monto: ";
+        cout<<endl<<"Error monto, reingrese la monto"<<endl<<endl;
+        cout<<">> Ingrese el monto: $";
         cin>>monto;
     }
     uno.setMonto(monto);
-    cout<<"Ingrese el procentaje: ";
+    cout<<"Ingrese el procentaje: %";
     cin>>porcentaje;
-    while(porcentaje<0 || porcentaje<100){ ///validando minima incorrecta que no sea negativo
-        cout<<endl<<"cantidad porcentaje, reingrese la porcentaje"<<endl<<endl;
-        cout<<">> Ingrese el porcentaje: ";
+    while(porcentaje<0 || porcentaje>100){ ///validando minima incorrecta que no sea negativo
+        cout<<endl<<"Error porcentaje, reingrese la porcentaje"<<endl<<endl;
+        cout<<">> Ingrese el porcentaje: %";
         cin>>porcentaje;
     }
     uno.setPorcentaje(porcentaje);
@@ -93,6 +100,7 @@ void ModificarEstadoDescuento(){
         return;
     }
     uno.ListarDescuento();
+    cout<<endl<<endl;
     uno.setEstado(false);
     if(uno.ModificarDescuento(pos)==false){
         cout<<"Descuento no guardado";
