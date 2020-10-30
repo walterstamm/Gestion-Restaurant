@@ -20,9 +20,13 @@ Factura::~Factura(){
     cout<<"\nDESTRUCTOR\n";
 }
 
+void Factura::setNroFact(int Nro){
+    Nro_Fact = Nro;
+}
+
 void Factura::setFactura(int Cliente){
     cout<<"NUEVA FACTURA\n";
-    Nro_Fact = Leo_Factura();
+    Nro_Fact = Leo_Factura()+1;
     Nro_Cliente = Cliente;
     Total_Pagar=0;///FUNCION PARA SUMAR LA VENTA FALTA
 
@@ -47,7 +51,7 @@ int Factura::Leo_Factura(){
     ///Vuelve 1 posición para leer el registro grabado
     fseek(Fact,-1*sizeof(Factura), SEEK_END); ///tiene un warning osea futuro error
     fread(this, sizeof(Factura), 1, Fact);///Muestro lo grabado recien
-    Nuevo_Nro = Nro_Fact+1;
+    Nuevo_Nro = Nro_Fact;
     return Nuevo_Nro;
 }
 
@@ -92,45 +96,45 @@ void MENU_FACTURACION(){
         cout<<"============================================\n";
 
     switch(Opcion){
-        case 1:{
+        case 1:
+            int NroFactura;
+            int CodProducto, CantProducto;
+            char Descrip[20];
+            float Precios;
+            {
             Factura Nueva;
-            ///Ventas Vent;
-            ///Producto Prod;
             int Cliente=-1;
             cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
             ///GENERO NRO FACTURA CON NRO CLIENTE EN LA MEMORIA.
             Nueva.setFactura(Cliente);
+            system("pause");
             Nueva.getFactura();
+            Nueva.Guardo();
+            NroFactura = Nueva.getNro_Factura();
             }
-            ///GUARDO EN EL ARCHIVO EL NUMERO DE FACTRA Y NRO CLIENTE
-            /**if(Nueva.Guardo()){
-                cout<<"Se grabó correctamente";
-            }
-            cout<<"\nBusco\n";
-            Nueva.Muestro_Guardado();
-            cout<<"\nMuestro\n";
-            Nueva.getNro_Factura();*/
-            /**{
-            int CodProducto, CantProducto;
-            char Descrip[20];
-            float Precios;
-            Vent.setNro_Factura(Nueva.getNro_Factura());///guardo el Nro_Fact en Ventas VERRRRRRRRRR
+            cout<<"NroFactura: "<<NroFactura<<endl;
+            {
+            Producto Prod;
+
             cout<<"\nCodProducto: "; cin>>CodProducto;
             FILE *Pr = fopen("archivos/Producto.dat", "rb");
             if(Pr == NULL) {return; }
             while(fread(&Prod, sizeof(Producto), 1, Pr)){
                 if(Prod.getID() == CodProducto){
                     strcpy(Descrip, Prod.getNombre());
-                    Vent.setPrecio(Prod.getPrecio());
+                    Precios=(Prod.getPrecio());
                 }
             }
-            cout<<"\nCantProducto: "; cin>>CantProducto;
-            Vent.Cargar_Venta(CodProducto, CantProducto, Precios);
+            }
+            cout<<"CodProducto: "<<CodProducto<<endl;
+            cout<<"Descrip: "<<Descrip<<endl;
+            cout<<"Precios: "<<Precios;
+            {
+            Ventas Vent;
+            Vent.Cargar_Venta(NroFactura, CodProducto, Descrip, CantProducto, Precios);
             Vent.getVentas();
-            Nueva.~Factura();
-            Vent.~Ventas();
-            Prod.~Producto();
-        }*/
+            system("pause");
+            }
         break;
         case 2:{
             Factura Nueva;

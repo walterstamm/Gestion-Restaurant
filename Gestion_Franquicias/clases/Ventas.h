@@ -12,8 +12,8 @@ class Ventas{
         float Importe;
 
     public:
-             Ventas();
-            ~Ventas();
+        Ventas();
+        ~Ventas();
         void setNro_Factura(int);
         Factura getNro_Fact(Factura);
         void setCod_Producto();
@@ -21,7 +21,7 @@ class Ventas{
         void setCant_Producto();
         void setPrecio(float);
         void setImporte();
-        void Cargar_Venta(int, int, float);
+        void Cargar_Venta(int, int , char *, int, float);
         void getVentas();
 };
 

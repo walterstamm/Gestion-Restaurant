@@ -6,7 +6,6 @@ using namespace std;
 #include "Producto.h"
 
 Ventas::Ventas(){
-
     Cod_Producto = 0;
     strcpy(Descripcion, '\0');
     Cant_Producto = 0;
@@ -18,27 +17,13 @@ Ventas::~Ventas(){
 
 }
 
-void Ventas::Cargar_Venta(int CodProducto, int CantProducto, float Precios){
-
-        Cod_Producto = CodProducto;
-        {   ///OJO BUSCAR POR CODIGO
-            FILE *Venta=fopen("archivos/Producto.dat", "rb");
-            if(Venta == NULL){
-                return;
-            }
-            while(fread(this, sizeof(Producto), 1, Venta)){
-               /* if(ID == Cod_Producto){
-                    strcpy(Producto.Nombre, Ventas.Descripcion);
-                    Ventas.Precio == Producto.Precio;
-                }*/
-                ///ID no esta declarado
-            }
-        }
-        Importe = Precio * Cant_Producto;
-}
-
-void Ventas::setNro_Factura(int Nro_F){
-///    Nro_Factura = Nro_F;
+void Ventas::Cargar_Venta(int NroFact, int CodProd, char *Descr, int CantPr, float Prec){
+        Nro_Factura.setNroFact(NroFact);
+        Cod_Producto = CodProd;
+        strcpy(Descripcion, Descr);
+        Cant_Producto = CantPr;
+        Precio = Prec;
+        Importe = float(Precio * Cant_Producto);
 }
 
 void Ventas::setCod_Producto(){

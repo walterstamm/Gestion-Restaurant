@@ -15,8 +15,9 @@ class Factura{
         Factura();
         ~Factura();
         void setFactura(int);
+        void setNroFact(int);
         void getFactura();
-        int getNro_Factura();//get
+        int getNro_Factura();
         int Leo_Factura();
         bool Guardo();
         void Muestro_Guardado();
