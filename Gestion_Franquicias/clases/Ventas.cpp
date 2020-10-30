@@ -8,7 +8,7 @@ using namespace std;
 Ventas::Ventas(){
 
     Cod_Producto = 0;
-    ///strcpy(Descripcion, '\0');///strcpy(aux,"\0"); ///me da error
+    strcpy(Descripcion, '\0');
     Cant_Producto = 0;
     Precio = 0;
     Importe = 0;
@@ -60,7 +60,7 @@ void Ventas::setImporte(){
 ///este get no retorna nada da otro error
 
 void Ventas::getVentas(){
-    cout<<"\nNro_Factura: "<<Nro_Factura.getFactura();
+    cout<<"\nNro_Factura: "<<Nro_Factura.getNro_Factura();
     cout<<"\nCod_Produto: "<<Cod_Producto;
     cout<<"\nDescripción: "<<Descripcion;
     cout<<"\nCant_Producto:"<<Cant_Producto;

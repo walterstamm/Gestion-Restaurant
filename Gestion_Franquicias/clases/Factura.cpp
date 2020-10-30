@@ -9,9 +9,9 @@ using namespace std;
 #include "Producto.h"
 
 Factura::Factura(){
-    cout<<"CONSTRUCTOR\n";
     Nro_Fact = 0;
-    Fecha_Factura.Cargar_Fecha();
+    ///cout<<"Fecha 1\n";
+    ///Fecha_Factura.Cargar_Fecha();
     Nro_Cliente = 0;
     Total_Pagar=0;
 }
@@ -24,9 +24,20 @@ void Factura::setFactura(int Cliente){
     cout<<"NUEVA FACTURA\n";
     Nro_Fact = Leo_Factura();
     Nro_Cliente = Cliente;
-    Fecha_Factura.Cargar_Fecha();
     Total_Pagar=0;///FUNCION PARA SUMAR LA VENTA FALTA
 
+}
+
+void Factura::getFactura(){
+    Fecha *p;
+    p = new Fecha;
+    cout<<"Nro_Fact: "<<Nro_Fact<<endl;
+    cout<<"Fecha_Factura: ";
+    p->Mostrar_Fecha();
+    cout<<"\nNro_Cliente: "<<Nro_Cliente<<endl;
+    cout<<"Total_Pagar: "<<Total_Pagar<<endl;
+    system("pause");
+    system("cls");
 }
 
 int Factura::Leo_Factura(){
@@ -40,7 +51,7 @@ int Factura::Leo_Factura(){
     return Nuevo_Nro;
 }
 
-int Factura::getFactura(){
+int Factura::getNro_Factura(){
     return Nro_Fact;
     /**cout<<"\nNro_Fact:      "<<Nro_Fact;
     cout<<"\nNro_Cliente:   "<<Nro_Cliente;
@@ -64,14 +75,6 @@ void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
     fread(this, sizeof(Factura), 1, Fact);///Muestro lo grabado recien
 }
 
-void Factura::setfecha(Fecha f){
-    Fecha_Factura = f;
-}
-
-Fecha Factura::getfecha(){
-    return Fecha_Factura;
-}
-
 void MENU_FACTURACION(){
     int Opcion;
     while(Opcion){
@@ -86,31 +89,32 @@ void MENU_FACTURACION(){
         cout<<"\n00- Volver al MENÚ PRINCIPAL................";
         cout<<"\n============================================";
         cout<<"\nOpción: "; cin>>Opcion;
-        cout<<"\n============================================";
+        cout<<"============================================\n";
 
     switch(Opcion){
         case 1:{
-
             Factura Nueva;
-            Ventas Vent;
-            Producto Prod;
+            ///Ventas Vent;
+            ///Producto Prod;
             int Cliente=-1;
             cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
+            ///GENERO NRO FACTURA CON NRO CLIENTE EN LA MEMORIA.
             Nueva.setFactura(Cliente);
-            if(Nueva.Guardo()){
+            Nueva.getFactura();
+            }
+            ///GUARDO EN EL ARCHIVO EL NUMERO DE FACTRA Y NRO CLIENTE
+            /**if(Nueva.Guardo()){
                 cout<<"Se grabó correctamente";
             }
             cout<<"\nBusco\n";
             Nueva.Muestro_Guardado();
             cout<<"\nMuestro\n";
-            Nueva.getFactura();
-
-            cout<<"\n=====================================================\n";
-
+            Nueva.getNro_Factura();*/
+            /**{
             int CodProducto, CantProducto;
             char Descrip[20];
             float Precios;
-            Vent.setNro_Factura(Nueva.getFactura());///guardo el Nro_Fact en Ventas VERRRRRRRRRR
+            Vent.setNro_Factura(Nueva.getNro_Factura());///guardo el Nro_Fact en Ventas VERRRRRRRRRR
             cout<<"\nCodProducto: "; cin>>CodProducto;
             FILE *Pr = fopen("archivos/Producto.dat", "rb");
             if(Pr == NULL) {return; }
@@ -121,15 +125,22 @@ void MENU_FACTURACION(){
                 }
             }
             cout<<"\nCantProducto: "; cin>>CantProducto;
-
             Vent.Cargar_Venta(CodProducto, CantProducto, Precios);
             Vent.getVentas();
-
-        /// esto tiene que estar dentro de una funcion -- linea 102 error no esta definido
-        }
-
+            Nueva.~Factura();
+            Vent.~Ventas();
+            Prod.~Producto();
+        }*/
         break;
-        case 2:
+        case 2:{
+            Factura Nueva;
+            ///Ventas Vent;
+            int Cliente=-1;
+            cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
+            ///Vent.getVentas();
+            Nueva.~Factura();
+            ///Vent.~Ventas();
+        }
 
         break;
         case 0:
@@ -138,9 +149,6 @@ void MENU_FACTURACION(){
         default:
             cout<<"\nIngrese la opción correcta";
         break;
-
-
-
     }
 
     }

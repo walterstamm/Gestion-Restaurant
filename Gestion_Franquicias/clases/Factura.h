@@ -15,12 +15,12 @@ class Factura{
         Factura();
         ~Factura();
         void setFactura(int);
-        int getFactura();
+        void getFactura();
+        int getNro_Factura();//get
         int Leo_Factura();
         bool Guardo();
         void Muestro_Guardado();
-        void setfecha(Fecha);
-        Fecha getfecha();
+
 };
 
 
