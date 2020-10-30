@@ -13,34 +13,35 @@ bool Descuento::Cargar_Descuento(){
     cout<<"Ingrese el ID de descuento: ";
     cin>>ID;
     while(ID<0 || Validar_ID_Descuento(ID)!=false){ ///validando minima incorrecta que no sea negativo
-        cout<<endl<<"cantidad ID, reingrese la ID"<<endl<<endl;
+        cout<<endl<<"Error ID, reingrese la ID"<<endl<<endl;
         cout<<">> Ingrese el ID: ";
         cin>>ID;
     }
-    cout<<"Ingrese el monto minimo para acceder al descuento: ";
+    cout<<"Ingrese el monto minimo para acceder al descuento: $";
     cin>>Monto;
     while(Monto<0){ ///validando minima incorrecta que no sea negativo
-        cout<<endl<<"cantidad monto, reingrese la monto"<<endl<<endl;
-        cout<<">> Ingrese el monto: ";
+        cout<<endl<<"Error monto, reingrese la monto"<<endl<<endl;
+        cout<<">> Ingrese el monto: $";
         cin>>Monto;
     }
-    cout<<"Ingrese el porcentaje de descuento: ";
+    cout<<"Ingrese el porcentaje de descuento: %";
     cin>>Porcentaje;
-    while(Porcentaje<0 || Porcentaje<100){ ///validando minima incorrecta que no sea negativo
-        cout<<endl<<"cantidad porcentaje, reingrese la porcentaje"<<endl<<endl;
-        cout<<">> Ingrese el porcentaje: ";
+    while(Porcentaje<0 || Porcentaje>100){ ///validando minima incorrecta que no sea negativo
+        cout<<endl<<"Error porcentaje, reingrese la porcentaje"<<endl<<endl;
+        cout<<">> Ingrese el porcentaje: %";
         cin>>Monto;
     }
 return true;
 }
 
 void Descuento::ListarDescuento(){
-    cout<<"ID: "<<ID;
-    cout<<"Monto minimo: "<<Monto;
-    cout<<"Porcentaje: "<<Porcentaje;
-    cout<<"Estado: "<<Estado;
+    cout<<"ID: "<<ID<<endl;
+    cout<<"Monto minimo: "<<Monto<<endl;
+    cout<<"Porcentaje: "<<Porcentaje<<endl;
+    cout<<"Estado: "<<Estado<<endl;
     cout<<"Fecha inicio"<<endl;
     Actual.Mostrar_Fecha();
+    cout<<endl;
 }
 
 bool Descuento::Guardar_Descuento(){
