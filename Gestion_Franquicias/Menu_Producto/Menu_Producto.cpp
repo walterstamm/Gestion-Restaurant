@@ -4,7 +4,8 @@ using namespace std;
 #include "Menu_Producto.h"
 #include "../clases/Producto.h"
 #include "../Validaciones/SINO.h"
-#include"../clases/Fecha.h"
+#include "../clases/Descuento.h"
+
 
 void Cargar_Producto(){
     Producto uno;
@@ -157,6 +158,7 @@ void ventas(){
             ///generar objeto venta
         }
     }while(Continuar()==true);
+    total=GenerarDescuento(total);
     cout<<"total $"<<total<<endl;
     ///boleta
 }

@@ -62,7 +62,7 @@ return true;
 
 bool SINO(){
     char opcion[3]={};
-    cout<<" Desea continuar (SI/NO): ";
+    cout<<"(SI/NO): ";
     cin.ignore();
     cin.getline(opcion, 4, '\n');
     if((strcmp(opcion, "si") && strcmp(opcion, "SI") && strcmp(opcion, "Si") && strcmp(opcion, "sI")) ==0){
@@ -91,7 +91,7 @@ return true;
 
 bool SINO_SinCinIgnore(){
     char opcion[3]={};
-    cout<<" Desea continuar (SI/NO): ";
+    cout<<"(SI/NO): ";
     cin.getline(opcion, 4, '\n');
     if((strcmp(opcion, "si") && strcmp(opcion, "SI") && strcmp(opcion, "Si") && strcmp(opcion, "sI")) ==0){
         return true;

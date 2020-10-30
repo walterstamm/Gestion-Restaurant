@@ -138,6 +138,6 @@ float GenerarDescuento(float total){
         cout<<"Descuento eliminado"<<endl;
         return total;
     }
-    cout<<"Porcentaje de descuento %"<<uno.getPorcentaje();
+    cout<<"Porcentaje de descuento %"<<uno.getPorcentaje()<<endl;
 return uno.GenerarDescuento(total);
 }
