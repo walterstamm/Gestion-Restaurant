@@ -37,7 +37,7 @@
 
 1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1604031838 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1604033516 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -219,14 +219,15 @@
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"
 
-1604031839 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
+1604033695 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
 	<cstring>
 	"Descuento.h"
+	"../Validaciones/SINO.h"
 
-1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.h
+1604033661 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.h
 	"Fecha.h"
 
 1604027866 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
@@ -365,12 +366,12 @@
 1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
-1604031839 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
+1604033730 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
 	<iostream>
 	<string.h>
 	"SINO.h"
 
-1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.h
+1604033916 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.h
 
 1602799620 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.cpp
 	<iostream>

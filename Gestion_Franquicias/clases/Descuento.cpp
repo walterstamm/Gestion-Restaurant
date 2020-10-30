@@ -4,6 +4,7 @@
 #include<cstring>
 using namespace std;
 #include "Descuento.h"
+#include "../Validaciones/SINO.h"
 
 Descuento::Descuento(){
     Estado=true;
@@ -101,4 +102,36 @@ bool Validar_ID_Descuento(int _ID){
     }
     fclose(p);
 return false; ///retorna -1 si no encontro el ID
+}
+
+float Descuento::GenerarDescuento(float total){
+    if(total<Monto){
+        cout<<"No supera el monto de descuento"<<endl;
+        return total;
+    }
+return ((Porcentaje*total)/100);
+}
+
+float GenerarDescuento(float total){
+    cout<<"Desea generar descuento"<<endl;
+    if(Continuar()==false){
+        return total;
+    }
+    int ID;
+    cout<<"ID del descuento: ";
+    cin>>ID;
+    Descuento uno;
+    if(uno.Buscar_Descuento_ID(ID)==-1){
+        cout<<"Descuento inexistente"<<endl;
+        return total;
+    }
+    if(uno.getEstado()==false){
+        cout<<"Descuento eliminado"<<endl;
+        return total;
+    }
+    uno.ListarDescuento();
+    cout<<endl;
+    total=uno.GenerarDescuento(total);
+    cout<<total<<endl;
+return total;
 }

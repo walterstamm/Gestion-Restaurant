@@ -109,9 +109,6 @@ void Menu_Medio_Pago(){
     }while (opcion!=4);
 }
 
-
-///ERROR MIO "matias" ACA EN DESCUENTO CARPETA MEDIOS DE PAGO PREGUNTAR?
-///ME METI EN LA CLASE DE OTRO --?
 void Menu_Descuento(){
     short opcion;
     do{

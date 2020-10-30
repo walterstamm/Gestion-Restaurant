@@ -22,9 +22,10 @@ class Descuento{
         void setMonto(float _Monto){Monto=_Monto;}
         void setPorcentaje(float _Porcentaje){Porcentaje=_Porcentaje;}
         void setEstado(bool _Estado){Estado=_Estado;}
+        float GenerarDescuento(float);
 };
 
 bool Validar_ID_Descuento(int);
-
+float GenerarDescuento(float);
 
 #endif // DESCUENTO_H_INCLUDED
