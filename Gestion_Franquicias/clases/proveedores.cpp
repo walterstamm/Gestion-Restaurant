@@ -46,6 +46,10 @@ return grabo;
 
 
 void proveedore::Listar_Proveedores(){
+   cout<<"ID: "<<ID<<endl;
    cout<<"Nombre del proveedor: "<<Nombre<<endl;
+   cout<<"Telefono: "<<Telefono<<endl;
+   cout<<"Nota: "<<Nota<<endl;
+   cout<<endl<<endl;
 
 }

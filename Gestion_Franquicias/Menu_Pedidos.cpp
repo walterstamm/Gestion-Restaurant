@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cstdlib>
+#include<cstdio>
 #include "Menu_Pedidos.h"
 #include "clases/proveedores.h"
 using namespace std;
@@ -52,12 +53,22 @@ void Carga_Provedores(){
         system("pause");
         return;
     }
-
     cout<<endl<<"No se ha podido guardar....";
+    system("pause");
 }
 
 
 void Mostrar_Proveedores(){
-    FILE Registros;
-
+    proveedore reg;
+    FILE *Registros=fopen("archivos/Proveedores.dat","rb");
+    if(Registros==NULL){
+        cout<<"Error al abrir registro";
+        system("pause");
+        return;
+    }
+    while(fread(&reg,sizeof(proveedore),1,Registros)){
+    reg.Listar_Proveedores();
+    }
+    system("pause");
+    system("cls");
 }
