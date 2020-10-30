@@ -21,7 +21,6 @@ void Pedido::setFecha(){
    Fecha_Entrega=_Fecha;
 }
 bool Pedido::Cargar_Pedido(){
-    int dia,mes,anio;
     cout<<"Ingrese el Codigo del Producto: "<<endl;
     cin>>Codigo_Producto;
     cout<<"Cantidad: "<<endl;
