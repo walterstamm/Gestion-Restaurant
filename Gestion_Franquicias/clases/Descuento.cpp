@@ -14,7 +14,11 @@ bool Descuento::Cargar_Descuento(){
     cout<<"Ingrese el ID de descuento: ";
     cin>>ID;
     while(ID<0 || Validar_ID_Descuento(ID)!=false){ ///validando minima incorrecta que no sea negativo
-        cout<<endl<<"Error ID, reingrese la ID"<<endl<<endl;
+        cout<<endl<<"Error ID"<<endl<<endl;
+            if(Continuar()==false){
+                system ("cls");
+                return false;
+            }
         cout<<">> Ingrese el ID: ";
         cin>>ID;
     }
@@ -113,25 +117,27 @@ return ((Porcentaje*total)/100);
 }
 
 float GenerarDescuento(float total){
-    cout<<"Desea generar descuento"<<endl;
-    if(Continuar()==false){
+    cout<<"Desea generar descuento ";
+    if(SINO_SinCinIgnore()==false){
         return total;
     }
     int ID;
     cout<<"ID del descuento: ";
     cin>>ID;
     Descuento uno;
-    if(uno.Buscar_Descuento_ID(ID)==-1){
-        cout<<"Descuento inexistente"<<endl;
-        return total;
+    while(uno.Buscar_Descuento_ID(ID)==-1){
+        cout<<endl<<"Error ID"<<endl;
+            if(Continuar()==false){
+                system ("cls");
+                return false;
+            }
+        cout<<">> Ingrese el ID: ";
+        cin>>ID;
     }
     if(uno.getEstado()==false){
         cout<<"Descuento eliminado"<<endl;
         return total;
     }
-    uno.ListarDescuento();
-    cout<<endl;
-    total=uno.GenerarDescuento(total);
-    cout<<total<<endl;
-return total;
+    cout<<"Porcentaje de descuento %"<<uno.getPorcentaje();
+return uno.GenerarDescuento(total);
 }

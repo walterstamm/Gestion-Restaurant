@@ -219,7 +219,7 @@
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"
 
-1604033695 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
+1604034432 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -366,7 +366,7 @@
 1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
-1604033730 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
+1604033916 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
 	<iostream>
 	<string.h>
 	"SINO.h"
