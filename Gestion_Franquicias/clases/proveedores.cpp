@@ -1,13 +1,20 @@
 #include <iostream>
 using namespace std;
+#include<cstdlib>
 #include <cstring>
 #include <cstdio>
 #include "proveedores.h"
 
 void proveedore::Cargar_Proveedore(){
     int cantidad;
+
     cout<<"Ingrese ID: ";
     cin>>ID;
+    while(ID<0 || ValidarIDProveedores(ID)){
+        cout<<endl<<"ID invalido, reingrese ID: ";
+        cin>>ID;
+    }
+
     cout<<"Nombre del proveedor: ";
     cin.ignore();
     cin.getline(Nombre, 50, '\n');
@@ -52,4 +59,25 @@ void proveedore::Listar_Proveedores(){
    cout<<"Nota: "<<Nota<<endl;
    cout<<endl<<endl;
 
+}
+
+int proveedore::getID(){
+    return ID;
+}
+bool ValidarIDProveedores(int _ID){
+    proveedore reg;
+    FILE *p=fopen("archivos/Proveedores.dat","rb");
+    if(p==NULL){
+        cout<<"Error";
+        system("pause");
+        return false;
+    }
+    while(fread(&reg,sizeof(proveedore),1,p)){
+        if(_ID==reg.getID()){
+            fclose(p);
+            return false;
+        }
+    }
+    fclose(p);
+    return true;
 }

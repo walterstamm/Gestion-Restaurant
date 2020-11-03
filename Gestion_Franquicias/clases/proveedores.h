@@ -15,6 +15,8 @@ public:
     void Listar_Proveedores();
     bool Guardar_Proveedore();
     bool Eliminar_Proveedor();
+    bool ValidarIDProveedores(int);
+    int getID();
 };
 
 #endif // PROVEEDORES_H_INCLUDED

@@ -458,13 +458,14 @@
 
 1603923773 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.h
 
-1604100296 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
+1604102716 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
 	<iostream>
+	<cstdlib>
 	<cstring>
 	<cstdio>
 	"proveedores.h"
 
-1604005102 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
+1604102705 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 	"Producto.h"
 
 1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.h
@@ -530,7 +531,7 @@
 1603923975 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\remitos.h
 	"Fecha.h"
 
-1604099999 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
+1604100343 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
