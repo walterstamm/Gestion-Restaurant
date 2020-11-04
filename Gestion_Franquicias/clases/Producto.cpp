@@ -17,7 +17,7 @@ Producto::~Producto(){
 bool Producto::Cargar_Producto(){
     cout<<"Ingrese el ID ";
     cin>>ID;
-        while(ID<0 || ValidarIDProducto(ID)!=false){ ///validando id que no sea negativo
+        while(ID<0 || ValidarIDProducto(ID)!=false){ ///validando id que no sea negativo y no se repita
             cout<<"Error ID";
                 if(Continuar()==false){
                     system ("cls");
@@ -50,7 +50,7 @@ bool Producto::Cargar_Producto(){
         }
     cout<<"Ingrese la cantidad minima: ";
     cin>>Cantidad_Minima;
-        while(Cantidad_Minima<0){ ///validando minima incorrecta que no sea negativo
+        while(Cantidad_Minima<0){ ///validando minima que no sea negativo
             cout<<endl<<"cantidad minima incorrecta, reingrese la cantidad mínima"<<endl<<endl;
             cout<<">> Ingrese el cantidad mínima: ";
             cin>>Cantidad_Minima;
@@ -95,7 +95,7 @@ int Producto::Buscar_Producto_ID(int _ID){
     FILE *p=fopen("archivos/producto.dat","rb");
         if(p==NULL){
             fclose(p);
-            return -1;
+            return -1;///retorna -1 si no encontro el ID
         }
     while(fread(this, sizeof(Producto),1,p)){
         if(ID==_ID){

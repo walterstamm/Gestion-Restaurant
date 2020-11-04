@@ -3,7 +3,7 @@ using namespace std;
 #include <ctime>
 #include "Fecha.h"
 
-Fecha::Fecha(){///PREGUNTO ESTE NO TIENE PRIVATE Y/O PUBLIC
+Fecha::Fecha(){
     time_t tiempo;
     struct tm *tmPtr;
     tiempo = time(NULL);
@@ -24,7 +24,7 @@ bool Fecha::Cargar_Fecha(){
     if((dia<=0)||(mes<=0)||(anio<=0)){///verificamos que la fecha no sea negativa
         return false;
     }
-    ///fecha nacimiento no sea mayor a la fecha actual--con 3 preguntas ((anio), (anio y mes), (anio, mes y dia))
+    ///fecha de ingreso no sea mayor a la fecha actual--con 3 preguntas ((anio), (anio y mes), (anio, mes y dia))
     Fecha uno;///creamos otra fecha para verificar
     if((anio>uno.anio)||((anio==uno.anio)&&(mes>uno.mes))||((anio==uno.anio)&&(mes>=uno.mes)&&(dia>uno.dia))){
         return false;

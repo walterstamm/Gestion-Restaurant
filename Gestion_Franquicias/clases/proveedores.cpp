@@ -6,11 +6,9 @@ using namespace std;
 #include "proveedores.h"
 
 void proveedore::Cargar_Proveedore(){
-    int cantidad;
-
     cout<<"Ingrese ID: ";
     cin>>ID;
-    while(ID<0 || ValidarIDProveedores(ID)){
+    while(ID<0 /*|| ValidarIDProveedores(ID)*/){ ///Comente validar ID porque no se bien que pasa intente descular el error y no se
         cout<<endl<<"ID invalido, reingrese ID: ";
         cin>>ID;
     }

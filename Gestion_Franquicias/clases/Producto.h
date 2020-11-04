@@ -24,13 +24,13 @@ class Producto{
         float getPrecio(){return Precio;}
         int getCantidad(){return Cantidad;}
         bool getEstado(){return estado;}
-        bool ModificarProducto(int); ///recibe el ID de la posicion en memoria del producto
+        bool ModificarProducto(int); ///recibe la posicion en memoria del producto
         void setCantidad(int _cantidad){Cantidad=_cantidad;}
         void setCantidadMinima(int _cantidadMinima){Cantidad_Minima=_cantidadMinima;}
         void setEstado(int _estado){estado= _estado;}
-        bool ValidarCantidadProducto(int);
+        bool ValidarCantidadProducto(int);///valida que la cantidad vendida no sobrepase la cantidad existente
 };
 
-bool ValidarIDProducto(int);
+bool ValidarIDProducto(int); ///validad que el ID no exista
 
 #endif // PRODUCTO_H_INCLUDED

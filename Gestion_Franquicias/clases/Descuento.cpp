@@ -65,7 +65,7 @@ int Descuento::Buscar_Descuento_ID(int _ID){
     FILE *p=fopen("archivos/descuento.dat","rb");
         if(p==NULL){
             fclose(p);
-            return -1;
+            return -1;///retorna -1 si no encontro el ID
         }
     while(fread(this, sizeof(Descuento),1,p)){
         if(ID==_ID){
@@ -109,35 +109,35 @@ return false; ///retorna -1 si no encontro el ID
 }
 
 float Descuento::GenerarDescuento(float total){
-    if(total<Monto){
+    if(total<Monto){///validamos que el total supere al monto minimo de descuento
         cout<<"No supera el monto de descuento"<<endl;
-        return total;
+        return total;///si no supera se retorna el total sin operaciones matematicas
     }
-return ((Porcentaje*total)/100);
+return ((Porcentaje*total)/100);///generamos el descuento
 }
 
 float GenerarDescuento(float total){
     cout<<"Desea generar descuento ";
-    if(SINO_SinCinIgnore()==false){
+    if(SINO_SinCinIgnore()==false){/// utilizo la funcion de SINO sin cin.ignore
         return total;
     }
     int ID;
     cout<<"ID del descuento: ";
     cin>>ID;
     Descuento uno;
-    while(uno.Buscar_Descuento_ID(ID)==-1){
+    while(uno.Buscar_Descuento_ID(ID)==-1){///valido el ID y abro la memoria
         cout<<endl<<"Error ID"<<endl;
-            if(Continuar()==false){
+            if(Continuar()==false){ ///incorrecto pregunto si continual
                 system ("cls");
                 return false;
             }
         cout<<">> Ingrese el ID: ";
         cin>>ID;
     }
-    if(uno.getEstado()==false){
+    if(uno.getEstado()==false){ ///si el estado del descuento es false no existe tal descuento
         cout<<"Descuento eliminado"<<endl;
         return total;
     }
-    cout<<"Porcentaje de descuento %"<<uno.getPorcentaje()<<endl;
-return uno.GenerarDescuento(total);
+    cout<<"Porcentaje de descuento %"<<uno.getPorcentaje()<<endl; ///muestra el porcentaje
+return uno.GenerarDescuento(total); ///retorna el descuento
 }
