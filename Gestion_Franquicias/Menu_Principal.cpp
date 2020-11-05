@@ -91,12 +91,12 @@ void Menu_Medio_Pago(){
             system ("cls");
         break;
         case 2:
-            Eliminar_Medio_pago();
+            ///Eliminar_Medio_pago();
             system ("pause");
             system ("cls");
         break;
         case 3:
-            Listar_Medio_pago();
+            ///Listar_Medio_pago();
             system ("pause");
             system ("cls");
         break;

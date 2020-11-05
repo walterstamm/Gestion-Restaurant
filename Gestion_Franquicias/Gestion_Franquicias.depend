@@ -27,7 +27,7 @@
 1604460333 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1604035016 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1604553379 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	<cstdio>
 	"Menu_Producto.h"
@@ -37,7 +37,7 @@
 
 1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1604033516 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1604553411 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -205,17 +205,18 @@
 1604017600 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 	"Producto.h"
 
-1604031839 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
+1604554217 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"Medios_Pago.h"
+	"../Validaciones/SINO.h"
 
-1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
+1604554570 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
 
-1604031838 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
+1604554748 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
 
-1604031838 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
+1604553925 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
 	<iostream>
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"
@@ -364,7 +365,7 @@
 
 1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ui.h
 
-1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.h
+1604550923 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
 1604035191 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp

@@ -5,27 +5,100 @@ using namespace std;
 
 void Cargar_Medio_pago(){
     Medio_Pago uno;
-    uno.Cargar_Descuento();
-    if(uno.Guardar_Descuento()==false){
-        cout<<"Error descuento no guardado"<<endl;
+    if(uno.Cargar_Mpago()==false){
+        cout<<"Error de carga de Medio pago"<<endl;
         return;
     }
-    cout<<"Descuento guardado"<<endl;
-}
-
-void Eliminar_Medio_pago(){
-    Medio_Pago uno;
-    if(uno.Quitar_Descuento()==false){
-        cout<<"Error descuento no fue quitado"<<endl;
+    if(uno.Guardar_Mpago()==false){
+        cout<<"Error al guardar el Medio pago"<<endl;
         return;
     }
-    cout<<"Descuento quitado"<<endl;
+    cout<<"Medio pago cargado"<<endl;
 }
 
-void Listar_Medio_pago(){
-    int pos=0;
+void Mostar_TodosMpago(){
     Medio_Pago uno;
-    while(uno.Buscar_Descuento_Memoria(pos ++)){
-        uno.Listar_Descuentos();
+    FILE*p=fopen("archivos/Medios_Pago.dat","rb");
+        if(p==NULL){
+            fclose(p);
+            cout<<"Error de archivo"<<endl;
+            return;
+        }
+    while(fread(&uno, sizeof(Medio_Pago),1,p)){
+        if(uno.getEstado()==true){
+            uno.Listar_Mpago();
+        }
     }
+    fclose(p);
+return;
 }
+
+void Mostrar_X_Mpago(){
+    int ID;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    Medio_Pago uno;
+    if(uno.Buscar_ID_Mpago(ID)==-1){
+        cout<<"Producto inexistente"<<endl;
+        return;
+    }
+    uno.Listar_Mpago();
+}
+
+void Modificar_Mpago(){
+    int ID;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    Medio_Pago uno;
+    int pos=uno.Buscar_ID_Mpago(ID);
+    if(pos==-1){
+        cout<<"Producto inexistente"<<endl;
+        return;
+    }
+    uno.Listar_Mpago();
+    float porcentaje;
+    cout<<"Ingrese el porcentaje de descuento: %";
+    cin>>porcentaje;
+        while(porcentaje<0){ ///validando descuento que no sea negativo
+            cout<<endl<<"Porcentaje incorrecta, reingrese el Porcentaje"<<endl<<endl;
+            cout<<">> Ingrese el porcentaje: %";
+            cin>>porcentaje;
+        }
+    uno.setDescuento(porcentaje);
+    if(uno.Modificar_Mpago(pos)==false){
+        cout<<"Producto no guardado";
+        return;
+    }
+    cout<<"Producto guardado"<<endl;
+}
+
+void Eliminar_Mpago(){
+    int ID;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    Medio_Pago uno;
+    int pos=uno.Buscar_ID_Mpago(ID);
+    if(pos==-1){
+        cout<<"Producto inexistente"<<endl;
+        return;
+    }
+    uno.Listar_Mpago();
+    uno.setEstado(false);
+    if(uno.Modificar_Mpago(pos)==false){
+        cout<<"Producto no guardado";
+        return;
+    }
+    cout<<"Producto guardado"<<endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+

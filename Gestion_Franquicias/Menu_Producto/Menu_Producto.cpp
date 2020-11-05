@@ -15,7 +15,7 @@ void Cargar_Producto(){
         return;
     }
     if(uno.GuardarProducto()==false){
-        cout<<"Error al guardar el producto de producto"<<endl;
+        cout<<"Error al guardar el producto"<<endl;
         uno.~Producto();
         return;
     }

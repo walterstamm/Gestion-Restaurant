@@ -3,15 +3,29 @@
 
 class Medio_Pago{
     private:
-        char Medio [12];
+        int ID;
+        char Medio [30];
         float Monto, Descuento; ///habria que ingresar la fecha del dia que quiere realizar el descuento?
+        bool Estado;
     public:
         Medio_Pago();
-        void Cargar_Descuento();
-        bool Guardar_Descuento();
-        bool Quitar_Descuento();
-        bool Buscar_Descuento_Memoria(int =0);
-        void Listar_Descuentos();
+        bool Cargar_Mpago();///Mpago= medio de pago
+        void Listar_Mpago();
+        bool Guardar_Mpago();
+        bool Modificar_Mpago(int );///estado en false
+        int Buscar_ID_Mpago(int =0);///busca si existe el id del medio de pago
+        ///gets
+        int getID(){return ID;}
+        char *getMedio(){return Medio;}
+        float getMonto(){return Monto;}
+        float getDescuento(){return Descuento;}
+        bool getEstado(){return Estado;}
+        ///sets
+        void setMonto(float _monto){Monto=_monto;}
+        void setDescuento(float _descuento){Descuento=_descuento;}
+        void setEstado(bool _Estado){Estado=_Estado;}
 };
+
+bool ValidarID_Mpago(int);///recive el ID
 
 #endif // MEDIOS_PAGO_H_INCLUDED

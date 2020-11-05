@@ -10,7 +10,6 @@ class Ventas{
         int Cant_Producto;
         float Precio;
         float Importe;
-
     public:
         Ventas();
         ~Ventas();
