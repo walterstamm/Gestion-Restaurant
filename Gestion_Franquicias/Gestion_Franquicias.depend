@@ -37,7 +37,7 @@
 
 1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1604553411 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1604555083 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -205,7 +205,7 @@
 1604017600 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 	"Producto.h"
 
-1604554217 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
+1604555316 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -216,7 +216,7 @@
 
 1604554748 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
 
-1604553925 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
+1604555316 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
 	<iostream>
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"

@@ -68,7 +68,7 @@ return grabo;
 
 bool Medio_Pago::Modificar_Mpago(int pos){
     bool correcto;
-    FILE *p=fopen("archivos/Medios_Pago.dat","rb+");
+    FILE *p=fopen("archivos/MediosPago.dat","rb+");
         if(p==NULL){
             fclose(p);
             return false;
@@ -81,7 +81,7 @@ return correcto;
 
 int Medio_Pago::Buscar_ID_Mpago(int _ID){
     int pos=0;
-    FILE *p=fopen("archivos/Medios_Pago.dat","rb");
+    FILE *p=fopen("archivos/MediosPago.dat","rb");
         if(p==NULL){
             fclose(p);
             return -1;///retorna -1 si no encontro el ID
@@ -99,7 +99,7 @@ return -1; ///retorna -1 si no encontro el ID
 
 bool ValidarID_Mpago(int _ID){
     Medio_Pago uno;
-    FILE *p=fopen("archivos/Medios_Pago.dat","rb");
+    FILE *p=fopen("archivos/MediosPago.dat","rb");
         if(p==NULL){
             fclose(p);
             return false;

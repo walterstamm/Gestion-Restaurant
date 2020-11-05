@@ -18,7 +18,7 @@ void Cargar_Medio_pago(){
 
 void Mostar_TodosMpago(){
     Medio_Pago uno;
-    FILE*p=fopen("archivos/Medios_Pago.dat","rb");
+    FILE*p=fopen("archivos/MediosPago.dat","rb");
         if(p==NULL){
             fclose(p);
             cout<<"Error de archivo"<<endl;
@@ -27,6 +27,7 @@ void Mostar_TodosMpago(){
     while(fread(&uno, sizeof(Medio_Pago),1,p)){
         if(uno.getEstado()==true){
             uno.Listar_Mpago();
+            cout<<endl;
         }
     }
     fclose(p);
@@ -39,6 +40,10 @@ void Mostrar_X_Mpago(){
     cin>>ID;
     Medio_Pago uno;
     if(uno.Buscar_ID_Mpago(ID)==-1){
+        cout<<"Producto inexistente"<<endl;
+        return;
+    }
+    if(uno.getEstado()==false){
         cout<<"Producto inexistente"<<endl;
         return;
     }

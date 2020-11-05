@@ -76,10 +76,12 @@ void Menu_Medio_Pago(){
     do{
         title("MENÚ MEDIO PAGO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<endl<<"------------------------------------------";
-        cout<<endl<<"1) CARGAR DESCUENTO EN MEDIO PAGO";
-        cout<<endl<<"2) ELIMINAR DESCUENTO EN MEDIO DE PAGO";
-        cout<<endl<<"3) LISTAR DESCUENTO CON MEDIO DE PAGO";
-        cout<<endl<<"4) VOLVER AL MENÚ PRINCIPAL";
+        cout<<endl<<"1) CARGAR MEDIO PAGO";
+        cout<<endl<<"2) ELIMINAR MEDIO DE PAGO";
+        cout<<endl<<"3) LISTAR TODOS MEDIO DE PAGO";
+        cout<<endl<<"5) LISTAR X MEDIO DE PAGO";
+        cout<<endl<<"6) MODIFICAR MEDIO DE PAGO";
+        cout<<endl<<"7) VOLVER AL MENÚ PRINCIPAL";
         cout<<endl<<"------------------------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
@@ -91,22 +93,37 @@ void Menu_Medio_Pago(){
             system ("cls");
         break;
         case 2:
-            ///Eliminar_Medio_pago();
+            Eliminar_Mpago();
             system ("pause");
             system ("cls");
         break;
         case 3:
-            ///Listar_Medio_pago();
+            Mostar_TodosMpago();
             system ("pause");
             system ("cls");
         break;
         case 4:
+            Mostar_TodosMpago();
+            system ("pause");
+            system ("cls");
+        break;
+        case 5:
+            Mostrar_X_Mpago();
+            system ("pause");
+            system ("cls");
+        break;
+        case 6:
+            Modificar_Mpago();
+            system ("pause");
+            system ("cls");
+        break;
+        case 7:
         break;
         default:
             msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);
         break;
         }
-    }while (opcion!=4);
+    }while (opcion!=7);
 }
 
 void Menu_Descuento(){
