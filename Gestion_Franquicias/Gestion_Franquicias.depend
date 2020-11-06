@@ -213,12 +213,13 @@
 	"Medios_Pago.h"
 	"../Validaciones/SINO.h"
 
-1604554570 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
+1604634175 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
 
 1604554748 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
 
-1604555316 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
+1604632616 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
 	<iostream>
+	<cstdio>
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"
 
