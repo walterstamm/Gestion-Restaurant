@@ -115,7 +115,39 @@ bool ValidarID_Mpago(int _ID){
 return false; ///retorna -1 si no encontro el ID
 }
 
+float Medio_Pago::Generar_MPago(float total){
+    if(total<Monto){///validamos que el total supere al monto minimo de descuento
+        cout<<"No supera el monto de descuento"<<endl;
+        return total;///si no supera se retorna el total sin operaciones matematicas
+    }
+return ((Descuento*total)/100);///generamos el descuento
+}
 
+float Generar_MPago(float total){
+    cout<<"Desea generar medio pago ";
+    if(SINO_SinCinIgnore()==false){/// utilizo la funcion de SINO sin cin.ignore
+        return total;
+    }
+    int ID;
+    cout<<"ID del medio pago: ";
+    cin>>ID;
+    Medio_Pago uno;
+    while(uno.Buscar_ID_Mpago(ID)==-1){///valido el ID y abro la memoria
+        cout<<endl<<"Error ID"<<endl;
+            if(Continuar()==false){ ///incorrecto pregunto si continual
+                system ("cls");
+                return false;
+            }
+        cout<<">> Ingrese el ID: ";
+        cin>>ID;
+    }
+    if(uno.getEstado()==false){ ///si el estado del descuento es false no existe tal descuento
+        cout<<"Descuento eliminado"<<endl;
+        return total;
+    }
+    cout<<"Porcentaje de descuento %"<<uno.getDescuento()<<endl; ///muestra el porcentaje
+return uno.Generar_MPago(total); ///retorna el descuento generado por el metodo "Generar_MPago"
+}
 
 
 
