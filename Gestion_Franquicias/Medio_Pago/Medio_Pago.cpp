@@ -1,4 +1,5 @@
 #include <iostream>
+#include<cstdio>
 using namespace std;
 #include "Medio_Pago.h"
 #include "../clases/Medios_Pago.h"
