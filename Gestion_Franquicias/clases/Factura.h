@@ -10,7 +10,7 @@ class Factura{
         Fecha Fecha_Factura;
         int Nro_Cliente;
         float Total_Pagar;
-
+        bool Estado;
     public:
         Factura();
         ~Factura();
@@ -21,9 +21,12 @@ class Factura{
         int Leo_Factura();
         bool Guardo();
         void Muestro_Guardado();
-
+        int BajaLogicaFactura();
 };
 
+int GeneroNuevaFactura();
+void Mostrar_ResumenVenta();
+void Mostrar_TodaVenta();
 
 
 
