@@ -124,12 +124,12 @@ return ((Descuento*total)/100);///generamos el descuento
 }
 
 float Generar_MPago(float total){
-    cout<<"Desea generar descuento ";
+    cout<<"Desea generar medio pago ";
     if(SINO_SinCinIgnore()==false){/// utilizo la funcion de SINO sin cin.ignore
         return total;
     }
     int ID;
-    cout<<"ID del descuento: ";
+    cout<<"ID del medio pago: ";
     cin>>ID;
     Medio_Pago uno;
     while(uno.Buscar_ID_Mpago(ID)==-1){///valido el ID y abro la memoria
@@ -146,7 +146,7 @@ float Generar_MPago(float total){
         return total;
     }
     cout<<"Porcentaje de descuento %"<<uno.getDescuento()<<endl; ///muestra el porcentaje
-return uno.Generar_MPago(total); ///retorna el descuento
+return uno.Generar_MPago(total); ///retorna el descuento generado por el metodo "Generar_MPago"
 }
 
 
