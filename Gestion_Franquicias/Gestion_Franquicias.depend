@@ -267,7 +267,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1604625446 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
+1604635257 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -275,9 +275,9 @@
 	"Medios_Pago.h"
 	"../Validaciones/SINO.h"
 
-1604624688 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
+1604635257 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
 
-1604624686 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
+1604634621 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>

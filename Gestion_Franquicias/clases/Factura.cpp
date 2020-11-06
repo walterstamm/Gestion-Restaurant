@@ -93,7 +93,7 @@ void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
 void MENU_FACTURACION(){
     int Opcion;
     while(Opcion){
-        title("MENÚ FACTURACIÓN", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        title("MENU FACTURACION", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
 
         cout<<"\n============================================";
         cout<<"\n01-Generar Factura..........................";
@@ -102,9 +102,9 @@ void MENU_FACTURACION(){
         cout<<"\n04-Listar Facturas Eliminadas...............";
         cout<<"\n05-Muestro Factura..........................";
         cout<<"\n============================================";
-        cout<<"\n00- Volver al MENÚ PRINCIPAL................";
+        cout<<"\n00- Volver al MENU PRINCIPAL................";
         cout<<"\n============================================";
-        cout<<"\nOpción: "; cin>>Opcion;
+        cout<<"\nOpcion: "; cin>>Opcion;
         cout<<"============================================\n";
 
        switch(Opcion){
@@ -147,14 +147,14 @@ void MENU_FACTURACION(){
                         if(fwrite(&Vent, sizeof(Ventas), 1, V)){
                             cout<<"se grabo. ";
                         }
-                        cout<<"Muestro Lo Cargado: "<<endl;
+                        /**cout<<"Muestro Lo Cargado: "<<endl;
                         cout<<"FacturaNro:  "<<Vent.getNro_Fact().getNro_Factura()<<endl;
                         cout<<"CodProducto: "<<Vent.getCod_Producto()<<endl;
                         cout<<"Descrip:     "<<Vent.getDescripcion()<<endl;
                         cout<<"Cantidad:    "<<Vent.getCant_Producto()<<endl;
                         cout<<"Precios:     "<<Vent.getPrecio()<<endl;
                         cout<<"Importe:     "<<Vent.getImporte()<<endl;
-                        system("pause");
+                        system("pause");*/
 
                         cout<<"Para ingresar otro producto S= si; N = no ";  cin>>Mas_Producto;
                         while(!(Mas_Producto=='S'||Mas_Producto=='N'||Mas_Producto=='s'||Mas_Producto=='n')){
@@ -179,7 +179,7 @@ void MENU_FACTURACION(){
                     fseek(P, pos * sizeof(Factura), SEEK_SET);
                     bool Grabo = fwrite(P, sizeof(Factura), 1, P);
                     if(Grabo == true){
-                        cout<<"Se Elimin� la Factura correctamente"<<endl;
+                        cout<<"Se Elimino la Factura correctamente"<<endl;
                     }else{
                         cout<<"Upps!! Hubo un error"<<endl;
                     }
@@ -232,8 +232,8 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
                 ///     Muestro el resumen de ventas
                     cout<<"\nResumen de Factura Ventas: "<<endl;
                     cout << left;
-                    cout << setw(4) << "NROF";
-                    cout << setw(7) << "Código " << setw(12) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
+                    cout << setw(3) << "NROF";
+                    cout << setw(7) << "Codigo " << setw(12) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
                     FILE *V = fopen("archivos/Ventas.dat", "rb");
                     if(V == NULL) {
                         cout<<"No se pudo abrir Ventas.dat";
@@ -243,9 +243,9 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
                     while(fread(&ven, sizeof(Ventas), 1, V) ){
                         int veo = ven.getNro_Fact().getNro_Factura();
                         if(NroF == veo){
-                            cout<<"ven.getNro_Fact().getNro_Factura()) "<<ven.getNro_Fact().getNro_Factura()<<endl;
+                            ///cout<<"ven.getNro_Fact().getNro_Factura()) "<<ven.getNro_Fact().getNro_Factura()<<endl;
                             cout << left;
-                            cout << setw(4);
+                            cout << setw(3);
                             cout << ven.getNro_Fact().getNro_Factura(); ///veo.getNro_Fact().getNro_Factura(); ///Fact->getNro_Factura();
                             cout << setw(7);
                             cout << ven.getCod_Producto();
@@ -260,6 +260,8 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
                         }
                     }
                     fclose(V);
+                    system("pause");
+                    system("cls");
 }
 
 void Mostrar_TodaVenta(){ ///de la Factura Actual
