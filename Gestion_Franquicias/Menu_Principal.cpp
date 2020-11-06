@@ -7,6 +7,7 @@ using namespace std;
 #include "Menu_Producto/Menu_Producto.h"
 #include "Medio_Pago/Medio_Pago.h"
 #include "menus/MenuDescuento.h"
+#include "Clases/Comprobantes.h"
 
 void MENU_PRODUCTO(){
     short opcion;
@@ -175,3 +176,4 @@ void Menu_Descuento(){
         }
     }while (opcion!=6);
 }
+

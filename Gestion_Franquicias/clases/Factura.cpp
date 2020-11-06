@@ -79,7 +79,6 @@ bool Factura::Guardo(){
     fwrite(this, sizeof(Factura),1,Fact);///Despues de guardar esta en la ultima posición
     fclose(Fact);
     return true;
-
 }
 
 void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
@@ -94,7 +93,6 @@ void MENU_FACTURACION(){
     int Opcion;
     while(Opcion){
         title("MENU FACTURACION", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-
         cout<<"\n============================================";
         cout<<"\n01-Generar Factura..........................";
         cout<<"\n02-Eliminar Factura.........................";
@@ -115,8 +113,7 @@ void MENU_FACTURACION(){
                 float Precios, Importe;
 
                 NroFactura = GeneroNuevaFactura();
-                {
-                    ///     ABRO OBJETO PRODUCTO
+                {   ///     ABRO OBJETO PRODUCTO
                     Producto Prod;
                     ///     ABRO OBJETO VENTAS
                     Ventas Vent;

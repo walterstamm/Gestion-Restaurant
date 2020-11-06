@@ -9,6 +9,9 @@ using namespace std;
 #include "Menu_Pedidos.h"
 
 
+
+
+
 int main(){
     setlocale(LC_ALL, "spanish");
 
@@ -18,13 +21,14 @@ int main(){
         system ("cls");
         title("MENÚ PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<endl<<"---------------------------";
-        cout<<endl<<"1) MENÚ PRODUCTO";
-        cout<<endl<<"2) MENÚ PROVEDORES";
-        cout<<endl<<"3) MENÚ FACTURACION";
-        cout<<endl<<"4) MENÚ STOCK";
-        cout<<endl<<"5) MENÚ MEDIOS PAGO";
-        cout<<endl<<"6) MENÚ DESCUENTO";
-        cout<<endl<<"7) SALIR DEL PROGRAMA";
+        cout<<endl<<"1) MENÚ PRODUCTO...........";
+        cout<<endl<<"2) MENÚ PROVEDORES.........";
+        cout<<endl<<"3) MENÚ FACTURACION........";
+        cout<<endl<<"4) MENÚ STOCK..............";
+        cout<<endl<<"5) MENÚ MEDIOS PAGO........";
+        cout<<endl<<"6) MENÚ DESCUENTO..........";
+        cout<<endl<<"7) SALIR DEL PROGRAMA......";
+        cout<<endl<<"8) MENÚ ENCABEZADO.........";
         cout<<endl<<"---------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
@@ -48,6 +52,9 @@ int main(){
             Menu_Descuento();
         break;
         case 7:
+        break;
+        case 8:
+            Menu_Encabezado();
         break;
         default:
             msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);

@@ -30,4 +30,5 @@ void Mostrar_TodaVenta();
 
 
 
+
 #endif // FACTURA_H_INCLUDED

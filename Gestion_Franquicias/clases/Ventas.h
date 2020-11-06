@@ -32,6 +32,6 @@ class Ventas{
         int BuscarPosicion(int);
 };
 
-void Encabezado();
+
 
 #endif // VENTAS_H_INCLUDED
