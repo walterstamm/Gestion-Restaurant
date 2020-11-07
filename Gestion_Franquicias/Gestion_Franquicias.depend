@@ -234,7 +234,7 @@
 1604461267 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\descuento.h
 	"Fecha.h"
 
-1604634162 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
+1604754418 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
 	<iostream>
 	<string.h>
 	<cstdio>
@@ -277,7 +277,7 @@
 
 1604635257 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
 
-1604667116 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
+1604685988 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -329,7 +329,7 @@
 1604624688 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.h
 	"Fecha.h"
 
-1604685489 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+1604754910 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -360,7 +360,7 @@
 
 1603935166 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ui.h
 
-1604666665 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
+1604754057 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
 1604031839 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp

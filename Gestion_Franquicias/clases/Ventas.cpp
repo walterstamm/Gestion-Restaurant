@@ -18,13 +18,13 @@ Ventas::Ventas(){
 Ventas::~Ventas(){
 }
 
-Factura Ventas::getNro_Fact(){
-    return Nro_Factura;
+int Ventas::getNro_Fact(){
+    return V_Nro_Fact;
 }
 
 void Ventas::Cargar_Venta(int NroFactura, int CodProducto, char *Descrip, int CantProducto, float Precios, float Importes){
 
-        Nro_Factura.setNroFact(NroFactura);
+        V_Nro_Fact = NroFactura;
         Cod_Producto = CodProducto;
         strcpy(Descripcion, Descrip);
         Cant_Producto = CantProducto;
@@ -53,7 +53,7 @@ int Ventas::BuscarPosicion(int Numero){
         return Pos;
     }
     while(fread(this, sizeof(Ventas), 1, Ven)){
-        if(Numero == getNro_Fact().getNro_Factura()){
+        if(Numero == V_Nro_Fact){
             return Pos;
         }
 
@@ -101,7 +101,7 @@ float Ventas::getImporte(){
 ///este get no retorna nada da otro error
 
 void Ventas::getVentas(){
-    cout<<"\nNro_Factura: "<<Nro_Factura.getNro_Factura();
+    cout<<"\nNro_Factura: "<<V_Nro_Fact;
     cout<<"\nCod_Produto: "<<Cod_Producto;
     cout<<"\nDescripción: "<<Descripcion;
     cout<<"\nCant_Producto:"<<Cant_Producto;

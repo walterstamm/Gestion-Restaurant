@@ -4,7 +4,7 @@
 
 class Ventas{
     private:
-        Factura Nro_Factura;
+        int V_Nro_Fact;
         int Cod_Producto;
         char Descripcion[20];
         int Cant_Producto;
@@ -27,7 +27,7 @@ class Ventas{
         float getPrecio();
         float getImporte();
         void getVentas(int);
-        Factura getNro_Fact();
+        int getNro_Fact();
         int Leo_Ventas();
         int BuscarPosicion(int);
 };
