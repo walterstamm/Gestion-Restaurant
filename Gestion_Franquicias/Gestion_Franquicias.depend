@@ -206,8 +206,9 @@
 1604624688 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 	"Producto.h"
 
-1604555316 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
+1604634434 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
 	<iostream>
+	<cstdlib>
 	<cstring>
 	<cstdio>
 	"Medios_Pago.h"
