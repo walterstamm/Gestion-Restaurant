@@ -17,6 +17,9 @@ class Factura{
         void setFactura(int);
         void setNroFact(int);
         void setBajaEstado();
+        float setTotal_Pagar(float);
+        float setImporte();
+
         void getFactura();
         int getNro_Factura();
         int getNros_Factura();
@@ -29,12 +32,14 @@ class Factura{
         void Muestro_Guardado();
         int BuscarPosicion(int);
 
+
 };
 
 int GeneroNuevaFactura();
 void Mostrar_ResumenVenta();
 void Mostrar_TodaVenta();
 void Mostrar_Facturas_Eliminadas();
+void SumarVentas();
 
 
 

@@ -12,7 +12,7 @@ using namespace std;
 
 Factura::Factura(){
     Nro_Fact = 0;
-    Fecha_Factura.Cargar_Fecha();
+    ///Fecha_Factura.Cargar_Fecha();
     Nro_Cliente = 0;
     Total_Pagar=0;
     Estado = true;
@@ -86,13 +86,54 @@ int Factura::getNroCliente(){
     return Nro_Cliente;
 }
 
+float Factura::setTotal_Pagar(float Suma){
+    Total_Pagar = Suma;
+}
+
 int Factura::getTotal_Pagar(){
+    return Total_Pagar;
+}
 
+void SumarVentas(){
+    Ventas  V_Pago;
+    Factura F_Pago;
+    float Suma =0;
+    ///     TRAIGO EL NUMERO DE LA ULTIMA FACTURA
+    int NroFat = F_Pago.Leo_Factura();
+    cout<<"NroFat:   "<<NroFat;
+    system("pause");
 
-
-
-
-    return Total_Pagar=0;
+    ///     ABRO ARCHIVOS FACTURAS
+    FILE *F = fopen("archivos/Facturas.dat", "rb+");
+    if(F == NULL){
+        cout << "No se pudo abrir Facturas.dat ";
+        return;
+    }
+    ///     ABRO ARCHIVOS VENTAS
+    FILE *V = fopen("archivos/Ventas.dat", "rb");
+    if ( V == NULL) {
+        cout<< "No se pudo abrir Ventas.dat";
+        fclose(F);
+        return ;
+    }
+    ///     LEO VENTAS Y SI ES IGUAL QUE NROFAT LO SUMA A LA VARIABLE SUMA
+    while( fread( &V_Pago, sizeof(Ventas), 1 , V)){
+        if( NroFat == V_Pago.getNro_Fact() ){
+            cout<<"V_Pago.getImporte():  "<<V_Pago.getImporte();
+            system("pause");
+            Suma += V_Pago.getImporte();
+            cout<<"Suma:  "<<Suma;
+            system("pause");
+        }
+    }
+    ///     LE ENVIO A SETTOTAL_PAGAR LA SUMA Y LO GUARDA EN LA EL ATRIBUTO TOTAL_PAGAR
+    F_Pago.setTotal_Pagar(Suma);
+    ///     LO UBICA EN EL ULTIMO REGISTRO
+    fseek(F, -1 * sizeof(Factura), SEEK_END);
+    ///     LO REESCRIBE CON LA SUMA TOTAL DEL PAGO
+    if(fwrite( &F_Pago, sizeof(Factura), 1, F) == 1 ){
+        cout<<"Se Grabo Correctamente";
+    }
 }
 
 void Factura::getFactura(){
@@ -179,6 +220,7 @@ void MENU_FACTURACION(){
                     fclose(V);
                     fclose(Pr);   ///     Cierro el while de Ventas
                     }
+                    SumarVentas();
                     system("cls");
                 }///        HASTA ACA LA ULTIMA LINEA
         break;
