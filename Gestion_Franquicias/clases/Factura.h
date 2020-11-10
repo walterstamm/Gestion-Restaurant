@@ -16,17 +16,25 @@ class Factura{
         ~Factura();
         void setFactura(int);
         void setNroFact(int);
+        void setBajaEstado();
         void getFactura();
         int getNro_Factura();
+        int getNros_Factura();
+        Fecha getFecha();
+        int getNroCliente();
+        int getTotal_Pagar();
+        bool getEstado();
         int Leo_Factura();
         bool Guardo();
         void Muestro_Guardado();
-        int BajaLogicaFactura();
+        int BuscarPosicion(int);
+
 };
 
 int GeneroNuevaFactura();
 void Mostrar_ResumenVenta();
 void Mostrar_TodaVenta();
+void Mostrar_Facturas_Eliminadas();
 
 
 
