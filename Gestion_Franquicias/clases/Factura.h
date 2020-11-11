@@ -16,8 +16,8 @@ class Factura{
         ~Factura();
         void setFactura(int);
         void setNroFact(int);
-        void setBajaEstado();
-        float setTotal_Pagar(float);
+        void setEstado(bool);
+        void setTotal_Pagar(float);
         float setImporte();
 
         void getFactura();
@@ -25,12 +25,12 @@ class Factura{
         int getNros_Factura();
         Fecha getFecha();
         int getNroCliente();
-        int getTotal_Pagar();
+        float getTotal_Pagar();
         bool getEstado();
-        int Leo_Factura();
+        int Leo_Ultima_Factura();
         bool Guardo();
         void Muestro_Guardado();
-        int BuscarPosicion(int);
+        int BuscarPosicionFactura(int);
 
 
 };

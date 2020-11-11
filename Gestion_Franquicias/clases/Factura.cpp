@@ -12,28 +12,25 @@ using namespace std;
 
 Factura::Factura(){
     Nro_Fact = 0;
-    ///Fecha_Factura.Cargar_Fecha();
     Nro_Cliente = 0;
     Total_Pagar=0;
     Estado = true;
 }
-
 Factura::~Factura(){
 }
-
 void Factura::setNroFact(int Nro){
     Nro_Fact = Nro;
 }
-
 bool Factura::getEstado(){
     return Estado;
 }
 
-int Factura::BuscarPosicion(int Nro){
+int Factura::BuscarPosicionFactura(int Nro){
 
     int pos=0;
-    FILE *p=fopen("archivos/Facturas.dat","rb");
-        if(p==NULL){
+    FILE *p = fopen("archivos/Facturas.dat" , "rb");
+        if(p == NULL){
+            cout<<"No se pudo abrir Facturas.dat.....\n";
             return -1;
         }
     while(fread(this, sizeof(Factura),1,p)){
@@ -47,21 +44,21 @@ int Factura::BuscarPosicion(int Nro){
     return pos = -1; ///retorna -1 si no encontro.
 }
 
-void Factura::setBajaEstado(){
-    Estado=false;
+void Factura::setEstado(bool Est){
+    Estado = Est;
 
 }
 
 void Factura::setFactura(int Cliente){
     cout<<"NUEVA FACTURA\n";
-    Nro_Fact = Leo_Factura()+1;
+    Nro_Fact = Leo_Ultima_Factura()+1;
     Nro_Cliente = Cliente;
     Total_Pagar=0;///FUNCION PARA SUMAR LA VENTA FALTA
 }
 
 
 
-int Factura::Leo_Factura(){
+int Factura::Leo_Ultima_Factura(){
     FILE *Fact=fopen("archivos/Facturas.dat", "rb");
     if(Fact == NULL){cout<<"No se abrio el Archivo Facturas.dat";}
     ///Vuelve 1 posici�n para leer el registro grabado
@@ -75,7 +72,7 @@ int Factura::getNros_Factura(){
 }
 
 int Factura::getNro_Factura(){
-    return Leo_Factura();
+    return Leo_Ultima_Factura();
 }
 
 Fecha Factura::getFecha(){
@@ -86,11 +83,11 @@ int Factura::getNroCliente(){
     return Nro_Cliente;
 }
 
-float Factura::setTotal_Pagar(float Suma){
+void Factura::setTotal_Pagar(float Suma){
     Total_Pagar = Suma;
 }
 
-int Factura::getTotal_Pagar(){
+float Factura::getTotal_Pagar(){
     return Total_Pagar;
 }
 
@@ -99,9 +96,7 @@ void SumarVentas(){
     Factura F_Pago;
     float Suma =0;
     ///     TRAIGO EL NUMERO DE LA ULTIMA FACTURA
-    int NroFat = F_Pago.Leo_Factura();
-    cout<<"NroFat:   "<<NroFat;
-    system("pause");
+    int NroFat = F_Pago.Leo_Ultima_Factura();
 
     ///     ABRO ARCHIVOS FACTURAS
     FILE *F = fopen("archivos/Facturas.dat", "rb+");
@@ -119,11 +114,7 @@ void SumarVentas(){
     ///     LEO VENTAS Y SI ES IGUAL QUE NROFAT LO SUMA A LA VARIABLE SUMA
     while( fread( &V_Pago, sizeof(Ventas), 1 , V)){
         if( NroFat == V_Pago.getNro_Fact() ){
-            cout<<"V_Pago.getImporte():  "<<V_Pago.getImporte();
-            system("pause");
             Suma += V_Pago.getImporte();
-            cout<<"Suma:  "<<Suma;
-            system("pause");
         }
     }
     ///     LE ENVIO A SETTOTAL_PAGAR LA SUMA Y LO GUARDA EN LA EL ATRIBUTO TOTAL_PAGAR
@@ -134,6 +125,8 @@ void SumarVentas(){
     if(fwrite( &F_Pago, sizeof(Factura), 1, F) == 1 ){
         cout<<"Se Grabo Correctamente";
     }
+    fclose(V);
+    fclose(F);
 }
 
 void Factura::getFactura(){
@@ -152,8 +145,9 @@ void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
     FILE *Fact=fopen("archivos/Facturas.dat", "rb");
     if(Fact == NULL){cout<<"No se abrio el Archivo Facturas.dat";}
     ///Vuelve 1 posición para leer el registro grabado
-    fseek(Fact,-1*sizeof(Factura), SEEK_END);///tiene un warning osea futuro error
+    fseek(Fact,-1*sizeof(Factura), SEEK_END);
     fread(this, sizeof(Factura), 1, Fact);///Muestro lo grabado recien
+    fclose(Fact);
 }
 
 void MENU_FACTURACION(){
@@ -166,7 +160,6 @@ void MENU_FACTURACION(){
         cout<<"\n03-Eliminar Factura.........................";
         cout<<"\n04-Listar Facturas Eliminadas...............";
         cout<<"\n05-Listar Facturas por Nro y Prod (todas)..."; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
-
         cout<<"\n============================================";
         cout<<"\n00- Volver al MENU PRINCIPAL................";
         cout<<"\n============================================";
@@ -175,11 +168,11 @@ void MENU_FACTURACION(){
 
        switch(Opcion){
             case 1:
+            {
                 int NroFactura, Pos;
                 int CodProducto, CantProducto;
                 char Descrip[20], Mas_Producto;
                 float Precios, Importe;
-
                 NroFactura = GeneroNuevaFactura();
                 {   ///     CREO OBJETO PRODUCTO
                     Producto Prod;
@@ -212,55 +205,73 @@ void MENU_FACTURACION(){
                         if(fwrite(&Vent, sizeof(Ventas), 1, V)){
                             cout<<"se grabo. ";
                         }
-
                         cout<<" Continua ingresando Productos? S= si  N = no ";  cin>>Mas_Producto;
                         while(!(Mas_Producto=='S'||Mas_Producto=='N'||Mas_Producto=='s'||Mas_Producto=='n')){
                             cout<<">>> Debe Ingresar un valor correcto"; cin>>Mas_Producto;
                         }
-                    fclose(V);
-                    fclose(Pr);   ///     Cierro el while de Ventas
+                        fclose(V);
+                        fclose(Pr);   ///     Cierro el while de Ventas
                     }
                     SumarVentas();
                     system("cls");
                 }///        HASTA ACA LA ULTIMA LINEA
+            }
         break;
 
         case 2:
+            {
             Mostrar_ResumenVenta();
+            }
         break;
 
         case 3:
             {   ///     CREO UN OBJETO CLASE FACTURA
                 Factura Baj;
                 int Nro;
-                cout<<"Ingrese el N�mero de Factura a eliminar: ";
+                cout<<"Ingrese el Número de Factura a eliminar: ";
                 cin>>Nro;
                 cout<<endl;
 
-                int pos = Baj.BuscarPosicion(Nro); /// BUSCO LA POSICION QUE PIDO EN BUSCARPOSICION
-                if(pos>-1){                     /// SI ESTA ME MUESTRA LA POSICION O -1 SI NO ESTA
-                    FILE *P=fopen("archivos/Facturas.dat", "rb+");
-                    if(P == NULL){
+                int pos = Baj.BuscarPosicionFactura(Nro); /// BUSCO LA POSICION QUE PIDO EN BUSCARPOSICION
+
+                cout<<"pos:  "<<pos;
+                system("pause");
+                if( pos != -1 ){                     /// SI ESTA ME MUESTRA LA POSICION O -1 SI NO ESTA
+                    FILE *B = fopen("archivos/Facturas.dat", "rb+");
+                    if(B == NULL){
+                        cout<<"No se pudo abrir Facturas.dat ";
                         return;
                     }
-                    fseek(P, pos * sizeof(Factura), SEEK_SET);
-                    Baj.setBajaEstado();
-                    bool Grabo = fwrite(P, sizeof(Factura), 1, P);
-                    if(Grabo == true){
+
+                    fseek(B, pos *sizeof(Factura), SEEK_SET);
+                    ///fread(&Baj, sizeof(Factura), 1, B);
+
+                    bool Est = false;
+                    Baj.setEstado(Est);
+                    cout<<"Baj.getEstado(): "<<Baj.getEstado();
+                    system("pause");
+
+                    int Grabo = fwrite(&Baj, sizeof(Factura), 1, B);
+                    if(Grabo == 1){
                         cout<<"El Numero de Factura requerido se Eliminó correctamente"<<endl;
                     }else{
                         cout<<"Upps!! Hubo un error"<<endl;
                     }
+                    fclose(B);
                 }
             }
         break;
 
         case 4:
+            {
             Mostrar_Facturas_Eliminadas();
+            }
         break;
 
         case 5:
+            {
             Mostrar_TodaVenta();
+            }
         break;
 
         case 0:
@@ -274,10 +285,9 @@ void MENU_FACTURACION(){
     }
 }
 
-
 int GeneroNuevaFactura(){
     {
-    ///     ABRO CLASE FACTURA
+    ///     CREO OBJETO FACTURA
     Factura Nueva;
     int Cliente=-1;
     cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
@@ -294,8 +304,9 @@ int GeneroNuevaFactura(){
 void Mostrar_ResumenVenta(){ ///de la Factura Actual
                 Factura fac;
                 Ventas ven;
-                int NroF = fac.Leo_Factura(); ///Traigo el ultimo numero
-                ///int NroFactura = fac.Leo_Factura();
+                system("cls");
+                int NroF = fac.Leo_Ultima_Factura(); ///Traigo el ultimo numero
+
 
                 ///     Muestro el resumen de ventas
                     cout<<"==============================================================================="<<endl;
@@ -315,7 +326,7 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
                         if(NroF == veo){
                              cout << left;
                             cout << setw(6);
-                            cout << fac.getNro_Factura();
+                            cout << ven.getNro_Fact();
                             cout << setw(7);
                             cout << ven.getCod_Producto();
                             cout << setw(18);
@@ -336,44 +347,36 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
 }
 
 void Mostrar_TodaVenta(){ ///de la Factura Actual
-                Factura fac;
-                Ventas ven;
-                system("cls");
-                    cout<<endl<<endl;
-                ///     Muestro el resumen de ventas
-                    cout<<"==============================================================================="<<endl;
-                    cout<<"\nRESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS: "<<endl;
-                    cout<<"==============================================================================="<<endl;
-                    cout << left;
-                    cout << setw(6) << "NROF";
-                    cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
-                    cout<<"==============================================================================="<<endl;
-                    FILE *V = fopen("archivos/Ventas.dat", "rb");
-                    if(V == NULL) {
-                        cout<<"No se pudo abrir Ventas.dat";
-                        return;
-                    }
-                    while(fread(&ven, sizeof(Ventas), 1, V) ){
-                            cout << left;
-                            cout << setw(6);
-                            cout << ven.getNro_Fact();
-                            cout << setw(7);
-                            cout << ven.getCod_Producto();
-                            cout << setw(18);
-                            cout << ven.getDescripcion();
-                            cout << setw(6);
-                            cout << ven.getCant_Producto();
-                            cout << setw(15);
-                            cout << ven.getPrecio();
-                            cout << setw(10);
-                            cout << ven.getImporte()<<endl;
-                    }
-                    cout<<"==============================================================================="<<endl;
-                    cout<<"MOSTRO HASTA LA ULTIMA FILA"<<endl;
-                    system("pause");
-                    fclose(V);
-                    system("cls");
 
+
+        {
+        Ventas Va;
+
+        FILE *Veo=fopen("archivos/Ventas.dat", "rb");
+        system("pause");
+        while(fread(&Va, sizeof(Ventas), 1, Veo) ){
+                cout << left;
+                cout << setw(6);
+                cout << Va.getNro_Fact();
+                cout << setw(7);
+                cout << Va.getCod_Producto();
+                cout << setw(18);
+                cout << Va.getDescripcion();
+                cout << setw(6);
+                cout << Va.getCant_Producto();
+                cout << setw(15);
+                cout << Va.getPrecio();
+                cout << setw(10);
+                cout << Va.getImporte()<<endl;
+        }
+
+
+        cout<<"==============================================================================="<<endl;
+        cout<<"MOSTRO HASTA LA ULTIMA FILA"<<endl;
+        system("pause");
+        fclose(Veo);
+        system("cls");
+        }
 }
 
 void Mostrar_Facturas_Eliminadas(){
@@ -394,7 +397,7 @@ void Mostrar_Facturas_Eliminadas(){
     cout<<"==============================================================================="<<endl;
 
     while( fread(&Elim, sizeof(Factura), 1 ,Fa )  ){
-        if(Elim.getEstado() != false){
+        if(Elim.getEstado() == false){
             cout << right;
             cout << setw(3);
             cout << Elim.getNros_Factura();
@@ -418,8 +421,6 @@ void Mostrar_Facturas_Eliminadas(){
     }
     cout<<"==============================================================================="<<endl;
     system("PAUSE");
+    system("cls");
     fclose(Fa);
-
-
-
 }

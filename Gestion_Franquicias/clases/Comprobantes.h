@@ -35,7 +35,6 @@ class Encabezado{
 
         void setCargar_Encabezado(char *, char *, char *, char *, char *);
         void getMostrar_Encabezado();
-        ///Fecha Fecha_Inicio_Activ(int, int, int);
 
 };
 

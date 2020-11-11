@@ -14,14 +14,11 @@ Ventas::Ventas(){
     Precio = 0;
     Importe = 0;
 }
-
 Ventas::~Ventas(){
 }
-
 int Ventas::getNro_Fact(){
     return V_Nro_Fact;
 }
-
 void Ventas::Cargar_Venta(int NroFactura, int CodProducto, char *Descrip, int CantProducto, float Precios, float Importes){
 
         V_Nro_Fact = NroFactura;
@@ -42,6 +39,7 @@ int Ventas::Leo_Ventas(){
     while(fread(this, sizeof(Ventas), 1, Ven)){
         Cant_Ventas ++;
     }
+    getNro_Fact();
     return Cant_Ventas;
 }
 

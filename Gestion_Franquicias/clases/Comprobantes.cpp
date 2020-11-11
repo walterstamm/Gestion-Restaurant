@@ -43,21 +43,28 @@ void Encabezado::setCuit(){
     cin.getline(Dig, 1);*/
 
 }
+
 void Encabezado::setDireccion(){///Calle Nro
     cout<<"Ingrese la Calle/Avenida y Nro/ Referencias: "<<endl;
     cin.ignore();
     cin.getline(Direccion, 40);
 }
+
 void Encabezado::setLocalidad_Provincia(){ ///LOCALIDAD - PROVINCIA
     cout<<"Ingrese la Localidad y Provincia: "<<endl;
     cin.ignore();
     cin.getline(Localidad_Provincia, 40);
-
 }
+
 void Encabezado::setTelefono(){ ///011-2222-2222
     cout<<"Ingrese el Telefono: "<<endl;
     cin.ignore();
     cin.getline(Telefono, 40);
+}
+
+Fecha Encabezado::setFecha_inic(){
+    Fecha_Inicio_Activ.Cargar_Fecha();
+    return Fecha_Inicio_Activ;
 }
 
 void Encabezado::setOtros(){ ///PARA EL MAIL - PAGINA - ETC
@@ -66,13 +73,9 @@ void Encabezado::setOtros(){ ///PARA EL MAIL - PAGINA - ETC
     cin.getline(Otros, 50);
 }
 
-/**Fecha Encabezado::setFecha_inic(){
-    return -1;
-}*/
-
-
-
-
+Fecha Encabezado::getFecha_inic(){
+    return Fecha_Inicio_Activ;
+}
 
 char *Encabezado::getRazon_Social(){
     return Razon_Social;
@@ -108,6 +111,7 @@ void Encabezado::getMostrar_Encabezado(){
     cout<<"Telefono:          "<<getTelefono()<<endl;
 }
 
+
 void Guardar_Archvo(){
     Encabezado Guardar;
 
@@ -124,17 +128,18 @@ void Guardar_Archvo(){
 
 void Menu_Encabezado(){
     Encabezado Enc;
+
     int Opcion;
     while(Opcion){
         title("MENU ENCABEZADO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
 
         cout<<"\n============================================";
-        cout<<"\n01-Ingresar Razon Social....................";///<<Enc.getRazon_Social();
-        cout<<"\n02-Ingresar Cuit............................";///<<Enc.getCuit();
-        cout<<"\n03-Ingresar Dirección Empresa...............";///<<Enc.getDireccion();
-        cout<<"\n04-Localidad y Provincia....................";///<<Enc.getLocalidad_Provincia();
-        cout<<"\n05-Telefono.................................";///<<Enc.getTelefono();
-        cout<<"\n06-Fecha de inicio actividad................"; ///<<Enc.getFecha_inic()
+        cout<<"\n01-Ingresar Razon Social...................."<<Enc.getRazon_Social();
+        cout<<"\n02-Ingresar Cuit............................"<<Enc.getCuit();
+        cout<<"\n03-Ingresar Dirección Empresa..............."<<Enc.getDireccion();
+        cout<<"\n04-Localidad y Provincia...................."<<Enc.getLocalidad_Provincia();
+        cout<<"\n05-Telefono................................."<<Enc.getTelefono();
+        cout<<"\n06-Fecha de inicio actividad................"<<Enc.getFecha_inic().getDia()<<"/"<<Enc.getFecha_inic().getMes()<<"/"<<Enc.getFecha_inic().getAnio();
         cout<<"\n07-Mostrar Rotulo de empresa................";
         /// LA IDEA ES QUE SOLO SE CARGUE UNA SOLA VEZ
         cout<<"\n08-Desbloqueo...............................";
@@ -166,18 +171,39 @@ void Menu_Encabezado(){
             break;
 
             case 6:
-
+                Enc.setFecha_inic();
             break;
 
             case 7:
-                cout<<"\nRazon Social         : "<<  Enc.getRazon_Social();
-                cout<<"\nCuit                 : "<<  Enc.getCuit();
-                cout<<"\nDireccion            : "<<  Enc.getDireccion();
-                cout<<"\nLocalidad y Provincia: "<<  Enc.getLocalidad_Provincia();
-                cout<<"\nTelefono             : "<<  Enc.getTelefono();
-///                cout<<"\nFecha Inicio Activ   : "<<  Enc.getFecha_inic();
-                cout<<endl;
-                system("pause");
+                {
+                    char confirma;
+                    cout<<"\nRazon Social         : "<<  Enc.getRazon_Social();
+                    cout<<"\nCuit                 : "<<  Enc.getCuit();
+                    cout<<"\nDireccion            : "<<  Enc.getDireccion();
+                    cout<<"\nLocalidad y Provincia: "<<  Enc.getLocalidad_Provincia();
+                    cout<<"\nTelefono             : "<<  Enc.getTelefono();
+                    cout<<"\nFecha Inicio Activ   : "<<  Enc.getFecha_inic().getDia()<<"/"<<Enc.getFecha_inic().getMes()<<"/"<<Enc.getFecha_inic().getAnio();
+                    cout<<endl;
+                    system("pause");
+                    cout<<"==CONFIRME SI LOS DATOS INGRESADOS SON CORRECTOS S O N==";
+                    cin>>confirma;
+                        if(confirma == 's' || confirma == 'S'){
+                            FILE *E = fopen("archivos/Encabezado.dat", "ab");
+                            if( E == NULL){
+                                cout<<"Abre un nuevo Archivo Encabezado.dat\n";
+                                system("pause");
+                            }
+                            else{
+                                cout<<"Verifique que existe un archivo con los Datos de la Empresa\n";
+                                cout<<" Y vuelva a cargar los datos\n";
+                                fclose(E);
+                            }
+                        }
+                        else{
+                            cout<<"Deberá ingresar nuevamente los datos de la empresa\n";
+                            Encabezado Borrar_Datos;
+                        }
+                }
             break;
 
             case 8:
