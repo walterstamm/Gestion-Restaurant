@@ -40,7 +40,7 @@ void Mostrar_ResumenVenta();
 void Mostrar_TodaVenta();
 void Mostrar_Facturas_Eliminadas();
 void SumarVentas();
-
+void Menu_Reportes();
 
 
 

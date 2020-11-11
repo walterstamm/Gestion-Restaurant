@@ -57,7 +57,7 @@ int main(){
             Menu_Encabezado();
         break;
         default:
-            msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);
+            msj("                     OPCIÓN INCORRECTA", 15, 4, 15, 1);
         break;
         }
     }while (opcion!=7);

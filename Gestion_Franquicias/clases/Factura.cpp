@@ -1,3 +1,4 @@
+#include <vector>
 #include<iostream>
 #include<cstdlib>
 #include<cstdio>
@@ -153,6 +154,7 @@ void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
 void MENU_FACTURACION(){
     int Opcion;
     while(Opcion){
+        system("cls");
         title("MENU FACTURACION", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<"\n============================================";
         cout<<"\n01-Generar Factura..........................";
@@ -160,6 +162,7 @@ void MENU_FACTURACION(){
         cout<<"\n03-Eliminar Factura.........................";
         cout<<"\n04-Listar Facturas Eliminadas...............";
         cout<<"\n05-Listar Facturas por Nro y Prod (todas)..."; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
+        cout<<"\n06-Reportes a eleccion por el usuario.......";
         cout<<"\n============================================";
         cout<<"\n00- Volver al MENU PRINCIPAL................";
         cout<<"\n============================================";
@@ -218,13 +221,13 @@ void MENU_FACTURACION(){
             }
         break;
 
-        case 2:
+        case 2:///      02-Muestro Factura..........................";
             {
             Mostrar_ResumenVenta();
             }
         break;
 
-        case 3:
+        case 3:///      03-Eliminar Factura.........................";
             {   ///     CREO UN OBJETO CLASE FACTURA
                 Factura Baj;
                 int Nro;
@@ -262,26 +265,109 @@ void MENU_FACTURACION(){
             }
         break;
 
-        case 4:
+        case 4:///      04-Listar Facturas Eliminadas...............";
             {
             Mostrar_Facturas_Eliminadas();
             }
         break;
 
-        case 5:
+        case 5:///      n05-Listar Facturas por Nro y Prod (todas)...";
             {
             Mostrar_TodaVenta();
             }
         break;
 
-        case 0:
+        case 6:
+            {
+            Menu_Reportes();
+
+            }
+        break;
+
+        case 0:///      00- Volver al MENU PRINCIPAL................";
+            {
             return;
+
+            }
         break;
 
         default:
-            cout<<"\nIngrese la opción correcta";
+            {
+            msj("           DEBERA ELEGIR UNA OPCION CORRECTA", 15, 4, 15, 1);
+            }
         break;
     }
+    }
+}
+
+
+void Menu_Reportes(){
+    int Opcion;
+    while(Opcion){
+        system("cls");
+        title("MENU REPORTES", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        cout<<"\n============================================";
+        cout<<"\n01-Facturas emitidas en mismo dia...........";
+        cout<<"\n02-Ventas realizadas en el mismo dia........";
+        cout<<"\n03-Ventas realizadas en el mes..............";
+        cout<<"\n04-Importes recaudado en el mes.............";
+        cout<<"\n05-Importes recaudados en el dia............"; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
+        cout<<"\n06-Totales de cada Producto vencido.........";
+        cout<<"\n============================================";
+        cout<<"\n00- Volver al MENU PRINCIPAL................";
+        cout<<"\n============================================";
+        cout<<"\nOpcion: "; cin>>Opcion;
+        cout<<"============================================\n";
+
+        switch(Opcion){
+            case 1:
+            {
+
+            }
+            break;
+
+            case 2:
+            {
+
+            }
+            break;
+
+            case 3:
+            {
+
+            }
+            break;
+
+            case 4:
+            {
+
+            }
+            break;
+
+            case 5:
+            {
+
+            }
+            break;
+
+            case 6:
+            {
+
+            }
+            break;
+
+            case 0:
+            {
+
+            }
+            break;
+
+            default:
+            {
+                msj("           DEBERÁ ELEGIR UNA OPCIÓN CORRECTA", 15, 4, 15, 1);
+            }
+            break;
+        }
     }
 }
 
@@ -347,36 +433,43 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
 }
 
 void Mostrar_TodaVenta(){ ///de la Factura Actual
-
-
-        {
-        Ventas Va;
-
+        Ventas Aux;
+        system("cls");
         FILE *Veo=fopen("archivos/Ventas.dat", "rb");
-        system("pause");
-        while(fread(&Va, sizeof(Ventas), 1, Veo) ){
+        if(Veo == NULL){
+            cout<<"No se pudo abrir Venas.dat ";
+            return;
+        }
+        cout<<"==============================================================================="<<endl;
+        cout<<"\nRESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS: "<<endl;
+        cout<<"==============================================================================="<<endl;
+        cout << left;
+        cout << setw(6) << "NROF";
+        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
+        cout<<"==============================================================================="<<endl;
+
+        while (fread(&Aux, sizeof(Ventas), 1, Veo)){
                 cout << left;
                 cout << setw(6);
-                cout << Va.getNro_Fact();
+                cout << Aux.getNro_Fact();
                 cout << setw(7);
-                cout << Va.getCod_Producto();
+                cout << Aux.getCod_Producto();
                 cout << setw(18);
-                cout << Va.getDescripcion();
+                cout << Aux.getDescripcion();
                 cout << setw(6);
-                cout << Va.getCant_Producto();
+                cout << Aux.getCant_Producto();
                 cout << setw(15);
-                cout << Va.getPrecio();
+                cout << Aux.getPrecio();
                 cout << setw(10);
-                cout << Va.getImporte()<<endl;
-        }
+                cout << Aux.getImporte()<<endl;
 
+        }
 
         cout<<"==============================================================================="<<endl;
         cout<<"MOSTRO HASTA LA ULTIMA FILA"<<endl;
         system("pause");
         fclose(Veo);
         system("cls");
-        }
 }
 
 void Mostrar_Facturas_Eliminadas(){
