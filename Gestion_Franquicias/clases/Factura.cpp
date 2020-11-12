@@ -10,6 +10,7 @@ using namespace std;
 #include "Fecha.h"
 #include "Ventas.h"
 #include "Producto.h"
+#include "Comprobantes.h"
 
 Factura::Factura(){
     Nro_Fact = 0;
@@ -56,8 +57,6 @@ void Factura::setFactura(int Cliente){
     Nro_Cliente = Cliente;
     Total_Pagar=0;///FUNCION PARA SUMAR LA VENTA FALTA
 }
-
-
 
 int Factura::Leo_Ultima_Factura(){
     FILE *Fact=fopen("archivos/Facturas.dat", "rb");
@@ -223,6 +222,8 @@ void MENU_FACTURACION(){
 
         case 2:///      02-Muestro Factura..........................";
             {
+            Mostrar_Comprobante();
+            Mostrar_Rotulo_Factura();
             Mostrar_ResumenVenta();
             }
         break;
@@ -388,48 +389,47 @@ int GeneroNuevaFactura(){
 }
 
 void Mostrar_ResumenVenta(){ ///de la Factura Actual
-                Factura fac;
-                Ventas ven;
-                system("cls");
-                int NroF = fac.Leo_Ultima_Factura(); ///Traigo el ultimo numero
+    Factura fac;
+    Ventas ven;
 
+    int NroF = fac.Leo_Ultima_Factura(); ///Traigo el ultimo numero
 
-                ///     Muestro el resumen de ventas
-                    cout<<"==============================================================================="<<endl;
-                    cout<<"\nRESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS: "<<endl;
-                    cout<<"==============================================================================="<<endl;
+    ///     Muestro las ventas de la facturael resumen de ventas
+        ///cout<<"==============================================================================="<<endl;
+        ///cout<<"\nRESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS: "<<endl;
+        cout<<"==============================================================================="<<endl;
+        cout << left;
+        cout << setw(6) << "NROF";
+        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
+        cout<<"==============================================================================="<<endl;
+        FILE *V = fopen("archivos/Ventas.dat", "rb");
+        if(V == NULL) {
+            cout<<"No se pudo abrir Ventas.dat";
+            return;
+        }
+        while(fread(&ven, sizeof(Ventas), 1, V) ){
+            int veo = ven.getNro_Fact();
+            if(NroF == veo){
                     cout << left;
-                    cout << setw(6) << "NROF";
-                    cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
-                    cout<<"==============================================================================="<<endl;
-                    FILE *V = fopen("archivos/Ventas.dat", "rb");
-                    if(V == NULL) {
-                        cout<<"No se pudo abrir Ventas.dat";
-                        return;
-                    }
-                    while(fread(&ven, sizeof(Ventas), 1, V) ){
-                        int veo = ven.getNro_Fact();
-                        if(NroF == veo){
-                             cout << left;
-                            cout << setw(6);
-                            cout << ven.getNro_Fact();
-                            cout << setw(7);
-                            cout << ven.getCod_Producto();
-                            cout << setw(18);
-                            cout << ven.getDescripcion();
-                            cout << setw(6);
-                            cout << ven.getCant_Producto();
-                            cout << setw(15);
-                            cout << ven.getPrecio();
-                            cout << setw(10);
-                            cout << ven.getImporte()<<endl;
-                        }
-                    }
-                    cout<<"==============================================================================="<<endl;
-                    cout<<"MOSTRO HASTA LA ULTIMA FILA"<<endl;
-                    fclose(V);
-                    system("pause");
-                    system("cls");
+                cout << setw(6);
+                cout << ven.getNro_Fact();
+                cout << setw(7);
+                cout << ven.getCod_Producto();
+                cout << setw(18);
+                cout << ven.getDescripcion();
+                cout << setw(6);
+                cout << ven.getCant_Producto();
+                cout << setw(15);
+                cout << ven.getPrecio();
+                cout << setw(10);
+                cout << ven.getImporte()<<endl;
+            }
+        }
+        cout<<"==============================================================================="<<endl;
+        cout<<"MOSTRO HASTA LA ULTIMA FILA"<<endl;
+        fclose(V);
+        system("pause");
+        system("cls");
 }
 
 void Mostrar_TodaVenta(){ ///de la Factura Actual
@@ -472,6 +472,65 @@ void Mostrar_TodaVenta(){ ///de la Factura Actual
         system("cls");
 }
 
+void Mostrar_Comprobante(){
+    Encabezado Rot;
+    FILE *Enc = fopen("archivos/Encabezado.dat", "rb");
+    if( Enc == NULL){
+        cout<<"No se pudo abrir el archivo ";
+        return; }
+    fseek(Enc, 0 * sizeof(Encabezado), SEEK_SET);
+    fread(&Rot, sizeof(Encabezado), 1, Enc);
+    cout<<"==============================================================================="<<endl;
+    cout<<"         DATOS DE LA EMPRESA DE LA FRANQUICIA: "<<endl;
+    cout<<"==============================================================================="<<endl;
+    cout << "RAZON SOCIAL: " <<Rot.getRazon_Social()<<"    CUIT: " << Rot.getCuit()<<endl;
+    cout << "DIRECCION:    " <<Rot.getDireccion()<< "     LOCALIDAD Y PROVICIA: " << Rot.getLocalidad_Provincia()<<endl;
+    cout << "FECHA INICIO ACTIVIDAD:  "<<Rot.getFecha_inic().getDia()<<"/"<<Rot.getFecha_inic().getMes()<<"/"<<Rot.getFecha_inic().getAnio()<<" TELEFONO:   "<<Rot.getTelefono()<<endl;
+    ///cout <<"==============================================================================="<<endl;
+}
+void Mostrar_Rotulo_Factura(){
+    Factura Rotulo;
+    FILE *Fa= fopen("archivos/Facturas.dat", "rb");
+    if(Fa == NULL){
+        cout<<"No se pudo abrir Facturas.dat"<<endl;
+        return;
+    }
+    cout<<"==============================================================================="<<endl;
+    cout<<"         DETALLE DE LA FACTURA NRO: "<<Rotulo.Leo_Ultima_Factura()<<endl;
+    cout<<"==============================================================================="<<endl;
+    cout << right;
+    cout << setw(4) << "NROF";
+    cout << setw(12) << "DD/MM/AAAA " << setw(10) << "Cliente   " << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
+    cout<<"==============================================================================="<<endl;
+
+    fseek(Fa, -1 * sizeof(Factura), SEEK_END);
+    fread(&Rotulo, sizeof(Factura), 1 ,Fa );
+        if(Rotulo.Leo_Ultima_Factura() == Rotulo.getNros_Factura()){
+            cout << right;
+            cout << setw(3);
+            cout << Rotulo.getNros_Factura();
+            ///int dia; if(Elim.getFecha().getDia()<10){ dia=1; }else{ dia = 2;}
+            cout << setw(3);
+            cout << Rotulo.getFecha().getDia();
+            cout << "/";
+            cout << setw(2);
+            cout << Rotulo.getFecha().getMes();
+            cout << "/";
+            cout << setw(4);
+            cout << Rotulo.getFecha().getAnio();
+            cout << setw(9);
+            cout << Rotulo.getNroCliente();
+            cout << setw(12);
+            cout << Rotulo.getTotal_Pagar();
+            cout << setw(8);
+            cout << Rotulo.getEstado();
+            cout << endl;
+        }
+
+    ///cout<<"==============================================================================="<<endl;
+    fclose(Fa);
+}
+
 void Mostrar_Facturas_Eliminadas(){
     Factura Elim;
 
@@ -482,7 +541,7 @@ void Mostrar_Facturas_Eliminadas(){
         return;
     }
     cout<<"==============================================================================="<<endl;
-    cout<<"\nRESUMEN DE NROS FACTURAS EMITIDAS Y ELIMINADAS: "<<endl;
+    cout<<"\n       RESUMEN DE NROS FACTURAS EMITIDAS Y ELIMINADAS: "<<endl;
     cout<<"==============================================================================="<<endl;
     cout << right;
     cout << setw(4) << "NROF";

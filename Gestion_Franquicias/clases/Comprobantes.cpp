@@ -125,6 +125,7 @@ void Menu_Encabezado(){
             msj("               YA EXISTE UN REGISTRO CON LOS DATOS DE LA EMPRESA", 15, 4, 15, 1);
             system("cls");
             Opcion=0;
+            fclose(E);
             return;
             fread(&Enc, sizeof(Encabezado), 1, E);
         }else{
@@ -134,11 +135,7 @@ void Menu_Encabezado(){
         }}
         system("cls");}
 
-
     while(Opcion){
-
-
-
 
         title("MENU ENCABEZADO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<"\n============================================";

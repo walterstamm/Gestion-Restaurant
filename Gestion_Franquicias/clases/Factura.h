@@ -41,6 +41,8 @@ void Mostrar_TodaVenta();
 void Mostrar_Facturas_Eliminadas();
 void SumarVentas();
 void Menu_Reportes();
+void Mostrar_Rotulo_Factura();
+void Mostrar_Comprobante();
 
 
 
