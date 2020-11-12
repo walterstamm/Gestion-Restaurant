@@ -10,7 +10,7 @@ using namespace std;
 
 ///CONTRUCTOR DE LA CLASE ENCABEZADO
 Encabezado::Encabezado(){///char R_Social, char cuit, char Direc, char Local, char Tel){
-    cout<<"Los atributos de encabbezado estan vacios \n";
+    ///cout<<"Los atributos de encabbezado estan vacios \n";
     strcpy(Razon_Social, "");
     strcpy(Cuit, "");
     strcpy(Direccion, "");
@@ -114,25 +114,33 @@ void Encabezado::getMostrar_Encabezado(){
 
 void Guardar_Archvo(){
     Encabezado Guardar;
-
-
-
-
-
-
-
-
-
-
 }
 
 void Menu_Encabezado(){
     Encabezado Enc;
-
+    int vuelta=0;
     int Opcion;
-    while(Opcion){
-        title("MENU ENCABEZADO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+    {FILE *E = fopen("archivos/Encabezado.dat", "rb");
+        if(E !=NULL){
+            msj("               YA EXISTE UN REGISTRO CON LOS DATOS DE LA EMPRESA", 15, 4, 15, 1);
+            system("cls");
+            Opcion=0;
+            return;
+            fread(&Enc, sizeof(Encabezado), 1, E);
+        }else{
+            if(vuelta == 0){
+            msj("               PUEDE INGRESAR EL REGISTRO CON LOS DATOS DE LA EMPRESA", 15, 3, 15, 1);
+            vuelta++;
+        }}
+        system("cls");}
 
+
+    while(Opcion){
+
+
+
+
+        title("MENU ENCABEZADO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<"\n============================================";
         cout<<"\n01-Ingresar Razon Social...................."<<Enc.getRazon_Social();
         cout<<"\n02-Ingresar Cuit............................"<<Enc.getCuit();
@@ -175,35 +183,51 @@ void Menu_Encabezado(){
             break;
 
             case 7:
-                {
-                    char confirma;
-                    cout<<"\nRazon Social         : "<<  Enc.getRazon_Social();
-                    cout<<"\nCuit                 : "<<  Enc.getCuit();
-                    cout<<"\nDireccion            : "<<  Enc.getDireccion();
-                    cout<<"\nLocalidad y Provincia: "<<  Enc.getLocalidad_Provincia();
-                    cout<<"\nTelefono             : "<<  Enc.getTelefono();
-                    cout<<"\nFecha Inicio Activ   : "<<  Enc.getFecha_inic().getDia()<<"/"<<Enc.getFecha_inic().getMes()<<"/"<<Enc.getFecha_inic().getAnio();
-                    cout<<endl;
-                    system("pause");
-                    cout<<"==CONFIRME SI LOS DATOS INGRESADOS SON CORRECTOS S O N==";
-                    cin>>confirma;
-                        if(confirma == 's' || confirma == 'S'){
-                            FILE *E = fopen("archivos/Encabezado.dat", "ab");
-                            if( E == NULL){
-                                cout<<"Abre un nuevo Archivo Encabezado.dat\n";
-                                system("pause");
-                            }
-                            else{
-                                cout<<"Verifique que existe un archivo con los Datos de la Empresa\n";
-                                cout<<" Y vuelva a cargar los datos\n";
-                                fclose(E);
-                            }
+            {
+                char confirma;
+                cout<<"\nRazon Social         : "<<  Enc.getRazon_Social();
+                cout<<"\nCuit                 : "<<  Enc.getCuit();
+                cout<<"\nDireccion            : "<<  Enc.getDireccion();
+                cout<<"\nLocalidad y Provincia: "<<  Enc.getLocalidad_Provincia();
+                cout<<"\nTelefono             : "<<  Enc.getTelefono();
+                cout<<"\nFecha Inicio Activ   : "<<  Enc.getFecha_inic().getDia()<<"/"<<Enc.getFecha_inic().getMes()<<"/"<<Enc.getFecha_inic().getAnio();
+                cout<<endl;
+
+                cout<<"==CONFIRME SI LOS DATOS INGRESADOS SON CORRECTOS S O N==  ";
+                cin>>confirma;
+                    if(confirma == 's' || confirma == 'S'){
+
+                cout<<"\nRazon Social         : "<<  Enc.getRazon_Social();
+                cout<<"\nCuit                 : "<<  Enc.getCuit();
+                cout<<"\nDireccion            : "<<  Enc.getDireccion();
+                cout<<"\nLocalidad y Provincia: "<<  Enc.getLocalidad_Provincia();
+                cout<<"\nTelefono             : "<<  Enc.getTelefono();
+                cout<<"\nFecha Inicio Activ   : "<<  Enc.getFecha_inic().getDia()<<"/"<<Enc.getFecha_inic().getMes()<<"/"<<Enc.getFecha_inic().getAnio();
+                cout<<endl;
+                system("pause");
+
+                        FILE *E = fopen("archivos/Encabezado.dat", "ab");
+                        if( E == NULL){
+                            cout<<"NO SE PUDO ABRIR Encabezado.dat\n";
+                        }
+                        int grabo = fwrite(&Enc, sizeof(Encabezado), 1, E);
+                        cout<<"GRABO:  "<<grabo;
+                        system("pause");
+                        if(grabo == 1){
+                            msj("           GRABO CORRECTAMENTE", 15, 3, 15, 1 );
                         }
                         else{
-                            cout<<"Deberá ingresar nuevamente los datos de la empresa\n";
-                            Encabezado Borrar_Datos;
+                            cout<<"Verifique que existe un archivo con los Datos de la Empresa\n";
+                            cout<<" Y vuelva a cargar los datos\n";
+                            fclose(E);
                         }
-                }
+                    }
+                    else{
+                        cout<<"Deberá ingresar nuevamente los datos de la empresa\n";
+                        Encabezado Borrar_Datos;
+                        Borrar_Datos.~Encabezado();
+                    }
+            }
             break;
 
             case 8:
