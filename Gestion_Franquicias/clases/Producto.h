@@ -15,7 +15,7 @@ class Producto{
     public:
         Producto();
         ~Producto();
-        bool Cargar_Producto();
+        bool Cargar_Producto(); ///CUANDO SE CARGA POR PRIMERA VEZ
         void Mostrar_Producto();
         bool GuardarProducto();
         int Buscar_Producto_ID(int); ///busca el producto por ID y devuelve la posicion del producto

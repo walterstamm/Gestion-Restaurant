@@ -43,6 +43,8 @@ void SumarVentas();
 void Menu_Reportes();
 void Mostrar_Rotulo_Factura();
 void Mostrar_Comprobante();
+void Facturas_Fecha();
+void Ventas_Fecha();
 
 
 

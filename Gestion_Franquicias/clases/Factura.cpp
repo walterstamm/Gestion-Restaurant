@@ -278,7 +278,7 @@ void MENU_FACTURACION(){
             }
         break;
 
-        case 6:
+        case 6:///      06-Reportes a eleccion por el usuario.......";
             {
             Menu_Reportes();
 
@@ -292,82 +292,11 @@ void MENU_FACTURACION(){
             }
         break;
 
-        default:
+        default:///     mensaje de error con ui.cpp
             {
             msj("           DEBERA ELEGIR UNA OPCION CORRECTA", 15, 4, 15, 1);
             }
         break;
-    }
-    }
-}
-
-
-void Menu_Reportes(){
-    int Opcion;
-    while(Opcion){
-        system("cls");
-        title("MENU REPORTES", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-        cout<<"\n============================================";
-        cout<<"\n01-Facturas emitidas en mismo dia...........";
-        cout<<"\n02-Ventas realizadas en el mismo dia........";
-        cout<<"\n03-Ventas realizadas en el mes..............";
-        cout<<"\n04-Importes recaudado en el mes.............";
-        cout<<"\n05-Importes recaudados en el dia............"; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
-        cout<<"\n06-Totales de cada Producto vencido.........";
-        cout<<"\n============================================";
-        cout<<"\n00- Volver al MENU PRINCIPAL................";
-        cout<<"\n============================================";
-        cout<<"\nOpcion: "; cin>>Opcion;
-        cout<<"============================================\n";
-
-        switch(Opcion){
-            case 1:
-            {
-
-            }
-            break;
-
-            case 2:
-            {
-
-            }
-            break;
-
-            case 3:
-            {
-
-            }
-            break;
-
-            case 4:
-            {
-
-            }
-            break;
-
-            case 5:
-            {
-
-            }
-            break;
-
-            case 6:
-            {
-
-            }
-            break;
-
-            case 0:
-            {
-
-            }
-            break;
-
-            default:
-            {
-                msj("           DEBERÁ ELEGIR UNA OPCIÓN CORRECTA", 15, 4, 15, 1);
-            }
-            break;
         }
     }
 }
@@ -488,6 +417,7 @@ void Mostrar_Comprobante(){
     cout << "FECHA INICIO ACTIVIDAD:  "<<Rot.getFecha_inic().getDia()<<"/"<<Rot.getFecha_inic().getMes()<<"/"<<Rot.getFecha_inic().getAnio()<<" TELEFONO:   "<<Rot.getTelefono()<<endl;
     ///cout <<"==============================================================================="<<endl;
 }
+
 void Mostrar_Rotulo_Factura(){
     Factura Rotulo;
     FILE *Fa= fopen("archivos/Facturas.dat", "rb");
@@ -575,4 +505,188 @@ void Mostrar_Facturas_Eliminadas(){
     system("PAUSE");
     system("cls");
     fclose(Fa);
+}
+
+void Menu_Reportes(){
+    int Opcion;
+    while(Opcion){
+        system("cls");
+        title("                MENU REPORTES", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        cout<<"\n============================================";
+        cout<<"\n01-Facturas emitidas por fecha..............";
+        cout<<"\n02-Ventas realizadas por fecha..............";
+        cout<<"\n03-Ventas realizadas en el mes..............";
+        cout<<"\n04-Importes recaudado en el mes.............";
+        cout<<"\n05-Importes recaudados en el dia............"; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
+        cout<<"\n06-Totales de cada Producto vencido.........";
+        cout<<"\n============================================";
+        cout<<"\n00- Volver al MENU PRINCIPAL................";
+        cout<<"\n============================================";
+        cout<<"\nOpcion: "; cin>>Opcion;
+        cout<<"============================================\n";
+
+        switch(Opcion){
+            case 1: ///     01-Facturas emitidas en mismo dia...........";
+            {
+                Facturas_Fecha();
+            }
+            break;
+
+            case 2:///      02-Ventas realizadas por fecha..............";
+            {
+                Ventas_Fecha();
+            }
+            break;
+
+            case 3:
+            {
+
+            }
+            break;
+
+            case 4:
+            {
+
+            }
+            break;
+
+            case 5:
+            {
+
+            }
+            break;
+
+            case 6:
+            {
+
+            }
+            break;
+
+            case 0:
+            {
+
+            }
+            break;
+
+            default:
+            {
+                msj("           DEBERÁ ELEGIR UNA OPCIÓN CORRECTA", 15, 4, 15, 1);
+            }
+            break;
+        }
+    }
+}
+
+
+void Facturas_Fecha(){
+    Factura Fecha;
+    int Dia, Mes, Anio;
+    system("cls");
+    title("MENU REPORTES = 01-Facturas emitidas po fecha", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+    cout<<endl;
+    cout<<"Ingrese la fecha DD:    ";   cin>>Dia;
+    cout<<"Ingrese la fecha MM:    ";   cin>>Mes;
+    cout<<"Ingrese la fecha AAAA:  ";   cin>>Anio;
+
+    FILE *Fa= fopen("archivos/Facturas.dat", "rb");
+    if(Fa == NULL){
+        cout<<"No se pudo abrir Facturas.dat"<<endl;
+        return;
+    }
+
+    cout<<"==============================================================================="<<endl;
+    cout<<"\n         RESUMEN DE NROS FACTURAS EMITIDAS POR FECHA: "<<endl;
+    cout<<"==============================================================================="<<endl;
+    cout << right;
+    cout << setw(4) << "NROF";
+    cout << setw(12) << "DD/MM/AAAA " << setw(10) << "Cliente   " << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
+    cout<<"==============================================================================="<<endl;
+
+    while( fread(&Fecha, sizeof(Factura), 1 ,Fa )  ){
+        if(Fecha.getFecha().getDia() == Dia && Fecha.getFecha().getMes() == Mes && Fecha.getFecha().getAnio() == Anio){
+            cout << right;
+            cout << setw(3);
+            cout << Fecha.getNros_Factura();
+            ///int dia; if(Elim.getFecha().getDia()<10){ dia=1; }else{ dia = 2;}
+            cout << setw(3);
+            cout << Fecha.getFecha().getDia();
+            cout << "/";
+            cout << setw(2);
+            cout << Fecha.getFecha().getMes();
+            cout << "/";
+            cout << setw(4);
+            cout << Fecha.getFecha().getAnio();
+            cout << setw(9);
+            cout << Fecha.getNroCliente();
+            cout << setw(12);
+            cout << Fecha.getTotal_Pagar();
+            cout << setw(8);
+            cout << Fecha.getEstado();
+            cout << endl;
+        }
+    }
+    cout<<"==============================================================================="<<endl;
+    system("PAUSE");
+    system("cls");
+    fclose(Fa);
+}
+
+void Ventas_Fecha(){ ///ACA TENGO QUE TRABAJAR CON LOS DOS ARCHIVOS FACTURAS Y VENTAS
+        Factura F_Fecha;
+        Ventas V_Fecha;
+
+        int Dia, Mes, Anio;
+        system("cls");
+        title("MENU REPORTES = 02-Ventas realizadas por fecha", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        cout<<endl;
+        cout<<"Ingrese la fecha DD:    ";   cin>>Dia;
+        cout<<"Ingrese la fecha MM:    ";   cin>>Mes;
+        cout<<"Ingrese la fecha AAAA:  ";   cin>>Anio;
+
+        FILE *Fac = fopen("archivos/Facturas.dat", "rb");
+        FILE *Ven=fopen("archivos/Ventas.dat", "rb");
+        if(Fac == NULL && Ven == NULL){
+            cout<<"No se pudo abrir Venas.dat ";
+            fclose(Fac);
+            fclose(Ven);
+            return;
+        }
+
+        cout<<"==============================================================================="<<endl;
+        cout<<"\n         RESUMEN DE VENTAS REALIZADAS POR FECHA: "<<endl;
+        cout<<"==============================================================================="<<endl;
+        cout << left;
+        cout << setw(6) << "NROF";
+        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
+        cout<<"==============================================================================="<<endl;
+
+        while(fread(&F_Fecha, sizeof(Factura), 1, Fac)){
+            if(F_Fecha.getFecha().getDia()== Dia && F_Fecha.getFecha().getMes()== Mes && F_Fecha.getFecha().getAnio()== Anio){
+                fseek(Ven, sizeof(Ventas), SEEK_SET);
+                while (fread(&V_Fecha, sizeof(Ventas), 1, Ven)){
+                    if(F_Fecha.getNros_Factura() == V_Fecha.getNro_Fact()){
+                        cout << left;
+                        cout << setw(6);
+                        cout << V_Fecha.getNro_Fact();
+                        cout << setw(7);
+                        cout << V_Fecha.getCod_Producto();
+                        cout << setw(18);
+                        cout << V_Fecha.getDescripcion();
+                        cout << setw(6);
+                        cout << V_Fecha.getCant_Producto();
+                        cout << setw(15);
+                        cout << V_Fecha.getPrecio();
+                        cout << setw(10);
+                        cout << V_Fecha.getImporte()<<endl;
+                    }
+                }
+            }
+        }
+        cout<<"==============================================================================="<<endl;
+        cout<<"MOSTRO HASTA LA ULTIMA FILA"<<endl;
+        system("pause");
+        fclose(Fac);
+        fclose(Ven);
+        system("cls");
+
 }
