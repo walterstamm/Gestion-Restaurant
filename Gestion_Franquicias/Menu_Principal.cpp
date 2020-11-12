@@ -20,8 +20,9 @@ void MENU_PRODUCTO(){
         cout<<endl<<"4) LISTAR TODOS LOS PRODUCTOS";
         cout<<endl<<"5) LISTAR PRODUCTO POR ID";
         cout<<endl<<"6) ELIMINAR PRODUCTO";
-        cout<<endl<<"7) VOLVER AL MENÚ PRINCIPAL";
-        cout<<endl<<"8) VENDER";
+        cout<<endl<<"7) MODIFICAR PRECIO DEL PRODUCTO";
+        cout<<endl<<"8) VOLVER AL MENÚ PRINCIPAL";
+        cout<<endl<<"9) VENDER";
         cout<<endl<<"--------------------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
@@ -58,8 +59,13 @@ void MENU_PRODUCTO(){
             system("cls");
         break;
         case 7:
+            Modificar_Precio();
+            system("pause");
+            system("cls");
         break;
         case 8:
+        break;
+        case 9:
             ventas();
             system("pause");
             system("cls");
