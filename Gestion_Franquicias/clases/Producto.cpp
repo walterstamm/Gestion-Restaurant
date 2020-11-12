@@ -8,6 +8,7 @@ using namespace std;
 
 Producto::Producto(){
     Precio=0;
+    estado=true;
 }
 
 Producto::~Producto(){
