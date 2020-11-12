@@ -7,8 +7,7 @@ using namespace std;
 #include "../Validaciones/SINO.h"
 
 Producto::Producto(){
-    estado=true;
-    ID=0;
+    Precio=0;
 }
 
 Producto::~Producto(){

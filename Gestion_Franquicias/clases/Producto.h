@@ -19,15 +19,18 @@ class Producto{
         void Mostrar_Producto();
         bool GuardarProducto();
         int Buscar_Producto_ID(int); ///busca el producto por ID y devuelve la posicion del producto
+        ///get
         int getID(){return ID;}
         char *getNombre(){return Nombre;}
         float getPrecio(){return Precio;}
         int getCantidad(){return Cantidad;}
         bool getEstado(){return estado;}
         bool ModificarProducto(int); ///recibe la posicion en memoria del producto
+        ///set
         void setCantidad(int _cantidad){Cantidad=_cantidad;}
         void setCantidadMinima(int _cantidadMinima){Cantidad_Minima=_cantidadMinima;}
         void setEstado(int _estado){estado= _estado;}
+        void setPrecio(float _Precio){Precio=_Precio;}
         bool ValidarCantidadProducto(int);///valida que la cantidad vendida no sobrepase la cantidad existente
 };
 

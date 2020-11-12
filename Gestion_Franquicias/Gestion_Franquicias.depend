@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1604031839 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
+1605204714 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -14,9 +14,9 @@
 	<ctime>
 	"Fecha.h"
 
-1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
+1604977981 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1604460862 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1605213418 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -24,7 +24,7 @@
 	"Producto.h"
 	"../Validaciones/SINO.h"
 
-1604460333 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
+1605213418 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
 1604553379 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
@@ -35,9 +35,9 @@
 	"../Validaciones/SINO.h"
 	"../clases/Descuento.h"
 
-1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
+1605213693 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
-1604555083 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1604779145 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -46,8 +46,9 @@
 	"Menu_Producto/Menu_Producto.h"
 	"Medio_Pago/Medio_Pago.h"
 	"menus/MenuDescuento.h"
+	"Clases/Comprobantes.h"
 
-1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.h
+1604779145 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_principal.h
 
 1604031838 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\interfazgrafica\ui.h
 
@@ -73,10 +74,12 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1604031839 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
+1605213390 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
 	<iostream>
 	<string.h>
 	<cstdio>
+	<iomanip>
+	<cstdlib>
 	"Ventas.h"
 	"Producto.h"
 
@@ -168,14 +171,17 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1604031839 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
+1605204714 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
+	<stdio.h>
 	<cstring>
+	<iomanip>
 	"Comprobantes.h"
+	"Factura.h"
 
-1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
+1605204714 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
 	"Fecha.h"
 
 1604624688 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
@@ -206,7 +212,7 @@
 1604624688 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 	"Producto.h"
 
-1604634434 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
+1604634545 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -366,23 +372,27 @@
 1604754057 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
-1604031839 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+1605213390 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+	<vector>
 	<iostream>
 	<cstdlib>
 	<cstdio>
+	<stdio.h>
 	<cstring>
+	<iomanip>
 	"Factura.h"
 	"Fecha.h"
 	"Ventas.h"
 	"Producto.h"
+	"Comprobantes.h"
 
-1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.h
+1605213390 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.h
 	"Fecha.h"
 	"ui.h"
 
 1604031839 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ui.h
 
-1604550923 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.h
+1604779145 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
 1604035191 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
