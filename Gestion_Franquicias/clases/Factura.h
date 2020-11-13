@@ -19,6 +19,7 @@ class Factura{
         void setEstado(bool);
         void setTotal_Pagar(float);
         float setImporte();
+        Fecha setFecha_Factura();
 
         void getFactura();
         int getNro_Factura();
@@ -45,6 +46,7 @@ void Mostrar_Rotulo_Factura();
 void Mostrar_Comprobante();
 void Facturas_Fecha();
 void Ventas_Fecha();
+void Ventas_Mes();
 
 
 

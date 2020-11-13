@@ -224,7 +224,11 @@ void Menu_Encabezado(){
                         Encabezado Borrar_Datos;
                         Borrar_Datos.~Encabezado();
                     }
+            cout<<"VUELVA A INGRESAR AL PROGRAMA";
+            system("pause");
+            return;
             }
+
             break;
 
             case 8:

@@ -191,7 +191,7 @@
 
 1604964279 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1604674935 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1605214133 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -336,7 +336,7 @@
 1604624688 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.h
 	"Fecha.h"
 
-1605203119 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+1605230300 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
 	<vector>
 	<iostream>
 	<cstdlib>
@@ -350,11 +350,11 @@
 	"Producto.h"
 	"Comprobantes.h"
 
-1605208740 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.h
+1605230300 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.h
 	"Fecha.h"
 	"ui.h"
 
-1605152843 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
+1605225117 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>

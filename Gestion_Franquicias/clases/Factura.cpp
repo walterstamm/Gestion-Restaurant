@@ -17,6 +17,7 @@ Factura::Factura(){
     Nro_Cliente = 0;
     Total_Pagar=0;
     Estado = true;
+
 }
 Factura::~Factura(){
 }
@@ -48,7 +49,6 @@ int Factura::BuscarPosicionFactura(int Nro){
 
 void Factura::setEstado(bool Est){
     Estado = Est;
-
 }
 
 void Factura::setFactura(int Cliente){
@@ -56,6 +56,7 @@ void Factura::setFactura(int Cliente){
     Nro_Fact = Leo_Ultima_Factura()+1;
     Nro_Cliente = Cliente;
     Total_Pagar=0;///FUNCION PARA SUMAR LA VENTA FALTA
+
 }
 
 int Factura::Leo_Ultima_Factura(){
@@ -73,6 +74,10 @@ int Factura::getNros_Factura(){
 
 int Factura::getNro_Factura(){
     return Leo_Ultima_Factura();
+}
+
+Fecha Factura::setFecha_Factura(){
+    return Fecha_Factura;
 }
 
 Fecha Factura::getFecha(){
@@ -176,6 +181,7 @@ void MENU_FACTURACION(){
                 char Descrip[20], Mas_Producto;
                 float Precios, Importe;
                 NroFactura = GeneroNuevaFactura();
+
                 {   ///     CREO OBJETO PRODUCTO
                     Producto Prod;
                     ///     CREO OBJETO VENTAS
@@ -218,6 +224,15 @@ void MENU_FACTURACION(){
                     system("cls");
                 }///        HASTA ACA LA ULTIMA LINEA
             }
+        break;
+
+        case 11:
+            {
+            Factura aa;
+            aa.Muestro_Guardado();
+            system("pause");
+            }
+
         break;
 
         case 2:///      02-Muestro Factura..........................";
@@ -313,6 +328,8 @@ int GeneroNuevaFactura(){
     Nueva.Guardo();
     cout<<"Guardo Factura";
     Nueva.getNro_Factura();///PERFECTO MUESTRA LA ULTIMA FACTURA
+    cout<<"GETNRO_FACTURA: " << Nueva.getNro_Factura()<<endl;
+    system("pause");
     return Nueva.getNro_Factura();
     }
 }
@@ -403,6 +420,7 @@ void Mostrar_TodaVenta(){ ///de la Factura Actual
 
 void Mostrar_Comprobante(){
     Encabezado Rot;
+    system("cls");
     FILE *Enc = fopen("archivos/Encabezado.dat", "rb");
     if( Enc == NULL){
         cout<<"No se pudo abrir el archivo ";
@@ -414,7 +432,7 @@ void Mostrar_Comprobante(){
     cout<<"==============================================================================="<<endl;
     cout << "RAZON SOCIAL: " <<Rot.getRazon_Social()<<"    CUIT: " << Rot.getCuit()<<endl;
     cout << "DIRECCION:    " <<Rot.getDireccion()<< "     LOCALIDAD Y PROVICIA: " << Rot.getLocalidad_Provincia()<<endl;
-    cout << "FECHA INICIO ACTIVIDAD:  "<<Rot.getFecha_inic().getDia()<<"/"<<Rot.getFecha_inic().getMes()<<"/"<<Rot.getFecha_inic().getAnio()<<" TELEFONO:   "<<Rot.getTelefono()<<endl;
+    cout << "FECHA INICIO ACTIVIDAD:  "<<Rot.getFecha_inic().getDia()<<"/"<<Rot.getFecha_inic().getMes()<<"/"<<Rot.getFecha_inic().getAnio()<<" TELEFONO: "<<Rot.getTelefono()<<endl;
     ///cout <<"==============================================================================="<<endl;
 }
 
@@ -479,7 +497,7 @@ void Mostrar_Facturas_Eliminadas(){
     cout<<"==============================================================================="<<endl;
 
     while( fread(&Elim, sizeof(Factura), 1 ,Fa )  ){
-        if(Elim.getEstado() == false){
+        if(Elim.getEstado() == true){
             cout << right;
             cout << setw(3);
             cout << Elim.getNros_Factura();
@@ -538,9 +556,9 @@ void Menu_Reportes(){
             }
             break;
 
-            case 3:
+            case 3:///      03-Ventas realizadas por mes y año..........";
             {
-
+                Ventas_Mes();
             }
             break;
 
@@ -688,5 +706,63 @@ void Ventas_Fecha(){ ///ACA TENGO QUE TRABAJAR CON LOS DOS ARCHIVOS FACTURAS Y V
         fclose(Fac);
         fclose(Ven);
         system("cls");
+}
 
+
+void Ventas_Mes(){
+        Factura F_Fecha;
+        Ventas V_Fecha;
+
+        int Mes, Anio;
+        system("cls");
+        title("MENU REPORTES = 03-Ventas realizadas por mes y año", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        cout<<endl;
+        cout<<"Ingrese la fecha MM:    ";   cin>>Mes;
+        cout<<"Ingrese la fecha AAAA:  ";   cin>>Anio;
+
+        FILE *Fac = fopen("archivos/Facturas.dat", "rb");
+        FILE *Ven=fopen("archivos/Ventas.dat", "rb");
+        if(Fac == NULL && Ven == NULL){
+            cout<<"No se pudo abrir Venas.dat ";
+            fclose(Fac);
+            fclose(Ven);
+            return;
+        }
+
+        cout<<"==============================================================================="<<endl;
+        cout<<"\n         RESUMEN DE VENTAS REALIZADAS POR MES Y AÑO: "<<endl;
+        cout<<"==============================================================================="<<endl;
+        cout << left;
+        cout << setw(6) << "NROF";
+        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
+        cout<<"==============================================================================="<<endl;
+
+        while(fread(&F_Fecha, sizeof(Factura), 1, Fac)){
+            if(F_Fecha.getFecha().getMes()== Mes && F_Fecha.getFecha().getAnio()== Anio){
+                fseek(Ven, sizeof(Ventas), SEEK_SET);
+                while (fread(&V_Fecha, sizeof(Ventas), 1, Ven)){
+                    if(F_Fecha.getNros_Factura() == V_Fecha.getNro_Fact()){
+                        cout << left;
+                        cout << setw(6);
+                        cout << V_Fecha.getNro_Fact();
+                        cout << setw(7);
+                        cout << V_Fecha.getCod_Producto();
+                        cout << setw(18);
+                        cout << V_Fecha.getDescripcion();
+                        cout << setw(6);
+                        cout << V_Fecha.getCant_Producto();
+                        cout << setw(15);
+                        cout << V_Fecha.getPrecio();
+                        cout << setw(10);
+                        cout << V_Fecha.getImporte()<<endl;
+                    }
+                }
+            }
+        }
+        cout<<"==============================================================================="<<endl;
+        cout<<"MOSTRO HASTA LA ULTIMA FILA"<<endl;
+        system("pause");
+        fclose(Fac);
+        fclose(Ven);
+        system("cls");
 }
