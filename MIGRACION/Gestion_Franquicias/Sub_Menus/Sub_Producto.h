@@ -1,0 +1,6 @@
+#ifndef SUB_PRODUCTO_H_INCLUDED
+#define SUB_PRODUCTO_H_INCLUDED
+
+void Sub_Producto();
+
+#endif // SUB_PRODUCTO_H_INCLUDED
