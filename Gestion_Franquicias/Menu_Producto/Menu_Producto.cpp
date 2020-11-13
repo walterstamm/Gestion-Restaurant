@@ -162,3 +162,30 @@ void ventas(){
     cout<<"total $"<<total<<endl;
     ///boleta
 }
+
+void Modificar_Precio(){
+    int ID;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    Producto uno;
+    int pos=uno.Buscar_Producto_ID(ID);
+    if(pos==-1){
+        cout<<"Producto inexistente"<<endl;
+        return;
+    }
+    uno.Mostrar_Producto();
+    float precio;
+    cout<<"Ingrese el precio: $";
+    cin>>ID;
+    while(precio<0){ ///validando Cantidad que no sea negativo
+       cout<<endl<<"precio incorrecta, reingrese el precio"<<endl<<endl;
+        cout<<">> Ingrese el precio: $";
+        cin>>precio;
+    }
+    uno.setPrecio(precio);
+    if(uno.ModificarProducto(pos)==false){
+        cout<<"Producto no guardado"<<endl;
+        return;
+    }
+    cout<<"Producto guardado"<<endl;
+}
