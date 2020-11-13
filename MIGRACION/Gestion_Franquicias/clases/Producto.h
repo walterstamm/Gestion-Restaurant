@@ -36,9 +36,11 @@ public:
 
     ///Archivos
     bool Guardar();
-
+    bool LeerPos(int);
+    bool Modificar(int);
 };
 
-bool ValidarID(int);///validad ID (existe=true, no existe=false)
+bool ValidarID_Producto(int);///validad ID (existe=true, no existe=false)
+bool BuscarPoscicion_Producto(int, int &);///Buscar Posicion archivo
 
 #endif // PRODUCTO_H_INCLUDED

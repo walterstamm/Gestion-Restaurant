@@ -10,7 +10,7 @@ using namespace std;
 bool Producto::Cargar(){
     cout<<"Ingrese el ID ";
     cin>>ID;
-        while(ID<0 || ValidarID(ID)!=false){ ///validando id que no sea negativo y no se repita
+        while(ID<0 || ValidarID_Producto(ID)!=false){ ///validando id que no sea negativo y no se repita
             cout<<"Error ID";
                 if(Continuar()==false){
                     system ("cls");
@@ -72,17 +72,51 @@ void Producto::Listar(){
     cout<<endl<<endl;
 }
 
+bool Producto::Guardar(){
+    bool grabo;
+    FILE *p=fopen("archivos/producto.dat","ab");
+    if(p==NULL){
+        return false;
+    }
+    grabo=fwrite(this, sizeof(Producto),1,p);
+    fclose(p);
+return grabo;
+}
+
+bool Producto::LeerPos(int pos){
+    bool estado;
+    FILE *p=fopen("archivos/producto.dat","rb");
+    if(p==NULL) return false;
+    fseek(p, pos*sizeof(Producto),SEEK_SET);
+    estado=fread(this, sizeof(Producto),1,p);
+    fclose(p);
+return estado;
+}
+
+bool Producto::Modificar(int pos){
+    bool estado;
+    FILE *p=fopen("archivos/producto.dat","rb+");
+    if(p==NULL) return false;
+    fseek(p, pos*sizeof(Producto),SEEK_SET);
+    estado=fwrite(this, sizeof(Producto),1,p);
+    fclose(p);
+return estado;
+
+}
+
+bool BuscarPoscicion_Producto(int _ID, int &pos){
+    Producto uno;
+    while(uno.LeerPos(pos++)){
+        if(uno.getID()==_ID){
+            return true;
+        }
+    }
+return false;
+}
 
 
 
-
-
-
-
-
-
-
-bool ValidarID(int _ID){
+bool ValidarID_Producto(int _ID){
     Producto uno;
     FILE *p=fopen("archivos/producto.dat","rb");
     if(p==NULL) return false;
