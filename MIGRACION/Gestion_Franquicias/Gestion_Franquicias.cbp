@@ -32,6 +32,20 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Funciones/Fun_Producto.cpp" />
+		<Unit filename="Funciones/Fun_Producto.h" />
+		<Unit filename="Interfaz_Grafica/ui.cpp" />
+		<Unit filename="Interfaz_Grafica/ui.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
+		<Unit filename="Sub_Menus/Sub_Producto.cpp" />
+		<Unit filename="Sub_Menus/Sub_Producto.h" />
+		<Unit filename="Validaciones/Continuar.cpp" />
+		<Unit filename="Validaciones/Continuar.h" />
+		<Unit filename="clases/Fecha.cpp" />
+		<Unit filename="clases/Fecha.h" />
+		<Unit filename="clases/Producto.cpp" />
+		<Unit filename="clases/Producto.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
