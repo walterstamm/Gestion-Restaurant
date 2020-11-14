@@ -52,11 +52,10 @@ void Factura::setEstado(bool Est){
 }
 
 void Factura::setFactura(int Cliente){
-    cout<<"NUEVA FACTURA\n";
     Nro_Fact = Leo_Ultima_Factura()+1;
     Nro_Cliente = Cliente;
     Total_Pagar=0;///FUNCION PARA SUMAR LA VENTA FALTA
-
+    Fecha_Factura.setFechaHoy();
 }
 
 int Factura::Leo_Ultima_Factura(){
@@ -160,16 +159,17 @@ void MENU_FACTURACION(){
     while(Opcion){
         system("cls");
         title("MENU FACTURACION", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-        cout<<"\n============================================";
-        cout<<"\n01-Generar Factura..........................";
-        cout<<"\n02-Muestro Factura..........................";
-        cout<<"\n03-Eliminar Factura.........................";
-        cout<<"\n04-Listar Facturas Eliminadas...............";
-        cout<<"\n05-Listar Facturas por Nro y Prod (todas)..."; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
-        cout<<"\n06-Reportes a eleccion por el usuario.......";
-        cout<<"\n============================================";
-        cout<<"\n00- Volver al MENU PRINCIPAL................";
-        cout<<"\n============================================";
+
+        cout<<"\n============================================  |"<<"Cod  Producto          Precio";
+        cout<<"\n01-Generar Factura..........................  |"<<" 01";
+        cout<<"\n02-Muestro Factura..........................  |"<<" 02";
+        cout<<"\n03-Eliminar Factura.........................  |"<<" 03";
+        cout<<"\n04-Listar Facturas Eliminadas...............  |"<<" 04";
+        cout<<"\n05-Listar Facturas por Nro y Prod (todas)...  |"<<" 05";
+        cout<<"\n06-Reportes a eleccion por el usuario.......  |"<<" 06";
+        cout<<"\n============================================  |"<<" 07";
+        cout<<"\n00- Volver al MENU PRINCIPAL................  |"<<" 08";
+        cout<<"\n============================================  |"<<" 09";
         cout<<"\nOpcion: "; cin>>Opcion;
         cout<<"============================================\n";
 
@@ -188,6 +188,7 @@ void MENU_FACTURACION(){
                     Ventas Vent;
                     Mas_Producto='s';
                     while(Mas_Producto == 's' || Mas_Producto == 'S'){
+
                         cout<<"\nCodProducto: "; cin>>CodProducto;
                         Pos = Prod.Buscar_Producto_ID(CodProducto);
                         FILE *Pr = fopen("archivos/Producto.dat", "rb");
@@ -197,11 +198,12 @@ void MENU_FACTURACION(){
                         }
                         ///     ME POSICIONO AL INICIO DEL REGISTRO
                         fseek(Pr, Pos * sizeof(Producto), SEEK_SET);
-                        ///PREGUNTO SI CON FREAD SE CARGA EN LA MEORIA DE LA CLASE
+                        ///CON FREAD SE CARGA EN LA MEORIA DE LA CLASE
                         fread(&Prod, sizeof(Producto), 1, Pr);
                         ///     COPIO EL NOMBRE Y EL PRECIO
                         strcpy(Descrip, Prod.getNombre());
                         Precios=(Prod.getPrecio());
+                        cout<<"Producto: "<<Descrip<<" Precio: "<<Precios<<endl;
                         ///     CARGO CANTIDAD Y ASIGNO A IMPORTE EL VALOR POR EL REGISTRO
                         cout<<"Ingrese Cantidad de Producto: "; cin>>CantProducto;
                         Importe = Precios * CantProducto;
@@ -316,20 +318,19 @@ void MENU_FACTURACION(){
     }
 }
 
-int GeneroNuevaFactura(){
+int GeneroNuevaFactura(){///ESTOY TRABAJANDO ACA    =====     ffff
     {
     ///     CREO OBJETO FACTURA
     Factura Nueva;
     int Cliente=-1;
     cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
+    cout<<"Fecha: "<<Nueva.getFecha().getDia()<<"/"<<Nueva.getFecha().getMes()<<"/"<<Nueva.getFecha().getAnio()<< "====";
+    system("pause");
     ///GENERO NRO FACTURA CON NRO CLIENTE EN LA MEMORIA.
     Nueva.setFactura(Cliente);
-    ///Nueva.getFactura();
     Nueva.Guardo();
-    cout<<"Guardo Factura";
     Nueva.getNro_Factura();///PERFECTO MUESTRA LA ULTIMA FACTURA
-    cout<<"GETNRO_FACTURA: " << Nueva.getNro_Factura()<<endl;
-    system("pause");
+    ///         ======ACA PUEDO LLAMAR A LA FUNCION QUE MUESTRA LOS DATOS DE LA FACTURA  =====
     return Nueva.getNro_Factura();
     }
 }
@@ -443,6 +444,7 @@ void Mostrar_Rotulo_Factura(){
         cout<<"No se pudo abrir Facturas.dat"<<endl;
         return;
     }
+
     cout<<"==============================================================================="<<endl;
     cout<<"         DETALLE DE LA FACTURA NRO: "<<Rotulo.Leo_Ultima_Factura()<<endl;
     cout<<"==============================================================================="<<endl;
@@ -453,7 +455,7 @@ void Mostrar_Rotulo_Factura(){
 
     fseek(Fa, -1 * sizeof(Factura), SEEK_END);
     fread(&Rotulo, sizeof(Factura), 1 ,Fa );
-        if(Rotulo.Leo_Ultima_Factura() == Rotulo.getNros_Factura()){
+        ///if(Rotulo.Leo_Ultima_Factura() == Rotulo.getNros_Factura()){
             cout << right;
             cout << setw(3);
             cout << Rotulo.getNros_Factura();
@@ -473,7 +475,7 @@ void Mostrar_Rotulo_Factura(){
             cout << setw(8);
             cout << Rotulo.getEstado();
             cout << endl;
-        }
+        ///}
 
     ///cout<<"==============================================================================="<<endl;
     fclose(Fa);
@@ -537,6 +539,7 @@ void Menu_Reportes(){
         cout<<"\n04-Importes recaudado en el mes.............";
         cout<<"\n05-Importes recaudados en el dia............"; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
         cout<<"\n06-Totales de cada Producto vencido.........";
+        cout<<"\n07-Impacto de Ventas e Ingresos Productos...";
         cout<<"\n============================================";
         cout<<"\n00- Volver al MENU PRINCIPAL................";
         cout<<"\n============================================";
@@ -611,7 +614,6 @@ void Facturas_Fecha(){
         cout<<"No se pudo abrir Facturas.dat"<<endl;
         return;
     }
-
     cout<<"==============================================================================="<<endl;
     cout<<"\n         RESUMEN DE NROS FACTURAS EMITIDAS POR FECHA: "<<endl;
     cout<<"==============================================================================="<<endl;
@@ -619,7 +621,7 @@ void Facturas_Fecha(){
     cout << setw(4) << "NROF";
     cout << setw(12) << "DD/MM/AAAA " << setw(10) << "Cliente   " << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
     cout<<"==============================================================================="<<endl;
-
+    float Tot_Factura=0;
     while( fread(&Fecha, sizeof(Factura), 1 ,Fa )  ){
         if(Fecha.getFecha().getDia() == Dia && Fecha.getFecha().getMes() == Mes && Fecha.getFecha().getAnio() == Anio){
             cout << right;
@@ -641,8 +643,11 @@ void Facturas_Fecha(){
             cout << setw(8);
             cout << Fecha.getEstado();
             cout << endl;
+            Tot_Factura +=Fecha.getTotal_Pagar();
         }
     }
+    cout<<"==============================================================================="<<endl;
+    cout<<"                                           TOTAL RECAUDADO:  "<<Tot_Factura<<endl;
     cout<<"==============================================================================="<<endl;
     system("PAUSE");
     system("cls");
@@ -677,7 +682,6 @@ void Ventas_Fecha(){ ///ACA TENGO QUE TRABAJAR CON LOS DOS ARCHIVOS FACTURAS Y V
         cout << setw(6) << "NROF";
         cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
         cout<<"==============================================================================="<<endl;
-
         while(fread(&F_Fecha, sizeof(Factura), 1, Fac)){
             if(F_Fecha.getFecha().getDia()== Dia && F_Fecha.getFecha().getMes()== Mes && F_Fecha.getFecha().getAnio()== Anio){
                 fseek(Ven, sizeof(Ventas), SEEK_SET);
