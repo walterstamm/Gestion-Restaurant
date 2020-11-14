@@ -16,7 +16,7 @@
 
 1604977981 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1605215097 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1605239143 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -27,7 +27,7 @@
 1605213418 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1605215050 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1605215177 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	<cstdio>
 	"Menu_Producto.h"
@@ -171,7 +171,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1605204714 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
+1605239143 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -372,7 +372,7 @@
 1604754057 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
-1605213390 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+1605239143 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp
 	<vector>
 	<iostream>
 	<cstdlib>
@@ -386,7 +386,7 @@
 	"Producto.h"
 	"Comprobantes.h"
 
-1605213390 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.h
+1605239143 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.h
 	"Fecha.h"
 	"ui.h"
 
