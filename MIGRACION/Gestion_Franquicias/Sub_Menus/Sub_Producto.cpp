@@ -8,17 +8,17 @@ void Sub_Producto(){
     short opcion;
     do{
         title("MENU PRODUCTO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-        cout<<endl<<"--------------------------------------";
-        cout<<endl<<"1) CARGAR PRODUCTO";
-        cout<<endl<<"2) LISTAR TODOS LOS PRODUCTOS";
-        cout<<endl<<"3) LISTAR PRODUCTO POR ID";
-        cout<<endl<<"4) MODIFICAR PRECIO DEL PRODUCTO";
-        cout<<endl<<"5) MODIFICAR CANTIDAD DEL PRODUCTOS";
-        cout<<endl<<"6) MODIFICAR CANTIDAD MINIMA";
-        cout<<endl<<"7) ELIMINAR PRODUCTO";
-        cout<<endl<<"8) VOLVER AL MENÚ PRINCIPAL";
-        cout<<endl<<"--------------------------------------";
-        cout<<endl<<"\t OPCIÓN: ";
+        cout<<endl<<"---------------------------------------"<<endl;
+        cout<<endl<<"1) CARGAR PRODUCTO....................."<<endl;
+        cout<<endl<<"2) LISTAR TODOS LOS PRODUCTOS.........."<<endl;
+        cout<<endl<<"3) LISTAR PRODUCTO POR ID.............."<<endl;
+        cout<<endl<<"4) MODIFICAR PRECIO DEL PRODUCTO......."<<endl;
+        cout<<endl<<"5) MODIFICAR CANTIDAD DEL PRODUCTOS...."<<endl;
+        cout<<endl<<"6) MODIFICAR CANTIDAD MINIMA..........."<<endl;
+        cout<<endl<<"7) ELIMINAR PRODUCTO..................."<<endl;
+        cout<<endl<<"8) VOLVER AL MENU COMPRA..............."<<endl;
+        cout<<endl<<"---------------------------------------"<<endl;
+        cout<<endl<<"\t OPCION: ";
         cin>>opcion;
         system ("cls");
         switch(opcion){
