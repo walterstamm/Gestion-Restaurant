@@ -4,13 +4,14 @@ using namespace std;
 #include <cstring>
 #include <cstdio>
 #include "../Menu_Pedidos.h"
+
+
 proveedore::proveedore(){
     Estado=true;
 }
 
 void proveedore::Cargar_Proveedore(){
-    int cantidad,_ID;
-    setEstado(true);
+
     ID=CantidadProvedores()+1;
 
     cout<<"ID= "<<ID<<endl;
@@ -54,6 +55,7 @@ return grabo;
 
 bool proveedore::Guardar_Cambios(){
     int Posicion;
+    bool grabo;
     Posicion=posicionProveedor(ID);
     FILE *p=fopen("archivos/Proveedores.dat","rb+");
     if(p==NULL){
@@ -62,12 +64,9 @@ bool proveedore::Guardar_Cambios(){
         return 0;
     }
     fseek(p,Posicion*sizeof(proveedore),SEEK_SET);
-    if(fwrite(this,sizeof(proveedore),1,p)){
-        fclose(p);
-        return 1;
-    }
+    grabo=fwrite(this,sizeof(proveedore),1,p);
     fclose(p);
-    return 0;
+    return grabo;
 }
 
 int proveedore::posicionProveedor(int _ID){
@@ -86,7 +85,8 @@ int proveedore::posicionProveedor(int _ID){
         contador++;
     }
     fclose(p);
-    cout<<endl<<"No se encontro el Archivo";
+    cout<<endl<<"Nose encontro el proveedor";
+    system("pause");
     return -1;
 }
 

@@ -97,6 +97,7 @@ bool ValidarIDProveedores(int _ID){
     return true;
 }
 
+
 void DarBajaProveedor(){
     int ID,Telefono;
     bool validacion;
@@ -161,7 +162,9 @@ void DarBajaProveedor(){
         }
         reg.setNota(Nota);
     }
-
+    cout<<endl<<endl;
+    reg.Listar_Proveedores();
+    cout<<endl<<endl;
     validacion=reg.Guardar_Cambios();
     if(validacion){
         cout<<"Se guardaron los cambion con exito!";
@@ -171,6 +174,9 @@ void DarBajaProveedor(){
     cout<<endl<<"No se puedo guardar los cambios";
     system("pause");
 }
+
+
+
 void BuscarID(proveedore *registro,int id){
 
     FILE *p=fopen("archivos/Proveedores.dat","rb");
