@@ -3,8 +3,10 @@ using namespace std;
 #include<cstdlib>
 #include <cstring>
 #include <cstdio>
-#include "proveedores.h"
 #include "../Menu_Pedidos.h"
+proveedore::proveedore(){
+    Estado=true;
+}
 
 void proveedore::Cargar_Proveedore(){
     int cantidad,_ID;
@@ -140,4 +142,4 @@ void proveedore::setNota(char *nuevaNota){
 char *proveedore::getNota(){
     return Nota;
 }
-@
+

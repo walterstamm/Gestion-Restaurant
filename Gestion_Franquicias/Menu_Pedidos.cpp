@@ -2,7 +2,6 @@
 #include<cstdlib>
 #include<cstdio>
 #include "Menu_Pedidos.h"
-#include "clases/proveedores.h"
 using namespace std;
 
 void Menu_Pedidos(){

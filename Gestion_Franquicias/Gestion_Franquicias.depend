@@ -426,19 +426,22 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
+1605562804 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
+	<stdio.h>
 	<cstring>
+	<iomanip>
 	"Comprobantes.h"
+	"Factura.h"
 
-1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
+1605562804 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
 	"Fecha.h"
 
-1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.h
+1605562804 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1604094725 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
+1605049595 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -446,40 +449,46 @@
 	"Descuento.h"
 	"../Validaciones/SINO.h"
 
-1604094725 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.h
+1605049595 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.h
 	"Fecha.h"
 
-1604094725 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+1605562804 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+	<vector>
 	<iostream>
 	<cstdlib>
 	<cstdio>
+	<stdio.h>
 	<cstring>
+	<iomanip>
 	"Factura.h"
 	"Fecha.h"
 	"Ventas.h"
 	"Producto.h"
+	"Comprobantes.h"
 
-1604094726 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.h
+1605562804 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\factura.h
 	"Fecha.h"
 	"ui.h"
 
 1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ui.h
 
-1604094726 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
+1605049595 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
-1604094726 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
+1605562804 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
 	<iostream>
 	<ctime>
 	"Fecha.h"
 
-1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
+1605049595 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.cpp
 	<iostream>
+	<cstdlib>
 	<cstring>
 	<cstdio>
 	"Medios_Pago.h"
+	"../Validaciones/SINO.h"
 
-1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
+1605049595 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\medios_pago.h
 
 1603923941 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.cpp
 	<iostream>
@@ -487,23 +496,24 @@
 
 1603923773 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.h
 
-1604102716 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
+1605565652 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	<cstdio>
-	"proveedores.h"
+	"../Menu_Pedidos.h"
 
-1604102705 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
-	"Producto.h"
+1605565499 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 
-1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.h
+1605562804 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1604094726 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
+1605562804 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
 	<iostream>
 	<string.h>
 	<cstdio>
+	<iomanip>
+	<cstdlib>
 	"Ventas.h"
 	"Producto.h"
 
@@ -511,9 +521,10 @@
 	<iostream>
 	"Menu_Pedidos.h"
 
-1604005103 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.h
+1605564593 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_pedidos.h
+	"clases/proveedores.h"
 
-1604001207 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
+1605565243 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -523,16 +534,17 @@
 	"Menu_Principal.h"
 	"Menu_Pedidos.h"
 
-1604001206 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_principal.h
+1605049595 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_principal.h
 
-1603920087 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
+1605049595 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.cpp
 	<iostream>
+	<cstdio>
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"
 
-1603920087 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
+1605049595 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\medio_pago\medio_pago.h
 
-1604094725 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_principal.cpp
+1605562804 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -541,8 +553,9 @@
 	"Menu_Producto/Menu_Producto.h"
 	"Medio_Pago/Medio_Pago.h"
 	"menus/MenuDescuento.h"
+	"Clases/Comprobantes.h"
 
-1603933204 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
+1605562804 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.h
 
 1604094725 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\validaciones\sino.cpp
 	<iostream>
@@ -578,7 +591,7 @@
 1603924044 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.h
 	"Fecha.h"
 
-1604001206 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1605562804 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -586,7 +599,7 @@
 	"Producto.h"
 	"../Validaciones/SINO.h"
 
-1604094725 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1605562804 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	<cstdio>
 	"Menu_Producto.h"
