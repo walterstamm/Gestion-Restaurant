@@ -4,9 +4,13 @@ using namespace std;
 
 int main(){
     Producto uno;
-    int cantidad;
-    char nombre;
-    float precio;
-    uno.ventas(nombre, cantidad, precio);
+    uno.Cargar();
+    uno.Guardar();
+    cout<<endl;
+    uno.Cargar();
+    uno.Guardar();
+    cout<<endl;
+    uno.Cargar();
+    uno.Guardar();
     return 0;
 }
