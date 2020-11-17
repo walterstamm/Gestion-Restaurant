@@ -121,6 +121,7 @@ void DarBajaProveedor(){
     cout<<"Desea dar de baja a este Proveedor?(S/N)"<<endl;
     cin>>respuesta;
     if(respuesta=='s'||respuesta=='S'){
+        reg.setEstado(false); ///puse este set estado que faltaba
         if(reg.Guardar_Cambios()){
         cout<<"Se dio de baja con exito!";
         system("pause");
