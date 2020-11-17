@@ -182,13 +182,11 @@ void MENU_FACTURACION(){
                 float Precios, Importe;
                 NroFactura = GeneroNuevaFactura();
 
-                {   ///     CREO OBJETO PRODUCTO
+                {   ///     CREO OBJETOS PRODUCTO Y VENTAS
                     Producto Prod;
-                    ///     CREO OBJETO VENTAS
                     Ventas Vent;
                     Mas_Producto='s';
                     while(Mas_Producto == 's' || Mas_Producto == 'S'){
-
                         cout<<"\nCodProducto: "; cin>>CodProducto;
                         Pos = Prod.Buscar_Producto_ID(CodProducto);
                         FILE *Pr = fopen("archivos/Producto.dat", "rb");
@@ -198,7 +196,7 @@ void MENU_FACTURACION(){
                         }
                         ///     ME POSICIONO AL INICIO DEL REGISTRO
                         fseek(Pr, Pos * sizeof(Producto), SEEK_SET);
-                        ///CON FREAD SE CARGA EN LA MEORIA DE LA CLASE
+                        ///     CON FREAD SE CARGA EN LA MEORIA DE LA CLASE
                         fread(&Prod, sizeof(Producto), 1, Pr);
                         ///     COPIO EL NOMBRE Y EL PRECIO
                         strcpy(Descrip, Prod.getNombre());
@@ -220,8 +218,8 @@ void MENU_FACTURACION(){
                             cout<<">>> Debe Ingresar un valor correcto"; cin>>Mas_Producto;
                         }
                         fclose(V);
-                        fclose(Pr);   ///     Cierro el while de Ventas
-                    }
+                        fclose(Pr);
+                    }///     Cierro el while de Ventas
                     SumarVentas();
                     system("cls");
                 }///        HASTA ACA LA ULTIMA LINEA

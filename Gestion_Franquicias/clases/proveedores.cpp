@@ -55,6 +55,8 @@ return grabo;
 
 bool proveedore::Guardar_Cambios(){
     int Posicion;
+    cout<<"LLEGUE ACA"<<endl;
+    system("pause");
     bool grabo;
     Posicion=posicionProveedor(ID);
     FILE *p=fopen("archivos/Proveedores.dat","rb+");
