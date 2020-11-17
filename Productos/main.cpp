@@ -9,7 +9,7 @@ int main(){
     vector <int> vnum;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID>0){
+    if(ID<0){
         ///msj("ID incorrecto", 15, 3, 1, 1);
         return 0;
     }
