@@ -63,6 +63,12 @@ bool proveedore::Guardar_Cambios(){
         system("pause");
         return 0;
     }
+        cout<<"ID: "<<ID<<endl;
+       cout<<"Nombre del proveedor: "<<Nombre<<endl;
+       cout<<"Telefono: "<<Telefono<<endl;
+       cout<<"Nota: "<<Nota<<endl;
+       cout<<"Estado: "<<Estado<<endl;
+       cout<<endl<<endl;
     fseek(p,Posicion*sizeof(proveedore),SEEK_SET);
     grabo=fwrite(this,sizeof(proveedore),1,p);
     fclose(p);

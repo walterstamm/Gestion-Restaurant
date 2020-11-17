@@ -9,12 +9,12 @@
 	"Menu_Principal.h"
 	"Menu_Pedidos.h"
 
-1604461343 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
+1605508322 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
 	<iostream>
 	<ctime>
 	"Fecha.h"
 
-1604977981 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
+1605508322 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
 1605239143 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
@@ -83,15 +83,14 @@
 	"Ventas.h"
 	"Producto.h"
 
-1604460744 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
+1605572241 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	<cstdio>
-	"proveedores.h"
+	"../Menu_Pedidos.h"
 
-1604459463 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.h
-	"Producto.h"
+1605570676 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 
 1602722789 source:c:\users\hfghu\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
 	<iostream>
@@ -372,7 +371,7 @@
 1604754057 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
-1605239143 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+1605508322 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp
 	<vector>
 	<iostream>
 	<cstdlib>
@@ -636,14 +635,14 @@
 	<iostream>
 	"Menu_Pedidos.h"
 
-1604031838 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.h
+1605570676 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.h
+	"clases/proveedores.h"
 
-1604123424 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
+1605571601 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_pedidos.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
 	"Menu_Pedidos.h"
-	"clases/proveedores.h"
 
 1603935166 source:c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\detalle_pedidos.cpp
 	<iostream>
