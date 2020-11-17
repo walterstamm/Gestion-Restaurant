@@ -106,10 +106,18 @@ void DarBajaProveedor(){
     system("cls");
     cout<<"Ingrese el ID a modificar: "<<endl;
     cin>>ID;
+
+
     BuscarID(&reg,ID);
     if(reg.getID()!=ID){
         return;
     }
+    cout<<"Veo que muestra el Estado"<<endl;
+    cout<<"reg.getNombre()  "<<reg.getNombre()<<endl;
+    cout<<"reg.getEstado()  "<<reg.getEstado();
+    system("pause");
+    system("pause");
+
     cout<<"Desea dar de baja a este Proveedor?(S/N)"<<endl;
     cin>>respuesta;
     if(respuesta=='s'||respuesta=='S'){
@@ -149,7 +157,7 @@ void DarBajaProveedor(){
         reg.setTelefono(Telefono);
     }
 
-    cout<<endl<<"Modificar la descripcion??(S/N)";
+    cout<<endl<<"Modificar la descripcion? S/N ";
     cin>>respuesta;
     if(respuesta=='s'||respuesta=='S'){
         cout<<"Descripcion del Proveedor: ";
