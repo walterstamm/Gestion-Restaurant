@@ -133,6 +133,48 @@ void SumarVentas(){
     fclose(F);
 }
 
+void Descuento_Stock(int NroFactura){
+
+    Producto P_Stock;
+    Ventas   V_Stock;
+    float Suma =0;
+
+    ///     ABRO LOS ARCHIVOS PRODUCTO Y VENTAS
+    FILE *P = fopen("archivos/producto.dat", "rb+");
+    FILE *V = fopen("archivos/Ventas.dat", "rb");
+    if(P == NULL || V == NULL){
+        cout << "No se pudo abrir algun archivo producto.dat o Ventas.dat";
+        fclose(P);
+        fclose(V);
+        return;
+    }
+    ///     LEO VENTAS Y SI ES IGUAL QUE NROFAT LO SUMA A LA VARIABLE SUMA
+    int vuelta=0;
+    while( fread( &P_Stock, sizeof(Producto), 1 , P)){
+
+
+        fseek(V, sizeof(Ventas), SEEK_SET);
+        while( fread( &V_Stock, sizeof(Ventas), 1, V)){
+
+            if( NroFactura == V_Stock.getNro_Fact()
+               && P_Stock.getID() == V_Stock.getCod_Producto()){
+                int pos = P_Stock.Buscar_Producto_ID(P_Stock.getID());
+                int cant = -(V_Stock.getCant_Producto());
+                bool grabo=false;
+                P_Stock.setMod_Cantidad(cant);
+                grabo=P_Stock.ModificarProducto(pos);
+                if(grabo == true){
+                    cout<<"Grabo bien";
+                    system("pause");
+                }else{ cout<<"No grabo";}
+                system("pause");
+            }
+        }
+    }
+    fclose(V);
+    fclose(P);
+}
+
 void Factura::getFactura(){
     system("cls");
 }
@@ -221,6 +263,8 @@ void MENU_FACTURACION(){
                         fclose(Pr);
                     }///     Cierro el while de Ventas
                     SumarVentas();
+                    Descuento_Stock(NroFactura);
+
                     system("cls");
                 }///        HASTA ACA LA ULTIMA LINEA
             }

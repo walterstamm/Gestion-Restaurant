@@ -106,8 +106,6 @@ void DarBajaProveedor(){
     system("cls");
     cout<<"Ingrese el ID a modificar: "<<endl;
     cin>>ID;
-
-
     BuscarID(&reg,ID);
     if(reg.getID()!=ID){
         return;
@@ -194,7 +192,6 @@ void BuscarID(proveedore *registro,int id){
         system("pause");
         return;
     }
-
     while(fread(registro,sizeof(proveedore),1,p)){
         if(id==registro->getID()){
             fclose(p);

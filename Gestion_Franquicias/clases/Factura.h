@@ -47,6 +47,7 @@ void Mostrar_Comprobante();
 void Facturas_Fecha();
 void Ventas_Fecha();
 void Ventas_Mes();
+void Descuento_Stock(int);
 
 
 

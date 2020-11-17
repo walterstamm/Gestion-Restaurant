@@ -27,6 +27,7 @@ class Producto{
         bool getEstado(){return estado;}
         bool ModificarProducto(int); ///recibe la posicion en memoria del producto
         ///set
+        void setMod_Cantidad(int Modif) {Cantidad += Modif;}
         void setCantidad(int _cantidad){Cantidad=_cantidad;}
         void setCantidadMinima(int _cantidadMinima){Cantidad_Minima=_cantidadMinima;}
         void setEstado(int _estado){estado= _estado;}

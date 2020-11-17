@@ -55,8 +55,6 @@ return grabo;
 
 bool proveedore::Guardar_Cambios(){
     int Posicion;
-    cout<<"LLEGUE ACA"<<endl;
-    system("pause");
     bool grabo;
     Posicion=posicionProveedor(ID);
     FILE *p=fopen("archivos/Proveedores.dat","rb+");
@@ -65,7 +63,8 @@ bool proveedore::Guardar_Cambios(){
         system("pause");
         return 0;
     }
-        cout<<"ID: "<<ID<<endl;
+
+       cout<<"ID: "<<ID<<endl;
        cout<<"Nombre del proveedor: "<<Nombre<<endl;
        cout<<"Telefono: "<<Telefono<<endl;
        cout<<"Nota: "<<Nota<<endl;
@@ -126,7 +125,7 @@ int proveedore::getID(){
     return ID;
 }
 void proveedore::setEstado(bool estado){
-Estado=estado;
+    Estado=estado;
 }
 bool proveedore::getEstado(){
     return Estado;
