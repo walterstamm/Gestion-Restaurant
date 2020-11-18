@@ -3,6 +3,9 @@ using namespace std;
 #include<cstdlib>
 #include <cstring>
 #include <cstdio>
+
+#include <vector>///para clase vector
+
 #include "Producto.h"
 
 Producto::Producto(){
@@ -129,11 +132,94 @@ bool ValidarID_Producto(int _ID){
     FILE *p=fopen("archivos/producto.dat","rb");
     if(p==NULL) return false;
     while(fread(&uno, sizeof(Producto),1,p)){
-        if(uno.getID()==_ID){
+        if(uno.getIDLote()==_ID){
             fclose(p);
-            return true; ///retorna la posicion del archivo
+            return uno.getIDLote(); ///retorna la posicion del archivo
         }
     }
     fclose(p);
 return false; ///retorna -1 si no encontro el ID
+}
+
+
+void Modificar_Precio(){
+    Producto uno;
+    int ID, pos=0;
+    float Precio;
+    vector <int> vpos;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
+        return;
+    }
+    while(uno.LeerPos(pos)){
+        if(uno.getIDLote()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
+    }
+    uno.LeerPos(vpos[0]);
+    cout<<"Ingrese el precio: ";
+    cin>>Precio;
+    if(Precio<0){
+        cout<<"Error precio negativo";
+        return;
+    }
+    for(int x=0;x<vpos.size();x++){
+        uno.setPrecio(Precio);
+        uno.Modificar(vpos[x]);
+    }
+}
+
+void Modificar_CantMin(){
+    Producto uno;
+    int ID, pos=0, cant;
+    vector <int> vpos;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
+        return;
+    }
+    while(uno.LeerPos(pos)){
+        if(uno.getIDLote()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
+    }
+    uno.LeerPos(vpos[0]);
+    cout<<"Ingrese el cantidad minima: ";
+    cin>>cant;
+    if(cant<0){
+        cout<<"Error cantidad minima negativo";
+        return;
+    }
+    for(int x=0;x<vpos.size();x++){
+        uno.setPrecio(cant);
+        uno.Modificar(vpos[x]);
+    }
+}
+
+void Eliminar_Producto(){
+    Producto uno;
+    int ID, pos=0;
+    vector <int> vpos;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
+        return;
+    }
+    while(uno.LeerPos(pos)){
+        if(uno.getIDLote()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
+    }
+    uno.LeerPos(vpos[0]);
+    for(int x=0;x<vpos.size();x++){
+        uno.setEstadoLote(false);
+        uno.Modificar(vpos[x]);
+    }
 }
