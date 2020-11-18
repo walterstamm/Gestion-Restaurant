@@ -53,5 +53,7 @@ bool ValidarID_Producto(int);///validad ID (existe=true, no existe=false)
 void Modificar_Precio();
 void Modificar_CantMin();
 void Eliminar_Producto();
+void Mostrar_Todos_Productos();
+void Mostrar_x_Producto();
 
 #endif // PRODUCTO_H_INCLUDED

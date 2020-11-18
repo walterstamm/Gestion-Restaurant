@@ -223,3 +223,48 @@ void Eliminar_Producto(){
         uno.Modificar(vpos[x]);
     }
 }
+
+void Mostrar_Todos_Productos(){
+    Producto aux;
+    int pos=0;
+    vector <Producto> vex;
+    while(aux.LeerPos(pos)){
+        vex.push_back(aux);
+        pos++;
+    }
+    ///ordenamos
+    int posmin;
+    for(int x=0; x<pos; x++){
+        posmin=x;
+        for(int y=x+1; y<pos; y++){
+            if(vex[y].getIDLote()<vex[posmin].getIDLote()){
+                posmin=y;
+            }
+        }
+        aux=vex[x];
+        vex[x]=vex[posmin];
+        vex[posmin]=aux;
+    }
+    ///mostramos
+    for(int x=0;x<pos;x++){
+        if(vex[x].getIDLote()==true && vex[x].getID()==true){
+            vex[x].Mostrar();
+        }
+    }
+}
+
+void Mostrar_x_Producto(){
+    Producto uno;
+    int ID, pos=0;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
+        return;
+    }
+    while(uno.LeerPos(pos++)){
+        if(uno.getIDLote()==true && uno.getID()==true && uno.getID()==ID){
+            uno.Mostrar();
+        }
+    }
+}

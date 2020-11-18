@@ -6,29 +6,18 @@ using namespace std;
 #include "Producto.h"
 
 int main(){
-    Producto aux;
-    int pos=0;
-    vector <Producto> vex;
-    while(aux.LeerPos(pos)){
-        vex.push_back(aux);
-        pos++;
+    Producto uno;
+    int ID, pos=0;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
+        return 0;
     }
-    //ordenamos
-    int posmin;
-    for(int x=0; x<pos; x++){
-        posmin=x;
-        for(int y=x+1; y<pos; y++){
-            if(vex[y].getIDLote()<vex[posmin].getIDLote()){
-                posmin=y;
-            }
+    while(uno.LeerPos(pos++)){
+        if(uno.getIDLote()==true && uno.getID()==true && uno.getID()==ID){
+            uno.Mostrar();
         }
-        aux=vex[x];
-        vex[x]=vex[posmin];
-        vex[posmin]=aux;
-    }
-    ///mostramos
-    for(int x=0;x<pos;x++){
-        vex[x].Mostrar();
     }
 return 0;
 }
