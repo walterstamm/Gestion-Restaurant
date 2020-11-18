@@ -4,42 +4,37 @@ using namespace std;
 #include "Producto.h"
 
 int main(){
+    Producto uno;
     int ID, pos=0;
     float Precio;
-    vector <int> vnum;
+    while(uno.LeerPos(pos++)){
+        uno.Mostrar();
+    }
+    vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID<0){
+    if(ID<0 && ValidarID_Producto(ID)==true){
         ///msj("ID incorrecto", 15, 3, 1, 1);
         return 0;
     }
-    Producto uno;
-    while(uno.LeerPos(pos++)){
+    pos=0;
+    while(uno.LeerPos(pos)){
         if(uno.getIDLote()==ID){
-            vnum.push_back(pos-1);
+            vpos.push_back(pos);
         }
+        pos++;
     }
-    if(vnum.size()==0)return 0;///si no encontro nada que retorne como falso
-    if(uno.getEstado()==false){
-        ///msj("Error archivo inexistente", 15, 3, 1, 1);
+    uno.LeerPos(vpos[0]);
+    cout<<"Ingrese el precio: ";
+    cin>>Precio;
+    if(Precio<0){
+        cout<<"Error precio negativo";
         return 0;
     }
-    uno.LeerPos(pos);
-    uno.Mostrar();
-    cout<<"Ingrese el precio: $";
-    cin>>Precio;
-    while(Precio<0){ ///validando Cantidad que no sea negativo
-        cout<<endl<<"precio incorrecta, reingrese el precio"<<endl<<endl;
-        cout<<">> Ingrese el precio: $";
-        cin>>Precio;
+    for(int x=0;x<vpos.size();x++){
+        uno.setPrecio(Precio);
+        uno.Modificar(vpos[x]);
     }
-    uno.setPrecio(Precio);
-    for(int x=0;x<=vnum.size();x++){
-        if(uno.Modificar(vnum.at(x))==false){
-            ///msj("Error archivo no modificado", 15, 3, 1, 1);
-            return 0;
-        }
-    }
-    cout<<"Archivo modificado"<<endl;
+
 return 0;
 }

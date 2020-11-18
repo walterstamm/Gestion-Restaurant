@@ -86,29 +86,6 @@ bool Producto::Guardar(){
 return Estado;
 }
 
-int Producto::GenerarID(int _ID){ ///GENERA UN ID AUTOMATICO
-    int id=0;
-    FILE *p=fopen("archivos/Producto.dat","rb");
-    if(p==NULL) return 0;
-    while(fread(this,sizeof(Producto),1,p)){
-        if(_ID==ID_Lote){
-           id=ID;
-        }
-    }
-    fclose(p);
-return id+=1;
-}
-
-bool Producto::LeerPos(int pos){
-    bool estado;
-    FILE *p=fopen("archivos/producto.dat","rb");
-    if(p==NULL) return false;
-    fseek(p, pos*sizeof(Producto),SEEK_SET);
-    estado=fread(this, sizeof(Producto),1,p);
-    fclose(p);
-return estado;
-}
-
 bool Producto::Modificar(int pos){
     bool correcto;
     FILE *p=fopen("archivos/Producto.dat","rb+");
@@ -120,6 +97,31 @@ bool Producto::Modificar(int pos){
     correcto= fwrite(this, sizeof(Producto), 1, p);
     fclose(p);
 return correcto;
+}
+
+int Producto::GenerarID(int _ID){ ///GENERA UN ID AUTOMATICO
+    int contador=0;
+    FILE *p=fopen("archivos/Producto.dat","rb");
+    if(p==NULL){
+        return contador;
+    }
+    while(fread(this,sizeof(Producto),1,p)){
+        if(_ID==ID_Lote){
+           contador++;
+        }
+    }
+    fclose(p);
+return contador;
+}
+
+bool Producto::LeerPos(int pos){
+    bool estado;
+    FILE *p=fopen("archivos/producto.dat","rb");
+    if(p==NULL) return false;
+    fseek(p, pos*sizeof(Producto),SEEK_SET);
+    estado=fread(this, sizeof(Producto),1,p);
+    fclose(p);
+return estado;
 }
 
 bool ValidarID_Producto(int _ID){
@@ -134,14 +136,4 @@ bool ValidarID_Producto(int _ID){
     }
     fclose(p);
 return false; ///retorna -1 si no encontro el ID
-}
-
-bool BuscarPoscicion_Producto(int _ID, int &pos){
-    Producto uno;
-    while(uno.LeerPos(pos++)){
-        if(uno.getID()==_ID){
-            return true;
-        }
-    }
-return false;
 }

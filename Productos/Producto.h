@@ -41,13 +41,12 @@ public:
 
     ///archivos
     bool Guardar();
-    int GenerarID(int);
-    bool LeerPos(int);
     bool Modificar(int);
+    int GenerarID(int);///Genera ID automatico
+    bool LeerPos(int);
 };
 
 
 bool ValidarID_Producto(int);///validad ID (existe=true, no existe=false)
-bool BuscarPoscicion_Producto(int, int &);///Buscar Posicion archivo
 
 #endif // PRODUCTO_H_INCLUDED
