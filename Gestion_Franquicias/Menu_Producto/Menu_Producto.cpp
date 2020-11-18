@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <iomanip> ///PARA TRABAJAR CON SETW
 using namespace std;
 #include "Menu_Producto.h"
 #include "../clases/Producto.h"
@@ -32,6 +33,11 @@ bool Mostrar_Todos_Producto(){
             cout<<"Error de archivo"<<endl;
             return false;
         }
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(4) << "ID";
+    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << endl;
+    cout<<"==============================================================================="<<endl;
     while(fread(&uno, sizeof(Producto),1,p)){
         if(uno.getEstado()==true){
             uno.Mostrar_Producto();
@@ -51,6 +57,11 @@ void Mostrar_X_Producto(){
         cout<<"Producto inexistente"<<endl;
         return;
     }
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(4) << "ID";
+    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << endl;
+    cout<<"==============================================================================="<<endl;
     uno.Mostrar_Producto();
 }
 
