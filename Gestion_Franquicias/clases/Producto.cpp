@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 #include<cstdlib>
 #include <cstring>
@@ -67,7 +68,23 @@ return true;
 }
 
 void Producto::Mostrar_Producto(){
-    cout<<"ID "<<ID<<endl;
+            cout << left;
+            cout << setw(4);
+            cout << ID;
+            cout << setw(18);
+            cout << Nombre;
+            cout << right;
+            cout << setw(6);
+            cout << Precio;
+            cout << setw(9);
+            cout << Cantidad;
+            cout << setw(10);
+            cout << Cantidad_Minima;
+            cout << setw(10);
+            cout << Fecha().getDia()<<"/"<<Fecha().getMes()<<"/"<<Fecha().getAnio()<<endl;
+
+
+    /**cout<<"ID "<<ID<<endl;
     cout<<"Nombre "<<Nombre<<endl;
     cout<<"Precio $"<<Precio<<endl;
     cout<<"Cantidad "<<Cantidad<<endl;
@@ -76,7 +93,7 @@ void Producto::Mostrar_Producto(){
     Vencimiento.Mostrar_Fecha();
     cout<<endl<<"Fecha de ingreso "<<endl;
     Actual.Mostrar_Fecha();
-    cout<<endl<<endl;
+    cout<<endl<<endl;*/
 }
 
 bool Producto::GuardarProducto(){

@@ -64,6 +64,7 @@ void MENU_PRODUCTO(){
             system("cls");
         break;
         case 8:
+            return;
         break;
         case 9:
             ventas();

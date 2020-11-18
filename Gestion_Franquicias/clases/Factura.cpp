@@ -4,7 +4,7 @@
 #include<cstdio>
 #include <stdio.h>
 #include<cstring>
-#include <iomanip>
+#include <iomanip> ///PARA TRABAJAR CON SETW
 using namespace std;
 #include "Factura.h"
 #include "Fecha.h"
@@ -202,7 +202,7 @@ void MENU_FACTURACION(){
         system("cls");
         title("MENU FACTURACION", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
 
-        cout<<"\n============================================  |"<<"Cod  Producto          Precio";
+        cout<<"\n============================================  |"<<"Cod  Producto          Cant     Precio     ";
         cout<<"\n01-Generar Factura..........................  |"<<" 01";
         cout<<"\n02-Muestro Factura..........................  |"<<" 02";
         cout<<"\n03-Eliminar Factura.........................  |"<<" 03";
@@ -383,9 +383,7 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
 
     int NroF = fac.Leo_Ultima_Factura(); ///Traigo el ultimo numero
 
-    ///     Muestro las ventas de la facturael resumen de ventas
-        ///cout<<"==============================================================================="<<endl;
-        ///cout<<"\nRESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS: "<<endl;
+        ///     Muestro las ventas de la facturael resumen de ventas
         cout<<"==============================================================================="<<endl;
         cout << left;
         cout << setw(6) << "NROF";
@@ -399,7 +397,7 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
         while(fread(&ven, sizeof(Ventas), 1, V) ){
             int veo = ven.getNro_Fact();
             if(NroF == veo){
-                    cout << left;
+                cout << left;
                 cout << setw(6);
                 cout << ven.getNro_Fact();
                 cout << setw(7);
