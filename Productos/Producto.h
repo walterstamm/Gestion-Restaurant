@@ -49,7 +49,7 @@ public:
 
 bool ValidarID_Producto(int);///validad ID (existe=true, no existe=false)
 
-
+///funciones para los menus
 void Modificar_Precio();
 void Modificar_CantMin();
 void Eliminar_Producto();
