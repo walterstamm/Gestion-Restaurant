@@ -7,17 +7,14 @@ using namespace std;
 
 int main(){
     Producto uno;
-    int ID, pos=0;
-    cout<<"ID del producto: ";
-    cin>>ID;
-    if(ID<0 && ValidarID_Producto(ID)==true){
-        ///msj("ID incorrecto", 15, 3, 1, 1);
-        return 0;
+    int pos=0;
+    vector <int> vex(0);
+    while(uno.LeerPos(pos)){
+        vex[uno.getIDLote()]+=uno.getCantidad();
+        pos++;
     }
-    while(uno.LeerPos(pos++)){
-        if(uno.getIDLote()==true && uno.getID()==true && uno.getID()==ID){
-            uno.Mostrar();
-        }
+    for(int x=0;x<pos;x++){
+        cout<<vex[x]<<endl;
     }
 return 0;
 }
