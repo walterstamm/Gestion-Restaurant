@@ -41,13 +41,19 @@ public:
 
     ///archivos
     bool Guardar();
-    int GenerarID(int);
-    bool LeerPos(int);
     bool Modificar(int);
+    bool LeerPos(int);
 };
 
 
 bool ValidarID_Producto(int);///validad ID (existe=true, no existe=false)
-bool BuscarPoscicion_Producto(int, int &);///Buscar Posicion archivo
+int GenerarID();///Genera ID automatico
+
+///funciones para los menus
+void Modificar_Precio();
+void Modificar_CantMin();
+void Eliminar_Producto();
+void Mostrar_Todos_Productos();
+void Mostrar_x_Producto();
 
 #endif // PRODUCTO_H_INCLUDED

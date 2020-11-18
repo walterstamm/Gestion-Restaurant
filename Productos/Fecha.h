@@ -13,6 +13,8 @@ class Fecha{
         int getDia(){return dia;}
         int getMes(){return mes;}
         int getAnio(){return anio;}
+        ///sobrecarga
+        int operator <(Fecha);
 };
 
 #endif // FECHA_H_INCLUDED

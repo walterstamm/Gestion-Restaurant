@@ -3,6 +3,9 @@ using namespace std;
 #include<cstdlib>
 #include <cstring>
 #include <cstdio>
+
+#include <vector>///para clase vector
+
 #include "Producto.h"
 
 Producto::Producto(){
@@ -12,17 +15,8 @@ Producto::Producto(){
 }
 
 bool Producto::Cargar(){
-    cout<<"Ingrese el ID ";
-    cin>>ID_Lote;
-        while(ID_Lote<0 || ValidarID_Producto(ID_Lote)!=false){ ///validando id que no sea negativo y no se repita
-            cout<<"Error ID";
-                /*if(Continuar()==false){
-                    system ("cls");
-                    return false;
-                }*/
-            cout<<">> Ingrese el ID: ";
-            cin>>ID_Lote;
-        }
+    ID=GenerarID();
+    cout<<"ID del producto: "<<ID<<endl;
     cout<<"Ingrese el nombre: ";
     cin.ignore();
     cin.getline(Nombre, 50, '\n');
@@ -86,29 +80,6 @@ bool Producto::Guardar(){
 return Estado;
 }
 
-int Producto::GenerarID(int _ID){ ///GENERA UN ID AUTOMATICO
-    int id=0;
-    FILE *p=fopen("archivos/Producto.dat","rb");
-    if(p==NULL) return 0;
-    while(fread(this,sizeof(Producto),1,p)){
-        if(_ID==ID_Lote){
-           id=ID;
-        }
-    }
-    fclose(p);
-return id+=1;
-}
-
-bool Producto::LeerPos(int pos){
-    bool estado;
-    FILE *p=fopen("archivos/producto.dat","rb");
-    if(p==NULL) return false;
-    fseek(p, pos*sizeof(Producto),SEEK_SET);
-    estado=fread(this, sizeof(Producto),1,p);
-    fclose(p);
-return estado;
-}
-
 bool Producto::Modificar(int pos){
     bool correcto;
     FILE *p=fopen("archivos/Producto.dat","rb+");
@@ -122,26 +93,166 @@ bool Producto::Modificar(int pos){
 return correcto;
 }
 
+int GenerarID(){ ///GENERA UN ID AUTOMATICO
+    int pos=0, ID;
+    Producto uno;
+    while(uno.LeerPos(pos)){
+        if(pos==0){
+            ID=0;
+        }else if(ID<uno.getIDLote())ID=uno.getIDLote();
+        pos++;
+    }
+return ID+1;
+}
+
+bool Producto::LeerPos(int pos){
+    bool estado;
+    FILE *p=fopen("archivos/producto.dat","rb");
+    if(p==NULL) return false;
+    fseek(p, pos*sizeof(Producto),SEEK_SET);
+    estado=fread(this, sizeof(Producto),1,p);
+    fclose(p);
+return estado;
+}
+
 bool ValidarID_Producto(int _ID){
     Producto uno;
     FILE *p=fopen("archivos/producto.dat","rb");
     if(p==NULL) return false;
     while(fread(&uno, sizeof(Producto),1,p)){
-        if(uno.getID()==_ID){
+        if(uno.getIDLote()==_ID){
             fclose(p);
-            return true; ///retorna la posicion del archivo
+            return uno.getIDLote(); ///retorna la posicion del archivo
         }
     }
     fclose(p);
 return false; ///retorna -1 si no encontro el ID
 }
 
-bool BuscarPoscicion_Producto(int _ID, int &pos){
+
+void Modificar_Precio(){
     Producto uno;
-    while(uno.LeerPos(pos++)){
-        if(uno.getID()==_ID){
-            return true;
+    int ID, pos=0;
+    float Precio;
+    vector <int> vpos;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
+        return;
+    }
+    while(uno.LeerPos(pos)){
+        if(uno.getIDLote()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
+    }
+    uno.LeerPos(vpos[0]);
+    cout<<"Ingrese el precio: ";
+    cin>>Precio;
+    if(Precio<0){
+        cout<<"Error precio negativo";
+        return;
+    }
+    for(int x=0;x<vpos.size();x++){
+        uno.setPrecio(Precio);
+        uno.Modificar(vpos[x]);
+    }
+}
+
+void Modificar_CantMin(){
+    Producto uno;
+    int ID, pos=0, cant;
+    vector <int> vpos;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
+        return;
+    }
+    while(uno.LeerPos(pos)){
+        if(uno.getIDLote()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
+    }
+    uno.LeerPos(vpos[0]);
+    cout<<"Ingrese el cantidad minima: ";
+    cin>>cant;
+    if(cant<0){
+        cout<<"Error cantidad minima negativo";
+        return;
+    }
+    for(int x=0;x<vpos.size();x++){
+        uno.setPrecio(cant);
+        uno.Modificar(vpos[x]);
+    }
+}
+
+void Eliminar_Producto(){
+    Producto uno;
+    int ID, pos=0;
+    vector <int> vpos;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
+        return;
+    }
+    while(uno.LeerPos(pos)){
+        if(uno.getIDLote()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
+    }
+    uno.LeerPos(vpos[0]);
+    for(int x=0;x<vpos.size();x++){
+        uno.setEstadoLote(false);
+        uno.Modificar(vpos[x]);
+    }
+}
+
+void Mostrar_Todos_Productos(){
+    Producto aux;
+    int pos=0;
+    vector <Producto> vex;
+    while(aux.LeerPos(pos)){
+        vex.push_back(aux);
+        pos++;
+    }
+    ///ordenamos
+    int posmin;
+    for(int x=0; x<pos; x++){
+        posmin=x;
+        for(int y=x+1; y<pos; y++){
+            if(vex[y].getIDLote()<vex[posmin].getIDLote()){
+                posmin=y;
+            }
+        }
+        aux=vex[x];
+        vex[x]=vex[posmin];
+        vex[posmin]=aux;
+    }
+    ///mostramos
+    for(int x=0;x<pos;x++){
+        if(vex[x].getIDLote()==true && vex[x].getID()==true){
+            vex[x].Mostrar();
         }
     }
-return false;
+}
+
+void Mostrar_x_Producto(){
+    Producto uno;
+    int ID, pos=0;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
+        return;
+    }
+    while(uno.LeerPos(pos++)){
+        if(uno.getIDLote()==true && uno.getID()==true && uno.getID()==ID){
+            uno.Mostrar();
+        }
+    }
 }

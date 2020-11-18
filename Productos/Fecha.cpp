@@ -21,7 +21,7 @@ bool Fecha::Cargar_Fecha(){
     cin>>mes;
     cout<<"\taño (4): ";
     cin>>anio;
-    if((dia<=0)||(mes<=0)||(anio<=0)){///verificamos que la fecha no sea negativa
+    if((dia<=0 && dia>=31)||(mes<=0 && mes>=12)||(anio<=0)){///verificamos que la fecha no sea negativa
         return false;
     }
     ///fecha de ingreso no sea mayor a la fecha actual--con 3 preguntas ((anio), (anio y mes), (anio, mes y dia))
