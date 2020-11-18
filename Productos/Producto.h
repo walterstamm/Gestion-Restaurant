@@ -42,12 +42,12 @@ public:
     ///archivos
     bool Guardar();
     bool Modificar(int);
-    int GenerarID(int);///Genera ID automatico
     bool LeerPos(int);
 };
 
 
 bool ValidarID_Producto(int);///validad ID (existe=true, no existe=false)
+int GenerarID();///Genera ID automatico
 
 ///funciones para los menus
 void Modificar_Precio();

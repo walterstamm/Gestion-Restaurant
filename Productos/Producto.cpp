@@ -15,17 +15,8 @@ Producto::Producto(){
 }
 
 bool Producto::Cargar(){
-    cout<<"Ingrese el ID ";
-    cin>>ID_Lote;
-        while(ID_Lote<0 || ValidarID_Producto(ID_Lote)!=false){ ///validando id que no sea negativo y no se repita
-            cout<<"Error ID";
-                /*if(Continuar()==false){
-                    system ("cls");
-                    return false;
-                }*/
-            cout<<">> Ingrese el ID: ";
-            cin>>ID_Lote;
-        }
+    ID=GenerarID();
+    cout<<"ID del producto: "<<ID<<endl;
     cout<<"Ingrese el nombre: ";
     cin.ignore();
     cin.getline(Nombre, 50, '\n');
@@ -102,19 +93,16 @@ bool Producto::Modificar(int pos){
 return correcto;
 }
 
-int Producto::GenerarID(int _ID){ ///GENERA UN ID AUTOMATICO
-    int contador=0;
-    FILE *p=fopen("archivos/Producto.dat","rb");
-    if(p==NULL){
-        return contador;
+int GenerarID(){ ///GENERA UN ID AUTOMATICO
+    int pos=0, ID;
+    Producto uno;
+    while(uno.LeerPos(pos)){
+        if(pos==0){
+            ID=0;
+        }else if(ID<uno.getIDLote())ID=uno.getIDLote();
+        pos++;
     }
-    while(fread(this,sizeof(Producto),1,p)){
-        if(_ID==ID_Lote){
-           contador++;
-        }
-    }
-    fclose(p);
-return contador;
+return ID+1;
 }
 
 bool Producto::LeerPos(int pos){
