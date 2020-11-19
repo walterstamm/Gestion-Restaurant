@@ -5,7 +5,6 @@
 
 class Producto{
 private:
-    int ID_Lote;
     int ID;
     bool Estado_Lote;
     bool Estado;
@@ -21,7 +20,6 @@ public:
     void Mostrar();
 
     ///gets
-    int getIDLote(){return ID_Lote;}
     bool getEstadoLote(){return Estado_Lote;}
     int getID(){return ID;}
     bool getEstado(){return Estado;}
@@ -31,7 +29,6 @@ public:
     int getCantidad_Minima(){return Cantidad_Minima;}
 
     ///sets
-    void setIDLote(int _ID){ID_Lote=_ID;}
     void setID(int _ID){ID=_ID;}
     void setEstadoLote(int _Estados){Estado_Lote= _Estados;}
     void setEstado(int _Estado){Estado= _Estado;}

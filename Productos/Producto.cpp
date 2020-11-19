@@ -58,7 +58,6 @@ return true;
 }
 
 void Producto::Mostrar(){
-    cout<<"ID lote "<<ID_Lote<<endl;
     cout<<"ID "<<ID<<endl;
     cout<<"Nombre "<<Nombre<<endl;
     cout<<"Precio $"<<Precio<<endl;
@@ -94,12 +93,10 @@ return correcto;
 }
 
 int GenerarID(){ ///GENERA UN ID AUTOMATICO
-    int pos=0, ID;
+    int pos=0, ID=0;
     Producto uno;
     while(uno.LeerPos(pos)){
-        if(pos==0){
-            ID=0;
-        }else if(ID<uno.getIDLote())ID=uno.getIDLote();
+        if(ID<uno.getID())ID=uno.getID();
         pos++;
     }
 return ID+1;
@@ -120,9 +117,9 @@ bool ValidarID_Producto(int _ID){
     FILE *p=fopen("archivos/producto.dat","rb");
     if(p==NULL) return false;
     while(fread(&uno, sizeof(Producto),1,p)){
-        if(uno.getIDLote()==_ID){
+        if(uno.getID()==_ID){
             fclose(p);
-            return uno.getIDLote(); ///retorna la posicion del archivo
+            return uno.getID(); ///retorna la posicion del archivo
         }
     }
     fclose(p);
@@ -142,7 +139,7 @@ void Modificar_Precio(){
         return;
     }
     while(uno.LeerPos(pos)){
-        if(uno.getIDLote()==ID){
+        if(uno.getID()==ID){
             vpos.push_back(pos);
         }
         pos++;
@@ -171,7 +168,7 @@ void Modificar_CantMin(){
         return;
     }
     while(uno.LeerPos(pos)){
-        if(uno.getIDLote()==ID){
+        if(uno.getID()==ID){
             vpos.push_back(pos);
         }
         pos++;
@@ -200,7 +197,7 @@ void Eliminar_Producto(){
         return;
     }
     while(uno.LeerPos(pos)){
-        if(uno.getIDLote()==ID){
+        if(uno.getID()==ID){
             vpos.push_back(pos);
         }
         pos++;
@@ -225,7 +222,7 @@ void Mostrar_Todos_Productos(){
     for(int x=0; x<pos; x++){
         posmin=x;
         for(int y=x+1; y<pos; y++){
-            if(vex[y].getIDLote()<vex[posmin].getIDLote()){
+            if(vex[y].getID()<vex[posmin].getID()){
                 posmin=y;
             }
         }
@@ -235,7 +232,7 @@ void Mostrar_Todos_Productos(){
     }
     ///mostramos
     for(int x=0;x<pos;x++){
-        if(vex[x].getIDLote()==true && vex[x].getID()==true){
+        if(vex[x].getEstadoLote()==true){
             vex[x].Mostrar();
         }
     }
@@ -251,7 +248,7 @@ void Mostrar_x_Producto(){
         return;
     }
     while(uno.LeerPos(pos++)){
-        if(uno.getIDLote()==true && uno.getID()==true && uno.getID()==ID){
+        if(uno.getEstadoLote()==true && uno.getID()==ID){
             uno.Mostrar();
         }
     }
