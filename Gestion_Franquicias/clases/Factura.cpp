@@ -137,7 +137,6 @@ void Descuento_Stock(int NroFactura){
 
     Producto P_Stock;
     Ventas   V_Stock;
-    float Suma =0;
 
     ///     ABRO LOS ARCHIVOS PRODUCTO Y VENTAS
     FILE *P = fopen("archivos/producto.dat", "rb+");
@@ -149,7 +148,6 @@ void Descuento_Stock(int NroFactura){
         return;
     }
     ///     LEO VENTAS Y SI ES IGUAL QUE NROFAT LO SUMA A LA VARIABLE SUMA
-    int vuelta=0;
     while( fread( &P_Stock, sizeof(Producto), 1 , P)){
 
 
@@ -572,19 +570,19 @@ void Menu_Reportes(){
     while(Opcion){
         system("cls");
         title("                MENU REPORTES", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-        cout<<"\n============================================";
-        cout<<"\n01-Facturas emitidas por fecha..............";
-        cout<<"\n02-Ventas realizadas por fecha..............";
-        cout<<"\n03-Ventas realizadas en el mes..............";
-        cout<<"\n04-Importes recaudado en el mes.............";
-        cout<<"\n05-Importes recaudados en el dia............"; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
-        cout<<"\n06-Totales de cada Producto vencido.........";
-        cout<<"\n07-Impacto de Ventas e Ingresos Productos...";
-        cout<<"\n============================================";
-        cout<<"\n00- Volver al MENU PRINCIPAL................";
-        cout<<"\n============================================";
+        cout<<"\n================================================";
+        cout<<"\n01-Facturas emitidas por fecha..................";
+        cout<<"\n02-Ventas realizadas por fecha..................";
+        cout<<"\n03-Ventas realizadas en el mes..................";
+        cout<<"\n04-Importes recaudado en el mes.................";
+        cout<<"\n05-Importes recaudados en el dia................"; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
+        cout<<"\n06-Totales de cada Producto vencido.............";
+        cout<<"\n07-informe Ventas: Cant Prod y Recaud ==Vector..";
+        cout<<"\n================================================";
+        cout<<"\n00- Volver al MENU PRINCIPAL....................";
+        cout<<"\n================================================";
         cout<<"\nOpcion: "; cin>>Opcion;
-        cout<<"============================================\n";
+        cout<<"================================================\n";
 
         switch(Opcion){
             case 1: ///     01-Facturas emitidas en mismo dia...........";
@@ -623,9 +621,13 @@ void Menu_Reportes(){
             }
             break;
 
+            case 7:
+                Detalle_Ventas();
+            break;
+
             case 0:
             {
-
+                return;
             }
             break;
 
@@ -809,4 +811,115 @@ void Ventas_Mes(){
         fclose(Fac);
         fclose(Ven);
         system("cls");
+}
+
+void Detalle_Ventas(){
+
+    cout<<" ==== INICIO LO DE VENTAS ========="<<endl;
+    int Vuelta=0, Cant_Total=0, Pr01=0, Pr02=0, Pr03=0, Pr04=0, Pr05=0, Pr06=0, Pr07=0, Pr08=0, Pr09=0;
+    int Imp01=0, Imp02=0, Imp03=0, Imp04=0, Imp05=0, Imp06=0, Imp07=0, Imp08=0, Imp09=0;
+    cout << "CREO OBJETO VENTAS: " << endl;
+    Ventas Leo;
+    FILE *L = fopen("archivos/Ventas.dat", "rb");
+    if(L == NULL){
+        cout<<"NO FUNCIONO";
+        system("pause");
+        return;
+    }
+    cout<<"LLEGUE ACA"<<endl;
+    system("pause");
+
+    cout << "CARGO LA VENTA EN EL VECTOR: " << endl;
+    vector <Ventas> Vec;
+
+    cout << "LEO EL ARCHIVO VENTAS: " << endl;
+    while(fread(&Leo, sizeof(Ventas), 1, L)){
+        Cant_Total += Leo.getCant_Producto();
+
+        switch(Leo.getCod_Producto()){
+        case 1:
+            Pr01 += Leo.getCant_Producto();
+            Imp01 += Leo.getImporte();
+        break;
+        case 2:
+            Pr02 += Leo.getCant_Producto();
+            Imp02 += Leo.getImporte();
+        break;
+        case 3:
+            Pr03 += Leo.getCant_Producto();
+            Imp03 += Leo.getImporte();
+        break;
+        case 4:
+            Pr04 += Leo.getCant_Producto();
+            Imp04 += Leo.getImporte();
+        break;
+        case 5:
+            Pr05 += Leo.getCant_Producto();
+            Imp05 += Leo.getImporte();
+        break;
+        case 6:
+            Pr06 += Leo.getCant_Producto();
+            Imp06 += Leo.getImporte();
+        break;
+        case 7:
+            Pr07 += Leo.getCant_Producto();
+            Imp07 += Leo.getImporte();
+        break;
+        case 8:
+            Pr08 += Leo.getCant_Producto();
+            Imp08 += Leo.getImporte();
+        break;
+        case 9:
+            Pr09 += Leo.getCant_Producto();
+            Imp09 += Leo.getImporte();
+        break;
+        }
+        Vuelta++;
+        Ventas Cargo;
+        Cargo.Cargar_Venta(Leo.getNro_Fact(), Leo.getCod_Producto(), Leo.getDescripcion(), Leo.getCant_Producto(), Leo.getPrecio(), Leo.getImporte());
+        Vec.push_back(Cargo);
+    }
+
+    cout<<"======================================================================="<<endl;
+    cout<<"DETALLE CONTABLE CANTIDAD VENDIDA TOTAL, POR PROD Y RECAUDACION TOTAL: "<<endl;
+    cout<<"======================================================================="<<endl;
+    cout<<"Cantidad Total de Productos Vendidos: "<< Cant_Total<<endl;
+    cout<<"Detalle por Producto Vendido y Recaudado:  "<<endl;
+    cout<<"Producto coddigo 01:   "<<Pr01<<"  Recaudado:  "<< Imp01 << endl;
+    cout<<"Producto coddigo 02:   "<<Pr02<<"  Recaudado:  "<< Imp02 << endl;
+    cout<<"Producto coddigo 03:   "<<Pr03<<"  Recaudado:  "<< Imp03 << endl;
+    cout<<"Producto coddigo 04:   "<<Pr04<<"  Recaudado:  "<< Imp04 << endl;
+    cout<<"Producto coddigo 05:   "<<Pr05<<"  Recaudado:  "<< Imp05 << endl;
+    cout<<"Producto coddigo 06:   "<<Pr06<<"  Recaudado:  "<< Imp06 << endl;
+    cout<<"Producto coddigo 07:   "<<Pr07<<"  Recaudado:  "<< Imp07 << endl;
+    cout<<"Producto coddigo 08:   "<<Pr08<<"  Recaudado:  "<< Imp08 << endl;
+    cout<<"Producto coddigo 09:   "<<Pr09<<"  Recaudado:  "<< Imp09 << endl<<endl;
+
+    cout << left;
+    cout << setw(1);
+    cout << "Pr01 + Pr02 + Pr03 + Pr04 + Pr05 + Pr06 + Pr07 + Pr08 + Pr09 =           ";
+    ///cout << right;
+    cout << setw(75);
+    cout << Pr01 + Pr02 + Pr03 + Pr04 + Pr05 + Pr06 + Pr07 + Pr08 + Pr09<<endl;
+    cout << left;
+    cout << setw(1);
+    cout<<"Imp01 + Imp02 + Imp03 + Imp04 + Imp05 + Imp06 + Imp07 + Imp08 + Imp09 =  ";
+    ///cout << right;
+    cout << setw(75);
+    cout << Imp01 + Imp02 + Imp03 + Imp04 + Imp05 + Imp06 + Imp07 + Imp08 + Imp09<<endl;
+    system("pause");
+
+    cout << ">>>>>Venta #" << Vuelta << endl;
+    ///     Muestro las ventas de la facturael resumen de ventas
+        cout<<"==============================================================================="<<endl;
+        cout << left;
+        cout << setw(6) << "NROF";
+        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
+        cout<<"==============================================================================="<<endl;
+
+        for(int i=0; i<Vec.size(); i++){
+            Vec.at(i).MostrarVenta();
+    }
+    system("pause");
+
 }

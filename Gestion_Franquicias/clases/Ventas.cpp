@@ -3,13 +3,14 @@
 #include <cstdio>
 #include <iomanip>
 #include <cstdlib>
+#include <vector>
 using namespace std;
 #include "Ventas.h"
 #include "Producto.h"
 
 Ventas::Ventas(){
     Cod_Producto = 0;
-    Descripcion[20]={};
+    Descripcion[20]={0};
     Cant_Producto = 0;
     Precio = 0;
     Importe = 0;
@@ -60,28 +61,29 @@ int Ventas::BuscarPosicion(int Numero){
     return Pos;
 }
 
-void Ventas::setCod_Producto(){
+void Ventas::setCod_Producto(int CodProducto){
+    Cod_Producto = CodProducto;
 }
 int Ventas::getCod_Producto(){
     return Cod_Producto;
 }
-void Ventas::setDescripcion(){
-
+void Ventas::setDescripcion(char *Descrip){
+    strcpy(Descripcion, Descrip);
 }
 char *Ventas::getDescripcion(){
     return Descripcion;
 }
 
-void Ventas::setCant_Producto(){
-
+void Ventas::setCant_Producto(int CantProducto){
+    Cant_Producto = CantProducto;
 }
 
 int Ventas::getCant_Producto(){
     return Cant_Producto;
 }
 
-void Ventas::setPrecio(float PrecioProd){
-    Precio = PrecioProd;
+void Ventas::setPrecio(float Precios){
+    Precio = Precios;
 }
 
 float Ventas::getPrecio(){
@@ -107,41 +109,24 @@ void Ventas::getVentas(){
     cout<<"\nSubtotal: "<<Importe;
 }
 
- /**   void Encabezado(){
-        Ventas Vent;
-        int i = 0;
-        cout << left;
-        cout << setw(12) << "FECHA" << setw(8) << "LEGAJO" << setw(6) << "NOTA" << setw(15) << "TIPO" << endl;
-        while (aux.leerDeDisco(i++)){
-            cout << setw(2);
-            cout << right;
-            cout << setfill('0');
-            cout << aux.getFecha().getDia();
-            cout << left;
-            cout << setfill(' ');
-            cout << "/";
-            cout << setw(2);
-            cout << aux.getFecha().getMes();
-            cout << "/";
-            cout << setw(6);
-            cout << aux.getFecha().getAnio();
+void Ventas::MostrarVenta(){
+    cout << right;
+    cout << setw(4);
+    cout << getNro_Fact();
+    cout << setw(6);
+    cout << getCod_Producto();
+    cout << setw(3);
+    cout << " ";
+    cout << left;
+    cout << setw(16);
+    cout << getDescripcion();
+    cout << right;
+    cout << setw(5);
+    cout << getCant_Producto();
+    cout << setw(10);
+    cout << getPrecio();
+    cout << setw(13);
+    cout << getImporte()<<endl;
+}
 
-            cout << setw(8);
-            cout << aux.getLegajo();
-            cout << setw(6);
-            cout << aux.getNota();
-            cout << setw(15);
-            switch(aux.getTipo()){
-                case 1:
-                    cout << "Parcial";
-                break;
-                case 2:
-                    cout << "Trabajo pr�ctico";
-                break;
-                case 3:
-                    cout << "Final";
-                break;
-            }
-            cout << endl;
-        }
-    }*/
+

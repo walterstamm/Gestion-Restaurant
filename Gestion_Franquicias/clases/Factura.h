@@ -49,6 +49,8 @@ void Ventas_Fecha();
 void Ventas_Mes();
 void Descuento_Stock(int);
 
+void Detalle_Ventas();
+
 
 
 #endif // FACTURA_H_INCLUDED
