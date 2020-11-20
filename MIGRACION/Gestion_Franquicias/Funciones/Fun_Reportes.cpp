@@ -2,6 +2,8 @@
 using namespace std;
 #include "../clases/Producto.h"
 #include <map>///para clase vector con indice
+#include "../Interfaz_Grafica/rlutil.h"
+using namespace rlutil;
 
 void Reporte_Verde(){
     Producto uno;
@@ -15,8 +17,8 @@ void Reporte_Verde(){
     }
     uno.Encabezado_Alerta();
     for(int x=0;x<pos;x++){
-        int porcentaje=(vexProducto[x].getCantidad_Minima()*100)/150;
-        if(porcentaje<vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
+        int porcentaje=vexProducto[x].getCantidad_Minima()+(vexProducto[x].getCantidad_Minima()/2);
+        if(porcentaje<vexProducto[x].getCantidad() && vexProducto[x].getEstado()==true){
             ///alerta verde
             vexProducto[x].Mostrar_Alerta();
             cout<<endl;
@@ -37,8 +39,8 @@ void Reporte_Amarillos(){
     }
     uno.Encabezado_Alerta();
     for(int x=0;x<pos;x++){
-        int porcentaje=(vexProducto[x].getCantidad_Minima()*100)/150;
-        if(porcentaje>=vexProducto[x].getCantidad_Minima() && vexCant_Max[x]<vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
+        int porcentaje=vexProducto[x].getCantidad_Minima()+(vexProducto[x].getCantidad_Minima()/2);
+        if(porcentaje>=vexProducto[x].getCantidad() && vexCant_Max[x]>vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
             ///alerta amarilla
             vexProducto[x].Mostrar_Alerta();
             cout<<endl;
@@ -59,7 +61,7 @@ void Reporte_Rojos(){
     }
     uno.Encabezado_Alerta();
     for(int x=0;x<pos;x++){
-        if (vexCant_Max[x]>=vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
+        if (vexCant_Max[x]<=vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
             ///los que estan en rojo
             vexProducto[x].Mostrar_Alerta();
             cout<<endl;
@@ -79,20 +81,26 @@ void Alerta_Reportes(){
         pos++;
     }
     for(int x=0;x<pos;x++){
-        if (vexCant_Max[x]>=vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
+        if (vexCant_Max[x]<=vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
             ///los que estan en rojo
+            setColor(RED);
             cout<<"*";
+            setBackgroundColor(WHITE);
             return;
         }
-        int porcentaje=(vexProducto[x].getCantidad_Minima()*100)/150;
-        if(porcentaje>=vexProducto[x].getCantidad_Minima() && vexCant_Max[x]<vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
+        int porcentaje=vexProducto[x].getCantidad_Minima()+(vexProducto[x].getCantidad_Minima()/2);
+        if(porcentaje>=vexProducto[x].getCantidad() && vexCant_Max[x]>vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
             ///alerta amarilla
+            setBackgroundColor(YELLOW);
             cout<<"*";
+            setBackgroundColor(WHITE);
             return;
         }
-        if(porcentaje<vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
+        if(porcentaje<vexProducto[x].getCantidad() && vexProducto[x].getEstado()==true){
             ///alerta verde
+            setColor(GREEN);
             cout<<"*";
+            setBackgroundColor(WHITE);
             return;
         }
     }

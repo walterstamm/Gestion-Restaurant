@@ -5,8 +5,6 @@ using namespace std;
 #include "Sub_Menus/Sub_Producto.h"
 
 #include "Funciones/Fun_Reportes.h"///caso especial
-#include "Interfaz_Grafica/rlutil.h"
-using namespace rlutil;
 
 void Menu_Compra(){
 }
