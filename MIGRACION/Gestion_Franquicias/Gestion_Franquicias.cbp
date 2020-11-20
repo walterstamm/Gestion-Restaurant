@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Funciones/Fun_Producto.cpp" />
 		<Unit filename="Funciones/Fun_Producto.h" />
+		<Unit filename="Funciones/Fun_Reportes.cpp" />
+		<Unit filename="Funciones/Fun_Reportes.h" />
 		<Unit filename="Interfaz_Grafica/ui.cpp" />
 		<Unit filename="Interfaz_Grafica/ui.h" />
 		<Unit filename="Menu.cpp" />
