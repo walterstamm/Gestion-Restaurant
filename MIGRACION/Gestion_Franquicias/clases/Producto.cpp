@@ -78,7 +78,7 @@ void Producto::Encabezado(){
     cout<<"==============================================================================="<<endl;
     cout << left;
     cout << setw(4) << "ID";
-    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << endl;
+    cout << setw(18) << "Descripcion " << setw(9) << "  Precio " << setw(11) << " Cantidad" << setw(13) << "Cant Min" << setw(1) << "Fecha Vto" << endl;
     cout<<"==============================================================================="<<endl;
 }
 
@@ -101,7 +101,7 @@ void Producto::Encabezado_Alerta(){
     cout<<"==============================================================================="<<endl;
     cout << left;
     cout << setw(4) << "ID";
-    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min"<<endl;
+    cout << setw(18) << "Descripcion " << setw(10) << "  Precio " << setw(11) << "Cantidad" << setw(18) << "Cant Min"<<endl;
     cout<<"==============================================================================="<<endl;
 }
 
