@@ -3,6 +3,7 @@ using namespace std;
 #include<cstdlib>
 #include <cstring>
 #include <cstdio>
+#include <iomanip> ///PARA TRABAJAR CON SETW
 #include "Producto.h"
 #include "../Validaciones/Continuar.h"
 
@@ -57,24 +58,51 @@ return true;
 }
 
 void Producto::Mostrar(){
-    cout<<"ID "<<ID<<endl;
-    cout<<"Nombre "<<Nombre<<endl;
-    cout<<"Precio $"<<Precio<<endl;
-    cout<<"Cantidad "<<Cantidad<<endl;
-    cout<<"Cantidad Minima "<<Cantidad_Minima<<endl;
-    cout<<"Fecha de vencimiento ";
-    Vencimiento.Mostrar_Fecha();
-    cout<<endl<<"Fecha de ingreso ";
-    Actual.Mostrar_Fecha();
-    cout<<endl<<endl;
+    cout << left;
+    cout << setw(4);
+    cout << ID;
+    cout << setw(18);
+    cout << Nombre;
+    cout << right;
+    cout << setw(6);
+    cout << Precio;
+    cout << setw(9);
+    cout << Cantidad;
+    cout << setw(10);
+    cout << Cantidad_Minima;
+    cout << setw(10);
+    cout << Fecha().getDia()<<"/"<<Fecha().getMes()<<"/"<<Fecha().getAnio()<<endl;
+}
+
+void Producto::Encabezado(){
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(4) << "ID";
+    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << endl;
+    cout<<"==============================================================================="<<endl;
 }
 
 void Producto::Mostrar_Alerta(){
-    cout<<"ID "<<ID<<endl;
-    cout<<"Nombre "<<Nombre<<endl;
-    cout<<"Precio $"<<Precio<<endl;
-    cout<<"Cantidad "<<Cantidad<<endl;
-    cout<<"Cantidad Minima "<<Cantidad_Minima<<endl;
+    cout << left;
+    cout << setw(4);
+    cout << ID;
+    cout << setw(18);
+    cout << Nombre;
+    cout << right;
+    cout << setw(6);
+    cout << Precio;
+    cout << setw(9);
+    cout << Cantidad;
+    cout << setw(10);
+    cout << Cantidad_Minima;
+}
+
+void Producto::Encabezado_Alerta(){
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(4) << "ID";
+    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min"<<endl;
+    cout<<"==============================================================================="<<endl;
 }
 
 bool Producto::Guardar(){

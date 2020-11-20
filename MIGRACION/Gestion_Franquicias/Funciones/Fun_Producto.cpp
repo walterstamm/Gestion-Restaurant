@@ -44,11 +44,13 @@ void Listar_Todos_Productos(){
         vex[posmin]=aux;
     }
     ///mostramos
+    vex[0].Encabezado();
     for(int x=0;x<pos;x++){
         if(vex[x].getEstado()==true){
             vex[x].Mostrar();
         }
     }
+    cout<<endl<<endl;
 }
 
 void Listar_Producto_ID(){
@@ -62,9 +64,11 @@ void Listar_Producto_ID(){
     }
     while(uno.LeerPos(pos++)){
         if(uno.getEstado()==true && uno.getID()==ID){
+            uno.Encabezado();
             uno.Mostrar();
         }
     }
+    cout<<endl<<endl;
 }
 
 void Modificar_Precio_Producto(){
@@ -84,6 +88,8 @@ void Modificar_Precio_Producto(){
         }
         pos++;
     }
+    cout<<"Nombre: "<<uno.getNombre()<<endl;
+    cout<<"Precio: "<<uno.getPrecio()<<endl;
     uno.LeerPos(vpos[0]);
     cout<<"Ingrese el precio: ";
     cin>>Precio;
@@ -94,6 +100,7 @@ void Modificar_Precio_Producto(){
     for(int x=0;x<vpos.size();x++){
         uno.setPrecio(Precio);
         uno.Modificar(vpos[x]);
+        cout<<"Producto modificado";
     }
 }
 
@@ -113,6 +120,8 @@ void Modificar_CantidadMin_Producto(){
         }
         pos++;
     }
+    cout<<"Nombre: "<<uno.getNombre()<<endl;
+    cout<<"Precio: "<<uno.getCantidad_Minima()<<endl;
     uno.LeerPos(vpos[0]);
     cout<<"Ingrese el cantidad minima: ";
     cin>>cant;
@@ -123,6 +132,7 @@ void Modificar_CantidadMin_Producto(){
     for(int x=0;x<vpos.size();x++){
         uno.setCantidad(cant);
         uno.Modificar(vpos[x]);
+        cout<<"Producto modificado";
     }
 }
 
@@ -146,6 +156,7 @@ void Eliminar_Producto(){
     for(int x=0;x<vpos.size();x++){
         uno.setEstado(false);
         uno.Modificar(vpos[x]);
+        cout<<"Producto eliminado";
     }
 }
 

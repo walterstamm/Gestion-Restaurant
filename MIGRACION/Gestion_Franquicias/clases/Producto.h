@@ -18,7 +18,9 @@ public:
     Producto();
     bool Cargar();
     void Mostrar();
+    void Encabezado();
     void Mostrar_Alerta();
+    void Encabezado_Alerta();
 
     ///gets
     bool getEstadoLote(){return Estado_Lote;}
