@@ -4,6 +4,8 @@ using namespace std;
 #include "Menu.h"
 #include "Sub_Menus/Sub_Producto.h"
 
+#include "Funciones/Fun_Reportes.h"///caso especial
+
 void Menu_Compra(){
 }
 
@@ -55,10 +57,13 @@ void Menu_Reportes(){
         system ("cls");
         switch(opcion){
         case 1:
+            Reporte_Verde();
         break;
         case 2:
+            Reporte_Amarillos();
         break;
         case 3:
+            Reporte_Rojos();
         break;
         case 4:
         break;

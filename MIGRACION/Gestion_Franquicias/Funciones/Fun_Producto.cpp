@@ -121,7 +121,7 @@ void Modificar_CantidadMin_Producto(){
         return;
     }
     for(int x=0;x<vpos.size();x++){
-        uno.setPrecio(cant);
+        uno.setCantidad(cant);
         uno.Modificar(vpos[x]);
     }
 }
@@ -144,7 +144,7 @@ void Eliminar_Producto(){
     }
     uno.LeerPos(vpos[0]);
     for(int x=0;x<vpos.size();x++){
-        uno.setEstadoLote(false);
+        uno.setEstado(false);
         uno.Modificar(vpos[x]);
     }
 }

@@ -3,14 +3,16 @@ using namespace std;
 #include <ctime>
 #include "Fecha.h"
 
-Fecha::Fecha(){
-    time_t tiempo;
-    struct tm *tmPtr;
-    tiempo = time(NULL);
-    tmPtr = localtime(&tiempo);
-    anio=tmPtr->tm_year+1900;
-    mes=tmPtr->tm_mon+1;
-    dia=tmPtr->tm_mday;
+Fecha::Fecha(bool estado){
+    if(estado==true){
+        time_t tiempo;
+        struct tm *tmPtr;
+        tiempo = time(NULL);
+        tmPtr = localtime(&tiempo);
+        anio=tmPtr->tm_year+1900;
+        mes=tmPtr->tm_mon+1;
+        dia=tmPtr->tm_mday;
+    }
 }
 
 bool Fecha::Cargar_Fecha(){

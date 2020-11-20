@@ -69,6 +69,14 @@ void Producto::Mostrar(){
     cout<<endl<<endl;
 }
 
+void Producto::Mostrar_Alerta(){
+    cout<<"ID "<<ID<<endl;
+    cout<<"Nombre "<<Nombre<<endl;
+    cout<<"Precio $"<<Precio<<endl;
+    cout<<"Cantidad "<<Cantidad<<endl;
+    cout<<"Cantidad Minima "<<Cantidad_Minima<<endl;
+}
+
 bool Producto::Guardar(){
     bool Estado;
     FILE *p=fopen("archivos/Producto.dat","ab");
