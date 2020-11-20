@@ -2,201 +2,165 @@
 #include <cstdio>
 #include <iomanip> ///PARA TRABAJAR CON SETW
 using namespace std;
+
+#include <vector>///para clase vector
+#include <map>///para clase vector con indice
+
 #include "Menu_Producto.h"
 #include "../clases/Producto.h"
 #include "../Validaciones/SINO.h"
 #include "../clases/Descuento.h"
+#include "../InterfazGrafica/ui.h"
 
 
 void Cargar_Producto(){
     Producto uno;
     if(uno.Cargar_Producto()==false){
-        cout<<"Error de carga de producto"<<endl;
-        uno.~Producto();
+        msj("Error de carga de datos", 15, 3, 1, 1);
         return;
     }
     if(uno.GuardarProducto()==false){
-        cout<<"Error al guardar el producto"<<endl;
-        uno.~Producto();
+        msj("Error de guardado de datos", 15, 3, 1, 1);
         return;
     }
-    cout<<"Producto cargado"<<endl;
-    uno.~Producto();
+    cout<<"Datos guardados correctamente"<<endl;
 }
 
 bool Mostrar_Todos_Producto(){
-    Producto uno;
-    bool mostro=false;
-    FILE*p=fopen("archivos/producto.dat","rb");
-        if(p==NULL){
-            fclose(p);
-            cout<<"Error de archivo"<<endl;
-            return false;
+    Producto aux;
+    int pos=0;
+    vector <Producto> vex;
+    while(aux.LeerPos(pos)){
+        vex.push_back(aux);
+        pos++;
+    }
+    ///ordenamos
+    int posmin;
+    for(int x=0; x<pos; x++){
+        posmin=x;
+        for(int y=x+1; y<pos; y++){
+            if(vex[y].getID()<vex[posmin].getID()){
+                posmin=y;
+            }
         }
-    cout<<"==============================================================================="<<endl;
-    cout << left;
-    cout << setw(4) << "ID";
-    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << endl;
-    cout<<"==============================================================================="<<endl;
-    while(fread(&uno, sizeof(Producto),1,p)){
-        if(uno.getEstado()==true){
-            uno.Mostrar_Producto();
-            mostro=true;
+        aux=vex[x];
+        vex[x]=vex[posmin];
+        vex[posmin]=aux;
+    }
+    ///mostramos
+    vex[0].Encabezado();
+    for(int x=0;x<pos;x++){
+        if(vex[x].getEstado()==true){
+            vex[x].Mostrar_Producto();
         }
     }
-    fclose(p);
-return mostro;
+    cout<<endl<<endl;
+return true;
 }
 
 void Mostrar_X_Producto(){
-    int ID;
+     Producto uno;
+    int ID, pos=0;
     cout<<"ID del producto: ";
     cin>>ID;
-    Producto uno;
-    if(uno.Buscar_Producto_ID(ID)==-1){
-        cout<<"Producto inexistente"<<endl;
+    if(ID<0 && ValidarIDProducto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
     }
-    cout<<"==============================================================================="<<endl;
-    cout << left;
-    cout << setw(4) << "ID";
-    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << endl;
-    cout<<"==============================================================================="<<endl;
-    uno.Mostrar_Producto();
-}
-
-void Modificar_Cantidad(){
-    int ID;
-    cout<<"ID del producto: ";
-    cin>>ID;
-    Producto uno;
-    int pos=uno.Buscar_Producto_ID(ID);
-    if(pos==-1){
-        cout<<"Producto inexistente"<<endl;
-        return;
+    while(uno.LeerPos(pos++)){
+        if(uno.getEstado()==true && uno.getID()==ID){
+            uno.Encabezado();
+            uno.Mostrar_Producto();
+        }
     }
-    uno.Mostrar_Producto();
-    cout<<"Ingrese la cantidad: ";
-    cin>>ID;
-    while(ID<0){ ///validando Cantidad que no sea negativo
-       cout<<endl<<"Cantidad incorrecta, reingrese el Cantidad"<<endl<<endl;
-        cout<<">> Ingrese el Cantidad: ";
-        cin>>ID;
-    }
-    uno.setCantidad(ID);
-    if(uno.ModificarProducto(pos)==false){
-        cout<<"Producto no guardado";
-        return;
-    }
-    cout<<"Producto guardado"<<endl;
+    cout<<endl<<endl;
 }
 
 void Modificar_La_Cantidad_minima(){
-    int ID;
+    Producto uno;
+    int ID, pos=0, cant;
+    vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    Producto uno;
-    int pos=uno.Buscar_Producto_ID(ID);
-    if(pos==-1){
-        cout<<"Producto inexistente"<<endl;
+    if(ID<0 && ValidarIDProducto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
     }
-    uno.Mostrar_Producto();
-    cout<<"Ingrese la cantidad minima: ";
-    cin>>ID;
-    while(ID<0){ ///validando Cantidad que no sea negativo
-       cout<<endl<<"Cantidad minima incorrecta, reingrese el Cantidad minima"<<endl<<endl;
-        cout<<">> Ingrese el Cantidad minima: ";
-        cin>>ID;
+    while(uno.LeerPos(pos)){
+        if(uno.getID()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
     }
-    uno.setCantidadMinima(ID);
-    if(uno.ModificarProducto(pos)==false){
-        cout<<"Producto no guardado"<<endl;
+    cout<<"Nombre: "<<uno.getNombre()<<endl;
+    cout<<"Precio: "<<uno.getCantidad()<<endl;
+    uno.LeerPos(vpos[0]);
+    cout<<"Ingrese el cantidad minima: ";
+    cin>>cant;
+    if(cant<0){
+        cout<<"Error cantidad minima negativo";
         return;
     }
-    cout<<"Producto guardado"<<endl;
+    for(int x=0;x<vpos.size();x++){
+        uno.setCantidad(cant);
+        uno.ModificarProducto(vpos[x]);
+        cout<<"Producto modificado";
+    }
 }
 
 void Eliminar_Producto(){
-    int ID;
+    Producto uno;
+    int ID, pos=0;
+    vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    Producto uno;
-    int pos=uno.Buscar_Producto_ID(ID);
-    if(pos==-1){
-        cout<<"Producto inexistente"<<endl;
+    if(ID<0 && ValidarIDProducto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
     }
-    uno.Mostrar_Producto();
-    uno.setEstado(false);
-    if(uno.ModificarProducto(pos)==false){
-        cout<<"Producto no guardado";
-        return;
-    }
-    cout<<"Producto guardado"<<endl;
-}
-
-void ventas(){
-    int ID, cantidad;
-    float total=0;
-    do{
-        cout<<"ID del producto: ";
-        cin>>ID;
-        Producto uno;
-        int pos=uno.Buscar_Producto_ID(ID);
-        if(pos==-1){
-            cout<<"Producto inexistente"<<endl; ///no permite realizar la carga
-        } else{///producto existente -- puede realizar la carga
-                cout<<"Nombre: "<<uno.getNombre()<<endl;
-                cout<<"Precio: "<<uno.getPrecio()<<endl;
-                cout<<"cantidad: "<<uno.getCantidad()<<endl;
-                Fecha dos; ///verificamos la fecha de vencimiento
-                if(dos.RetornarFechaVencimiento()==true){/// esto es para comentar fecha de VENCIMIENTO
-                cout<<"Ingrese la cantidad vendida: ";
-                cin>>cantidad;
-                while(cantidad<0 || uno.ValidarCantidadProducto(cantidad)!=true){ ///validando Cantidad que no sea negativo
-                   cout<<endl<<"Cantidad minima incorrecta, reingrese el Cantidad minima"<<endl<<endl;
-                    cout<<">> Ingrese el Cantidad minima: ";
-                    cin>>cantidad;
-                }
-                total+=uno.getPrecio()*cantidad;
-                uno.setCantidad(uno.getCantidad()-cantidad);
-                uno.ModificarProducto(pos);
-            }
-            else{
-                cout<<"Producto vencido";
-            }
-            ///generar objeto venta
+    while(uno.LeerPos(pos)){
+        if(uno.getID()==ID){
+            vpos.push_back(pos);
         }
-    }while(Continuar()==true);
-    total=GenerarDescuento(total);
-    cout<<"total $"<<total<<endl;
-    ///boleta
+        pos++;
+    }
+    uno.LeerPos(vpos[0]);
+    for(int x=0;x<vpos.size();x++){
+        uno.setEstado(false);
+        uno.ModificarProducto(vpos[x]);
+        cout<<"Producto eliminado";
+    }
 }
 
 void Modificar_Precio(){
-    int ID;
+    Producto uno;
+    int ID, pos=0;
+    float Precio;
+    vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    Producto uno;
-    int pos=uno.Buscar_Producto_ID(ID);
-    if(pos==-1){
-        cout<<"Producto inexistente"<<endl;
+    if(ID<0 && ValidarIDProducto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
     }
-    uno.Mostrar_Producto();
-    float precio;
-    cout<<"Ingrese el precio: $";
-    cin>>ID;
-    while(precio<0){ ///validando Cantidad que no sea negativo
-       cout<<endl<<"precio incorrecta, reingrese el precio"<<endl<<endl;
-        cout<<">> Ingrese el precio: $";
-        cin>>precio;
+    while(uno.LeerPos(pos)){
+        if(uno.getID()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
     }
-    uno.setPrecio(precio);
-    if(uno.ModificarProducto(pos)==false){
-        cout<<"Producto no guardado"<<endl;
+    cout<<"Nombre: "<<uno.getNombre()<<endl;
+    cout<<"Precio: "<<uno.getPrecio()<<endl;
+    uno.LeerPos(vpos[0]);
+    cout<<"Ingrese el precio: ";
+    cin>>Precio;
+    if(Precio<0){
+        cout<<"Error precio negativo";
         return;
     }
-    cout<<"Producto guardado"<<endl;
+    for(int x=0;x<vpos.size();x++){
+        uno.setPrecio(Precio);
+        uno.ModificarProducto(vpos[x]);
+        cout<<"Producto modificado";
+    }
 }

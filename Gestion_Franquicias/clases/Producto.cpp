@@ -10,23 +10,12 @@ using namespace std;
 Producto::Producto(){
     Precio=0;
     estado=true;
-}
-
-Producto::~Producto(){
+    Estado_sublote=true;
 }
 
 bool Producto::Cargar_Producto(){
-    cout<<"Ingrese el ID ";
-    cin>>ID;
-        while(ID<0 || ValidarIDProducto(ID)!=false){ ///validando id que no sea negativo y no se repita
-            cout<<"Error ID";
-                if(Continuar()==false){
-                    system ("cls");
-                    return false;
-                }
-            cout<<">> Ingrese el ID: ";
-            cin>>ID;
-        }
+    ID=GenerarID();
+    cout<<"ID del producto: "<<ID<<endl;
     cout<<"Ingrese el nombre: ";
     cin.ignore();
     cin.getline(Nombre, 50, '\n');
@@ -81,19 +70,15 @@ void Producto::Mostrar_Producto(){
             cout << setw(10);
             cout << Cantidad_Minima;
             cout << setw(10);
-            cout << Fecha().getDia()<<"/"<<Fecha().getMes()<<"/"<<Fecha().getAnio()<<endl;
+            Vencimiento.Mostrar_Fecha();
+}
 
-
-    /**cout<<"ID "<<ID<<endl;
-    cout<<"Nombre "<<Nombre<<endl;
-    cout<<"Precio $"<<Precio<<endl;
-    cout<<"Cantidad "<<Cantidad<<endl;
-    cout<<"Cantidad Minima "<<Cantidad_Minima<<endl;
-    cout<<"Fecha de vencimiento "<<endl;
-    Vencimiento.Mostrar_Fecha();
-    cout<<endl<<"Fecha de ingreso "<<endl;
-    Actual.Mostrar_Fecha();
-    cout<<endl<<endl;*/
+void Producto::Encabezado(){
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(4) << "ID";
+    cout << setw(18) << "Descripcion " << setw(9) << "  Precio " << setw(11) << " Cantidad" << setw(13) << "Cant Min" << setw(1) << "Fecha Vto" << endl;
+    cout<<"==============================================================================="<<endl;
 }
 
 bool Producto::GuardarProducto(){
@@ -141,14 +126,11 @@ return correcto;
 bool ValidarIDProducto(int _ID){
     Producto uno;
     FILE *p=fopen("archivos/producto.dat","rb");
-        if(p==NULL){
-            fclose(p);
-            return false;
-        }
+    if(p==NULL) return false;
     while(fread(&uno, sizeof(Producto),1,p)){
         if(uno.getID()==_ID){
             fclose(p);
-            return true; ///retorna la posicion del archivo
+            return uno.getID(); ///retorna la posicion del archivo
         }
     }
     fclose(p);
@@ -178,4 +160,38 @@ int Producto::getCantidad_Cod(int cod){
     fclose(p);
 
     return Cantidad;
+}
+
+bool ValidarID_Producto(int _ID){
+    Producto uno;
+    FILE *p=fopen("archivos/producto.dat","rb");
+    if(p==NULL) return false;
+    while(fread(&uno, sizeof(Producto),1,p)){
+        if(uno.getID()==_ID){
+            fclose(p);
+            return uno.getID(); ///retorna la posicion del archivo
+        }
+    }
+    fclose(p);
+return false; ///retorna -1 si no encontro el ID
+}
+
+bool Producto::LeerPos(int pos){
+    bool estado;
+    FILE *p=fopen("archivos/producto.dat","rb");
+    if(p==NULL) return false;
+    fseek(p, pos*sizeof(Producto),SEEK_SET);
+    estado=fread(this, sizeof(Producto),1,p);
+    fclose(p);
+return estado;
+}
+
+int GenerarID(){ ///GENERA UN ID AUTOMATICO
+    int pos=0, ID=0;
+    Producto uno;
+    while(uno.LeerPos(pos)){
+        if(ID<uno.getID())ID=uno.getID();
+        pos++;
+    }
+return ID+1;
 }

@@ -10,15 +10,17 @@ class Producto{
         int Cantidad;
         int Cantidad_Minima;
         bool estado;
+        bool Estado_sublote;
         Fecha Actual;
         Fecha Vencimiento;
     public:
         Producto();
-        ~Producto();
         bool Cargar_Producto(); ///CUANDO SE CARGA POR PRIMERA VEZ
         void Mostrar_Producto();
+        void Encabezado();
         bool GuardarProducto();
         int Buscar_Producto_ID(int); ///busca el producto por ID y devuelve la posicion del producto
+        bool LeerPos(int);
         ///get
         int getID(){return ID;}
         char *getNombre(){return Nombre;}
@@ -38,5 +40,6 @@ class Producto{
 };
 
 bool ValidarIDProducto(int); ///validad que el ID no exista
+int GenerarID();///Genera ID automatico
 
 #endif // PRODUCTO_H_INCLUDED
