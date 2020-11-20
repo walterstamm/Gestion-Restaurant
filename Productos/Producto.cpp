@@ -5,6 +5,7 @@ using namespace std;
 #include <cstdio>
 
 #include <vector>///para clase vector
+#include <map>///para clase vector con indice
 
 #include "Producto.h"
 
@@ -232,7 +233,7 @@ void Mostrar_Todos_Productos(){
     }
     ///mostramos
     for(int x=0;x<pos;x++){
-        if(vex[x].getEstadoLote()==true){
+        if(vex[x].getEstado()==true){
             vex[x].Mostrar();
         }
     }
@@ -248,8 +249,38 @@ void Mostrar_x_Producto(){
         return;
     }
     while(uno.LeerPos(pos++)){
-        if(uno.getEstadoLote()==true && uno.getID()==ID){
+        if(uno.getEstado()==true && uno.getID()==ID){
             uno.Mostrar();
+        }
+    }
+}
+
+void alertas(){
+    Producto uno;
+    int pos=0;
+    std::map<int, int> vexCant_Max;
+    std::map<int, Producto> vexProducto;
+    while(uno.LeerPos(pos)){
+        vexCant_Max[uno.getID()-1]+=uno.getCantidad();
+        vexProducto[uno.getID()-1]=uno;
+        pos++;
+    }
+    for(int x=0;x<pos;x++){
+        if (vexCant_Max[x]>=vexProducto[x].getCantidad_Minima()){
+            ///los que estan en rojo
+            ///Falta listar
+            return;
+        }
+        int porcentaje=(vexProducto[x].getCantidad_Minima()*100)/150;
+        if(porcentaje>=vexProducto[x].getCantidad_Minima() && vexCant_Max[x]<vexProducto[x].getCantidad_Minima()){
+            ///alerta amarilla
+            ///falta listar
+            return;
+        }
+        if(porcentaje<vexProducto[x].getCantidad_Minima()){
+            ///alerta verde
+            ///falta listar
+            return;
         }
     }
 }

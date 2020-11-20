@@ -39,3 +39,32 @@ void Menu_Venta(){
 
 void Menu_Facturacion(){
 }
+
+void Menu_Reportes(){
+    short opcion;
+    do{
+        title("MENU REPORTES", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        cout<<endl<<"---------------------------"<<endl;
+        cout<<endl<<"1) REPORTES VERDES........."<<endl;
+        cout<<endl<<"2) REPORTES AMARILLOS......"<<endl;
+        cout<<endl<<"3) REPORTES ROJOS.........."<<endl;
+        cout<<endl<<"4) SALIR..................."<<endl;
+        cout<<endl<<"---------------------------"<<endl;
+        cout<<endl<<"\t OPCION: ";
+        cin>>opcion;
+        system ("cls");
+        switch(opcion){
+        case 1:
+        break;
+        case 2:
+        break;
+        case 3:
+        break;
+        case 4:
+        break;
+        default:
+            msj("OPCIÓN INCORRECTA", 15, 4, 15, 1);
+        break;
+        }
+    }while (opcion!=4);
+}

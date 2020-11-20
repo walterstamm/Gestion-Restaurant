@@ -1,5 +1,9 @@
 #include <iostream>
 using namespace std;
+
+#include <vector>///para clase vector
+#include <map>///para clase vector con indice
+
 #include "Fun_Producto.h"
 #include "../clases/Producto.h"
 #include "../Validaciones/Continuar.h"
@@ -9,173 +13,140 @@ void Cargar_Producto(){
     Producto uno;
     if(uno.Cargar()==false){
         msj("Error de carga de datos", 15, 3, 1, 1);
-        uno.~Producto();
         return;
     }
     if(uno.Guardar()==false){
         msj("Error de guardado de datos", 15, 3, 1, 1);
-        uno.~Producto();
         return;
     }
     cout<<"Datos guardados correctamente"<<endl;
-    uno.~Producto();
 }
 
 void Listar_Todos_Productos(){
-    Producto uno;
+    Producto aux;
     int pos=0;
-    while(uno.LeerPos(pos++)){
-        if(uno.getEstado()==true){
-            uno.Listar();
+    vector <Producto> vex;
+    while(aux.LeerPos(pos)){
+        vex.push_back(aux);
+        pos++;
+    }
+    ///ordenamos
+    int posmin;
+    for(int x=0; x<pos; x++){
+        posmin=x;
+        for(int y=x+1; y<pos; y++){
+            if(vex[y].getID()<vex[posmin].getID()){
+                posmin=y;
+            }
+        }
+        aux=vex[x];
+        vex[x]=vex[posmin];
+        vex[posmin]=aux;
+    }
+    ///mostramos
+    for(int x=0;x<pos;x++){
+        if(vex[x].getEstado()==true){
+            vex[x].Mostrar();
         }
     }
-    cout<<"Productos mostrados"<<endl;
 }
 
 void Listar_Producto_ID(){
+    Producto uno;
     int ID, pos=0;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID<0){
-        msj("ID incorrecto", 15, 3, 1, 1);
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
     }
-    Producto uno;
-    if(BuscarPoscicion_Producto(ID, pos)==false){
-        msj("Error de archivo", 15, 3, 1, 1);
-        return;
+    while(uno.LeerPos(pos++)){
+        if(uno.getEstado()==true && uno.getID()==ID){
+            uno.Mostrar();
+        }
     }
-    uno.LeerPos(pos);
-    if(uno.getEstado()==true){
-        uno.Listar();
-    }
-    else msj("Error archivo inexistente", 15, 3, 1, 1);
 }
 
 void Modificar_Precio_Producto(){
+    Producto uno;
     int ID, pos=0;
     float Precio;
+    vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID>0){
-        msj("ID incorrecto", 15, 3, 1, 1);
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
     }
-    Producto uno;
-    if(BuscarPoscicion_Producto(ID, pos)==false){
-        msj("Error de archivo", 15, 3, 1, 1);
-        return;
+    while(uno.LeerPos(pos)){
+        if(uno.getID()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
     }
-    if(uno.getEstado()==false){
-        msj("Error archivo inexistente", 15, 3, 1, 1);
-        return;
-    }
-    uno.LeerPos(pos);
-    uno.Listar();
-    cout<<"Ingrese el precio: $";
+    uno.LeerPos(vpos[0]);
+    cout<<"Ingrese el precio: ";
     cin>>Precio;
-    while(Precio<0){ ///validando Cantidad que no sea negativo
-        cout<<endl<<"precio incorrecta, reingrese el precio"<<endl<<endl;
-        cout<<">> Ingrese el precio: $";
-        cin>>Precio;
-    }
-    uno.setPrecio(Precio);
-    if(uno.Modificar(pos)==false){
-        msj("Error archivo no modificado", 15, 3, 1, 1);
+    if(Precio<0){
+        cout<<"Error precio negativo";
         return;
     }
-    cout<<"Archivo modificado"<<endl;
-}
-
-void Modificar_Cantidad_Producto(){
-    int ID, pos=0, Cantidad;
-    cout<<"ID del producto: ";
-    cin>>ID;
-    if(ID>0){
-        msj("ID incorrecto", 15, 3, 1, 1);
-        return;
+    for(int x=0;x<vpos.size();x++){
+        uno.setPrecio(Precio);
+        uno.Modificar(vpos[x]);
     }
-    Producto uno;
-    if(BuscarPoscicion_Producto(ID, pos)==false){
-        msj("Error de archivo", 15, 3, 1, 1);
-        return;
-    }
-    if(uno.getEstado()==false){
-        msj("Error archivo inexistente", 15, 3, 1, 1);
-        return;
-    }
-    uno.LeerPos(pos);
-    uno.Listar();
-    cout<<"Ingrese el Cantidad: ";
-    cin>>Cantidad;
-    while(Cantidad<0){ ///validando Cantidad que no sea negativo
-        cout<<endl<<"Cantidad incorrecta, reingrese el Cantidad"<<endl<<endl;
-        cout<<">> Ingrese el Cantidad: ";
-        cin>>Cantidad;
-    }
-    uno.setCantidad(Cantidad);
-    if(uno.Modificar(pos)==false){
-        msj("Error archivo no modificado", 15, 3, 1, 1);
-        return;
-    }
-    cout<<"Archivo modificado"<<endl;
 }
 
 void Modificar_CantidadMin_Producto(){
-    int ID, pos=0, Cantidad;
+    Producto uno;
+    int ID, pos=0, cant;
+    vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID>0){
-        msj("ID incorrecto", 15, 3, 1, 1);
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
     }
-    Producto uno;
-    if(BuscarPoscicion_Producto(ID, pos)==false){
-        msj("Error de archivo", 15, 3, 1, 1);
+    while(uno.LeerPos(pos)){
+        if(uno.getID()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
+    }
+    uno.LeerPos(vpos[0]);
+    cout<<"Ingrese el cantidad minima: ";
+    cin>>cant;
+    if(cant<0){
+        cout<<"Error cantidad minima negativo";
         return;
     }
-    uno.LeerPos(pos);
-    if(uno.getEstado()==false){
-        msj("Error archivo inexistente", 15, 3, 1, 1);
-        return;
+    for(int x=0;x<vpos.size();x++){
+        uno.setPrecio(cant);
+        uno.Modificar(vpos[x]);
     }
-    uno.Listar();
-    cout<<"Ingrese el Cantidad minima: ";
-    cin>>Cantidad;
-    while(Cantidad<0){ ///validando Cantidad que no sea negativo
-        cout<<endl<<"Cantidad minima incorrecta, reingrese el Cantidad minima"<<endl<<endl;
-        cout<<">> Ingrese el Cantidad minima: ";
-        cin>>Cantidad;
-    }
-    uno.setCantidad_Minima(Cantidad);
-    if(uno.Modificar(pos)==false){
-        msj("Error archivo no modificado", 15, 3, 1, 1);
-        return;
-    }
-    cout<<"Archivo modificado"<<endl;
 }
 
 void Eliminar_Producto(){
+    Producto uno;
     int ID, pos=0;
+    vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID>0){
-        msj("ID incorrecto", 15, 3, 1, 1);
+    if(ID<0 && ValidarID_Producto(ID)==true){
+        ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
     }
-    Producto uno;
-    if(BuscarPoscicion_Producto(ID, pos)==false){
-        msj("Error de archivo", 15, 3, 1, 1);
-        return;
+    while(uno.LeerPos(pos)){
+        if(uno.getID()==ID){
+            vpos.push_back(pos);
+        }
+        pos++;
     }
-    uno.LeerPos(pos);
-    uno.Listar();
-    uno.setEstado(false);
-    if(uno.Modificar(pos)==false){
-        msj("Error archivo no modificado", 15, 3, 1, 1);
-        return;
+    uno.LeerPos(vpos[0]);
+    for(int x=0;x<vpos.size();x++){
+        uno.setEstadoLote(false);
+        uno.Modificar(vpos[x]);
     }
-    cout<<"Archivo modificado"<<endl;
 }
 
 

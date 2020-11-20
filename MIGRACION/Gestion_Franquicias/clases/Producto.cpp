@@ -7,18 +7,15 @@ using namespace std;
 #include "../Validaciones/Continuar.h"
 
 
+Producto::Producto(){
+    Estado=true;
+    Estado_Lote=true;
+    ID=1;
+}
+
 bool Producto::Cargar(){
-    cout<<"Ingrese el ID ";
-    cin>>ID;
-        while(ID<0 || ValidarID_Producto(ID)!=false){ ///validando id que no sea negativo y no se repita
-            cout<<"Error ID";
-                if(Continuar()==false){
-                    system ("cls");
-                    return false;
-                }
-            cout<<">> Ingrese el ID: ";
-            cin>>ID;
-        }
+    ID=GenerarID();
+    cout<<"ID del producto: "<<ID<<endl;
     cout<<"Ingrese el nombre: ";
     cin.ignore();
     cin.getline(Nombre, 50, '\n');
@@ -59,28 +56,39 @@ bool Producto::Cargar(){
 return true;
 }
 
-void Producto::Listar(){
+void Producto::Mostrar(){
     cout<<"ID "<<ID<<endl;
     cout<<"Nombre "<<Nombre<<endl;
     cout<<"Precio $"<<Precio<<endl;
     cout<<"Cantidad "<<Cantidad<<endl;
     cout<<"Cantidad Minima "<<Cantidad_Minima<<endl;
-    cout<<"Fecha de vencimiento "<<endl;
+    cout<<"Fecha de vencimiento ";
     Vencimiento.Mostrar_Fecha();
-    cout<<endl<<"Fecha de ingreso "<<endl;
+    cout<<endl<<"Fecha de ingreso ";
     Actual.Mostrar_Fecha();
     cout<<endl<<endl;
 }
 
 bool Producto::Guardar(){
-    bool grabo;
-    FILE *p=fopen("archivos/producto.dat","ab");
-    if(p==NULL){
-        return false;
-    }
-    grabo=fwrite(this, sizeof(Producto),1,p);
+    bool Estado;
+    FILE *p=fopen("archivos/Producto.dat","ab");
+    if(p==NULL) return 0;
+    Estado=fwrite(this,sizeof(Producto),1,p);
     fclose(p);
-return grabo;
+return Estado;
+}
+
+bool Producto::Modificar(int pos){
+    bool correcto;
+    FILE *p=fopen("archivos/Producto.dat","rb+");
+        if(p==NULL){
+            fclose(p);
+            return false;
+        }
+    fseek(p, pos*sizeof(Producto), SEEK_SET);
+    correcto= fwrite(this, sizeof(Producto), 1, p);
+    fclose(p);
+return correcto;
 }
 
 bool Producto::LeerPos(int pos){
@@ -93,29 +101,6 @@ bool Producto::LeerPos(int pos){
 return estado;
 }
 
-bool Producto::Modificar(int pos){
-    bool estado;
-    FILE *p=fopen("archivos/producto.dat","rb+");
-    if(p==NULL) return false;
-    fseek(p, pos*sizeof(Producto),SEEK_SET);
-    estado=fwrite(this, sizeof(Producto),1,p);
-    fclose(p);
-return estado;
-
-}
-
-bool BuscarPoscicion_Producto(int _ID, int &pos){
-    Producto uno;
-    while(uno.LeerPos(pos++)){
-        if(uno.getID()==_ID){
-            return true;
-        }
-    }
-return false;
-}
-
-
-
 bool ValidarID_Producto(int _ID){
     Producto uno;
     FILE *p=fopen("archivos/producto.dat","rb");
@@ -123,9 +108,19 @@ bool ValidarID_Producto(int _ID){
     while(fread(&uno, sizeof(Producto),1,p)){
         if(uno.getID()==_ID){
             fclose(p);
-            return true; ///retorna la posicion del archivo
+            return uno.getID(); ///retorna la posicion del archivo
         }
     }
     fclose(p);
 return false; ///retorna -1 si no encontro el ID
+}
+
+int GenerarID(){ ///GENERA UN ID AUTOMATICO
+    int pos=0, ID=0;
+    Producto uno;
+    while(uno.LeerPos(pos)){
+        if(ID<uno.getID())ID=uno.getID();
+        pos++;
+    }
+return ID+1;
 }

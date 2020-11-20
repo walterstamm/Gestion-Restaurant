@@ -13,10 +13,9 @@ void Sub_Producto(){
         cout<<endl<<"2) LISTAR TODOS LOS PRODUCTOS.........."<<endl;
         cout<<endl<<"3) LISTAR PRODUCTO POR ID.............."<<endl;
         cout<<endl<<"4) MODIFICAR PRECIO DEL PRODUCTO......."<<endl;
-        cout<<endl<<"5) MODIFICAR CANTIDAD DEL PRODUCTOS...."<<endl;
-        cout<<endl<<"6) MODIFICAR CANTIDAD MINIMA..........."<<endl;
-        cout<<endl<<"7) ELIMINAR PRODUCTO..................."<<endl;
-        cout<<endl<<"8) VOLVER AL MENU COMPRA..............."<<endl;
+        cout<<endl<<"5) MODIFICAR CANTIDAD MINIMA..........."<<endl;
+        cout<<endl<<"6) ELIMINAR PRODUCTO..................."<<endl;
+        cout<<endl<<"7) VOLVER AL MENU COMPRA..............."<<endl;
         cout<<endl<<"---------------------------------------"<<endl;
         cout<<endl<<"\t OPCION: ";
         cin>>opcion;
@@ -43,21 +42,16 @@ void Sub_Producto(){
             system("cls");
         break;
         case 5:
-            Modificar_Cantidad_Producto();
-            system("pause");
-            system("cls");
-        break;
-        case 6:
             Modificar_CantidadMin_Producto();
             system("pause");
             system("cls");
         break;
-        case 7:
+        case 6:
             Eliminar_Producto();
             system("pause");
             system("cls");
         break;
-        case 8:
+        case 7:
         break;
         default:
             msj("OPCIÓN INCORRECTA", 15, 3, 1, 1);

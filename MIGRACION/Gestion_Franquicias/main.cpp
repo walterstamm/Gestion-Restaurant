@@ -13,7 +13,8 @@ int main(){
         cout<<endl<<"1) COMPRA............"<<endl;
         cout<<endl<<"2) VENTAS............"<<endl;
         cout<<endl<<"3) FACTURACION......."<<endl;
-        cout<<endl<<"4) SALIR............."<<endl;
+        cout<<endl<<"4) REPORTES.........."<<endl;
+        cout<<endl<<"5) SALIR............."<<endl;
         cout<<endl<<"---------------------"<<endl;
         cout<<endl<<"\t OPCION: ";
         cin>>opcion;
@@ -29,6 +30,9 @@ int main(){
             Menu_Facturacion();
         break;
         case 4:
+            Menu_Reportes();
+        break;
+        case 5:
         break;
         default:
             msj("OPCIÓN INCORRECTA", 15, 4, 15, 1);
