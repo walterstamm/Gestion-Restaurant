@@ -2,6 +2,9 @@
 #include<cstdlib>
 #include<cstdio>
 #include "Menu_Pedidos.h"
+#include "clases/Pedido.h"
+#include "clases/Producto.h"
+
 using namespace std;
 
 void Menu_Pedidos(){
@@ -24,7 +27,7 @@ void Menu_Pedidos(){
             Carga_Provedores();
             break;
         case 2:
-
+            GeneraPedido();
         break;
         case 3:
 
@@ -99,7 +102,7 @@ bool ValidarIDProveedores(int _ID){
 
 
 void DarBajaProveedor(){
-    int ID,Telefono;
+    int ID,Telefono,Posicion;
     bool validacion;
     char respuesta,Nombres[50],Nota[200];
     proveedore reg;
@@ -110,17 +113,12 @@ void DarBajaProveedor(){
     if(reg.getID()!=ID){
         return;
     }
-    cout<<"Veo que muestra el Estado"<<endl;
-    cout<<"reg.getNombre()  "<<reg.getNombre()<<endl;
-    cout<<"reg.getEstado()  "<<reg.getEstado();
-    system("pause");
-    system("pause");
-
+    Posicion=reg.posicionProveedor(reg.getID());
     cout<<"Desea dar de baja a este Proveedor?(S/N)"<<endl;
     cin>>respuesta;
     if(respuesta=='s'||respuesta=='S'){
         reg.setEstado(false); ///puse este set estado que faltaba
-        if(reg.Guardar_Cambios()){
+        if(reg.Guardar_Cambios(Posicion)){
         cout<<"Se dio de baja con exito!";
         system("pause");
         return;
@@ -148,11 +146,11 @@ void DarBajaProveedor(){
     cin>>respuesta;
     if(respuesta=='s'||respuesta=='S'){
         cin>>Telefono;
-        while(Telefono<1000000000){ ///validando telefono que no sea menor a 10 0000 0000
+        /*while(Telefono<1000000000){ ///validando telefono que no sea menor a 10 0000 0000
             cout<<endl<<"telefono incorrecta, reingrese el telefono"<<endl<<endl;
             cout<<">> Ingrese el telefono: ";
             cin>>Telefono;
-        }
+        }*/
         reg.setTelefono(Telefono);
     }
 
@@ -172,7 +170,7 @@ void DarBajaProveedor(){
     cout<<endl<<endl;
     reg.Listar_Proveedores();
     cout<<endl<<endl;
-    validacion=reg.Guardar_Cambios();
+    validacion=reg.Guardar_Cambios(Posicion);
     if(validacion){
         cout<<"Se guardaron los cambion con exito!";
         system("pause");
@@ -180,6 +178,7 @@ void DarBajaProveedor(){
     }
     cout<<endl<<"No se puedo guardar los cambios";
     system("pause");
+    system("cls");
 }
 
 
@@ -200,4 +199,16 @@ void BuscarID(proveedore *registro,int id){
     }
     cout<<"No se encontro ese ID..."<<endl;
     fclose(p);
+}
+
+
+void GeneraPedido(){
+
+    system("cls");
+    Pedido reg;
+    reg.Cargar_Pedido();
+
+    reg.Mostrar_Pedido();
+    system("pause");
+
 }

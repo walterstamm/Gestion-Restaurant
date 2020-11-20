@@ -12,7 +12,7 @@ class proveedore{
         void Cargar_Proveedore();
         void Listar_Proveedores();
         bool Guardar_Proveedore();
-        bool Guardar_Cambios();
+        bool Guardar_Cambios(int);
         bool Eliminar_Proveedor();
         void setEstado(bool);
         bool getEstado();
