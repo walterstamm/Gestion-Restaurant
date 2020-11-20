@@ -71,7 +71,7 @@ void Producto::Mostrar(){
     cout << setw(10);
     cout << Cantidad_Minima;
     cout << setw(10);
-    cout << Vencimiento.getDia()<<"/"<<Vencimiento.getMes()<<"/"<<Vencimiento.getAnio()<<endl;
+    Vencimiento.Mostrar_Fecha();
 }
 
 void Producto::Encabezado(){

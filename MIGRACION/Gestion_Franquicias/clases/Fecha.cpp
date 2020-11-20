@@ -54,7 +54,7 @@ return true;
 }
 
 void Fecha::Mostrar_Fecha(){
-    cout<<"\nFecha: "<<dia<<"/"<<mes<<"/"<<anio;
+    cout<<dia<<"/"<<mes<<"/"<<anio<<endl;
 }
 
 bool Fecha::RetornarFechaVencimiento(){

@@ -7,6 +7,7 @@ using namespace std;
 #include "InterfazGrafica/ui.h"
 #include "Menu_Principal.h"
 #include "Menu_Pedidos.h"
+#include "menus/Reportes.h"
 
 
 
@@ -29,6 +30,7 @@ int main(){
         cout<<endl<<"6) MENÚ DESCUENTO..........";
         cout<<endl<<"7) SALIR DEL PROGRAMA......";
         cout<<endl<<"8) MENÚ ENCABEZADO.........";
+        cout<<endl<<"9) MENÚ REPORTES...........";
         cout<<endl<<"---------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
@@ -55,6 +57,9 @@ int main(){
         break;
         case 8:
             Menu_Encabezado();
+        break;
+        case 9:
+            Menu_Reportess();
         break;
         default:
             msj("                     OPCIÓN INCORRECTA", 15, 4, 15, 1);

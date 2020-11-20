@@ -21,6 +21,9 @@ class Producto{
         bool GuardarProducto();
         int Buscar_Producto_ID(int); ///busca el producto por ID y devuelve la posicion del producto
         bool LeerPos(int);
+
+    void Mostrar_Alerta();
+    void Encabezado_Alerta();
         ///get
         int getID(){return ID;}
         char *getNombre(){return Nombre;}
@@ -28,6 +31,7 @@ class Producto{
         float getPrecio(){return Precio;}
         int getCantidad(){return Cantidad;}
         bool getEstado(){return estado;}
+        bool getCantidad_Minima(){return Cantidad_Minima;}
         int getCantidad_Cod(int);
         bool ModificarProducto(int); ///recibe la posicion en memoria del producto
         ///set
