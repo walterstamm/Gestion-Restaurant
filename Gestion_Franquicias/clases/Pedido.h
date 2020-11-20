@@ -4,10 +4,11 @@
 class Pedido{
 
     private:
-        ///hereda ID de provedor
+        int ID;
         int Codigo_Producto;
         int Cantidad;
-        Fecha Fecha_Entrega;
+        Fecha Fecha_Generado;
+        Fecha Vencimiento;
         bool Estado;
     public:
         Pedido();///Constructor
@@ -20,10 +21,13 @@ class Pedido{
         void setCodigo_Producto(int);
         void setCantidad(int);
         void setEstado(bool);
+        void setID(int);
+        int getID();
         int getCodigo_Producto();
         int getCantidad();
         bool getEstado();
-
+        int NumeroPedido();
+        bool GuardaPedido();
 };
 
 #endif // PEDIDO_H_INCLUDED

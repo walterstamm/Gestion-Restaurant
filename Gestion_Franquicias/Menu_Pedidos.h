@@ -8,6 +8,7 @@ void Mostrar_Proveedores();
 bool ValidarIDProveedores(int);//valida si el ID existe
 void DarBajaProveedor();
 void BuscarID(proveedore *,int);
+void GeneraPedido();
 
 
 #endif // MENU_PEDIDOS_H_INCLUDED
