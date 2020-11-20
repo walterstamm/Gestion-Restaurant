@@ -163,3 +163,19 @@ bool Producto::ValidarCantidadProducto(int _cantidad){
     }
 return true;
 }
+
+int Producto::getCantidad_Cod(int cod){
+
+    FILE *p=fopen("archivos/Producto.dat","rb");
+        if(p==NULL){
+            return -1;
+        }
+    int pos = Buscar_Producto_ID(cod);
+
+    fseek(p, pos*sizeof(Producto), SEEK_SET);
+    fwrite(this, sizeof(Producto), 1, p);
+    int Cantidad = getCantidad();
+    fclose(p);
+
+    return Cantidad;
+}

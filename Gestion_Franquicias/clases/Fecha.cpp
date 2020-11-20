@@ -14,7 +14,7 @@ Fecha::Fecha(){
 }
 
 Fecha Fecha::setFechaHoy(){
-time_t tiempo;
+    time_t tiempo;
     struct tm *tmPtr;
     tiempo = time(NULL);
     tmPtr = localtime(&tiempo);

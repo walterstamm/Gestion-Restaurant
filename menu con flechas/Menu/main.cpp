@@ -49,8 +49,8 @@ void menu_principal()
    bool repite = true;
    int opcion;
    // Titulo del menú y nombres de las opciones
-   const char *opciones[] = {"Sumar", "Restar", "Multiplicar", "Dividir", "Salir"};
-   int n = 5;  // Numero de opciones
+   const char *opciones[] = {"Sumar", "Restar", "Multiplicar", "Dividir", "Salir"}; ///ACA MUESTRO LAS OPCIONES DEL MENU
+   int n = 5;  /// CANTIDAD DE OPCIONES
 
    do {
       opcion = menu(opciones, n);

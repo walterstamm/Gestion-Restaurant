@@ -22,9 +22,11 @@ class Producto{
         ///get
         int getID(){return ID;}
         char *getNombre(){return Nombre;}
+
         float getPrecio(){return Precio;}
         int getCantidad(){return Cantidad;}
         bool getEstado(){return estado;}
+        int getCantidad_Cod(int);
         bool ModificarProducto(int); ///recibe la posicion en memoria del producto
         ///set
         void setMod_Cantidad(int Modif) {Cantidad += Modif;}

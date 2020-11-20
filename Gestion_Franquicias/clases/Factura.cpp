@@ -195,21 +195,22 @@ void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
 }
 
 void MENU_FACTURACION(){
+
     int Opcion;
     while(Opcion){
         system("cls");
         title("MENU FACTURACION", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
 
-        cout<<"\n============================================  |"<<"Cod  Producto          Cant     Precio     ";
-        cout<<"\n01-Generar Factura..........................  |"<<" 01";
-        cout<<"\n02-Muestro Factura..........................  |"<<" 02";
-        cout<<"\n03-Eliminar Factura.........................  |"<<" 03";
-        cout<<"\n04-Listar Facturas Eliminadas...............  |"<<" 04";
-        cout<<"\n05-Listar Facturas por Nro y Prod (todas)...  |"<<" 05";
-        cout<<"\n06-Reportes a eleccion por el usuario.......  |"<<" 06";
-        cout<<"\n============================================  |"<<" 07";
-        cout<<"\n00- Volver al MENU PRINCIPAL................  |"<<" 08";
-        cout<<"\n============================================  |"<<" 09";
+        cout<<"\n============================================  |"<<"Cod  Producto          Cant";
+        cout<<"\n01-Generar Factura..........................  |"<<"     01                "<<Producto().getCantidad_Cod(1);
+        cout<<"\n02-Muestro Factura..........................  |"<<"     02                "<<Producto().getCantidad_Cod(2);
+        cout<<"\n03-Eliminar Factura.........................  |"<<"     03                "<<Producto().getCantidad_Cod(3);
+        cout<<"\n04-Listar Facturas Eliminadas...............  |"<<"     04                "<<Producto().getCantidad_Cod(4);
+        cout<<"\n05-Listar Facturas por Nro y Prod (todas)...  |"<<"     05                "<<Producto().getCantidad_Cod(5);
+        cout<<"\n06-Reportes a eleccion por el usuario.......  |"<<"     06                "<<Producto().getCantidad_Cod(6);
+        cout<<"\n============================================  |"<<"     07                "<<Producto().getCantidad_Cod(7);
+        cout<<"\n00- Volver al MENU PRINCIPAL................  |"<<"     08                "<<Producto().getCantidad_Cod(8);
+        cout<<"\n============================================  |"<<"     09                "<<Producto().getCantidad_Cod(9);
         cout<<"\nOpcion: "; cin>>Opcion;
         cout<<"============================================\n";
 
@@ -696,7 +697,7 @@ void Facturas_Fecha(){
     fclose(Fa);
 }
 
-void Ventas_Fecha(){ ///ACA TENGO QUE TRABAJAR CON LOS DOS ARCHIVOS FACTURAS Y VENTAS
+void Ventas_Fecha(){    ///     ACA TENGO QUE TRABAJAR CON LOS DOS ARCHIVOS FACTURAS Y VENTAS
         Factura F_Fecha;
         Ventas V_Fecha;
 
@@ -813,8 +814,8 @@ void Ventas_Mes(){
         system("cls");
 }
 
-void Detalle_Ventas(){
-
+void Detalle_Ventas(){  ///     SE HUZO CON VECTORES
+    int i;
     cout<<" ==== INICIO LO DE VENTAS ========="<<endl;
     int Vuelta=0, Cant_Total=0, Pr01=0, Pr02=0, Pr03=0, Pr04=0, Pr05=0, Pr06=0, Pr07=0, Pr08=0, Pr09=0;
     int Imp01=0, Imp02=0, Imp03=0, Imp04=0, Imp05=0, Imp06=0, Imp07=0, Imp08=0, Imp09=0;
@@ -885,15 +886,15 @@ void Detalle_Ventas(){
     cout<<"======================================================================="<<endl;
     cout<<"Cantidad Total de Productos Vendidos: "<< Cant_Total<<endl;
     cout<<"Detalle por Producto Vendido y Recaudado:  "<<endl;
-    cout<<"Producto coddigo 01:   "<<Pr01<<"  Recaudado:  "<< Imp01 << endl;
-    cout<<"Producto coddigo 02:   "<<Pr02<<"  Recaudado:  "<< Imp02 << endl;
-    cout<<"Producto coddigo 03:   "<<Pr03<<"  Recaudado:  "<< Imp03 << endl;
-    cout<<"Producto coddigo 04:   "<<Pr04<<"  Recaudado:  "<< Imp04 << endl;
-    cout<<"Producto coddigo 05:   "<<Pr05<<"  Recaudado:  "<< Imp05 << endl;
-    cout<<"Producto coddigo 06:   "<<Pr06<<"  Recaudado:  "<< Imp06 << endl;
-    cout<<"Producto coddigo 07:   "<<Pr07<<"  Recaudado:  "<< Imp07 << endl;
-    cout<<"Producto coddigo 08:   "<<Pr08<<"  Recaudado:  "<< Imp08 << endl;
-    cout<<"Producto coddigo 09:   "<<Pr09<<"  Recaudado:  "<< Imp09 << endl<<endl;
+    cout<<"Producto codigo 01:   "<<Pr01<<"  Recaudado:  "<< Imp01 << endl;
+    cout<<"Producto codigo 02:   "<<Pr02<<"  Recaudado:  "<< Imp02 << endl;
+    cout<<"Producto codigo 03:   "<<Pr03<<"  Recaudado:  "<< Imp03 << endl;
+    cout<<"Producto codigo 04:   "<<Pr04<<"  Recaudado:  "<< Imp04 << endl;
+    cout<<"Producto codigo 05:   "<<Pr05<<"  Recaudado:  "<< Imp05 << endl;
+    cout<<"Producto codigo 06:   "<<Pr06<<"  Recaudado:  "<< Imp06 << endl;
+    cout<<"Producto codigo 07:   "<<Pr07<<"  Recaudado:  "<< Imp07 << endl;
+    cout<<"Producto codigo 08:   "<<Pr08<<"  Recaudado:  "<< Imp08 << endl;
+    cout<<"Producto codigo 09:   "<<Pr09<<"  Recaudado:  "<< Imp09 << endl<<endl;
 
     cout << left;
     cout << setw(1);
@@ -917,9 +918,9 @@ void Detalle_Ventas(){
         cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
         cout<<"==============================================================================="<<endl;
 
-        for(int i=0; i<Vec.size(); i++){
+        for(i=0; i<Vec.size(); i++){
             Vec.at(i).MostrarVenta();
-    }
+        }
     system("pause");
 
 }
