@@ -65,3 +65,16 @@ bool Fecha::RetornarFechaVencimiento(){
     }
 return true;
 }
+
+bool Fecha::operator <(Fecha uno){
+    if(anio<uno.getAnio()){
+        return false;
+    }
+    if(anio==uno.getAnio() && mes<uno.getMes()){
+        return false;
+    }
+    if(anio==uno.getAnio() && mes==uno.getMes() && dia<uno.getDia()){
+        return false;
+    }
+return true;
+}
