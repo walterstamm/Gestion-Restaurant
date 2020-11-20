@@ -13,6 +13,7 @@ class Fecha{
         int getDia(){return dia;}
         int getMes(){return mes;}
         int getAnio(){return anio;}
+        bool operator <(Fecha uno);
 };
 
 #endif // FECHA_H_INCLUDED
