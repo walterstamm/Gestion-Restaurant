@@ -85,22 +85,22 @@ void Alerta_Reportes(){
             ///los que estan en rojo
             setColor(RED);
             cout<<"*";
-            setBackgroundColor(WHITE);
+            setColor(WHITE);
             return;
         }
         int porcentaje=vexProducto[x].getCantidad_Minima()+(vexProducto[x].getCantidad_Minima()/2);
         if(porcentaje>=vexProducto[x].getCantidad() && vexCant_Max[x]>vexProducto[x].getCantidad_Minima() && vexProducto[x].getEstado()==true){
             ///alerta amarilla
-            setBackgroundColor(YELLOW);
+            setColor(YELLOW);
             cout<<"*";
-            setBackgroundColor(WHITE);
+            setColor(WHITE);
             return;
         }
         if(porcentaje<vexProducto[x].getCantidad() && vexProducto[x].getEstado()==true){
             ///alerta verde
             setColor(GREEN);
             cout<<"*";
-            setBackgroundColor(WHITE);
+            setColor(WHITE);
             return;
         }
     }

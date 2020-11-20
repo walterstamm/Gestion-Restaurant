@@ -2,6 +2,7 @@
 using namespace std;
 #include "Interfaz_Grafica/ui.h"
 #include "Menu.h"
+#include "Funciones/Fun_Reportes.h"
 
 int main(){
     short opcion;
@@ -9,6 +10,8 @@ int main(){
         title("MENU PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         system ("cls");
         title("MENU PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        cout<<endl;
+        Alerta_Reportes();
         cout<<endl<<"---------------------"<<endl;
         cout<<endl<<"1) COMPRA............"<<endl;
         cout<<endl<<"2) VENTAS............"<<endl;
