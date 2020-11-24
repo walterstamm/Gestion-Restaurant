@@ -214,6 +214,11 @@ void MENU_FACTURACION(){
         cout<<"\nOpcion: "; cin>>Opcion;
         cout<<"============================================\n";
 
+        if(strlen(Opcion)==0){
+            msj("           OPCION INCORRECTA", 15, 4, 15, 1);
+            return;
+        }
+
        switch(Opcion){
             case 1:
             {
@@ -431,24 +436,23 @@ void Mostrar_TodaVenta(){ ///de la Factura Actual
         cout<<"==============================================================================="<<endl;
         cout << left;
         cout << setw(6) << "NROF";
-        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
+        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(11) << " Cantidad" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
         cout<<"==============================================================================="<<endl;
 
         while (fread(&Aux, sizeof(Ventas), 1, Veo)){
-                cout << left;
+                cout << right;
+                cout << setw(3);
+                cout << Aux.getNro_Fact()<<" ";
                 cout << setw(6);
-                cout << Aux.getNro_Fact();
-                cout << setw(7);
-                cout << Aux.getCod_Producto();
-                cout << setw(18);
+                cout << Aux.getCod_Producto()<<"   ";
+                cout << left<< setw(20);
                 cout << Aux.getDescripcion();
-                cout << setw(6);
+                cout << right << setw(6);
                 cout << Aux.getCant_Producto();
-                cout << setw(15);
+                cout << setw(11);
                 cout << Aux.getPrecio();
-                cout << setw(10);
+                cout << setw(12);
                 cout << Aux.getImporte()<<endl;
-
         }
 
         cout<<"==============================================================================="<<endl;
@@ -494,6 +498,7 @@ void Mostrar_Rotulo_Factura(){
 
     fseek(Fa, -1 * sizeof(Factura), SEEK_END);
     fread(&Rotulo, sizeof(Factura), 1 ,Fa );
+
         ///if(Rotulo.Leo_Ultima_Factura() == Rotulo.getNros_Factura()){
             cout << right;
             cout << setw(3);
@@ -534,26 +539,18 @@ void Mostrar_Facturas_Eliminadas(){
     cout<<"==============================================================================="<<endl;
     cout << right;
     cout << setw(4) << "NROF";
-    cout << setw(12) << "DD/MM/AAAA " << setw(10) << "Cliente   " << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
+    cout << setw(12) << "DD/MM/AAAA "<<left << setw(10) << " Cliente" << right << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
     cout<<"==============================================================================="<<endl;
 
     while( fread(&Elim, sizeof(Factura), 1 ,Fa )  ){
-        if(Elim.getEstado() == true){
+        if(Elim.getEstado() == false){
             cout << right;
-            cout << setw(3);
-            cout << Elim.getNros_Factura();
+            cout << setw(3) << Elim.getNros_Factura()<<"";
             ///int dia; if(Elim.getFecha().getDia()<10){ dia=1; }else{ dia = 2;}
-            cout << setw(3);
-            cout << Elim.getFecha().getDia();
-            cout << "/";
-            cout << setw(2);
-            cout << Elim.getFecha().getMes();
-            cout << "/";
-            cout << setw(4);
-            cout << Elim.getFecha().getAnio();
+            cout << setw(4) << Elim.getFecha().getDia() << "/" << setw(2) << Elim.getFecha().getMes() << "/" << setw(4) << Elim.getFecha().getAnio();
             cout << setw(9);
             cout << Elim.getNroCliente();
-            cout << setw(12);
+            cout << setw(14);
             cout << Elim.getTotal_Pagar();
             cout << setw(8);
             cout << Elim.getEstado();
@@ -580,7 +577,7 @@ void Menu_Reportes(){
         cout<<"\n06-Totales de cada Producto vencido.............";
         cout<<"\n07-informe Ventas: Cant Prod y Recaud ==Vector..";
         cout<<"\n================================================";
-        cout<<"\n00- Volver al MENU PRINCIPAL....................";
+        cout<<"\n00- Volver al MENU FACTURACION..................";
         cout<<"\n================================================";
         cout<<"\nOpcion: "; cin>>Opcion;
         cout<<"================================================\n";
@@ -816,24 +813,21 @@ void Ventas_Mes(){
 
 void Detalle_Ventas(){  ///     SE HUZO CON VECTORES
     int i;
-    cout<<" ==== INICIO LO DE VENTAS ========="<<endl;
+    cout<<" ==== INICIO VENTAS ========="<<endl;
     int Vuelta=0, Cant_Total=0, Pr01=0, Pr02=0, Pr03=0, Pr04=0, Pr05=0, Pr06=0, Pr07=0, Pr08=0, Pr09=0;
     int Imp01=0, Imp02=0, Imp03=0, Imp04=0, Imp05=0, Imp06=0, Imp07=0, Imp08=0, Imp09=0;
     cout << "CREO OBJETO VENTAS: " << endl;
     Ventas Leo;
     FILE *L = fopen("archivos/Ventas.dat", "rb");
     if(L == NULL){
-        cout<<"NO FUNCIONO";
-        system("pause");
+        cout<<"NO FUNCIONO";  system("pause");
         return;
     }
-    cout<<"LLEGUE ACA"<<endl;
-    system("pause");
 
-    cout << "CARGO LA VENTA EN EL VECTOR: " << endl;
+    ///cout << "CARGO LA VENTA EN EL VECTOR: " << endl;
     vector <Ventas> Vec;
 
-    cout << "LEO EL ARCHIVO VENTAS: " << endl;
+    ///cout << "LEO EL ARCHIVO VENTAS: " << endl;
     while(fread(&Leo, sizeof(Ventas), 1, L)){
         Cant_Total += Leo.getCant_Producto();
 

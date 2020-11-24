@@ -14,20 +14,20 @@ class Lotes_Prod{
     ///SI NO INGRESO EL PEDIDO Y SE ELIMINO POR MOTIVOS RXTAORDINARIOS EL ESTADO 0 Y TAMPOCO SE CARGA
     ///DESCONTAR AL EFECTUAR UNA VENTA
     public:
-        Lotes_Prod(){
+        Lotes_Prod(){   ///     CONSTRUCTOR
                     LId=0;
                     LCodPord=0;
                     Fecha().Cargar_Fecha_Vencimiento();
                     Estado=false;}
-        ~Lotes_Prod();
+        ~Lotes_Prod();  ///     DESTRUCTOR
+        ///     SET
         void setLid(int Id){ LId= Id;};
         void setLCodProd(int CodProd){ LCodProd = CodProd;};
         void setCantidad(int Cant){ Cantidad = Cant; };
         Fecha setFe_Vto(Fecha){Fecha().Cargar_Fecha(); };
         void setEstado_true(){ Estado = true;};
         void setEstado_false(){ Estado = false;};
-
-
+        ///     GET
         int getLid(){ return LId;};
         int getLCodProd(){ return LCodProd;};
         int getCantidad(){ return Cantidad; };

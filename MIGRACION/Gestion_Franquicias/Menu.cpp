@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib> /// system()
 using namespace std;
 #include "Interfaz_Grafica/ui.h"
 #include "Menu.h"

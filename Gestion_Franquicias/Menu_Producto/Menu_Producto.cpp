@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cstdio>
 #include <iomanip> ///PARA TRABAJAR CON SETW
+
+
+#include<cstdlib>   ///PARA USAR SYSTEM("PAUSE")
 using namespace std;
 #include "Menu_Producto.h"
 #include "../clases/Producto.h"

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 #include "Sub_Producto.h"
 #include "../Interfaz_Grafica/ui.h"
