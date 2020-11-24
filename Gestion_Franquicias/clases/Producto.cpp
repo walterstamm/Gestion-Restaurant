@@ -188,7 +188,24 @@ return estado;
  }
 
 void Producto::Mostrar_Alerta(){
+    cout << left;
+    cout << setw(4);
+    cout << ID;
+    cout << setw(18);
+    cout << Nombre;
+    cout << right;
+    cout << setw(6);
+    cout << Precio;
+    cout << setw(9);
+    cout << Cantidad;
+    cout << setw(10);
+    cout << Cantidad_Minima;
 }
 
 void Producto::Encabezado_Alerta(){
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(4) << "ID";
+    cout << setw(18) << "Descripcion " << setw(10) << "  Precio " << setw(11) << "Cantidad" << setw(18) << "Cant Min"<<endl;
+    cout<<"==============================================================================="<<endl;
 }
