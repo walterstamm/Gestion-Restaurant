@@ -212,14 +212,14 @@ void MENU_FACTURACION(){
         cout<<"\n============================================  |"<<"     09                "<<Producto().getCantidad_Cod(9);
         cout<<"\nOpcion: "; cin>>Opcion;
         cout<<"============================================\n";
-<<<<<<< HEAD
+
 
         /**if(strlen(Opcion)==0){
             msj("           OPCION INCORRECTA", 15, 4, 15, 1);
             return;
         }*/
 
-=======
+
         /*
         if(strlen(Opcion)==0){
             msj("           OPCION INCORRECTA", 15, 4, 15, 1);
@@ -228,7 +228,7 @@ void MENU_FACTURACION(){
         */
         ///este es el proble hugito strlen es para cadenas y opcion es un entero
         ///igualmente no te compliques con ese if si eso ya lo hace el switch
->>>>>>> 010618a3263f9a9e94cdca1c7a2139529512b322
+
        switch(Opcion){
             case 1:
             {

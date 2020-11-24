@@ -12,6 +12,9 @@ Producto::Producto(){
     estado=true;
 }
 
+Producto::~Producto(){
+}
+
 bool Producto::Cargar_Producto(){
     cout<<"Ingrese el ID ";
     cin>>ID;
