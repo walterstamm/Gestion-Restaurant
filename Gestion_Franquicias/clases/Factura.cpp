@@ -55,7 +55,6 @@ void Factura::setFactura(int Cliente){
     Nro_Fact = Leo_Ultima_Factura()+1;
     Nro_Cliente = Cliente;
     Total_Pagar=0;///FUNCION PARA SUMAR LA VENTA FALTA
-    Fecha_Factura.setFechaHoy();
 }
 
 int Factura::Leo_Ultima_Factura(){

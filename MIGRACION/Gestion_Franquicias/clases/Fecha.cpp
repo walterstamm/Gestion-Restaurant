@@ -54,13 +54,26 @@ return true;
 }
 
 void Fecha::Mostrar_Fecha(){
-    cout<<"\nFecha: "<<dia<<"/"<<mes<<"/"<<anio;
+    cout<<dia<<"/"<<mes<<"/"<<anio<<endl;
 }
 
 bool Fecha::RetornarFechaVencimiento(){
     ///fecha no sea mayor a la fecha actual--con 3 preguntas ((anio), (anio y mes), (anio, mes y dia))
     Fecha uno;///creamos otra fecha para verificar
     if((anio>uno.anio)||((anio==uno.anio)&&(mes>uno.mes))||((anio==uno.anio)&&(mes>=uno.mes)&&(dia>uno.dia))){
+        return false;
+    }
+return true;
+}
+
+bool Fecha::operator <(Fecha uno){
+    if(anio<uno.getAnio()){
+        return false;
+    }
+    if(anio==uno.getAnio() && mes<uno.getMes()){
+        return false;
+    }
+    if(anio==uno.getAnio() && mes==uno.getMes() && dia<uno.getDia()){
         return false;
     }
 return true;

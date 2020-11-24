@@ -18,7 +18,7 @@ void Menu_Venta(){
         cout<<endl<<"1) MENU PRODUCTO..........."<<endl;
         cout<<endl<<"2) MENU PROVEEDOR.........."<<endl;
         cout<<endl<<"3) MENU PEDIDOS............"<<endl;
-        cout<<endl<<"4) SALIR..................."<<endl;
+        cout<<endl<<"4) REGRESAR................"<<endl;
         cout<<endl<<"---------------------------"<<endl;
         cout<<endl<<"\t OPCION: ";
         cin>>opcion;
@@ -51,7 +51,7 @@ void Menu_Reportes(){
         cout<<endl<<"1) REPORTES VERDES........."<<endl;
         cout<<endl<<"2) REPORTES AMARILLOS......"<<endl;
         cout<<endl<<"3) REPORTES ROJOS.........."<<endl;
-        cout<<endl<<"4) SALIR..................."<<endl;
+        cout<<endl<<"4) REGRESAR................"<<endl;
         cout<<endl<<"---------------------------"<<endl;
         cout<<endl<<"\t OPCION: ";
         cin>>opcion;

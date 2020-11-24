@@ -10,15 +10,20 @@ class Producto{
         int Cantidad;
         int Cantidad_Minima;
         bool estado;
+        bool Estado_sublote;
         Fecha Actual;
         Fecha Vencimiento;
     public:
         Producto();
-        ~Producto();
         bool Cargar_Producto(); ///CUANDO SE CARGA POR PRIMERA VEZ
         void Mostrar_Producto();
+        void Encabezado();
         bool GuardarProducto();
         int Buscar_Producto_ID(int); ///busca el producto por ID y devuelve la posicion del producto
+        bool LeerPos(int);
+
+    void Mostrar_Alerta();
+    void Encabezado_Alerta();
         ///get
         int getID(){return ID;}
         char *getNombre(){return Nombre;}
@@ -26,6 +31,7 @@ class Producto{
         float getPrecio(){return Precio;}
         int getCantidad(){return Cantidad;}
         bool getEstado(){return estado;}
+        bool getCantidad_Minima(){return Cantidad_Minima;}
         int getCantidad_Cod(int);
         bool ModificarProducto(int); ///recibe la posicion en memoria del producto
         ///set
@@ -38,5 +44,6 @@ class Producto{
 };
 
 bool ValidarIDProducto(int); ///validad que el ID no exista
+int GenerarID();///Genera ID automatico
 
 #endif // PRODUCTO_H_INCLUDED

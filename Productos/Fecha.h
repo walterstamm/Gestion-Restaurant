@@ -14,7 +14,7 @@ class Fecha{
         int getMes(){return mes;}
         int getAnio(){return anio;}
         ///sobrecarga
-        int operator <(Fecha);
+        bool operator <(Fecha);
 };
 
 #endif // FECHA_H_INCLUDED
