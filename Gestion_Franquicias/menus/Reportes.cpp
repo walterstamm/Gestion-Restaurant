@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib> ///system
+
 using namespace std;
 #include <map>///para clase vector con indice
 #include "../InterfazGrafica/ui.h"

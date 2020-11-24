@@ -15,6 +15,7 @@ class Producto{
         Fecha Vencimiento;
     public:
         Producto();
+        ~Producto();
         bool Cargar_Producto(); ///CUANDO SE CARGA POR PRIMERA VEZ
         void Mostrar_Producto();
         void Encabezado();

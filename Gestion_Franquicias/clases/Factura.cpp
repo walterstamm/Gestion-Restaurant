@@ -213,10 +213,10 @@ void MENU_FACTURACION(){
         cout<<"\nOpcion: "; cin>>Opcion;
         cout<<"============================================\n";
 
-        if(strlen(Opcion)==0){
+        /**if(strlen(Opcion)==0){
             msj("           OPCION INCORRECTA", 15, 4, 15, 1);
             return;
-        }
+        }*/
 
        switch(Opcion){
             case 1:
