@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1605204714 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
+1605889905 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -8,15 +8,16 @@
 	"InterfazGrafica/ui.h"
 	"Menu_Principal.h"
 	"Menu_Pedidos.h"
+	"menus/Reportes.h"
 
-1605887602 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
+1605894363 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.cpp
 	<iostream>
 	<ctime>
 	"Fecha.h"
 
-1605887602 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
+1605894229 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
-1605889719 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
+1606204721 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<iomanip>
 	<cstdlib>
@@ -25,13 +26,14 @@
 	"Producto.h"
 	"../Validaciones/SINO.h"
 
-1605889809 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
+1606205336 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
-1605886839 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
+1606204908 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	<cstdio>
 	<iomanip>
+	<cstdlib>
 	<vector>
 	<map>
 	"Menu_Producto.h"
@@ -380,7 +382,7 @@
 1605823404 c:\users\hugo\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.h
 	"Factura.h"
 
-1605887540 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp
+1606204709 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\clases\factura.cpp
 	<vector>
 	<iostream>
 	<cstdlib>
@@ -731,9 +733,11 @@
 	"MenuDescuento.h"
 	"../clases/Descuento.h"
 
-1605889838 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\reportes.cpp
+1606204958 source:c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\reportes.cpp
 	<iostream>
 	<map>
 	"../InterfazGrafica/ui.h"
 	"../clases/Producto.h"
+
+1605889838 c:\users\usuario\desktop\gestion-restaurant\gestion_franquicias\menus\reportes.h
 
