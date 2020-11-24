@@ -23,8 +23,8 @@ class Producto{
         int Buscar_Producto_ID(int); ///busca el producto por ID y devuelve la posicion del producto
         bool LeerPos(int);
 
-    void Mostrar_Alerta();
-    void Encabezado_Alerta();
+        void Mostrar_Alerta();
+        void Encabezado_Alerta();
         ///get
         int getID(){return ID;}
         char *getNombre(){return Nombre;}

@@ -12,9 +12,6 @@ Producto::Producto(){
     estado=true;
 }
 
-Producto::~Producto(){
-}
-
 bool Producto::Cargar_Producto(){
     cout<<"Ingrese el ID ";
     cin>>ID;
@@ -178,4 +175,37 @@ int Producto::getCantidad_Cod(int cod){
     fclose(p);
 
     return Cantidad;
+}
+
+ bool Producto::LeerPos(int pos){
+    bool estado;
+    FILE *p=fopen("Producto.dat","rb");
+    if(p==NULL) return false;
+    fseek(p, pos*sizeof(Producto),SEEK_SET);
+    estado=fread(this, sizeof(Producto),1,p);
+    fclose(p);
+return estado;
+ }
+
+void Producto::Mostrar_Alerta(){
+    cout << left;
+    cout << setw(4);
+    cout << ID;
+    cout << setw(18);
+    cout << Nombre;
+    cout << right;
+    cout << setw(6);
+    cout << Precio;
+    cout << setw(9);
+    cout << Cantidad;
+    cout << setw(10);
+    cout << Cantidad_Minima;
+}
+
+void Producto::Encabezado_Alerta(){
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(4) << "ID";
+    cout << setw(18) << "Descripcion " << setw(10) << "  Precio " << setw(11) << "Cantidad" << setw(18) << "Cant Min"<<endl;
+    cout<<"==============================================================================="<<endl;
 }

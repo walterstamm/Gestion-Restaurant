@@ -29,7 +29,7 @@ void Cargar_Producto(){
     cout<<"Datos guardados correctamente"<<endl;
 }
 
-bool Mostrar_Todos_Producto(){
+bool Mostrar_Todos_Producto(){/*
     Producto aux;
     int pos=0;
     vector <Producto> vex;
@@ -58,7 +58,7 @@ bool Mostrar_Todos_Producto(){
         }
     }
     cout<<endl<<endl;
-return true;
+return true;*/
 }
 
 void Mostrar_X_Producto(){
@@ -69,14 +69,14 @@ void Mostrar_X_Producto(){
     if(ID<0 && ValidarIDProducto(ID)==true){
         ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
-    }
+    }/*
     while(uno.LeerPos(pos++)){
         if(uno.getEstado()==true && uno.getID()==ID){
             uno.Encabezado();
             uno.Mostrar_Producto();
         }
     }
-    cout<<endl<<endl;
+    cout<<endl<<endl;*/
 }
 
 void Modificar_La_Cantidad_minima(){
@@ -88,7 +88,7 @@ void Modificar_La_Cantidad_minima(){
     if(ID<0 && ValidarIDProducto(ID)==true){
         ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
-    }
+    }/*
     while(uno.LeerPos(pos)){
         if(uno.getID()==ID){
             vpos.push_back(pos);
@@ -108,7 +108,7 @@ void Modificar_La_Cantidad_minima(){
         uno.setCantidad(cant);
         uno.ModificarProducto(vpos[x]);
         cout<<"Producto modificado";
-    }
+    }*/
 }
 
 void Eliminar_Producto(){
@@ -120,7 +120,7 @@ void Eliminar_Producto(){
     if(ID<0 && ValidarIDProducto(ID)==true){
         ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
-    }
+    }/*
     while(uno.LeerPos(pos)){
         if(uno.getID()==ID){
             vpos.push_back(pos);
@@ -132,7 +132,7 @@ void Eliminar_Producto(){
         uno.setEstado(false);
         uno.ModificarProducto(vpos[x]);
         cout<<"Producto eliminado";
-    }
+    }*/
 }
 
 void Modificar_Precio(){
@@ -145,7 +145,7 @@ void Modificar_Precio(){
     if(ID<0 && ValidarIDProducto(ID)==true){
         ///msj("ID incorrecto", 15, 3, 1, 1);
         return;
-    }
+    }/*
     while(uno.LeerPos(pos)){
         if(uno.getID()==ID){
             vpos.push_back(pos);
@@ -165,5 +165,5 @@ void Modificar_Precio(){
         uno.setPrecio(Precio);
         uno.ModificarProducto(vpos[x]);
         cout<<"Producto modificado";
-    }
+    }*/
 }
