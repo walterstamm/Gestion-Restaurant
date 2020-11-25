@@ -11,12 +11,11 @@ using namespace std;
 
 Producto::Producto(){
     Estado=true;
-    Estado_Lote=true;
     ID=1;
 }
 
 bool Producto::Cargar(){
-    ID=GenerarID();
+    ID=GenerarID_Producto();
     cout<<"ID del producto: "<<ID<<endl;
     cout<<"Ingrese el nombre: ";
     cin.ignore();
@@ -33,13 +32,6 @@ bool Producto::Cargar(){
             cout<<">> Ingrese el Precio por unidad: $";
             cin>>Precio;
         }
-    cout<<"Ingrese la cantidad: ";
-    cin>>Cantidad;
-        while(Cantidad<0){ ///validando Cantidad que no sea negativo
-            cout<<endl<<"Cantidad incorrecta, reingrese el Cantidad"<<endl<<endl;
-            cout<<">> Ingrese el Cantidad: ";
-            cin>>Cantidad;
-        }
     cout<<"Ingrese la cantidad minima: ";
     cin>>Cantidad_Minima;
         while(Cantidad_Minima<0){ ///validando minima que no sea negativo
@@ -47,14 +39,6 @@ bool Producto::Cargar(){
             cout<<">> Ingrese el cantidad mínima: ";
             cin>>Cantidad_Minima;
         }
-    ///bool verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
-    while(Vencimiento.Cargar_Fecha_Vencimiento()!=true){
-        cout<<endl<<"Fecha de vencimiento incorrecta"<<endl<<endl;
-        /*if(Continuar()==false){
-            system ("cls");
-            return false;
-        }*/
-    }
 return true;
 }
 
@@ -64,10 +48,6 @@ void Producto::Mostrar(){
     cout<<"Precio $"<<Precio<<endl;
     cout<<"Cantidad "<<Cantidad<<endl;
     cout<<"Cantidad Minima "<<Cantidad_Minima<<endl;
-    cout<<"Fecha de vencimiento ";
-    Vencimiento.Mostrar_Fecha();
-    cout<<endl<<"Fecha de ingreso ";
-    Actual.Mostrar_Fecha();
     cout<<endl<<endl;
 }
 
@@ -93,7 +73,7 @@ bool Producto::Modificar(int pos){
 return correcto;
 }
 
-int GenerarID(){ ///GENERA UN ID AUTOMATICO
+int GenerarID_Producto(){ ///GENERA UN ID AUTOMATICO
     int pos=0, ID=0;
     Producto uno;
     while(uno.LeerPos(pos)){
@@ -205,7 +185,7 @@ void Eliminar_Producto(){
     }
     uno.LeerPos(vpos[0]);
     for(int x=0;x<vpos.size();x++){
-        uno.setEstadoLote(false);
+        uno.setEstado(false);
         uno.Modificar(vpos[x]);
     }
 }

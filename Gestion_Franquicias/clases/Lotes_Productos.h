@@ -2,6 +2,8 @@
 #define LOTES_PRODUCTOS_H_INCLUDED
 #include "Fecha.h"
 
+/*
+
 class Lotes_Prod{
     private:
         int Id_Lote;
@@ -23,6 +25,7 @@ class Lotes_Prod{
         ~Lotes_Prod(){}  ///     DESTRUCTOR
         ///     SET
 
+<<<<<<< Updated upstream
         void CargarAlgunosPrueba();
         bool Grabar_Lotes_Prod();
 
@@ -38,6 +41,34 @@ class Lotes_Prod{
         int getCantidad(){ return Cantidad; }
         ///Fecha getFe_Vto(Fecha){ return Fecha().Mostrar_Fecha();}
         bool setEstado(){ return Estado;}
+=======
+*/
+
+class Lotes_Prod{
+    private:
+        int IDlote, IDproducto, Cantidad;
+        bool Estado;
+        Fecha Vencimiento;
+    public:
+        Lote(){Estado=true;}
+
+        ///gets
+        int getIDlote(){return IDlote;}
+        int getIDproducto(){return IDproducto;}
+        int getCantidad(){return Cantidad;}
+        bool getEstado(){return Estado;}
+
+        ///sets
+        void setIDlote(int _IDlote){IDlote=_IDlote;}
+        void setIDproducto(int _IDproducto){IDproducto= _IDproducto;}
+        void setCantidad(int _cantidad){Cantidad=_cantidad;}
+        void setEstado(int _Estado){Estado= _Estado;}
+
+        ///memoria
+        bool Guardar();
+        bool Modificar(int);
+        bool LeerPos(int);
+>>>>>>> Stashed changes
 };
 
 void Lotes_Prod::CargarAlgunosPrueba(){
