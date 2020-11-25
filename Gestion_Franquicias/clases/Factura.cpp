@@ -11,6 +11,7 @@ using namespace std;
 #include "Ventas.h"
 #include "Producto.h"
 #include "Comprobantes.h"
+#include"Lotes_Productos.h"
 
 Factura::Factura(){
     Nro_Fact = 0;
@@ -212,22 +213,6 @@ void MENU_FACTURACION(){
         cout<<"\n============================================  |"<<"     09                "<<Producto().getCantidad_Cod(9);
         cout<<"\nOpcion: "; cin>>Opcion;
         cout<<"============================================\n";
-
-
-        /**if(strlen(Opcion)==0){
-            msj("           OPCION INCORRECTA", 15, 4, 15, 1);
-            return;
-        }*/
-
-
-        /*
-        if(strlen(Opcion)==0){
-            msj("           OPCION INCORRECTA", 15, 4, 15, 1);
-            return;
-        }
-        */
-        ///este es el proble hugito strlen es para cadenas y opcion es un entero
-        ///igualmente no te compliques con ese if si eso ya lo hace el switch
 
        switch(Opcion){
             case 1:
@@ -584,7 +569,7 @@ void Menu_Reportes(){
         cout<<"\n03-Ventas realizadas en el mes..................";
         cout<<"\n04-Importes recaudado en el mes.................";
         cout<<"\n05-Importes recaudados en el dia................"; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
-        cout<<"\n06-Totales de cada Producto vencido.............";
+        cout<<"\n06-Totales de cada Producto vencido....XXXXXXXXX";
         cout<<"\n07-informe Ventas: Cant Prod y Recaud ==Vector..";
         cout<<"\n================================================";
         cout<<"\n00- Volver al MENU FACTURACION..................";
@@ -625,7 +610,7 @@ void Menu_Reportes(){
 
             case 6:
             {
-
+                Lotes_Prod().CargarAlgunosPrueba();
             }
             break;
 
@@ -821,7 +806,7 @@ void Ventas_Mes(){
         system("cls");
 }
 
-void Detalle_Ventas(){  ///     SE HUZO CON VECTORES
+void Detalle_Ventas(){  ///     SE HIZO CON VECTORES
     int i;
     cout<<" ==== INICIO VENTAS ========="<<endl;
     int Vuelta=0, Cant_Total=0, Pr01=0, Pr02=0, Pr03=0, Pr04=0, Pr05=0, Pr06=0, Pr07=0, Pr08=0, Pr09=0;
@@ -926,5 +911,4 @@ void Detalle_Ventas(){  ///     SE HUZO CON VECTORES
             Vec.at(i).MostrarVenta();
         }
     system("pause");
-
 }
