@@ -7,6 +7,7 @@ using namespace std;
 
 
 int main(){
+Mostrar_Todos_Productos();
 
 return 0;
 }

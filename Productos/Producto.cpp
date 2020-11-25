@@ -48,7 +48,7 @@ void Producto::cabecera(){
     cout<<"==============================================================================="<<endl;
     cout << left;
     cout << setw(4) << "ID";
-    cout << setw(18) << "NOMBRE " << setw(10) << "  Precio " << setw(11) << "Cantidad" << setw(18) << "Cant Min"<<endl;
+    cout << setw(18) << "   NOMBRE" << setw(10) << "  Precio " << setw(11) << " Cantidad" << setw(18) << "Cant Min"<<endl;
     cout<<"==============================================================================="<<endl;
 }
 
@@ -79,7 +79,7 @@ void Producto::Cargar_Cantidad(){
         }
         setCantidad(cont);
         LeerPos(x-1);
-        Guardar();
+        Modificar(x-1);
     }
 }
 
@@ -210,6 +210,7 @@ void Mostrar_Todos_Productos(){
     while(uno.LeerPos(pos++)){
         if(uno.getEstado()==true){
             uno.Mostrar();
+            cout<<endl;
         }
     }
 }
@@ -224,6 +225,7 @@ void Mostrar_x_Producto(){
         if(uno.getEstado()==true && uno.getID()==ID){
             uno.cabecera();
             uno.Mostrar();
+            cout<<endl<<endl;
             return;
         }
     }
