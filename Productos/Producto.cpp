@@ -3,19 +3,21 @@ using namespace std;
 #include<cstdlib>
 #include <cstring>
 #include <cstdio>
+#include <iomanip>
 
 #include <vector>///para clase vector
 #include <map>///para clase vector con indice
 
 #include "Producto.h"
+#include "Lote.h"
 
 Producto::Producto(){
     Estado=true;
-    ID=1;
+    Cantidad=0;
 }
 
 bool Producto::Cargar(){
-    ID=GenerarID_Producto();
+    ID=GenerarID();
     cout<<"ID del producto: "<<ID<<endl;
     cout<<"Ingrese el nombre: ";
     cin.ignore();
@@ -42,13 +44,43 @@ bool Producto::Cargar(){
 return true;
 }
 
+void Producto::cabecera(){
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(4) << "ID";
+    cout << setw(18) << "NOMBRE " << setw(10) << "  Precio " << setw(11) << "Cantidad" << setw(18) << "Cant Min"<<endl;
+    cout<<"==============================================================================="<<endl;
+}
+
 void Producto::Mostrar(){
-    cout<<"ID "<<ID<<endl;
-    cout<<"Nombre "<<Nombre<<endl;
-    cout<<"Precio $"<<Precio<<endl;
-    cout<<"Cantidad "<<Cantidad<<endl;
-    cout<<"Cantidad Minima "<<Cantidad_Minima<<endl;
-    cout<<endl<<endl;
+    cout << left;
+    cout << setw(4);
+    cout << ID;
+    cout << setw(18);
+    cout << Nombre;
+    cout << right;
+    cout << setw(6);
+    cout << Precio;
+    cout << setw(9);
+    cout << Cantidad;
+    cout << setw(10);
+    cout << Cantidad_Minima;
+}
+
+void Producto::Cargar_Cantidad(){
+    Lote_Produ uno;
+    int pos=0, cant=GenerarID();
+    for(int x=1;x<cant;x++){
+        int cont=0;
+        while(uno.LeerPos(pos++)){
+            if(uno.getIDproducto()==ID){
+                cont+=uno.getCantidad();
+            }
+        }
+        setCantidad(cont);
+        LeerPos(x-1);
+        Guardar();
+    }
 }
 
 bool Producto::Guardar(){
@@ -73,16 +105,6 @@ bool Producto::Modificar(int pos){
 return correcto;
 }
 
-int GenerarID_Producto(){ ///GENERA UN ID AUTOMATICO
-    int pos=0, ID=0;
-    Producto uno;
-    while(uno.LeerPos(pos)){
-        if(ID<uno.getID())ID=uno.getID();
-        pos++;
-    }
-return ID+1;
-}
-
 bool Producto::LeerPos(int pos){
     bool estado;
     FILE *p=fopen("archivos/producto.dat","rb");
@@ -93,6 +115,18 @@ bool Producto::LeerPos(int pos){
 return estado;
 }
 
+int Producto::GenerarID(){
+    int cantidad;
+    FILE *p=fopen("archivos/Producto.dat","rb");
+        if(p==NULL){
+            fclose(p);
+            return 1;
+        }
+    fseek(p, 0, SEEK_END);
+    cantidad=ftell(p);
+return (cantidad/sizeof(Producto))+1;
+}
+
 bool ValidarID_Producto(int _ID){
     Producto uno;
     FILE *p=fopen("archivos/producto.dat","rb");
@@ -100,7 +134,7 @@ bool ValidarID_Producto(int _ID){
     while(fread(&uno, sizeof(Producto),1,p)){
         if(uno.getID()==_ID){
             fclose(p);
-            return uno.getID(); ///retorna la posicion del archivo
+            return uno.getEstado(); ///retorna la posicion del archivo
         }
     }
     fclose(p);
@@ -112,30 +146,22 @@ void Modificar_Precio(){
     Producto uno;
     int ID, pos=0;
     float Precio;
-    vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID<0 && ValidarID_Producto(ID)==true){
-        ///msj("ID incorrecto", 15, 3, 1, 1);
-        return;
-    }
-    while(uno.LeerPos(pos)){
-        if(uno.getID()==ID){
-            vpos.push_back(pos);
+    while(uno.LeerPos(pos++)){
+        if(ID==uno.getID()){
+            cout<<"Ingrese el precio: ";
+            cin>>Precio;
+            if(Precio<0){
+                cout<<"Error precio negativo";
+                return;
+            }
+            uno.setPrecio(Precio);
+            uno.Modificar(pos-1);
+            return;
         }
-        pos++;
     }
-    uno.LeerPos(vpos[0]);
-    cout<<"Ingrese el precio: ";
-    cin>>Precio;
-    if(Precio<0){
-        cout<<"Error precio negativo";
-        return;
-    }
-    for(int x=0;x<vpos.size();x++){
-        uno.setPrecio(Precio);
-        uno.Modificar(vpos[x]);
-    }
+    ///mensaje error
 }
 
 void Modificar_CantMin(){
@@ -144,27 +170,20 @@ void Modificar_CantMin(){
     vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID<0 && ValidarID_Producto(ID)==true){
-        ///msj("ID incorrecto", 15, 3, 1, 1);
-        return;
-    }
-    while(uno.LeerPos(pos)){
-        if(uno.getID()==ID){
-            vpos.push_back(pos);
+    while(uno.LeerPos(pos++)){
+        if(ID==uno.getID()){
+            cout<<"Ingrese el cantidad minima: ";
+            cin>>cant;
+            if(cant<0){
+                cout<<"Error cantidad minima negativo";
+                return;
+            }
+            uno.setCantidad_Minima(cant);
+            uno.Modificar(pos-1);
+            return;
         }
-        pos++;
     }
-    uno.LeerPos(vpos[0]);
-    cout<<"Ingrese el cantidad minima: ";
-    cin>>cant;
-    if(cant<0){
-        cout<<"Error cantidad minima negativo";
-        return;
-    }
-    for(int x=0;x<vpos.size();x++){
-        uno.setPrecio(cant);
-        uno.Modificar(vpos[x]);
-    }
+    ///mensaje error
 }
 
 void Eliminar_Producto(){
@@ -173,94 +192,58 @@ void Eliminar_Producto(){
     vector <int> vpos;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID<0 && ValidarID_Producto(ID)==true){
-        ///msj("ID incorrecto", 15, 3, 1, 1);
-        return;
-    }
-    while(uno.LeerPos(pos)){
-        if(uno.getID()==ID){
-            vpos.push_back(pos);
+    while(uno.LeerPos(pos++)){
+        if(uno.getEstado()==true && uno.getID()==ID){
+            uno.setEstado(false);
+            uno.Modificar(pos-1);
+            return;
         }
-        pos++;
     }
-    uno.LeerPos(vpos[0]);
-    for(int x=0;x<vpos.size();x++){
-        uno.setEstado(false);
-        uno.Modificar(vpos[x]);
-    }
+    ///mensaje error
 }
 
 void Mostrar_Todos_Productos(){
-    Producto aux;
+    Producto uno;
+    uno.Cargar_Cantidad();
     int pos=0;
-    vector <Producto> vex;
-    while(aux.LeerPos(pos)){
-        vex.push_back(aux);
-        pos++;
-    }
-    ///ordenamos
-    int posmin;
-    for(int x=0; x<pos; x++){
-        posmin=x;
-        for(int y=x+1; y<pos; y++){
-            if(vex[y].getID()<vex[posmin].getID()){
-                posmin=y;
-            }
-        }
-        aux=vex[x];
-        vex[x]=vex[posmin];
-        vex[posmin]=aux;
-    }
-    ///mostramos
-    for(int x=0;x<pos;x++){
-        if(vex[x].getEstado()==true){
-            vex[x].Mostrar();
+    uno.cabecera();
+    while(uno.LeerPos(pos++)){
+        if(uno.getEstado()==true){
+            uno.Mostrar();
         }
     }
 }
 
 void Mostrar_x_Producto(){
     Producto uno;
+    uno.Cargar_Cantidad();
     int ID, pos=0;
     cout<<"ID del producto: ";
     cin>>ID;
-    if(ID<0 && ValidarID_Producto(ID)==true){
-        ///msj("ID incorrecto", 15, 3, 1, 1);
-        return;
-    }
     while(uno.LeerPos(pos++)){
         if(uno.getEstado()==true && uno.getID()==ID){
+            uno.cabecera();
             uno.Mostrar();
+            return;
         }
     }
+    ///mensaje error
 }
 
 void alertas(){
     Producto uno;
+    uno.Cargar_Cantidad();
     int pos=0;
-    std::map<int, int> vexCant_Max;
-    std::map<int, Producto> vexProducto;
-    while(uno.LeerPos(pos)){
-        vexCant_Max[uno.getID()-1]+=uno.getCantidad();
-        vexProducto[uno.getID()-1]=uno;
-        pos++;
-    }
-    for(int x=0;x<pos;x++){
-        if (vexCant_Max[x]>=vexProducto[x].getCantidad_Minima()){
-            ///los que estan en rojo
-            ///Falta listar
-            return;
+    while(uno.LeerPos(pos++)){
+        if(uno.getCantidad()>=uno.getCantidad_Minima()){
+            ///alerta roja
         }
-        int porcentaje=(vexProducto[x].getCantidad_Minima()*100)/150;
-        if(porcentaje>=vexProducto[x].getCantidad_Minima() && vexCant_Max[x]<vexProducto[x].getCantidad_Minima()){
+        int Porcentaje=(uno.getCantidad_Minima()*100)/150;
+        if(uno.getCantidad()>=Porcentaje){
             ///alerta amarilla
-            ///falta listar
-            return;
         }
-        if(porcentaje<vexProducto[x].getCantidad_Minima()){
+        if(uno.getCantidad()<Porcentaje){
             ///alerta verde
-            ///falta listar
-            return;
         }
     }
 }

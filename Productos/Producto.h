@@ -14,7 +14,9 @@ class Producto{
     public:
         Producto();
         bool Cargar();
+        void cabecera();
         void Mostrar();
+        void Cargar_Cantidad();
 
         ///gets
         int getID(){return ID;}
@@ -35,11 +37,11 @@ class Producto{
         bool Guardar();
         bool Modificar(int);
         bool LeerPos(int);
+        int GenerarID();
 };
 
 
 bool ValidarID_Producto(int);///validad ID (existe=true, no existe=false)
-int GenerarID_Producto();///Genera ID automatico
 
 ///funciones para los menus
 void Modificar_Precio();

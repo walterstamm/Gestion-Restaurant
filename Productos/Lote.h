@@ -3,7 +3,7 @@
 
 #include "Fecha.h"
 
-class Lote{
+class Lote_Produ{
     private:
         int IDlote, IDproducto, Cantidad;
         bool Estado;
@@ -27,6 +27,7 @@ class Lote{
         bool Guardar();
         bool Modificar(int);
         bool LeerPos(int);
+        int GenerarID();
 };
 
 #endif // LOTE_H_INCLUDED

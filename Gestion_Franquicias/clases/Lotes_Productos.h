@@ -68,7 +68,7 @@ class Lotes_Prod{
         bool Guardar();
         bool Modificar(int);
         bool LeerPos(int);
->>>>>>> Stashed changes
+	int GenerarID();
 };
 
 void Lotes_Prod::CargarAlgunosPrueba(){
