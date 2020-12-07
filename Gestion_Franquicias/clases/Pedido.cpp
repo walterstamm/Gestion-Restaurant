@@ -135,7 +135,7 @@ int Pedido::NumeroPedido(){
     }
     fseek(p,sizeof(Pedido)*-1,2);
     fread(this,sizeof(Pedido),1,p);
-    NumPedido=ID;
+    NumPedido=ID;x
     fclose(p);
     return NumPedido;
 

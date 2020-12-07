@@ -451,7 +451,7 @@
 1605562804 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\comprobantes.h
 	"Fecha.h"
 
-1605562804 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.h
+1606513215 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\fecha.h
 
 1605049595 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\descuento.cpp
 	<iostream>
@@ -517,7 +517,7 @@
 
 1605829217 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\proveedores.h
 
-1605648144 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.h
+1606513215 c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\producto.h
 	"Fecha.h"
 
 1605827512 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\ventas.cpp
@@ -594,7 +594,7 @@
 	"clases/Pedido.h"
 	"clases/Producto.h"
 
-1605834154 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.cpp
+1605834225 source:c:\users\walter\documents\github\gestion-restaurant\gestion_franquicias\clases\pedido.cpp
 	<iostream>
 	<cstring>
 	<cstdlib>

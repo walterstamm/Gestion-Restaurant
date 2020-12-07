@@ -14,7 +14,7 @@ void Menu_Pedidos(){
         cout<<endl<<"---------------------------";
         cout<<endl<<"1) Carga de Provedores";
         cout<<endl<<"2) Generar Pedidos";
-        cout<<endl<<"3) Pedidos pendientes de Recepcion";
+        cout<<endl<<"3) Confirmar/Dar de baja pedidos realizados";
         cout<<endl<<"4) Modificar Provedores(dar baja a proveedor)";
         cout<<endl<<"5) Lista de Proveedores";
         cout<<endl<<"0) SALIR";
@@ -30,7 +30,7 @@ void Menu_Pedidos(){
             GeneraPedido();
         break;
         case 3:
-
+            ConfirmarPedido();
         break;
         case 4:
             DarBajaProveedor();
@@ -210,5 +210,12 @@ void GeneraPedido(){
 
     reg.Mostrar_Pedido();
     system("pause");
+
+}
+
+
+void ConfirmarPedido(){
+
+
 
 }

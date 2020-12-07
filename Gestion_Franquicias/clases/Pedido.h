@@ -8,7 +8,6 @@ class Pedido{
         int Codigo_Producto;
         int Cantidad;
         Fecha Fecha_Generado;
-        Fecha Vencimiento;
         bool Estado;
     public:
         Pedido();///Constructor
@@ -26,7 +25,7 @@ class Pedido{
         int getCodigo_Producto();
         int getCantidad();
         bool getEstado();
-        int NumeroPedido();
+        int NumeroPedido();///retrona el ultimo numero de pedido cargado
         bool GuardaPedido();
 };
 
