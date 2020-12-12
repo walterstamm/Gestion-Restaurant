@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cstdlib> /// system()
 using namespace std;
+#include <cstdlib>
 #include "Interfaz_Grafica/ui.h"
 #include "Menu.h"
 #include "Sub_Menus/Sub_Producto.h"

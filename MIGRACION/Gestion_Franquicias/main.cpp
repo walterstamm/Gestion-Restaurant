@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include <cstdlib>
 using namespace std;
 #include "Interfaz_Grafica/ui.h"

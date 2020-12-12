@@ -4,14 +4,15 @@ using namespace std;
 #include <cstring>
 #include <cstdio>
 #include <iomanip> ///PARA TRABAJAR CON SETW
+#include <vector>
 #include "Producto.h"
 #include "../Validaciones/Continuar.h"
+#include "Lote.h"
 
 
 Producto::Producto(){
     Estado=true;
-    Estado_Lote=true;
-    ID=1;
+    Cantidad=0;
 }
 
 bool Producto::Cargar(){
@@ -32,13 +33,6 @@ bool Producto::Cargar(){
             cout<<">> Ingrese el Precio por unidad: $";
             cin>>Precio;
         }
-    cout<<"Ingrese la cantidad: ";
-    cin>>Cantidad;
-        while(Cantidad<0){ ///validando Cantidad que no sea negativo
-            cout<<endl<<"Cantidad incorrecta, reingrese el Cantidad"<<endl<<endl;
-            cout<<">> Ingrese el Cantidad: ";
-            cin>>Cantidad;
-        }
     cout<<"Ingrese la cantidad minima: ";
     cin>>Cantidad_Minima;
         while(Cantidad_Minima<0){ ///validando minima que no sea negativo
@@ -46,15 +40,15 @@ bool Producto::Cargar(){
             cout<<">> Ingrese el cantidad mínima: ";
             cin>>Cantidad_Minima;
         }
-    ///bool verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
-    while(Vencimiento.Cargar_Fecha_Vencimiento()!=true){
-        cout<<endl<<"Fecha de vencimiento incorrecta"<<endl<<endl;
-        if(Continuar()==false){
-            system ("cls");
-            return false;
-        }
-    }
 return true;
+}
+
+void Producto::cabecera(){
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(4) << "ID";
+    cout << setw(18) << "   NOMBRE" << setw(10) << "  Precio " << setw(11) << " Cantidad" << setw(18) << "Cant Min"<<endl;
+    cout<<"==============================================================================="<<endl;
 }
 
 void Producto::Mostrar(){
@@ -70,39 +64,22 @@ void Producto::Mostrar(){
     cout << Cantidad;
     cout << setw(10);
     cout << Cantidad_Minima;
-    cout << setw(10);
-    Vencimiento.Mostrar_Fecha();
 }
 
-void Producto::Encabezado(){
-    cout<<"==============================================================================="<<endl;
-    cout << left;
-    cout << setw(4) << "ID";
-    cout << setw(18) << "Descripcion " << setw(9) << "  Precio " << setw(11) << " Cantidad" << setw(13) << "Cant Min" << setw(1) << "Fecha Vto" << endl;
-    cout<<"==============================================================================="<<endl;
-}
-
-void Producto::Mostrar_Alerta(){
-    cout << left;
-    cout << setw(4);
-    cout << ID;
-    cout << setw(18);
-    cout << Nombre;
-    cout << right;
-    cout << setw(6);
-    cout << Precio;
-    cout << setw(9);
-    cout << Cantidad;
-    cout << setw(10);
-    cout << Cantidad_Minima;
-}
-
-void Producto::Encabezado_Alerta(){
-    cout<<"==============================================================================="<<endl;
-    cout << left;
-    cout << setw(4) << "ID";
-    cout << setw(18) << "Descripcion " << setw(10) << "  Precio " << setw(11) << "Cantidad" << setw(18) << "Cant Min"<<endl;
-    cout<<"==============================================================================="<<endl;
+void Producto::Cargar_Cantidad(){
+    Lote_Produ uno;
+    int pos=0, cant=GenerarID();
+    for(int x=1;x<cant;x++){
+        int cont=0;
+        while(uno.LeerPos(pos++)){
+            if(uno.getIDproducto()==ID){
+                cont+=uno.getCantidad();
+            }
+        }
+        setCantidad(cont);
+        LeerPos(x-1);
+        Modificar(x-1);
+    }
 }
 
 bool Producto::Guardar(){
@@ -137,6 +114,18 @@ bool Producto::LeerPos(int pos){
 return estado;
 }
 
+int Producto::GenerarID(){
+    int cantidad;
+    FILE *p=fopen("archivos/Producto.dat","rb");
+        if(p==NULL){
+            fclose(p);
+            return 1;
+        }
+    fseek(p, 0, SEEK_END);
+    cantidad=ftell(p);
+return (cantidad/sizeof(Producto))+1;
+}
+
 bool ValidarID_Producto(int _ID){
     Producto uno;
     FILE *p=fopen("archivos/producto.dat","rb");
@@ -144,19 +133,118 @@ bool ValidarID_Producto(int _ID){
     while(fread(&uno, sizeof(Producto),1,p)){
         if(uno.getID()==_ID){
             fclose(p);
-            return uno.getID(); ///retorna la posicion del archivo
+            return uno.getEstado(); ///retorna la posicion del archivo
         }
     }
     fclose(p);
 return false; ///retorna -1 si no encontro el ID
 }
 
-int GenerarID(){ ///GENERA UN ID AUTOMATICO
-    int pos=0, ID=0;
+
+void Modificar_Precio(){
     Producto uno;
-    while(uno.LeerPos(pos)){
-        if(ID<uno.getID())ID=uno.getID();
-        pos++;
+    int ID, pos=0;
+    float Precio;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    while(uno.LeerPos(pos++)){
+        if(ID==uno.getID()){
+            cout<<"Ingrese el precio: ";
+            cin>>Precio;
+            if(Precio<0){
+                cout<<"Error precio negativo";
+                return;
+            }
+            uno.setPrecio(Precio);
+            uno.Modificar(pos-1);
+            return;
+        }
     }
-return ID+1;
+    ///mensaje error
+}
+
+void Modificar_CantMin(){
+    Producto uno;
+    int ID, pos=0, cant;
+    vector <int> vpos;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    while(uno.LeerPos(pos++)){
+        if(ID==uno.getID()){
+            cout<<"Ingrese el cantidad minima: ";
+            cin>>cant;
+            if(cant<0){
+                cout<<"Error cantidad minima negativo";
+                return;
+            }
+            uno.setCantidad_Minima(cant);
+            uno.Modificar(pos-1);
+            return;
+        }
+    }
+    ///mensaje error
+}
+
+void Eliminar_Producto(){
+    Producto uno;
+    int ID, pos=0;
+    vector <int> vpos;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    while(uno.LeerPos(pos++)){
+        if(uno.getEstado()==true && uno.getID()==ID){
+            uno.setEstado(false);
+            uno.Modificar(pos-1);
+            return;
+        }
+    }
+    ///mensaje error
+}
+
+void Mostrar_Todos_Productos(){
+    Producto uno;
+    uno.Cargar_Cantidad();
+    int pos=0;
+    uno.cabecera();
+    while(uno.LeerPos(pos++)){
+        if(uno.getEstado()==true){
+            uno.Mostrar();
+            cout<<endl;
+        }
+    }
+}
+
+void Mostrar_x_Producto(){
+    Producto uno;
+    uno.Cargar_Cantidad();
+    int ID, pos=0;
+    cout<<"ID del producto: ";
+    cin>>ID;
+    while(uno.LeerPos(pos++)){
+        if(uno.getEstado()==true && uno.getID()==ID){
+            uno.cabecera();
+            uno.Mostrar();
+            cout<<endl<<endl;
+            return;
+        }
+    }
+    ///mensaje error
+}
+
+void alertas(){
+    Producto uno;
+    uno.Cargar_Cantidad();
+    int pos=0;
+    while(uno.LeerPos(pos++)){
+        if(uno.getCantidad()>=uno.getCantidad_Minima()){
+            ///alerta roja
+        }
+        int Porcentaje=(uno.getCantidad_Minima()*100)/150;
+        if(uno.getCantidad()>=Porcentaje){
+            ///alerta amarilla
+        }
+        if(uno.getCantidad()<Porcentaje){
+            ///alerta verde
+        }
+    }
 }
