@@ -46,6 +46,8 @@
 		<Unit filename="Validaciones/Continuar.h" />
 		<Unit filename="clases/Fecha.cpp" />
 		<Unit filename="clases/Fecha.h" />
+		<Unit filename="clases/Lote.cpp" />
+		<Unit filename="clases/Lote.h" />
 		<Unit filename="clases/Producto.cpp" />
 		<Unit filename="clases/Producto.h" />
 		<Unit filename="main.cpp" />
