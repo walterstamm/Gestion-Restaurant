@@ -37,11 +37,12 @@ int main(){
             Menu_Reportes();
         break;
         case 5:
+            cout<<"Hasta luego"<<endl;
         break;
         default:
             msj("OPCIÓN INCORRECTA", 15, 4, 15, 1);
         break;
         }
-    }while (opcion!=4);
+    }while (opcion!=5);
 return 0;
 }
